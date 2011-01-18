@@ -1,0 +1,72 @@
+﻿<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#+
+public class DeleteProcedureTemplate : Template
+{
+    public string DatabaseName;
+	public Table Table;
+
+    public override string TransformText()
+    {
+		String procedureName = Table.Name + "_Delete";
+		String primaryKey = "";
+		String primaryKeyDataType = "";
+		String columnString = "";
+		foreach (Column column in Table.Columns)
+        {
+            if (column.InPrimaryKey)
+                primaryKey = column.Name;
+				primaryKeyDataType = column.DataType.Name;
+			columnString = String.Format("{0}{1}, ", columnString, column.Name);
+        }
+		this.WriteLine("USE {0}",DatabaseName);
+	
+		this.WriteLine(string.Empty);
+		this.WriteLine("SET ANSI_NULLS ON");		
+		this.WriteLine("GO");		
+		this.WriteLine("SET QUOTED_IDENTIFIER ON");		
+		this.WriteLine("GO");		
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[{0}]')",procedureName);
+		this.WriteLine("AND OBJECTPROPERTY(id, N'IsProcedure') = 1)");
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("DROP PROCEDURE DBO.[{0}]",procedureName);
+		this.WriteLine("GO");
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("CREATE PROCEDURE DBO.[{0}]",procedureName);		
+		this.PushIndent("\t\t");
+		this.WriteLine("@{0} {1},",primaryKey, primaryKeyDataType);
+		this.WriteLine("@DataVersion RowVersion,");
+		this.WriteLine("@UpdateUserID int");
+		this.PopIndent();
+		this.WriteLine("AS");		
+		this.PushIndent("\t");
+		this.WriteLine("SET NOCOUNT ON");
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("DECLARE @EndDt DateTime");
+		this.WriteLine("Set @EndDt = GetDate()");
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("INSERT INTO {0}_hst (",Table.Name);		
+        this.PushIndent("\t\t");      		
+		this.WriteLine("{0}EndDt, LastActionUserID)",columnString);
+		this.PopIndent();
+		this.WriteLine("SELECT\t{0}@EndDt, @UpdateUserID",columnString);
+		this.WriteLine("FROM\t{0}",Table.Name);			
+		this.WriteLine("WHERE\t{0} = {1}",primaryKey,primaryKey);					
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("DELETE\t{0}",Table.Name);
+		this.WriteLine("WHERE\t{0} = @{1}",primaryKey,primaryKey);					
+		this.WriteLine("AND\t\tDataVersion = @DataVersion");
+  		this.PopIndent();
+		this.WriteLine("GO");
+		return this.GenerationEnvironment.ToString();
+    }
+}
+#>

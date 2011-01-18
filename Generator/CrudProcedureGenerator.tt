@@ -1,0 +1,83 @@
+﻿<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ include file="DeleteProcedureTemplate.tt" #>
+<#@ include file="InsertProcedureTemplate.tt" #>
+<#@ include file="UpdateProcedureTemplate.tt" #>
+<#@ include file="HistoryTableTemplate.tt" #>
+<#+
+public class CrudProcedureGenerator : Generator
+{
+	public string DatabaseName;
+	public string ServerName;
+	public string DeletePath;
+	public string HistoryPath;
+	public string UpdatePath;
+	public string InsertPath;
+	public string ProjectPath;
+		
+	public DeleteProcedureTemplate DeleteTemplate = new DeleteProcedureTemplate();
+	public InsertProcedureTemplate InsertTemplate = new InsertProcedureTemplate();
+	public UpdateProcedureTemplate UpdateTemplate = new UpdateProcedureTemplate();
+	public HistoryTableTemplate HistoryTemplate = new HistoryTableTemplate();
+
+	protected override void RunCore()
+	{
+		try
+		{   
+   			Server server = new Server(ServerName);          		
+			
+			Database database = new Database(server, this.DatabaseName);
+			database.Refresh();
+	
+			this.DeleteTemplate.DatabaseName = this.DatabaseName;
+			
+			this.InsertTemplate.DatabaseName = this.DatabaseName;
+			
+			this.UpdateTemplate.DatabaseName = this.DatabaseName;
+			
+			this.HistoryTemplate.DatabaseName = this.DatabaseName;
+			
+			foreach (Table table in database.Tables)
+			{
+				if (!table.Name.ToUpper().EndsWith("_HST"))
+				{	
+					this.DeleteTemplate.Table = table;
+					this.DeleteTemplate.Output.Project = this.ProjectPath;
+					this.DeleteTemplate.RenderToFile(this.DeletePath + table.Name + "_Delete.sql");
+										
+					this.InsertTemplate.Table = table;
+					this.InsertTemplate.Output.Project = this.ProjectPath;
+					this.InsertTemplate.RenderToFile(this.InsertPath + table.Name + "_Insert.sql");
+		
+					this.UpdateTemplate.Table = table;
+					this.UpdateTemplate.Output.Project = this.ProjectPath;
+					this.UpdateTemplate.RenderToFile(this.UpdatePath + table.Name + "_Update.sql");
+					
+					this.HistoryTemplate.Table = table;
+					this.HistoryTemplate.Output.Project = this.ProjectPath;
+					this.HistoryTemplate.RenderToFile(this.HistoryPath + table.Name + "_hst.sql");
+				}
+			}
+		}
+		catch (FailedOperationException e)
+		{
+			throw new TransformationException( 
+				string.Format( 
+					"Unable to access {0} database on local SQL Server instance", 
+					this.DatabaseName), 
+				e); 
+		}
+	}
+	
+	protected override void Validate()
+	{
+		if (string.IsNullOrEmpty(this.DatabaseName))
+		{
+			this.Error("DatabaseName property of CrudProcedureGenerator must be assigned");
+		}
+	}
+}
+#>
