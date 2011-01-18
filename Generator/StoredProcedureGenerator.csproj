@@ -8,8 +8,8 @@
     <ProjectGuid>{7454033E-1545-4C96-81E0-9A8ECC1F27BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>T4TutorialCS</RootNamespace>
-    <AssemblyName>T4TutorialCS</AssemblyName>
+    <RootNamespace>StoredProcedureGenerator</RootNamespace>
+    <AssemblyName>StoredProcedureGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
