@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[TradeType_Delete]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[TradeType_Delete]
-
 GO
+
 CREATE PROCEDURE DBO.[TradeType_Delete]
 		@TradeTypeID timestamp,
 		@DataVersion RowVersion,

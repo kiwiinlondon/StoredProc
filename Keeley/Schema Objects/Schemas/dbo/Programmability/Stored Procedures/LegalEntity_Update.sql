@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[LegalEntity_Update]'
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[LegalEntity_Update]
-
 GO
+
 CREATE PROCEDURE DBO.[LegalEntity_Update]
 		@LegalEntityID int, 
 		@FMOrgId int, 

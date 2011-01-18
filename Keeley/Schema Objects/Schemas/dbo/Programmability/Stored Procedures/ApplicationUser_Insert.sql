@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[ApplicationUser_Inse
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[ApplicationUser_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[ApplicationUser_Insert]
 		@FMPersID int, 
 		@Name varchar, 

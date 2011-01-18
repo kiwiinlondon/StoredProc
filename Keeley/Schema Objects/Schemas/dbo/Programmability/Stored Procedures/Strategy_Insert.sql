@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Strategy_Insert]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Strategy_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[Strategy_Insert]
 		@FMStrategy varchar, 
 		@Name varchar, 

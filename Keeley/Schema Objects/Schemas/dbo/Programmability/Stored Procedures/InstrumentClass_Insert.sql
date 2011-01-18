@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[InstrumentClass_Inse
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[InstrumentClass_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[InstrumentClass_Insert]
 		@ParentInstrumentClassID int, 
 		@FMInstClass varchar, 

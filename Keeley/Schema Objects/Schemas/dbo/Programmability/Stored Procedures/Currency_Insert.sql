@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Currency_Insert]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Currency_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[Currency_Insert]
 		@InstrumentID int, 
 		@UpdateUserID int

@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Region_Delete]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Region_Delete]
-
 GO
+
 CREATE PROCEDURE DBO.[Region_Delete]
 		@RegionID timestamp,
 		@DataVersion RowVersion,

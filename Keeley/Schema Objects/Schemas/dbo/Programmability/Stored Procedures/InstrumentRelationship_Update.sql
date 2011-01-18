@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[InstrumentRelationsh
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[InstrumentRelationship_Update]
-
 GO
+
 CREATE PROCEDURE DBO.[InstrumentRelationship_Update]
 		@UnderlyingInstrumentID int, 
 		@OverlyingInstrumentID int, 

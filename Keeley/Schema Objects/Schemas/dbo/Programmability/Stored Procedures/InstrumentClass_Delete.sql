@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[InstrumentClass_Dele
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[InstrumentClass_Delete]
-
 GO
+
 CREATE PROCEDURE DBO.[InstrumentClass_Delete]
 		@InstrumentClassID timestamp,
 		@DataVersion RowVersion,

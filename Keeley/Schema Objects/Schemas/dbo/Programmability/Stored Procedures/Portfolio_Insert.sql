@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Portfolio_Insert]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Portfolio_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@PositionID int, 
 		@ReferenceDate datetime, 

@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Country_Update]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Country_Update]
-
 GO
+
 CREATE PROCEDURE DBO.[Country_Update]
 		@CountryID int, 
 		@Name varchar, 

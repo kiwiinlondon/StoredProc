@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Issuer_Delete]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Issuer_Delete]
-
 GO
+
 CREATE PROCEDURE DBO.[Issuer_Delete]
 		@LegalEntityID timestamp,
 		@DataVersion RowVersion,

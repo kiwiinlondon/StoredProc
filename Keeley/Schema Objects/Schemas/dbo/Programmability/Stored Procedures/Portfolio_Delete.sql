@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Portfolio_Delete]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Portfolio_Delete]
-
 GO
+
 CREATE PROCEDURE DBO.[Portfolio_Delete]
 		@PortfolioID int,
 		@DataVersion RowVersion,

@@ -138,6 +138,12 @@
     <BuildContributorArgument Include="OutDir=$(OutDir)" />
   </ItemGroup>
   <ItemGroup>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\drop keeley.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\create keeley.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>

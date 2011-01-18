@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[TradeType_Insert]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[TradeType_Insert]
-
 GO
+
 CREATE PROCEDURE DBO.[TradeType_Insert]
 		@FMTradType varchar, 
 		@Name varchar, 

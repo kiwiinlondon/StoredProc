@@ -9,8 +9,8 @@ IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[Market_Update]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
 DROP PROCEDURE DBO.[Market_Update]
-
 GO
+
 CREATE PROCEDURE DBO.[Market_Update]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
