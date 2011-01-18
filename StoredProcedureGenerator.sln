@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoredProcedureGenerator", "Generator\StoredProcedureGenerator.csproj", "{7454033E-1545-4C96-81E0-9A8ECC1F27BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoredProcedureGenerator", "StoredProcedureGenerator\StoredProcedureGenerator.csproj", "{7454033E-1545-4C96-81E0-9A8ECC1F27BC}"
 EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Keeley", "Keeley\Keeley.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject

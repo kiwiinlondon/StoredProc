@@ -13,9 +13,9 @@ GO
 
 CREATE PROCEDURE DBO.[ApplicationUser_Insert]
 		@FMPersID int, 
-		@Name varchar, 
-		@Email varchar, 
-		@WindowsLogin varchar, 
+		@Name varchar(100), 
+		@Email varchar(100), 
+		@WindowsLogin varchar(100), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

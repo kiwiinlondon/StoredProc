@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Strategy_Update]
 		@StrategyID int, 
-		@FMStrategy varchar, 
-		@Name varchar, 
+		@FMStrategy varchar(15), 
+		@Name varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -27,7 +27,7 @@ AS
 			StrategyID, FMStrategy, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	StrategyID, FMStrategy, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Strategy
-	WHERE	StrategyID = StrategyID
+	WHERE	StrategyID = @StrategyID
 
 	UPDATE	Strategy
 	SET		FMStrategy = @FMStrategy, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

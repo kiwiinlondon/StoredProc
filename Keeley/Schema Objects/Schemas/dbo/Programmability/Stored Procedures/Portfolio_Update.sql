@@ -15,20 +15,20 @@ CREATE PROCEDURE DBO.[Portfolio_Update]
 		@PortfolioID int, 
 		@PositionID int, 
 		@ReferenceDate datetime, 
-		@NetPosition numeric, 
-		@UnitCost numeric, 
-		@MarkPrice numeric, 
-		@FXRate numeric, 
-		@MarketValue numeric, 
-		@DeltaEquityPosition numeric, 
-		@RealisedFXPNL numeric, 
-		@UnRealisedFXPNL numeric, 
-		@RealisedPricePNL numeric, 
-		@UnRealisedPricePNL numeric, 
-		@RealisedTotalPNL numeric, 
-		@UnRealisedTotalPNL numeric, 
-		@Accrual numeric, 
-		@CashIncome numeric, 
+		@NetPosition numeric(27,8), 
+		@UnitCost numeric(35,16), 
+		@MarkPrice numeric(35,16), 
+		@FXRate numeric(35,16), 
+		@MarketValue numeric(27,8), 
+		@DeltaEquityPosition numeric(27,8), 
+		@RealisedFXPNL numeric(27,8), 
+		@UnRealisedFXPNL numeric(27,8), 
+		@RealisedPricePNL numeric(27,8), 
+		@UnRealisedPricePNL numeric(27,8), 
+		@RealisedTotalPNL numeric(27,8), 
+		@UnRealisedTotalPNL numeric(27,8), 
+		@Accrual numeric(27,8), 
+		@CashIncome numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@FMContViewLadderID int
@@ -42,7 +42,7 @@ AS
 			PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, RealisedTotalPNL, UnRealisedTotalPNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, EndDt, LastActionUserID)
 	SELECT	PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, RealisedTotalPNL, UnRealisedTotalPNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, @StartDt, @UpdateUserID
 	FROM	Portfolio
-	WHERE	PortfolioID = PortfolioID
+	WHERE	PortfolioID = @PortfolioID
 
 	UPDATE	Portfolio
 	SET		PositionID = @PositionID, ReferenceDate = @ReferenceDate, NetPosition = @NetPosition, UnitCost = @UnitCost, MarkPrice = @MarkPrice, FXRate = @FXRate, MarketValue = @MarketValue, DeltaEquityPosition = @DeltaEquityPosition, RealisedFXPNL = @RealisedFXPNL, UnRealisedFXPNL = @UnRealisedFXPNL, RealisedPricePNL = @RealisedPricePNL, UnRealisedPricePNL = @UnRealisedPricePNL, RealisedTotalPNL = @RealisedTotalPNL, UnRealisedTotalPNL = @UnRealisedTotalPNL, Accrual = @Accrual, CashIncome = @CashIncome, UpdateUserID = @UpdateUserID, FMContViewLadderID = @FMContViewLadderID,  StartDt = @StartDt

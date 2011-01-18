@@ -13,7 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[Book_Insert]
 		@FMOrgId int, 
-		@Name varchar, 
+		@Name varchar(70), 
 		@FundID int, 
 		@UpdateUserID int
 AS

@@ -14,8 +14,8 @@ GO
 CREATE PROCEDURE DBO.[LegalEntity_Update]
 		@LegalEntityID int, 
 		@FMOrgId int, 
-		@Name varchar, 
-		@LongName varchar, 
+		@Name varchar(70), 
+		@LongName varchar(100), 
 		@CountryID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -29,7 +29,7 @@ AS
 			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	LegalEntity
-	WHERE	LegalEntityID = LegalEntityID
+	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	LegalEntity
 	SET		FMOrgId = @FMOrgId, Name = @Name, LongName = @LongName, CountryID = @CountryID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

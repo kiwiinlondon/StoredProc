@@ -25,7 +25,7 @@ AS
 			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Instrument
-	WHERE	InstrumentID = InstrumentID
+	WHERE	InstrumentID = @InstrumentID
 
 	DELETE	Instrument
 	WHERE	InstrumentID = @InstrumentID

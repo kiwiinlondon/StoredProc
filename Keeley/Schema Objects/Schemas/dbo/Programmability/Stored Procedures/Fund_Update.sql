@@ -28,7 +28,7 @@ AS
 			LegalEntityID, InstrumentMarketID, ParentFundID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	LegalEntityID, InstrumentMarketID, ParentFundID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Fund
-	WHERE	LegalEntityID = LegalEntityID
+	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Fund
 	SET		InstrumentMarketID = @InstrumentMarketID, ParentFundID = @ParentFundID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

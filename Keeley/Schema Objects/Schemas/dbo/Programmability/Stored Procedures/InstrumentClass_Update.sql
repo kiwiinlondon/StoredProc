@@ -14,8 +14,8 @@ GO
 CREATE PROCEDURE DBO.[InstrumentClass_Update]
 		@InstrumentClassID int, 
 		@ParentInstrumentClassID int, 
-		@FMInstClass varchar, 
-		@Name varchar, 
+		@FMInstClass varchar(100), 
+		@Name varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -28,7 +28,7 @@ AS
 			InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentClass
-	WHERE	InstrumentClassID = InstrumentClassID
+	WHERE	InstrumentClassID = @InstrumentClassID
 
 	UPDATE	InstrumentClass
 	SET		ParentInstrumentClassID = @ParentInstrumentClassID, FMInstClass = @FMInstClass, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

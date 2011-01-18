@@ -25,7 +25,7 @@ AS
 			InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	InstrumentMarket
-	WHERE	InstrumentMarketID = InstrumentMarketID
+	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	DELETE	InstrumentMarket
 	WHERE	InstrumentMarketID = @InstrumentMarketID

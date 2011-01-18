@@ -25,7 +25,7 @@ AS
 			LegalEntityID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Market
-	WHERE	LegalEntityID = LegalEntityID
+	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Market
 	SET		UpdateUserID = @UpdateUserID,  StartDt = @StartDt

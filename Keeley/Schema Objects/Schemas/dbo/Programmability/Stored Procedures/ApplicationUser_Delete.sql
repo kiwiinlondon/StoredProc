@@ -25,7 +25,7 @@ AS
 			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	ApplicationUser
-	WHERE	UserID = UserID
+	WHERE	UserID = @UserID
 
 	DELETE	ApplicationUser
 	WHERE	UserID = @UserID

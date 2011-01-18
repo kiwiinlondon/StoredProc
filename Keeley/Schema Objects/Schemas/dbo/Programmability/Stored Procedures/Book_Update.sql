@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[Book_Update]
 		@BookID int, 
 		@FMOrgId int, 
-		@Name varchar, 
+		@Name varchar(70), 
 		@FundID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -28,7 +28,7 @@ AS
 			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Book
-	WHERE	BookID = BookID
+	WHERE	BookID = @BookID
 
 	UPDATE	Book
 	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

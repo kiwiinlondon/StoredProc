@@ -12,8 +12,8 @@ DROP PROCEDURE DBO.[Region_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Region_Insert]
-		@Name varchar, 
-		@IsoCode varchar, 
+		@Name varchar(100), 
+		@IsoCode varchar(5), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

@@ -12,8 +12,8 @@ DROP PROCEDURE DBO.[TradeType_Insert]
 GO
 
 CREATE PROCEDURE DBO.[TradeType_Insert]
-		@FMTradType varchar, 
-		@Name varchar, 
+		@FMTradType varchar(100), 
+		@Name varchar(100), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

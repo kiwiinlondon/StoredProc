@@ -17,9 +17,9 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Update]
 		@MarketID int, 
 		@BenefitCurrencyID int, 
 		@FMSecId int, 
-		@PriceDivisor numeric, 
-		@BloombergTicker varchar, 
-		@Sedol varchar, 
+		@PriceDivisor numeric(33,18), 
+		@BloombergTicker varchar(150), 
+		@Sedol varchar(150), 
 		@IsPrimary bit, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -33,7 +33,7 @@ AS
 			InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentMarket
-	WHERE	InstrumentMarketID = InstrumentMarketID
+	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	UPDATE	InstrumentMarket
 	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, BenefitCurrencyID = @BenefitCurrencyID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

@@ -16,9 +16,9 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@MarketID int, 
 		@BenefitCurrencyID int, 
 		@FMSecId int, 
-		@PriceDivisor numeric, 
-		@BloombergTicker varchar, 
-		@Sedol varchar, 
+		@PriceDivisor numeric(33,18), 
+		@BloombergTicker varchar(150), 
+		@Sedol varchar(150), 
 		@IsPrimary bit, 
 		@UpdateUserID int
 AS

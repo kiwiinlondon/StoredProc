@@ -12,8 +12,8 @@ DROP PROCEDURE DBO.[Strategy_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Strategy_Insert]
-		@FMStrategy varchar, 
-		@Name varchar, 
+		@FMStrategy varchar(15), 
+		@Name varchar(100), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

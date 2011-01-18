@@ -14,9 +14,9 @@ GO
 CREATE PROCEDURE DBO.[ApplicationUser_Update]
 		@UserID int, 
 		@FMPersID int, 
-		@Name varchar, 
-		@Email varchar, 
-		@WindowsLogin varchar, 
+		@Name varchar(100), 
+		@Email varchar(100), 
+		@WindowsLogin varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -29,7 +29,7 @@ AS
 			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	ApplicationUser
-	WHERE	UserID = UserID
+	WHERE	UserID = @UserID
 
 	UPDATE	ApplicationUser
 	SET		FMPersID = @FMPersID, Name = @Name, Email = @Email, WindowsLogin = @WindowsLogin, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

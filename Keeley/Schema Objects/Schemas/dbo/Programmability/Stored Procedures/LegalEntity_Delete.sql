@@ -25,7 +25,7 @@ AS
 			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	LegalEntity
-	WHERE	LegalEntityID = LegalEntityID
+	WHERE	LegalEntityID = @LegalEntityID
 
 	DELETE	LegalEntity
 	WHERE	LegalEntityID = @LegalEntityID

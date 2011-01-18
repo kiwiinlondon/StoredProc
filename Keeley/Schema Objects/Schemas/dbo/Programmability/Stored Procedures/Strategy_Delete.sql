@@ -25,7 +25,7 @@ AS
 			StrategyID, FMStrategy, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	StrategyID, FMStrategy, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Strategy
-	WHERE	StrategyID = StrategyID
+	WHERE	StrategyID = @StrategyID
 
 	DELETE	Strategy
 	WHERE	StrategyID = @StrategyID

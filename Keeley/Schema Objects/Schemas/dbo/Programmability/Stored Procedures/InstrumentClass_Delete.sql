@@ -25,7 +25,7 @@ AS
 			InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	InstrumentClass
-	WHERE	InstrumentClassID = InstrumentClassID
+	WHERE	InstrumentClassID = @InstrumentClassID
 
 	DELETE	InstrumentClass
 	WHERE	InstrumentClassID = @InstrumentClassID

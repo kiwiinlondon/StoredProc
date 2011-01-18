@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[InstrumentClass_Insert]
 		@ParentInstrumentClassID int, 
-		@FMInstClass varchar, 
-		@Name varchar, 
+		@FMInstClass varchar(100), 
+		@Name varchar(100), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

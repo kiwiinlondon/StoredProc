@@ -17,9 +17,9 @@ CREATE PROCEDURE DBO.[Instrument_Update]
 		@InstrumentClassID int, 
 		@IssueCurrencyID int, 
 		@FMInstId int, 
-		@Name varchar, 
-		@LongName varchar, 
-		@Isin varchar, 
+		@Name varchar(200), 
+		@LongName varchar(250), 
+		@Isin varchar(150), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -32,7 +32,7 @@ AS
 			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Instrument
-	WHERE	InstrumentID = InstrumentID
+	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Instrument
 	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

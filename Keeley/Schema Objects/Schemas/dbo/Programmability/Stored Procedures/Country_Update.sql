@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Country_Update]
 		@CountryID int, 
-		@Name varchar, 
-		@IsoCode varchar, 
+		@Name varchar(100), 
+		@IsoCode varchar(5), 
 		@RegionID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -28,7 +28,7 @@ AS
 			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Country
-	WHERE	CountryID = CountryID
+	WHERE	CountryID = @CountryID
 
 	UPDATE	Country
 	SET		Name = @Name, IsoCode = @IsoCode, RegionID = @RegionID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

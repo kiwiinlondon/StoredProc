@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[TradeType_Update]
 		@TradeTypeID int, 
-		@FMTradType varchar, 
-		@Name varchar, 
+		@FMTradType varchar(100), 
+		@Name varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -27,7 +27,7 @@ AS
 			TradeTypeID, FMTradType, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	TradeTypeID, FMTradType, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	TradeType
-	WHERE	TradeTypeID = TradeTypeID
+	WHERE	TradeTypeID = @TradeTypeID
 
 	UPDATE	TradeType
 	SET		FMTradType = @FMTradType, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

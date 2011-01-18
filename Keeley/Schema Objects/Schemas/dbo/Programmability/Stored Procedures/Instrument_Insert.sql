@@ -16,9 +16,9 @@ CREATE PROCEDURE DBO.[Instrument_Insert]
 		@InstrumentClassID int, 
 		@IssueCurrencyID int, 
 		@FMInstId int, 
-		@Name varchar, 
-		@LongName varchar, 
-		@Isin varchar, 
+		@Name varchar(200), 
+		@LongName varchar(250), 
+		@Isin varchar(150), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

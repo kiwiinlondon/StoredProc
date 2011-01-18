@@ -25,7 +25,7 @@ AS
 			PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Position
-	WHERE	PositionID = PositionID
+	WHERE	PositionID = @PositionID
 
 	DELETE	Position
 	WHERE	PositionID = @PositionID

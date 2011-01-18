@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[InstrumentRelationship_Insert]
 		@UnderlyingInstrumentID int, 
 		@OverlyingInstrumentID int, 
-		@UnderlyerPerOverlyer numeric, 
+		@UnderlyerPerOverlyer numeric(27,8), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

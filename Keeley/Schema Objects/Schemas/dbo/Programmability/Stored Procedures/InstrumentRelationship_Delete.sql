@@ -25,7 +25,7 @@ AS
 			UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	InstrumentRelationship
-	WHERE	UnderlyingInstrumentID = UnderlyingInstrumentID
+	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID
 
 	DELETE	InstrumentRelationship
 	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID

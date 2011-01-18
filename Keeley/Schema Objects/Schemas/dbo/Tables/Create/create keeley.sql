@@ -1,7 +1,7 @@
 use Keeley
 
 create table DBO.ApplicationUser(
-	UserID int identity(1,1) not null CONSTRAINT ApplicationUserPK PRIMARY KEY,
+	UserID int identity(2,1) not null CONSTRAINT ApplicationUserPK PRIMARY KEY,
 	FMPersID int,
 	Name varchar(100) not null,
 	Email varchar(100) not null,

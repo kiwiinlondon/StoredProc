@@ -30,7 +30,7 @@ AS
 			PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Position
-	WHERE	PositionID = PositionID
+	WHERE	PositionID = @PositionID
 
 	UPDATE	Position
 	SET		BookID = @BookID, StrategyID = @StrategyID, InstrumentMarketID = @InstrumentMarketID, TradeTypeID = @TradeTypeID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[LegalEntity_Insert]
 		@FMOrgId int, 
-		@Name varchar, 
-		@LongName varchar, 
+		@Name varchar(70), 
+		@LongName varchar(100), 
 		@CountryID int, 
 		@UpdateUserID int
 AS

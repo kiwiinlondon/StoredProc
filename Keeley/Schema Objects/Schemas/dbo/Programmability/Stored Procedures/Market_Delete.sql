@@ -25,7 +25,7 @@ AS
 			LegalEntityID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Market
-	WHERE	LegalEntityID = LegalEntityID
+	WHERE	LegalEntityID = @LegalEntityID
 
 	DELETE	Market
 	WHERE	LegalEntityID = @LegalEntityID

@@ -12,8 +12,8 @@ DROP PROCEDURE DBO.[Country_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Country_Insert]
-		@Name varchar, 
-		@IsoCode varchar, 
+		@Name varchar(100), 
+		@IsoCode varchar(5), 
 		@RegionID int, 
 		@UpdateUserID int
 AS

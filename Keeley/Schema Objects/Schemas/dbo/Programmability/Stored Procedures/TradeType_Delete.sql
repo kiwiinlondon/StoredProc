@@ -25,7 +25,7 @@ AS
 			TradeTypeID, FMTradType, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	TradeTypeID, FMTradType, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	TradeType
-	WHERE	TradeTypeID = TradeTypeID
+	WHERE	TradeTypeID = @TradeTypeID
 
 	DELETE	TradeType
 	WHERE	TradeTypeID = @TradeTypeID

@@ -25,7 +25,7 @@ AS
 			InstrumentID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Currency
-	WHERE	InstrumentID = InstrumentID
+	WHERE	InstrumentID = @InstrumentID
 
 	DELETE	Currency
 	WHERE	InstrumentID = @InstrumentID

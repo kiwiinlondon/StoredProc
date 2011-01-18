@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[InstrumentRelationship_Update]
 		@UnderlyingInstrumentID int, 
 		@OverlyingInstrumentID int, 
-		@UnderlyerPerOverlyer numeric, 
+		@UnderlyerPerOverlyer numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -27,7 +27,7 @@ AS
 			UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentRelationship
-	WHERE	UnderlyingInstrumentID = UnderlyingInstrumentID
+	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID
 
 	UPDATE	InstrumentRelationship
 	SET		OverlyingInstrumentID = @OverlyingInstrumentID, UnderlyerPerOverlyer = @UnderlyerPerOverlyer, UpdateUserID = @UpdateUserID,  StartDt = @StartDt

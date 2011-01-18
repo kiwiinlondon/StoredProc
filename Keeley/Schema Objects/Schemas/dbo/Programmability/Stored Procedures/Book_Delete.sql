@@ -25,7 +25,7 @@ AS
 			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Book
-	WHERE	BookID = BookID
+	WHERE	BookID = @BookID
 
 	DELETE	Book
 	WHERE	BookID = @BookID

@@ -25,7 +25,7 @@ AS
 			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Country
-	WHERE	CountryID = CountryID
+	WHERE	CountryID = @CountryID
 
 	DELETE	Country
 	WHERE	CountryID = @CountryID

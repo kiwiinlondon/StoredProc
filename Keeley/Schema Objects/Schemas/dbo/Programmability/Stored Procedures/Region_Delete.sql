@@ -25,7 +25,7 @@ AS
 			RegionID, Name, IsoCode, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
 	SELECT	RegionID, Name, IsoCode, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Region
-	WHERE	RegionID = RegionID
+	WHERE	RegionID = @RegionID
 
 	DELETE	Region
 	WHERE	RegionID = @RegionID
