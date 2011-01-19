@@ -1,0 +1,113 @@
+﻿<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#+
+public class UpdateProcedureTemplate : Template
+{
+    public string DatabaseName;
+	public Table Table;
+
+    public override string TransformText()
+    {
+		String procedureName = Table.Name + "_Update";
+		String primaryKey = "";
+		String primaryKeyDataType = "";
+		String columnString = "";
+		String updateString = "";
+
+		this.WriteLine("USE {0}",DatabaseName);
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("SET ANSI_NULLS ON");		
+		this.WriteLine("GO");		
+		this.WriteLine("SET QUOTED_IDENTIFIER ON");		
+		this.WriteLine("GO");		
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[{0}]')",procedureName);
+		this.WriteLine("AND OBJECTPROPERTY(id, N'IsProcedure') = 1)");
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("DROP PROCEDURE DBO.[{0}]",procedureName);
+		this.WriteLine("GO");
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("CREATE PROCEDURE DBO.[{0}]",procedureName);		
+		this.PushIndent("\t\t");
+		bool isFirst = true;
+		foreach (Column column in Table.Columns)
+        {			
+			if (column.Name.ToUpper()!="STARTDT")
+			{
+				if (!isFirst)
+				{
+					this.WriteLine(", ");
+				}
+				string columnDataType = column.DataType.Name;
+				if (columnDataType=="timestamp" || column.DataType.Name=="rowversion")
+				{
+					columnDataType = "rowversion";	
+				}
+				else
+				{
+					if (column.InPrimaryKey)
+					{
+						primaryKey= column.Name;
+					}
+					else
+					{
+						updateString = String.Format("{0}{1} = @{1}, ", updateString, column.Name);				
+					}
+				}
+				this.Write("@{0} {1}",column.Name,columnDataType);		
+				if (column.DataType.Name == "varchar")
+				{
+					this.Write("(" + column.DataType.MaximumLength.ToString() + ")");
+				}							
+				else if (column.DataType.Name == "numeric")
+				{
+					this.Write("(" + column.DataType.NumericPrecision.ToString() + "," + column.DataType.NumericScale.ToString() + ")");
+				}
+				isFirst = false;
+			}
+			columnString = String.Format("{0}{1}, ", columnString, column.Name);
+        }		
+		this.WriteLine(string.Empty);
+		this.PopIndent();
+		this.WriteLine("AS");		
+		this.PushIndent("\t");
+		this.WriteLine("SET NOCOUNT ON");
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("DECLARE @StartDt DateTime");
+		this.WriteLine("Set @StartDt = GetDate()");
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("INSERT INTO {0}_hst (",Table.Name);		
+        this.PushIndent("\t\t");      		
+		this.WriteLine("{0}EndDt, LastActionUserID)",columnString);
+		this.PopIndent();
+		this.WriteLine("SELECT\t{0}@StartDt, @UpdateUserID",columnString);
+		this.WriteLine("FROM\t{0}",Table.Name);			
+		this.WriteLine("WHERE\t{0} = @{0}",primaryKey);					
+		
+		this.WriteLine(string.Empty);		
+		this.WriteLine("UPDATE\t{0}",Table.Name);
+		
+		this.WriteLine("SET\t\t{0} StartDt = @StartDt", updateString);
+		this.WriteLine("WHERE\t{0} = @{1}",primaryKey,primaryKey);					
+		this.WriteLine("AND\t\tDataVersion = @DataVersion");
+
+		this.WriteLine(string.Empty);						
+		this.WriteLine("SELECT\tStartDt, DataVersion");
+		this.WriteLine("FROM\t{0}",Table.Name);		
+		this.WriteLine("WHERE\t{0} = @{0}", primaryKey);
+		this.WriteLine("AND\t\t@@ROWCOUNT > 0");
+		this.PopIndent();
+		
+		this.WriteLine(string.Empty);
+		this.WriteLine("GO");
+		return this.GenerationEnvironment.ToString();
+    }
+}
+#>

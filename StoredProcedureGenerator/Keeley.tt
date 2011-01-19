@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #> 
+<#@ output extension="txt" #> 
+<#@ include file="T4Toolbox.tt" #> 
+<#@ include file="CrudProcedureGenerator.tt" #> 
+<# 
+    CrudProcedureGenerator generator = new CrudProcedureGenerator(); 
+   	generator.ServerName = @"(local)\SQLEXPRESS";   
+	generator.DatabaseName = @"Keeley"; 
+	string outputPath = @"..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\";
+	generator.DeletePath = outputPath;
+	generator.UpdatePath = outputPath;
+	generator.InsertPath = outputPath;
+	generator.HistoryPath = @"..\Keeley\Schema Objects\Schemas\dbo\Tables\";
+	generator.ProjectPath = @"..\Keeley\Keeley.dbproj";
+    generator.Run(); 
+#>
