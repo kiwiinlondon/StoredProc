@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Country_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Country_Delete]
-		@CountryID timestamp,
+		@CountryID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

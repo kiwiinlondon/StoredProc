@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[TradeType_Delete]
 GO
 
 CREATE PROCEDURE DBO.[TradeType_Delete]
-		@TradeTypeID timestamp,
+		@TradeTypeID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

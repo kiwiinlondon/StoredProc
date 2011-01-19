@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[ApplicationUser_Delete]
 GO
 
 CREATE PROCEDURE DBO.[ApplicationUser_Delete]
-		@UserID timestamp,
+		@UserID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

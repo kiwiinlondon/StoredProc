@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[InstrumentMarket_Delete]
 GO
 
 CREATE PROCEDURE DBO.[InstrumentMarket_Delete]
-		@InstrumentMarketID timestamp,
+		@InstrumentMarketID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

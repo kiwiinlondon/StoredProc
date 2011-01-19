@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Strategy_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Strategy_Delete]
-		@StrategyID timestamp,
+		@StrategyID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

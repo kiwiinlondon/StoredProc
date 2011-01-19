@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Book_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Book_Delete]
-		@BookID timestamp,
+		@BookID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

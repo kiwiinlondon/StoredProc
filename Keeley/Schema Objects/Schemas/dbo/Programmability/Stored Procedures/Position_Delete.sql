@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Position_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Position_Delete]
-		@PositionID timestamp,
+		@PositionID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

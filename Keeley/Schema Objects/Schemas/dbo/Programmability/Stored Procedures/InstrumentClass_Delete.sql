@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[InstrumentClass_Delete]
 GO
 
 CREATE PROCEDURE DBO.[InstrumentClass_Delete]
-		@InstrumentClassID timestamp,
+		@InstrumentClassID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Market_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Market_Delete]
-		@LegalEntityID timestamp,
+		@LegalEntityID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

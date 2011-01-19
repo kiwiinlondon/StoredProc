@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[LegalEntity_Delete]
 GO
 
 CREATE PROCEDURE DBO.[LegalEntity_Delete]
-		@LegalEntityID timestamp,
+		@LegalEntityID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

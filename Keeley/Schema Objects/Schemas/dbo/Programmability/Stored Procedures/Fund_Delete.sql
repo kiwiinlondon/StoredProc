@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Fund_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Fund_Delete]
-		@LegalEntityID timestamp,
+		@LegalEntityID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

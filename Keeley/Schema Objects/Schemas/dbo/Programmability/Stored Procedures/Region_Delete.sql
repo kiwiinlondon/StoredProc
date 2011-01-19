@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Region_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Region_Delete]
-		@RegionID timestamp,
+		@RegionID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS

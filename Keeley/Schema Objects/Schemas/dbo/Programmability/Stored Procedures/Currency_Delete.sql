@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Currency_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Currency_Delete]
-		@InstrumentID timestamp,
+		@InstrumentID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
