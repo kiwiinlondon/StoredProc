@@ -53,6 +53,14 @@ public class InsertProcedureTemplate : Template
 					insertParameterList = String.Format("{0}, ",insertParameterList);
 				}
 				this.Write("@{0} {1}",column.Name,column.DataType.Name);
+				if (column.DataType.Name == "varchar")
+				{
+					this.Write("(" + column.DataType.MaximumLength.ToString() + ")");
+				}							
+				else if (column.DataType.Name == "numeric")
+				{
+					this.Write("(" + column.DataType.NumericPrecision.ToString() + "," + column.DataType.NumericScale.ToString() + ")");
+				}
 				insertColumnList = String.Format("{0}{1}",insertColumnList,column.Name);			
 				insertParameterList = String.Format("{0}@{1}",insertParameterList,column.Name);							
 			}				

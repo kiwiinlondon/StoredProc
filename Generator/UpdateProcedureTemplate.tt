@@ -59,7 +59,15 @@ public class UpdateProcedureTemplate : Template
 						updateString = String.Format("{0}{1} = @{1}, ", updateString, column.Name);				
 					}
 				}
-				this.Write("@{0} {1}",column.Name,columnDataType);								
+				this.Write("@{0} {1}",column.Name,columnDataType);		
+				if (column.DataType.Name == "varchar")
+				{
+					this.Write("(" + column.DataType.MaximumLength.ToString() + ")");
+				}							
+				else if (column.DataType.Name == "numeric")
+				{
+					this.Write("(" + column.DataType.NumericPrecision.ToString() + "," + column.DataType.NumericScale.ToString() + ")");
+				}
 				isFirst = false;
 			}
 			columnString = String.Format("{0}{1}, ", columnString, column.Name);
@@ -81,7 +89,7 @@ public class UpdateProcedureTemplate : Template
 		this.PopIndent();
 		this.WriteLine("SELECT\t{0}@StartDt, @UpdateUserID",columnString);
 		this.WriteLine("FROM\t{0}",Table.Name);			
-		this.WriteLine("WHERE\t{0} = {1}",primaryKey,primaryKey);					
+		this.WriteLine("WHERE\t{0} = @{0}",primaryKey);					
 		
 		this.WriteLine(string.Empty);		
 		this.WriteLine("UPDATE\t{0}",Table.Name);

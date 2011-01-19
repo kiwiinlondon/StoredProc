@@ -16,8 +16,10 @@ public class DeleteProcedureTemplate : Template
 		foreach (Column column in Table.Columns)
         {
             if (column.InPrimaryKey)
+			{
                 primaryKey = column.Name;
 				primaryKeyDataType = column.DataType.Name;
+			}
 			columnString = String.Format("{0}{1}, ", columnString, column.Name);
         }
 		this.WriteLine("USE {0}",DatabaseName);
@@ -58,7 +60,7 @@ public class DeleteProcedureTemplate : Template
 		this.PopIndent();
 		this.WriteLine("SELECT\t{0}@EndDt, @UpdateUserID",columnString);
 		this.WriteLine("FROM\t{0}",Table.Name);			
-		this.WriteLine("WHERE\t{0} = {1}",primaryKey,primaryKey);					
+		this.WriteLine("WHERE\t{0} = @{1}",primaryKey,primaryKey);					
 		
 		this.WriteLine(string.Empty);		
 		this.WriteLine("DELETE\t{0}",Table.Name);
