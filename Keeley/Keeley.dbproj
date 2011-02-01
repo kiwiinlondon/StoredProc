@@ -208,6 +208,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Fund_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\IdentifierType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -266,6 +278,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Issuer_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeeleyType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeeleyType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeeleyType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\KeeleyType_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Delete.sql">
