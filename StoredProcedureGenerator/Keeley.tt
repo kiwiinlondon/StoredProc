@@ -4,7 +4,7 @@
 <#@ include file="CrudProcedureGenerator.tt" #> 
 <# 
     CrudProcedureGenerator generator = new CrudProcedureGenerator(); 
-   	generator.ServerName = @"(local)\SQLEXPRESS";   
+   	generator.ServerName = @"sql02";   
 	generator.DatabaseName = @"Keeley"; 
 	string outputPath = @"..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\";
 	generator.DeletePath = outputPath;

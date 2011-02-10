@@ -45,6 +45,7 @@ create table DBO.LegalEntity (
 	LegalEntityID int identity(1,1) not null CONSTRAINT LegalEntityPK PRIMARY KEY,
 	FMOrgId int not null,
 	Name varchar(70) not null,
+	BBCompany int null,
 	LongName varchar(100) not null,
 	CountryID int CONSTRAINT LegalEntityCountryIDFK FOREIGN KEY REFERENCES Country(CountryID),	
 	StartDt datetime not null,
@@ -55,6 +56,7 @@ create table DBO.LegalEntity (
 create unique index LegalEntityNameUK on LegalEntity(Name)
 create unique index LegalEntityLongNameUK on LegalEntity(LongName)
 create unique index LegalEntityFMOrgIdUK on LegalEntity(FMOrgId) where FMOrgId is not null
+create unique index LegalEntityBBCompanyUK on LegalEntity(BBCompany) where BBCompany is not null
 
 create table DBO.Currency
 (
@@ -235,7 +237,7 @@ create unique index PortfolioFMContViewLadderIDUK on Portfolio(FMContViewLadderI
 
 create table KeeleyType
 (
-	KeeleyTypeID int identity(2,1) not null CONSTRAINT KeeleyTypePK PRIMARY KEY,
+	KeeleyTypeID int identity(1,1) not null CONSTRAINT KeeleyTypePK PRIMARY KEY,
 	Name varchar(100) not null,
 	AssemblyName varchar(400) not null,
 	TypeName varchar(400) not null,
@@ -249,13 +251,11 @@ create unique index AssemblyTypeNameUK on KeeleyType(AssemblyName,TypeName)
 
 create table DBO.IdentifierType(
 	IdentifierTypeID int identity(1,1) not null CONSTRAINT IdentifierTypePK PRIMARY KEY,
-	FMIdentTypeId varchar(20),
+	FMIdentType varchar(20),
 	Name varchar(100) not null,
-	KeeleyTypeId int not null CONSTRAINT IdentifierTypeKeeleyTypeIDFK FOREIGN KEY REFERENCES KeeleyType(KeeleyTypeID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT IdentifierTypeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null	
 )
 create unique index IdentifierTypeNameUK on IdentifierType(Name)
-create unique index IdentifierTypeFMIdentTypeIdNameUK on IdentifierType(FMIdentTypeId,Name)
-
+create unique index IdentifierTypeFMIdentTypeIdNameUK on IdentifierType(FMIdentType,Name) where FMIdentType is not null

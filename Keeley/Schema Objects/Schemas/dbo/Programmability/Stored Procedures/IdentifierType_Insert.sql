@@ -12,9 +12,8 @@ DROP PROCEDURE DBO.[IdentifierType_Insert]
 GO
 
 CREATE PROCEDURE DBO.[IdentifierType_Insert]
-		@FMIdentTypeId varchar(20), 
+		@FMIdentType varchar(20), 
 		@Name varchar(100), 
-		@KeeleyTypeId int, 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -23,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into IdentifierType
-			(FMIdentTypeId, Name, KeeleyTypeId, UpdateUserID, StartDt)
+			(FMIdentType, Name, UpdateUserID, StartDt)
 	VALUES
-			(@FMIdentTypeId, @Name, @KeeleyTypeId, @UpdateUserID, @StartDt)
+			(@FMIdentType, @Name, @UpdateUserID, @StartDt)
 
 	SELECT	IdentifierTypeID, StartDt, DataVersion
 	FROM	IdentifierType

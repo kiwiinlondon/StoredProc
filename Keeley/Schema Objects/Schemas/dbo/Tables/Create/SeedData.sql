@@ -33,3 +33,47 @@ INSERT INTO [Keeley].[dbo].[KeeleyType]
      VALUES
            ('LegalEntity','Odey.Framework.Keeley.LegalEntity','Odey.Framework.Keeley.Entities.LegalEntity',GETDATE(),1) 
 	
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'ISO Code',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Organisation ID',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('BB_COMPANY', 'Bloomberg Company Code',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Instrument Class',GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Instrument Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Security Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           ('ISIN', 'Isin',GETDATE(),1)           
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           ('SEDOL', 'Sedol',GETDATE(),1)           
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           ('BB_TCM', 'BB Ticker Coupon Maturity',GETDATE(),1)  

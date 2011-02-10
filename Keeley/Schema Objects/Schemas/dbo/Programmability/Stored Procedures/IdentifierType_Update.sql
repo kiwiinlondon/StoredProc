@@ -13,9 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[IdentifierType_Update]
 		@IdentifierTypeID int, 
-		@FMIdentTypeId varchar(20), 
+		@FMIdentType varchar(20), 
 		@Name varchar(100), 
-		@KeeleyTypeId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -25,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO IdentifierType_hst (
-			IdentifierTypeID, FMIdentTypeId, Name, KeeleyTypeId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IdentifierTypeID, FMIdentTypeId, Name, KeeleyTypeId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			IdentifierTypeID, FMIdentType, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	IdentifierTypeID, FMIdentType, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	IdentifierType
 	WHERE	IdentifierTypeID = @IdentifierTypeID
 
 	UPDATE	IdentifierType
-	SET		FMIdentTypeId = @FMIdentTypeId, Name = @Name, KeeleyTypeId = @KeeleyTypeId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FMIdentType = @FMIdentType, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	IdentifierTypeID = @IdentifierTypeID
 	AND		DataVersion = @DataVersion
 

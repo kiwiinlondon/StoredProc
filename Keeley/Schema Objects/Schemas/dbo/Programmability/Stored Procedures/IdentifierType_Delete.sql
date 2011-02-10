@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO IdentifierType_hst (
-			IdentifierTypeID, FMIdentTypeId, Name, KeeleyTypeId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IdentifierTypeID, FMIdentTypeId, Name, KeeleyTypeId, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			IdentifierTypeID, FMIdentType, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	IdentifierTypeID, FMIdentType, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	IdentifierType
 	WHERE	IdentifierTypeID = @IdentifierTypeID
 
