@@ -77,3 +77,40 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
            ([FMIdentType],[Name],[StartDt],[UpdateUserID])
      VALUES      
            ('BB_TCM', 'BB Ticker Coupon Maturity',GETDATE(),1)  
+
+INSERT INTO [Keeley].[dbo].[Region]
+           ([Name],[IsoCode],[StartDt],[UpdateUserID])
+     VALUES
+           ('Unknown Region','UNK',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[Country]
+           ([Name],[IsoCode],[StartDt],[UpdateUserID],RegionID)
+     VALUES
+           ('Unknown Country','UNK',GETDATE(),1,1)
+
+INSERT INTO [Keeley].[dbo].[LegalEntity]
+           ([FMOrgId],[Name],[LongName],[CountryID],[StartDt],[UpdateUserID],[BBCompany])
+     VALUES
+           (null,'Unknown Legal Entity','Unknown Legal Entity',1,GETDATE(),1,null)
+
+INSERT INTO [Keeley].[dbo].[Issuer]
+           ([LegalEntityID],[StartDt],[UpdateUserID])
+     VALUES
+           (1,GETDATE(),1)
+
+ALTER TABLE Instrument NOCHECK CONSTRAINT ALL
+
+INSERT INTO [Keeley].[dbo].[Instrument]
+           ([IssuerID],[InstrumentClassID],[IssueCurrencyID],[FMInstId],[Name],[LongName],[Isin],[StartDt],[UpdateUserID])
+     VALUES
+           (1,3,1,null,'Unknown Currency','Unknown Currency',null,GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[Currency]
+           ([InstrumentID],[StartDt],[UpdateUserID])
+     VALUES
+           (1,GETDATE(),1)
+
+
+ALTER TABLE Instrument WITH CHECK CHECK CONSTRAINT all
+
+DBCC CHECKIDENT (InstrumentClass, reseed, 0)

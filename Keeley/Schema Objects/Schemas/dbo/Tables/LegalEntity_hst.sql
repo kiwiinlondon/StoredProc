@@ -2,7 +2,7 @@ USE Keeley
 
 create table DBO.LegalEntity_hst(
 	LegalEntityID int not null,
-	FMOrgId int not null,
+	FMOrgId int,
 	Name varchar(70) not null,
 	LongName varchar(100) not null,
 	CountryID int,

@@ -43,7 +43,7 @@ create unique index CountryIsoCodeUK on Country(IsoCode)
 
 create table DBO.LegalEntity (
 	LegalEntityID int identity(1,1) not null CONSTRAINT LegalEntityPK PRIMARY KEY,
-	FMOrgId int not null,
+	FMOrgId int,
 	Name varchar(70) not null,
 	BBCompany int null,
 	LongName varchar(100) not null,
@@ -89,7 +89,7 @@ create unique index InstrumentClassNameUK on InstrumentClass(Name)
 create unique index InstrumentClassFMInstClassUK on InstrumentClass(FMInstClass) where FMInstClass is not null
 
 create table DBO.Instrument (
-	InstrumentID int identity(1000,1) not null CONSTRAINT InstrumentPK PRIMARY KEY,
+	InstrumentID int identity(1,1) not null CONSTRAINT InstrumentPK PRIMARY KEY,
 	IssuerID int not null CONSTRAINT InstrumentIssuerIDFK FOREIGN KEY REFERENCES Issuer(LegalEntityID),
 	InstrumentClassID int not null CONSTRAINT InstrumentInstrumentClassIDFK FOREIGN KEY REFERENCES InstrumentClass(InstrumentClassID),
 	IssueCurrencyID int not null CONSTRAINT InstrumentIssueCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),
@@ -121,7 +121,6 @@ create table DBO.InstrumentMarket (
 	InstrumentMarketID int identity(1,1) not null CONSTRAINT InstrumentMarketPK PRIMARY KEY,
 	InstrumentID int not null CONSTRAINT InstrumentMarketInstrumentIDFK FOREIGN KEY REFERENCES Instrument(InstrumentID),
 	MarketID  int not null CONSTRAINT InstrumentMarketMarketIDFK FOREIGN KEY REFERENCES Market(LegalEntityID),
-	BenefitCurrencyID int not null CONSTRAINT InstrumentMarketBenefitCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),
 	FMSecId int,
 	PriceDivisor numeric(33,18) not null,
 	BloombergTicker varchar(150),

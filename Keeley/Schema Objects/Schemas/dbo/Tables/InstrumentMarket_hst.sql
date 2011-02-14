@@ -4,7 +4,6 @@ create table DBO.InstrumentMarket_hst(
 	InstrumentMarketID int not null,
 	InstrumentID int not null,
 	MarketID int not null,
-	BenefitCurrencyID int not null,
 	FMSecId int,
 	PriceDivisor numeric(33,18) not null,
 	BloombergTicker varchar(150),
