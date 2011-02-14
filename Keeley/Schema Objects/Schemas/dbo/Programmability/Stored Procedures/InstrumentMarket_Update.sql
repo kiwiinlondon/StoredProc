@@ -15,7 +15,6 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Update]
 		@InstrumentMarketID int, 
 		@InstrumentID int, 
 		@MarketID int, 
-		@BenefitCurrencyID int, 
 		@FMSecId int, 
 		@PriceDivisor numeric(33,18), 
 		@BloombergTicker varchar(150), 
@@ -30,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentMarket_hst (
-			InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketID, InstrumentID, MarketID, BenefitCurrencyID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentMarket
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	UPDATE	InstrumentMarket
-	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, BenefitCurrencyID = @BenefitCurrencyID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 	AND		DataVersion = @DataVersion
 
