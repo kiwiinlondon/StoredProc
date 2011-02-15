@@ -138,8 +138,6 @@ create unique index InstrumentMarketFMSecIDUK on InstrumentMarket(FMSecID) where
 create table DBO.Fund (
 	LegalEntityID int not null CONSTRAINT FundPK PRIMARY KEY,
 							   CONSTRAINT FundLegalEntiyFK FOREIGN KEY (LegalEntityID) REFERENCES LegalEntity(LegalEntityID),
-	InstrumentMarketID int CONSTRAINT FundInstrumentMarketIDFK FOREIGN KEY REFERENCES InstrumentMarket(InstrumentMarketID),
-	ParentFundID int CONSTRAINT FundParentFundIDFK FOREIGN KEY REFERENCES Fund(LegalEntityID),	
 	CurrencyID int not null CONSTRAINT FundCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT FundUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),

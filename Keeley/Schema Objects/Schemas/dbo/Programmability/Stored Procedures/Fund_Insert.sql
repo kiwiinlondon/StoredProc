@@ -13,8 +13,6 @@ GO
 
 CREATE PROCEDURE DBO.[Fund_Insert]
 		@LegalEntityID int, 
-		@InstrumentMarketID int, 
-		@ParentFundID int, 
 		@CurrencyID int, 
 		@UpdateUserID int
 AS
@@ -24,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Fund
-			(LegalEntityID, InstrumentMarketID, ParentFundID, CurrencyID, UpdateUserID, StartDt)
+			(LegalEntityID, CurrencyID, UpdateUserID, StartDt)
 	VALUES
-			(@LegalEntityID, @InstrumentMarketID, @ParentFundID, @CurrencyID, @UpdateUserID, @StartDt)
+			(@LegalEntityID, @CurrencyID, @UpdateUserID, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Fund

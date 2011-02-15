@@ -13,8 +13,6 @@ GO
 
 CREATE PROCEDURE DBO.[Fund_Update]
 		@LegalEntityID int, 
-		@InstrumentMarketID int, 
-		@ParentFundID int, 
 		@CurrencyID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -25,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Fund_hst (
-			LegalEntityID, InstrumentMarketID, ParentFundID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, InstrumentMarketID, ParentFundID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Fund
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Fund
-	SET		InstrumentMarketID = @InstrumentMarketID, ParentFundID = @ParentFundID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

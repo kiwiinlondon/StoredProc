@@ -78,6 +78,16 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
      VALUES      
            ('BB_TCM', 'BB Ticker Coupon Maturity',GETDATE(),1)  
 
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           (null, 'Fund Manager Strategy',GETDATE(),1)  
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           (null, 'Fund Manager Trad Type',GETDATE(),1)  
+
 INSERT INTO [Keeley].[dbo].[Region]
            ([Name],[IsoCode],[StartDt],[UpdateUserID])
      VALUES
@@ -94,6 +104,11 @@ INSERT INTO [Keeley].[dbo].[LegalEntity]
            (null,'Unknown Legal Entity','Unknown Legal Entity',1,GETDATE(),1,null)
 
 INSERT INTO [Keeley].[dbo].[Issuer]
+           ([LegalEntityID],[StartDt],[UpdateUserID])
+     VALUES
+           (1,GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[Market]
            ([LegalEntityID],[StartDt],[UpdateUserID])
      VALUES
            (1,GETDATE(),1)
