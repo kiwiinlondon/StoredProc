@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[InstrumentRelationship_Delete]
 GO
 
 CREATE PROCEDURE DBO.[InstrumentRelationship_Delete]
-		@UnderlyingInstrumentID int,
+		@OverlyingInstrumentID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InstrumentRelationship_hst (
-			UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			OverlyingInstrumentID, UnderlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	OverlyingInstrumentID, UnderlyingInstrumentID, UnderlyerPerOverlyer, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	InstrumentRelationship
-	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID
+	WHERE	OverlyingInstrumentID = @OverlyingInstrumentID
 
 	DELETE	InstrumentRelationship
-	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID
+	WHERE	OverlyingInstrumentID = @OverlyingInstrumentID
 	AND		DataVersion = @DataVersion
 GO

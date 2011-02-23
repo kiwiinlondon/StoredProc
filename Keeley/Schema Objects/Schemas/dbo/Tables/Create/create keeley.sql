@@ -159,9 +159,9 @@ create unique index BookNameUK on Book(Name)
 create unique index BookFMOrgIDUK on Book(FMOrgID) where FMOrgId is not null
 
 create table DBO.InstrumentRelationship (
-	UnderlyingInstrumentID int not null  CONSTRAINT InstrumentRelationshipPK PRIMARY KEY, 
-										 CONSTRAINT InstrumentRelationshipUnderlyingInstrumentIDFK FOREIGN KEY (UnderlyingInstrumentID) REFERENCES Instrument(InstrumentID),
-	OverlyingInstrumentID int not null CONSTRAINT InstrumentRelationshipOverlyingInstrumentIDFK FOREIGN KEY REFERENCES Instrument(InstrumentID),	
+	OverlyingInstrumentID int not null  CONSTRAINT InstrumentRelationshipPK PRIMARY KEY, 
+	  									CONSTRAINT InstrumentRelationshipOverlyingInstrumentIDFK FOREIGN KEY (OverlyingInstrumentID) REFERENCES Instrument(InstrumentID),
+	UnderlyingInstrumentID int not null CONSTRAINT InstrumentRelationshipUnderlyingInstrumentIDFK FOREIGN KEY REFERENCES Instrument(InstrumentID),	
 	UnderlyerPerOverlyer numeric(27,8) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT InstrumentRelationshipUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -256,3 +256,57 @@ create table DBO.IdentifierType(
 )
 create unique index IdentifierTypeNameUK on IdentifierType(Name)
 create unique index IdentifierTypeFMIdentTypeIdNameUK on IdentifierType(FMIdentType,Name) where FMIdentType is not null
+
+create table DBO.FX
+(
+	InstrumentID int not null CONSTRAINT FXPK PRIMARY KEY,
+			 			   CONSTRAINT FXFK FOREIGN KEY (InstrumentID) REFERENCES Instrument(InstrumentID),
+	ReceiveCurrencyId int not null CONSTRAINT FXReceiveCurrencyFK FOREIGN KEY (ReceiveCurrencyID) REFERENCES Currency(InstrumentID),
+	PayCurrencyId int not null CONSTRAINT FXPayCurrencyFK FOREIGN KEY (PayCurrencyID) REFERENCES Currency(InstrumentID),
+	ReceiveAmount decimal(27,8) not null, 
+	PayAmount decimal(27,8) not null,
+	IsProp bit not null,
+	EnteredMultiply bit not null,
+	MaturityDate datetime not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT FXUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create table DBO.Counterparty
+(
+	LegalEntityID int not null CONSTRAINT CounterpartyPK PRIMARY KEY,
+							   CONSTRAINT CounterpartyLegalEntiyFK FOREIGN KEY (LegalEntityID) REFERENCES LegalEntity(LegalEntityID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT CounterpartyUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create table DBO.FX
+(
+	InstrumentID int not null CONSTRAINT FXPK PRIMARY KEY,
+			 			   CONSTRAINT FXFK FOREIGN KEY (InstrumentID) REFERENCES Instrument(InstrumentID),
+	ReceiveCurrencyId int not null CONSTRAINT FXReceiveCurrencyFK FOREIGN KEY (ReceiveCurrencyID) REFERENCES Currency(InstrumentID),
+	PayCurrencyId int not null CONSTRAINT FXPayCurrencyFK FOREIGN KEY (PayCurrencyID) REFERENCES Currency(InstrumentID),
+	CounterpartyId  int not null CONSTRAINT FXcounterpartyFK FOREIGN KEY (CounterpartyID) REFERENCES Counterparty(LegalEntityID),
+	ReceiveAmount decimal(27,8) not null, 
+	PayAmount decimal(27,8) not null,
+	IsProp bit not null,
+	EnteredMultiply bit not null,
+	MaturityDate datetime not null,	
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT FXUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+
+create table DBO.FMContractMapping
+(
+	FMContId int not null CONSTRAINT FMContractMappingPK PRIMARY KEY,
+	InstrumentID int not null  CONSTRAINT FMContractMappingInstrumentFK FOREIGN KEY (InstrumentID) REFERENCES Instrument(InstrumentID),	
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT FMContractMappingUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create unique index FMContractMappingUK on FMContractMapping(InstrumentID,FMContId)

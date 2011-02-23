@@ -12,8 +12,8 @@ DROP PROCEDURE DBO.[InstrumentRelationship_Insert]
 GO
 
 CREATE PROCEDURE DBO.[InstrumentRelationship_Insert]
-		@UnderlyingInstrumentID int, 
 		@OverlyingInstrumentID int, 
+		@UnderlyingInstrumentID int, 
 		@UnderlyerPerOverlyer numeric(27,8), 
 		@UpdateUserID int
 AS
@@ -23,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentRelationship
-			(UnderlyingInstrumentID, OverlyingInstrumentID, UnderlyerPerOverlyer, UpdateUserID, StartDt)
+			(OverlyingInstrumentID, UnderlyingInstrumentID, UnderlyerPerOverlyer, UpdateUserID, StartDt)
 	VALUES
-			(@UnderlyingInstrumentID, @OverlyingInstrumentID, @UnderlyerPerOverlyer, @UpdateUserID, @StartDt)
+			(@OverlyingInstrumentID, @UnderlyingInstrumentID, @UnderlyerPerOverlyer, @UpdateUserID, @StartDt)
 
-	SELECT	UnderlyingInstrumentID, StartDt, DataVersion
+	SELECT	OverlyingInstrumentID, StartDt, DataVersion
 	FROM	InstrumentRelationship
-	WHERE	UnderlyingInstrumentID = @UnderlyingInstrumentID
+	WHERE	OverlyingInstrumentID = @OverlyingInstrumentID
 	AND		@@ROWCOUNT > 0
 
 GO
