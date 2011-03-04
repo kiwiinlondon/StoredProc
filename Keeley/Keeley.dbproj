@@ -364,6 +364,30 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Portfolio_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioChangeControl_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioChangeControl_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioChangeControl_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\PortfolioChangeControl_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioNonAggregated_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioNonAggregated_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioNonAggregated_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\PortfolioNonAggregated_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>

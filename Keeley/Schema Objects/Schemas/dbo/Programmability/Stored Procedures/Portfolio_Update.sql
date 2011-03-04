@@ -25,8 +25,6 @@ CREATE PROCEDURE DBO.[Portfolio_Update]
 		@UnRealisedFXPNL numeric(27,8), 
 		@RealisedPricePNL numeric(27,8), 
 		@UnRealisedPricePNL numeric(27,8), 
-		@RealisedTotalPNL numeric(27,8), 
-		@UnRealisedTotalPNL numeric(27,8), 
 		@Accrual numeric(27,8), 
 		@CashIncome numeric(27,8), 
 		@UpdateUserID int, 
@@ -39,13 +37,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Portfolio_hst (
-			PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, RealisedTotalPNL, UnRealisedTotalPNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, EndDt, LastActionUserID)
-	SELECT	PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, RealisedTotalPNL, UnRealisedTotalPNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, @StartDt, @UpdateUserID
+			PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, EndDt, LastActionUserID)
+	SELECT	PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, @StartDt, @UpdateUserID
 	FROM	Portfolio
 	WHERE	PortfolioID = @PortfolioID
 
 	UPDATE	Portfolio
-	SET		PositionID = @PositionID, ReferenceDate = @ReferenceDate, NetPosition = @NetPosition, UnitCost = @UnitCost, MarkPrice = @MarkPrice, FXRate = @FXRate, MarketValue = @MarketValue, DeltaEquityPosition = @DeltaEquityPosition, RealisedFXPNL = @RealisedFXPNL, UnRealisedFXPNL = @UnRealisedFXPNL, RealisedPricePNL = @RealisedPricePNL, UnRealisedPricePNL = @UnRealisedPricePNL, RealisedTotalPNL = @RealisedTotalPNL, UnRealisedTotalPNL = @UnRealisedTotalPNL, Accrual = @Accrual, CashIncome = @CashIncome, UpdateUserID = @UpdateUserID, FMContViewLadderID = @FMContViewLadderID,  StartDt = @StartDt
+	SET		PositionID = @PositionID, ReferenceDate = @ReferenceDate, NetPosition = @NetPosition, UnitCost = @UnitCost, MarkPrice = @MarkPrice, FXRate = @FXRate, MarketValue = @MarketValue, DeltaEquityPosition = @DeltaEquityPosition, RealisedFXPNL = @RealisedFXPNL, UnRealisedFXPNL = @UnRealisedFXPNL, RealisedPricePNL = @RealisedPricePNL, UnRealisedPricePNL = @UnRealisedPricePNL, Accrual = @Accrual, CashIncome = @CashIncome, UpdateUserID = @UpdateUserID, FMContViewLadderID = @FMContViewLadderID,  StartDt = @StartDt
 	WHERE	PortfolioID = @PortfolioID
 	AND		DataVersion = @DataVersion
 

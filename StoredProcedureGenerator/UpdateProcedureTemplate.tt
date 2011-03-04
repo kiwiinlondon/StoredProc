@@ -11,7 +11,6 @@ public class UpdateProcedureTemplate : Template
     {
 		String procedureName = Table.Name + "_Update";
 		String primaryKey = "";
-		String primaryKeyDataType = "";
 		String columnString = "";
 		String updateString = "";
 

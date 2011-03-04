@@ -13,9 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[Position_Insert]
 		@BookID int, 
-		@StrategyID int, 
 		@InstrumentMarketID int, 
-		@TradeTypeID int, 
 		@CurrencyID int, 
 		@UpdateUserID int
 AS
@@ -25,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Position
-			(BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, UpdateUserID, StartDt)
+			(BookID, InstrumentMarketID, CurrencyID, UpdateUserID, StartDt)
 	VALUES
-			(@BookID, @StrategyID, @InstrumentMarketID, @TradeTypeID, @CurrencyID, @UpdateUserID, @StartDt)
+			(@BookID, @InstrumentMarketID, @CurrencyID, @UpdateUserID, @StartDt)
 
 	SELECT	PositionID, StartDt, DataVersion
 	FROM	Position

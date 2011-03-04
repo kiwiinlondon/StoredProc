@@ -14,9 +14,7 @@ GO
 CREATE PROCEDURE DBO.[Position_Update]
 		@PositionID int, 
 		@BookID int, 
-		@StrategyID int, 
 		@InstrumentMarketID int, 
-		@TradeTypeID int, 
 		@CurrencyID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -27,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Position
 	WHERE	PositionID = @PositionID
 
 	UPDATE	Position
-	SET		BookID = @BookID, StrategyID = @StrategyID, InstrumentMarketID = @InstrumentMarketID, TradeTypeID = @TradeTypeID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	PositionID = @PositionID
 	AND		DataVersion = @DataVersion
 

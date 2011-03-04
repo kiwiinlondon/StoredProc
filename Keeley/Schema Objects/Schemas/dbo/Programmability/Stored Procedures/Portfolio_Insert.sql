@@ -24,8 +24,6 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@UnRealisedFXPNL numeric(27,8), 
 		@RealisedPricePNL numeric(27,8), 
 		@UnRealisedPricePNL numeric(27,8), 
-		@RealisedTotalPNL numeric(27,8), 
-		@UnRealisedTotalPNL numeric(27,8), 
 		@Accrual numeric(27,8), 
 		@CashIncome numeric(27,8), 
 		@UpdateUserID int, 
@@ -37,9 +35,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Portfolio
-			(PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, RealisedTotalPNL, UnRealisedTotalPNL, Accrual, CashIncome, UpdateUserID, FMContViewLadderID, StartDt)
+			(PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, UpdateUserID, FMContViewLadderID, StartDt)
 	VALUES
-			(@PositionID, @ReferenceDate, @NetPosition, @UnitCost, @MarkPrice, @FXRate, @MarketValue, @DeltaEquityPosition, @RealisedFXPNL, @UnRealisedFXPNL, @RealisedPricePNL, @UnRealisedPricePNL, @RealisedTotalPNL, @UnRealisedTotalPNL, @Accrual, @CashIncome, @UpdateUserID, @FMContViewLadderID, @StartDt)
+			(@PositionID, @ReferenceDate, @NetPosition, @UnitCost, @MarkPrice, @FXRate, @MarketValue, @DeltaEquityPosition, @RealisedFXPNL, @UnRealisedFXPNL, @RealisedPricePNL, @UnRealisedPricePNL, @Accrual, @CashIncome, @UpdateUserID, @FMContViewLadderID, @StartDt)
 
 	SELECT	PortfolioID, StartDt, DataVersion
 	FROM	Portfolio

@@ -1,9 +1,10 @@
 USE Keeley
 
-create table DBO.Portfolio_hst(
+create table DBO.PortfolioNonAggregated_hst(
+	PortfolioNonAggregatedID int not null,
 	PortfolioID int not null,
-	PositionID int not null,
-	ReferenceDate datetime not null,
+	StrategyID int not null,
+	TradeTypeID int not null,
 	NetPosition numeric(27,8) not null,
 	UnitCost numeric(35,16) not null,
 	MarkPrice numeric(35,16) not null,
@@ -19,6 +20,6 @@ create table DBO.Portfolio_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	FMContViewLadderID int,
+	FMContViewLadderID int not null,
 	EndDt datetime,
 	LastActionUserID int)

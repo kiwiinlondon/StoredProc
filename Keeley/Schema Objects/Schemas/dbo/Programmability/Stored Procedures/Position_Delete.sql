@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionID, BookID, StrategyID, InstrumentMarketID, TradeTypeID, CurrencyID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Position
 	WHERE	PositionID = @PositionID
 
