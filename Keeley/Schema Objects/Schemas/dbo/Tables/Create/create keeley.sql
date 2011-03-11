@@ -105,7 +105,7 @@ alter table Currency ADD CONSTRAINT CurrencyInstrumentIDFK FOREIGN KEY (Instrume
 
 create unique index InstrumentNameUK on Instrument(Name)
 create unique index InstrumentLongNameUK on Instrument(LongName)
-create unique index InstrumentIsinUK on Instrument(Isin) where Isin is not null
+create unique index InstrumentIsinUK on Instrument(Isin,instrumentClassId) where Isin is not null
 create unique index InstrumentClassFMInstIdUK on Instrument(FMInstId) where FMInstId is not null
 
 create table DBO.Market
@@ -130,10 +130,29 @@ create table DBO.InstrumentMarket (
 	UpdateUserID int not null CONSTRAINT InstrumentMarketUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )
-create unique index InstrumentMarketBloombergTickerUK on InstrumentMarket(BloombergTicker) where BloombergTicker is not null
-create unique index InstrumentMarketSedolUK on InstrumentMarket(Sedol) where Sedol is not null
+create index InstrumentMarketBloombergTickerIDX on InstrumentMarket(BloombergTicker)
+create index InstrumentMarketSedolIDX on InstrumentMarket(Sedol)
 create unique index InstrumentMarketInstrumentIDMarketIDUK on InstrumentMarket(InstrumentID,MarketID)
 create unique index InstrumentMarketFMSecIDUK on InstrumentMarket(FMSecID) where FMSecID is not null
+
+CREATE VIEW SedolInstrumentClassView WITH SCHEMABINDING AS
+SELECT Sedol,InstrumentClassId
+  FROM dbo.Instrument i,
+	   dbo.InstrumentMarket im
+ WHERE i.InstrumentID = im.InstrumentID 
+   AND im.sedol is not null
+   
+CREATE UNIQUE CLUSTERED INDEX SedolInstrumentClassViewUK on SedolInstrumentClassView (Sedol,InstrumentClassId)
+
+CREATE VIEW BBTickerInstrumentClassView WITH SCHEMABINDING AS
+SELECT BloombergTicker,InstrumentClassId
+  FROM dbo.Instrument i,
+	   dbo.InstrumentMarket im
+ WHERE i.InstrumentID = im.InstrumentID 
+   AND im.BloombergTicker is not null
+   
+CREATE UNIQUE CLUSTERED INDEX BBTickerInstrumentClassViewUK on BBTickerInstrumentClassView (BloombergTicker,InstrumentClassId)
+
 
 create table DBO.Fund (
 	LegalEntityID int not null CONSTRAINT FundPK PRIMARY KEY,

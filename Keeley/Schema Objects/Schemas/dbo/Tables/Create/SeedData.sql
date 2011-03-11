@@ -88,6 +88,16 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
      VALUES      
            (null, 'Fund Manager Trad Type',GETDATE(),1)  
 
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           (null, 'Fund Manager Cont Id',GETDATE(),1)  
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
+           (null, 'Fund Manager XTFO Id',GETDATE(),1)   
+
 INSERT INTO [Keeley].[dbo].[Region]
            ([Name],[IsoCode],[StartDt],[UpdateUserID])
      VALUES
