@@ -285,7 +285,7 @@ create table DBO.PortfolioChangeControl
 	DataVersion rowversion not null,
 )
 
-create unique clustered index PortfolioChangeControlUK on PortfolioChangeControl(ReferenceDate,PositionID,StrategyID,TradeTypeID)
+create unique clustered index PortfolioChangeControlUK on PortfolioChangeControl(PositionID,ReferenceDate,StrategyID,TradeTypeID)
 
 create table KeeleyType
 (
