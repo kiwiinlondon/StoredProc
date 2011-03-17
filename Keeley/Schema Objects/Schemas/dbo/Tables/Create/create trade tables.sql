@@ -1,0 +1,155 @@
+create table DBO.EventType (
+	EventTypeID int identity(1,1) not null CONSTRAINT EventTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT EventTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create unique index EventTypeNameUK on EventType(Name)	
+
+create table DBO.InstrumentEventType (
+	InstrumentEventTypeID int identity(1,1) not null CONSTRAINT InstrumentEventTypePK PRIMARY KEY nonclustered,
+	Name varchar(70) not null,
+	FmContClass varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InstrumentEventTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create unique index InstrumentEventTypeNameUK on InstrumentEventType(Name)
+create unique index InstrumentEventTypeFmContClassUK on InstrumentEventType(FmContClass)
+	
+create table DBO.Event (
+	EventID int identity(1,1) not null CONSTRAINT EventPK PRIMARY KEY,
+	EventTypeID int not null CONSTRAINT EventEventTypeIDFK FOREIGN KEY REFERENCES EventType(EventTypeID),
+	IsCancelled bit not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT EventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create table DBO.InstrumentEvent(
+	EventID int not null CONSTRAINT InstrumentEventPK PRIMARY KEY,
+							   CONSTRAINT InstrumentEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	InstrumentMarketID int not null CONSTRAINT InstrumentMarketIDFK FOREIGN KEY REFERENCES InstrumentMarket(InstrumentMarketID),
+	InstrumentEventTypeID int not null  CONSTRAINT InstrumentEventTypeIDFK FOREIGN KEY REFERENCES InstrumentEventType(InstrumentEventTypeID),
+	EventDate DateTime not null,
+	ValueDate DateTime not null,
+	Quantity  numeric(27,8) not null,
+	Price numeric(35,16) not null,
+	FXRate numeric(35,16) not null,
+	CurrencyId int not null  CONSTRAINT InstrumentEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),		
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InstrumentEventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+	
+create table DBO.TradeEvent(
+	EventID int not null CONSTRAINT TradeEventPK PRIMARY KEY,
+							   CONSTRAINT TradeEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	InstrumentMarketID int not null CONSTRAINT TradeEventInstrumentMarketIDFK FOREIGN KEY REFERENCES InstrumentMarket(InstrumentMarketID),
+	TradeDate DateTime not null,
+	SettlementDate DateTime not null,
+	TraderId  int not null CONSTRAINT TradeEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	Quantity  numeric(27,8) not null,
+	Price numeric(35,16) not null,
+	FXRate numeric(35,16) not null,
+	CurrencyId int not null CONSTRAINT TradeEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
+	CounterpartyId int not null CONSTRAINT TradeEventCounterpartyIDFK FOREIGN KEY REFERENCES Counterparty(LegalEntityID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT TradeEventUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+
+create table DBO.CapitalEvent(
+	EventID int not null CONSTRAINT CapitalEventPK PRIMARY KEY,
+							   CONSTRAINT CapitalEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	TradeDate DateTime not null,
+	SettlementDate DateTime not null,
+	Quantity  numeric(27,8) not null,
+	FXRate numeric(35,16) not null,
+	CurrencyId int not null CONSTRAINT CapitalEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT CapitalEventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+
+create table DBO.Custodian
+(
+	LegalEntityID int not null CONSTRAINT CustodianPK PRIMARY KEY,
+							   CONSTRAINT CustodianLegalEntiyFK FOREIGN KEY (LegalEntityID) REFERENCES LegalEntity(LegalEntityID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT CustodianUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create table Account (
+	AccountID int identity(1,1) not null CONSTRAINT AccountPK PRIMARY KEY,
+	Name varchar(100) not null,
+	ExternalId varchar(30) not null,
+	CustodianId int not null CONSTRAINT AccountCustodianIDFK FOREIGN KEY REFERENCES Custodian(LegalEntityID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT AccountUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create unique index AccountNameUK on Account(Name)
+create unique index AccountExternalIdCustodianIdUK on Account(CustodianId,ExternalId)
+	
+create table InternalAllocation(
+	InternalAllocationID int identity(1,1) not null CONSTRAINT InternalAllocationPK PRIMARY KEY,
+	EventID int not null CONSTRAINT InternalAllocationEventIDFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	FMContEventInd varchar(1) not null,
+	FMContEventId int not null,
+	IsMatched bit not null,
+	AccountID int not null CONSTRAINT InternalAllocationAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+	BookID int not null CONSTRAINT InternalAllocationBookIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+	Quantity  numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT AccountAllocationUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)			
+
+create table PositionAccount(
+	PositionAccountID int identity(1,1) not null CONSTRAINT PositionAccountPK PRIMARY KEY,
+	AccountID int not null CONSTRAINT PositionAccountAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+	PositionId int not null CONSTRAINT PositionAccountPositionIDFK FOREIGN KEY (PositionID) REFERENCES Position(PositionID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PositionAccountUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create table PositionAccountMovement(
+	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
+	InternalAllocationID int not null CONSTRAINT PositionAccountMovementInternalAllocationIDFK FOREIGN KEY REFERENCES InternalAllocation(InternalAllocationID),
+	PositionAccountID int not null CONSTRAINT PositionAccountMovementPositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	Quantity  numeric(27,8) not null,
+	Price numeric(35,16) not null,
+	FXRate numeric(35,16) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PositionAccountMovementUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create table PortfolioPositionAccountTradeDate(
+	PortfolioPositionAccountTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountTradeDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountTradeDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	ReferenceDate DateTime not null,
+	Quantity  numeric(27,8) not null,
+	TotalCost numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountTradeDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create table PortfolioPositionAccountSettlementDate(
+	PortfolioPositionAccountSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountSettlementDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	ReferenceDate DateTime not null,
+	Quantity  numeric(27,8) not null,
+	TotalCost numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
