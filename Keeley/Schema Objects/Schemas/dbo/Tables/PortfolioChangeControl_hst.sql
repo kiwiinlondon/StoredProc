@@ -3,8 +3,6 @@ USE Keeley
 create table DBO.PortfolioChangeControl_hst(
 	PortfolioChangeControlId int not null,
 	PositionID int not null,
-	StrategyID int not null,
-	TradeTypeID int not null,
 	ReferenceDate date not null,
 	ChangeId int not null,
 	StartDt datetime not null,

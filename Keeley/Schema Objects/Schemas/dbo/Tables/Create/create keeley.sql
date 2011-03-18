@@ -247,37 +247,10 @@ create table DBO.Portfolio (
 create  unique clustered index PortfolioUK on Portfolio(PositionID,ReferenceDate)
 create unique index PortfolioFMContViewLadderIDUK on Portfolio(FMContViewLadderID) where FMContViewLadderID is not null
 
-create table DBO.PortfolioNonAggregated (
-	PortfolioNonAggregatedID int identity(1,1) not null CONSTRAINT PortfolioNonAggregatedPK PRIMARY KEY nonclustered,
-	PortfolioID int not null CONSTRAINT PortfolioNonAggregatedPortfolioIDFK FOREIGN KEY REFERENCES Portfolio(PortfolioID),	
-	StrategyID int not null CONSTRAINT PortfolioNonAggregatedStrategyIDFK FOREIGN KEY REFERENCES Strategy(StrategyID),
-	TradeTypeID int not null CONSTRAINT PortfolioNonAggregatedTradeTypeIDFK FOREIGN KEY REFERENCES TradeType(TradeTypeID),	
-	NetPosition numeric(27,8) not null,
-	UnitCost numeric(35,16) not null,
-	MarkPrice numeric(35,16) not null,
-	FXRate numeric(35,16) not null,
-	MarketValue numeric(27,8) not null,
-	DeltaEquityPosition numeric(27,8) not null,
-	RealisedFXPNL numeric(27,8) not null,
-	UnRealisedFXPNL numeric(27,8) not null,
-	RealisedPricePNL numeric(27,8) not null,
-	UnRealisedPricePNL numeric(27,8) not null,
-	Accrual numeric(27,8) not null,
-	CashIncome numeric(27,8) not null,
-	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioNonAggregatedUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
-	DataVersion rowversion not null,
-	FMContViewLadderID int not null
-)
-create unique clustered index PortfolioNonUK on PortfolioNonAggregated(PortfolioID,StrategyID,TradeTypeID)
-create unique index PortfolioNonFMContViewLadderIDUK on  PortfolioNonAggregated(FMContViewLadderID)
-
 create table DBO.PortfolioChangeControl
 (
 	PortfolioChangeControlId int identity(1,1) not null CONSTRAINT PortfolioChangeControlPK PRIMARY KEY nonclustered,
 	PositionID int not null CONSTRAINT PortfolioChangeControlPositionIDFK FOREIGN KEY REFERENCES Position(PositionID),	
-	StrategyID int not null CONSTRAINT PortfolioChangeControlStrategyIDFK FOREIGN KEY REFERENCES Strategy(StrategyID),
-	TradeTypeID int not null CONSTRAINT PortfolioChangeControlTradeTypeIDFK FOREIGN KEY REFERENCES TradeType(TradeTypeID),	
 	ReferenceDate date not null,
 	ChangeId int not null,
 	StartDt datetime not null,
@@ -285,7 +258,7 @@ create table DBO.PortfolioChangeControl
 	DataVersion rowversion not null,
 )
 
-create unique clustered index PortfolioChangeControlUK on PortfolioChangeControl(PositionID,ReferenceDate,StrategyID,TradeTypeID)
+create unique clustered index PortfolioChangeControlUK on PortfolioChangeControl(PositionID,ReferenceDate)
 
 create table KeeleyType
 (

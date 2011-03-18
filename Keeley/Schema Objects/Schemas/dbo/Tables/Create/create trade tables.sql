@@ -29,6 +29,8 @@ create table DBO.Event (
 	DataVersion rowversion not null
 )	
 
+--Identifer type!!!!!
+
 create table DBO.InstrumentEvent(
 	EventID int not null CONSTRAINT InstrumentEventPK PRIMARY KEY,
 							   CONSTRAINT InstrumentEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
@@ -87,6 +89,7 @@ create table DBO.Custodian
 create table Account (
 	AccountID int identity(1,1) not null CONSTRAINT AccountPK PRIMARY KEY,
 	Name varchar(100) not null,
+	FundId  int not null CONSTRAINT AccountFundIDFK FOREIGN KEY REFERENCES Fund(LegalEntityID),
 	ExternalId varchar(30) not null,
 	CustodianId int not null CONSTRAINT AccountCustodianIDFK FOREIGN KEY REFERENCES Custodian(LegalEntityID),
 	StartDt datetime not null,
@@ -94,22 +97,28 @@ create table Account (
 	DataVersion rowversion not null
 )	
 
+
 create unique index AccountNameUK on Account(Name)
 create unique index AccountExternalIdCustodianIdUK on Account(CustodianId,ExternalId)
-	
+
+
 create table InternalAllocation(
 	InternalAllocationID int identity(1,1) not null CONSTRAINT InternalAllocationPK PRIMARY KEY,
 	EventID int not null CONSTRAINT InternalAllocationEventIDFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
 	FMContEventInd varchar(1) not null,
 	FMContEventId int not null,
+	FMOriginalContEventId int not null,
 	IsMatched bit not null,
 	AccountID int not null CONSTRAINT InternalAllocationAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
-	BookID int not null CONSTRAINT InternalAllocationBookIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+	BookID int not null CONSTRAINT InternalAllocationBookIDFK FOREIGN KEY (BookID) REFERENCES Book(BookID),
 	Quantity  numeric(27,8) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT AccountAllocationUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )			
+
+create unique index InternalAllocationFMContEventIdUK on InternalAllocation(FMContEventInd,FMContEventId)
+create unique index InternalAllocationFMOriginalContEventIdUK on InternalAllocation(FMContEventInd,FMOriginalContEventId)
 
 create table PositionAccount(
 	PositionAccountID int identity(1,1) not null CONSTRAINT PositionAccountPK PRIMARY KEY,
@@ -125,8 +134,6 @@ create table PositionAccountMovement(
 	InternalAllocationID int not null CONSTRAINT PositionAccountMovementInternalAllocationIDFK FOREIGN KEY REFERENCES InternalAllocation(InternalAllocationID),
 	PositionAccountID int not null CONSTRAINT PositionAccountMovementPositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
 	Quantity  numeric(27,8) not null,
-	Price numeric(35,16) not null,
-	FXRate numeric(35,16) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT PositionAccountMovementUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
@@ -153,3 +160,30 @@ create table PortfolioPositionAccountSettlementDate(
 	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Trade Event',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Instrument Event',GETDATE(),1)           
+
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Capital Event',GETDATE(),1)           
+GO
+
+create table DBO.PositionAccountMovement_hst(
+	PositionAccountMovementID int not null,
+	InternalAllocationID int not null,
+	PositionAccountID int not null,
+	Quantity numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null,
+	DataVersion binary(8) not null,
+	EndDt datetime,
+	LastActionUserID int)

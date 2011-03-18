@@ -13,8 +13,6 @@ GO
 
 CREATE PROCEDURE DBO.[PortfolioChangeControl_Insert]
 		@PositionID int, 
-		@StrategyID int, 
-		@TradeTypeID int, 
 		@ReferenceDate date, 
 		@ChangeId int, 
 		@UpdateUserID int
@@ -25,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PortfolioChangeControl
-			(PositionID, StrategyID, TradeTypeID, ReferenceDate, ChangeId, UpdateUserID, StartDt)
+			(PositionID, ReferenceDate, ChangeId, UpdateUserID, StartDt)
 	VALUES
-			(@PositionID, @StrategyID, @TradeTypeID, @ReferenceDate, @ChangeId, @UpdateUserID, @StartDt)
+			(@PositionID, @ReferenceDate, @ChangeId, @UpdateUserID, @StartDt)
 
 	SELECT	PortfolioChangeControlId, StartDt, DataVersion
 	FROM	PortfolioChangeControl

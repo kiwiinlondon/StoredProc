@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PortfolioChangeControl_hst (
-			PortfolioChangeControlId, PositionID, StrategyID, TradeTypeID, ReferenceDate, ChangeId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PortfolioChangeControlId, PositionID, StrategyID, TradeTypeID, ReferenceDate, ChangeId, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PortfolioChangeControlId, PositionID, ReferenceDate, ChangeId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PortfolioChangeControlId, PositionID, ReferenceDate, ChangeId, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	PortfolioChangeControl
 	WHERE	PortfolioChangeControlId = @PortfolioChangeControlId
 
