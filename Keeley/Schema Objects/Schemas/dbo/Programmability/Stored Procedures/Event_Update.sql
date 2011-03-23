@@ -14,9 +14,10 @@ GO
 CREATE PROCEDURE DBO.[Event_Update]
 		@EventID int, 
 		@EventTypeID int, 
-		@IsCancelled bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IdentifierTypeId int, 
+		@Identifier varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Event_hst (
-			EventID, EventTypeID, IsCancelled, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EventID, EventTypeID, IsCancelled, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EventID, EventTypeID, StartDt, UpdateUserID, DataVersion, IdentifierTypeId, Identifier, EndDt, LastActionUserID)
+	SELECT	EventID, EventTypeID, StartDt, UpdateUserID, DataVersion, IdentifierTypeId, Identifier, @StartDt, @UpdateUserID
 	FROM	Event
 	WHERE	EventID = @EventID
 
 	UPDATE	Event
-	SET		EventTypeID = @EventTypeID, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		EventTypeID = @EventTypeID, UpdateUserID = @UpdateUserID, IdentifierTypeId = @IdentifierTypeId, Identifier = @Identifier,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

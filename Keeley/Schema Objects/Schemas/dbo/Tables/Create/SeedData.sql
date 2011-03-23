@@ -61,7 +61,27 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
 INSERT INTO [Keeley].[dbo].[IdentifierType]
            ([FMIdentType],[Name],[StartDt],[UpdateUserID])
      VALUES
+           (null, 'BuySellReasonCode',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Person Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
            (null, 'Fund Manager Security Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Account Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Original Cont Id',GETDATE(),1)
 
 INSERT INTO [Keeley].[dbo].[IdentifierType]
            ([FMIdentType],[Name],[StartDt],[UpdateUserID])
@@ -135,7 +155,30 @@ INSERT INTO [Keeley].[dbo].[Currency]
      VALUES
            (1,GETDATE(),1)
 
+INSERT INTO [Keeley].[dbo].[MatchedStatus]
+           ([Code],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('M','Matched',GETDATE(),1)
+INSERT INTO [Keeley].[dbo].[MatchedStatus]
+           ([Code],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('N','Notified',GETDATE(),1)
+INSERT INTO [Keeley].[dbo].[MatchedStatus]
+           ([Code],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('R','Rejected',GETDATE(),1)           
+INSERT INTO [Keeley].[dbo].[MatchedStatus]
+           ([Code],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('CN','Broken',GETDATE(),1)           
+           
+INSERT INTO [Keeley].[dbo].[MatchedStatus]
+           ([Code],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('NA','Not Applicable',GETDATE(),1)  
+
 
 ALTER TABLE Instrument WITH CHECK CHECK CONSTRAINT all
 
 DBCC CHECKIDENT (InstrumentClass, reseed, 0)
+

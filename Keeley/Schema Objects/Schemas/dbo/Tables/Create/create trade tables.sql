@@ -23,13 +23,13 @@ create unique index InstrumentEventTypeFmContClassUK on InstrumentEventType(FmCo
 create table DBO.Event (
 	EventID int identity(1,1) not null CONSTRAINT EventPK PRIMARY KEY,
 	EventTypeID int not null CONSTRAINT EventEventTypeIDFK FOREIGN KEY REFERENCES EventType(EventTypeID),
-	IsCancelled bit not null,
+	IdentifierTypeId int not null  CONSTRAINT EventIdentifierTypeIDFK FOREIGN KEY REFERENCES IdentifierType(IdentifierTypeID),
+	Identifier varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT EventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
 
---Identifer type!!!!!
 
 create table DBO.InstrumentEvent(
 	EventID int not null CONSTRAINT InstrumentEventPK PRIMARY KEY,
@@ -47,6 +47,7 @@ create table DBO.InstrumentEvent(
 	DataVersion rowversion not null
 )
 	
+drop table TradeEvent
 create table DBO.TradeEvent(
 	EventID int not null CONSTRAINT TradeEventPK PRIMARY KEY,
 							   CONSTRAINT TradeEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
@@ -54,16 +55,32 @@ create table DBO.TradeEvent(
 	TradeDate DateTime not null,
 	SettlementDate DateTime not null,
 	TraderId  int not null CONSTRAINT TradeEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	GrossPrice numeric(35,16) not null,
+	NetPrice numeric(35,16) not null,
 	Quantity  numeric(27,8) not null,
-	Price numeric(35,16) not null,
-	FXRate numeric(35,16) not null,
-	CurrencyId int not null CONSTRAINT TradeEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
+	BuySellReasonId int not null CONSTRAINT TradeEventBuySellReasonIdFK FOREIGN KEY REFERENCES BuySellReason(BuySellReasonID),
+	TradedNet bit not null,
+	PriceIsClean bit not null,
+	TradeCurrencyId int not null CONSTRAINT TradeEventTradeCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
+	SettlementCurrencyId int not null CONSTRAINT TradeEventSettlementCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
+	NetConsideration numeric(27,8) not null,
+	GrossConsideration numeric(27,8) not null,
 	CounterpartyId int not null CONSTRAINT TradeEventCounterpartyIDFK FOREIGN KEY REFERENCES Counterparty(LegalEntityID),
+	TradeSettlementFXRate numeric(35,16) not null,
+	TradeSettlementFXRateMultiply bit not null,
+	TradeInstrumentFXRate numeric(35,16) not null,
+	TradeInstrumentFXRateMultiply bit not null,
+	InstrumentBookFXRate numeric(35,16) not null,
+	Ticket varchar(100),
+	IsCancelled bit not null,
+	AmendmentNumber int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT TradeEventUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 	)
 
+
+	
 create table DBO.CapitalEvent(
 	EventID int not null CONSTRAINT CapitalEventPK PRIMARY KEY,
 							   CONSTRAINT CapitalEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
@@ -97,10 +114,33 @@ create table Account (
 	DataVersion rowversion not null
 )	
 
-
 create unique index AccountNameUK on Account(Name)
 create unique index AccountExternalIdCustodianIdUK on Account(CustodianId,ExternalId)
 
+create table BuySellReason(
+	BuySellReasonID int identity(1,1) not null CONSTRAINT BuySellReasonPK PRIMARY KEY,
+	Code varchar(30),
+	Name varchar(200),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT BuySellReasonUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create unique index BuySellReasonCodeUK on BuySellReason(Code)
+create unique index BuySellReasonNameUK on BuySellReason(Name)
+
+create table MatchedStatus(
+	MatchedStatusID int identity(1,1) not null CONSTRAINT MatchedStatusPK PRIMARY KEY,
+	Code varchar(30),
+	Name varchar(200),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT MatchedStatusUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create unique index MatchedStatusCodeUK on MatchedStatus(Code)
+create unique index MatchedStatusNameUK on MatchedStatus(Name)
+          
 
 create table InternalAllocation(
 	InternalAllocationID int identity(1,1) not null CONSTRAINT InternalAllocationPK PRIMARY KEY,
@@ -108,14 +148,17 @@ create table InternalAllocation(
 	FMContEventInd varchar(1) not null,
 	FMContEventId int not null,
 	FMOriginalContEventId int not null,
-	IsMatched bit not null,
+	MatchedStatusId int not null CONSTRAINT InternalAllocationMatchedStatusIdFK FOREIGN KEY (MatchedStatusID) REFERENCES MatchedStatus(MatchedTypeID),
 	AccountID int not null CONSTRAINT InternalAllocationAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
 	BookID int not null CONSTRAINT InternalAllocationBookIDFK FOREIGN KEY (BookID) REFERENCES Book(BookID),
 	Quantity  numeric(27,8) not null,
+	IsCancelled bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT AccountAllocationUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )			
+
+alter table InternalAllocation add IsCancelled bit not null,
 
 create unique index InternalAllocationFMContEventIdUK on InternalAllocation(FMContEventInd,FMContEventId)
 create unique index InternalAllocationFMOriginalContEventIdUK on InternalAllocation(FMContEventInd,FMOriginalContEventId)

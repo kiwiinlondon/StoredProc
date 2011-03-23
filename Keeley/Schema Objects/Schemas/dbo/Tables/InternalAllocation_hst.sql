@@ -5,7 +5,6 @@ create table DBO.InternalAllocation_hst(
 	EventID int not null,
 	FMContEventInd varchar(1) not null,
 	FMContEventId int not null,
-	IsMatched bit not null,
 	AccountID int not null,
 	BookID int not null,
 	Quantity numeric(27,8) not null,
@@ -13,5 +12,7 @@ create table DBO.InternalAllocation_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	FMOriginalContEventId int not null,
+	IsCancelled bit not null,
+	MatchedStatusId int not null,
 	EndDt datetime,
 	LastActionUserID int)

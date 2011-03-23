@@ -17,11 +17,25 @@ CREATE PROCEDURE DBO.[TradeEvent_Insert]
 		@TradeDate datetime, 
 		@SettlementDate datetime, 
 		@TraderId int, 
+		@GrossPrice numeric(35,16), 
+		@NetPrice numeric(35,16), 
 		@Quantity numeric(27,8), 
-		@Price numeric(35,16), 
-		@FXRate numeric(35,16), 
-		@CurrencyId int, 
+		@BuySellReasonId int, 
+		@TradedNet bit, 
+		@PriceIsClean bit, 
+		@TradeCurrencyId int, 
+		@SettlementCurrencyId int, 
+		@NetConsideration numeric(27,8), 
+		@GrossConsideration numeric(27,8), 
 		@CounterpartyId int, 
+		@TradeSettlementFXRate numeric(35,16), 
+		@TradeSettlementFXRateMultiply bit, 
+		@TradeInstrumentFXRate numeric(35,16), 
+		@TradeInstrumentFXRateMultiply bit, 
+		@InstrumentBookFXRate numeric(35,16), 
+		@Ticket varchar(100), 
+		@IsCancelled bit, 
+		@AmendmentNumber int, 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -30,9 +44,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into TradeEvent
-			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, Quantity, Price, FXRate, CurrencyId, CounterpartyId, UpdateUserID, StartDt)
+			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, InstrumentBookFXRate, Ticket, IsCancelled, AmendmentNumber, UpdateUserID, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @Quantity, @Price, @FXRate, @CurrencyId, @CounterpartyId, @UpdateUserID, @StartDt)
+			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @GrossPrice, @NetPrice, @Quantity, @BuySellReasonId, @TradedNet, @PriceIsClean, @TradeCurrencyId, @SettlementCurrencyId, @NetConsideration, @GrossConsideration, @CounterpartyId, @TradeSettlementFXRate, @TradeSettlementFXRateMultiply, @TradeInstrumentFXRate, @TradeInstrumentFXRateMultiply, @InstrumentBookFXRate, @Ticket, @IsCancelled, @AmendmentNumber, @UpdateUserID, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	TradeEvent

@@ -16,13 +16,14 @@ CREATE PROCEDURE DBO.[InternalAllocation_Update]
 		@EventID int, 
 		@FMContEventInd varchar(1), 
 		@FMContEventId int, 
-		@IsMatched bit, 
 		@AccountID int, 
 		@BookID int, 
 		@Quantity numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@FMOriginalContEventId int
+		@FMOriginalContEventId int, 
+		@IsCancelled bit, 
+		@MatchedStatusId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			InternalAllocationID, EventID, FMContEventInd, FMContEventId, IsMatched, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, EndDt, LastActionUserID)
-	SELECT	InternalAllocationID, EventID, FMContEventInd, FMContEventId, IsMatched, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, @StartDt, @UpdateUserID
+			InternalAllocationID, EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, IsCancelled, MatchedStatusId, EndDt, LastActionUserID)
+	SELECT	InternalAllocationID, EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, IsCancelled, MatchedStatusId, @StartDt, @UpdateUserID
 	FROM	InternalAllocation
 	WHERE	InternalAllocationID = @InternalAllocationID
 
 	UPDATE	InternalAllocation
-	SET		EventID = @EventID, FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, IsMatched = @IsMatched, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, UpdateUserID = @UpdateUserID, FMOriginalContEventId = @FMOriginalContEventId,  StartDt = @StartDt
+	SET		EventID = @EventID, FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, UpdateUserID = @UpdateUserID, FMOriginalContEventId = @FMOriginalContEventId, IsCancelled = @IsCancelled, MatchedStatusId = @MatchedStatusId,  StartDt = @StartDt
 	WHERE	InternalAllocationID = @InternalAllocationID
 	AND		DataVersion = @DataVersion
 

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Event_hst (
-			EventID, EventTypeID, IsCancelled, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EventID, EventTypeID, IsCancelled, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			EventID, EventTypeID, StartDt, UpdateUserID, DataVersion, IdentifierTypeId, Identifier, EndDt, LastActionUserID)
+	SELECT	EventID, EventTypeID, StartDt, UpdateUserID, DataVersion, IdentifierTypeId, Identifier, @EndDt, @UpdateUserID
 	FROM	Event
 	WHERE	EventID = @EventID
 

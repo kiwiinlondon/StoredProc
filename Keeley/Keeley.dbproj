@@ -187,6 +187,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Book_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\BuySellReason_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -449,6 +461,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Market_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Delete.sql">

@@ -17,11 +17,25 @@ CREATE PROCEDURE DBO.[TradeEvent_Update]
 		@TradeDate datetime, 
 		@SettlementDate datetime, 
 		@TraderId int, 
+		@GrossPrice numeric(35,16), 
+		@NetPrice numeric(35,16), 
 		@Quantity numeric(27,8), 
-		@Price numeric(35,16), 
-		@FXRate numeric(35,16), 
-		@CurrencyId int, 
+		@BuySellReasonId int, 
+		@TradedNet bit, 
+		@PriceIsClean bit, 
+		@TradeCurrencyId int, 
+		@SettlementCurrencyId int, 
+		@NetConsideration numeric(27,8), 
+		@GrossConsideration numeric(27,8), 
 		@CounterpartyId int, 
+		@TradeSettlementFXRate numeric(35,16), 
+		@TradeSettlementFXRateMultiply bit, 
+		@TradeInstrumentFXRate numeric(35,16), 
+		@TradeInstrumentFXRateMultiply bit, 
+		@InstrumentBookFXRate numeric(35,16), 
+		@Ticket varchar(100), 
+		@IsCancelled bit, 
+		@AmendmentNumber int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -31,13 +45,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO TradeEvent_hst (
-			EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, Quantity, Price, FXRate, CurrencyId, CounterpartyId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, Quantity, Price, FXRate, CurrencyId, CounterpartyId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, InstrumentBookFXRate, Ticket, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, InstrumentBookFXRate, Ticket, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	TradeEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	TradeEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, TradeDate = @TradeDate, SettlementDate = @SettlementDate, TraderId = @TraderId, Quantity = @Quantity, Price = @Price, FXRate = @FXRate, CurrencyId = @CurrencyId, CounterpartyId = @CounterpartyId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, TradeDate = @TradeDate, SettlementDate = @SettlementDate, TraderId = @TraderId, GrossPrice = @GrossPrice, NetPrice = @NetPrice, Quantity = @Quantity, BuySellReasonId = @BuySellReasonId, TradedNet = @TradedNet, PriceIsClean = @PriceIsClean, TradeCurrencyId = @TradeCurrencyId, SettlementCurrencyId = @SettlementCurrencyId, NetConsideration = @NetConsideration, GrossConsideration = @GrossConsideration, CounterpartyId = @CounterpartyId, TradeSettlementFXRate = @TradeSettlementFXRate, TradeSettlementFXRateMultiply = @TradeSettlementFXRateMultiply, TradeInstrumentFXRate = @TradeInstrumentFXRate, TradeInstrumentFXRateMultiply = @TradeInstrumentFXRateMultiply, InstrumentBookFXRate = @InstrumentBookFXRate, Ticket = @Ticket, IsCancelled = @IsCancelled, AmendmentNumber = @AmendmentNumber, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

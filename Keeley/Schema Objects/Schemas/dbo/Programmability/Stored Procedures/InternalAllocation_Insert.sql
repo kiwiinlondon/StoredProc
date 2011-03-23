@@ -15,12 +15,13 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@EventID int, 
 		@FMContEventInd varchar(1), 
 		@FMContEventId int, 
-		@IsMatched bit, 
 		@AccountID int, 
 		@BookID int, 
 		@Quantity numeric(27,8), 
 		@UpdateUserID int, 
-		@FMOriginalContEventId int
+		@FMOriginalContEventId int, 
+		@IsCancelled bit, 
+		@MatchedStatusId int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAllocation
-			(EventID, FMContEventInd, FMContEventId, IsMatched, AccountID, BookID, Quantity, UpdateUserID, FMOriginalContEventId, StartDt)
+			(EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, UpdateUserID, FMOriginalContEventId, IsCancelled, MatchedStatusId, StartDt)
 	VALUES
-			(@EventID, @FMContEventInd, @FMContEventId, @IsMatched, @AccountID, @BookID, @Quantity, @UpdateUserID, @FMOriginalContEventId, @StartDt)
+			(@EventID, @FMContEventInd, @FMContEventId, @AccountID, @BookID, @Quantity, @UpdateUserID, @FMOriginalContEventId, @IsCancelled, @MatchedStatusId, @StartDt)
 
 	SELECT	InternalAllocationID, StartDt, DataVersion
 	FROM	InternalAllocation
