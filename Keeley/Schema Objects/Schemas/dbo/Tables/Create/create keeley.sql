@@ -287,19 +287,14 @@ create unique index IdentifierTypeFMIdentTypeIdNameUK on IdentifierType(FMIdentT
 
 create table DBO.FX
 (
-	InstrumentID int not null CONSTRAINT FXPK PRIMARY KEY,
-			 			   CONSTRAINT FXFK FOREIGN KEY (InstrumentID) REFERENCES Instrument(InstrumentID),
-	ReceiveCurrencyId int not null CONSTRAINT FXReceiveCurrencyFK FOREIGN KEY (ReceiveCurrencyID) REFERENCES Currency(InstrumentID),
-	PayCurrencyId int not null CONSTRAINT FXPayCurrencyFK FOREIGN KEY (PayCurrencyID) REFERENCES Currency(InstrumentID),
-	ReceiveAmount decimal(27,8) not null, 
-	PayAmount decimal(27,8) not null,
-	IsProp bit not null,
-	EnteredMultiply bit not null,
-	MaturityDate datetime not null,
+	EventID int not null CONSTRAINT FXPK PRIMARY KEY,
+			 			 CONSTRAINT FXEventIDFK FOREIGN KEY (EventId) REFERENCES FXTradeEvent(EventID) ,
+	InstrumentID int not null  CONSTRAINT FXInstrumentIdFK FOREIGN KEY REFERENCES Instrument(InstrumentID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT FXUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )
+create unique index FXInstrumentIDUK on FX(InstrumentID)
 
 create table DBO.Counterparty
 (

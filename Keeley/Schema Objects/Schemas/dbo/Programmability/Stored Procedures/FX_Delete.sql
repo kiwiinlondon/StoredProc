@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[FX_Delete]
 GO
 
 CREATE PROCEDURE DBO.[FX_Delete]
-		@InstrumentID int,
+		@EventID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FX_hst (
-			InstrumentID, ReceiveCurrencyId, PayCurrencyId, CounterpartyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentID, ReceiveCurrencyId, PayCurrencyId, CounterpartyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, MaturityDate, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			EventID, InstrumentID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	FX
-	WHERE	InstrumentID = @InstrumentID
+	WHERE	EventID = @EventID
 
 	DELETE	FX
-	WHERE	InstrumentID = @InstrumentID
+	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 GO

@@ -79,6 +79,28 @@ create table DBO.TradeEvent(
 	DataVersion rowversion not null
 	)
 
+create table DBO.FXTradeEvent
+(
+	EventID int not null CONSTRAINT FXTradeEventPK PRIMARY KEY,
+			 			   CONSTRAINT FXTradeEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	ReceiveCurrencyId int not null CONSTRAINT FXTradeReceiveCurrencyFK FOREIGN KEY REFERENCES Currency(InstrumentID),
+	PayCurrencyId int not null CONSTRAINT FXTradePayCurrencyFK FOREIGN KEY REFERENCES Currency(InstrumentID),
+	ReceiveAmount decimal(27,8) not null, 
+	PayAmount decimal(27,8) not null,
+	IsProp bit not null,
+	EnteredMultiply bit not null,
+	Ticket varchar(100),
+	IsCancelled bit not null,
+	IsForward bit not null,
+	CounterpartyId  int not null CONSTRAINT FXTradeEventCounterpartyIDFK FOREIGN KEY REFERENCES Counterparty(LegalEntityID),
+	AmendmentNumber int not null,
+	TradeDate datetime not null,
+	MaturityDate datetime not null,
+	TraderId  int not null CONSTRAINT FXTradeEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT FXTradeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
 
 	
 create table DBO.CapitalEvent(
@@ -217,7 +239,12 @@ INSERT INTO [Keeley].[dbo].[EventType]
 INSERT INTO [Keeley].[dbo].[EventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
-           ('Capital Event',GETDATE(),1)           
+           ('Capital Event',GETDATE(),1)      
+		   
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('FX Trade Event',GETDATE(),1)   		        
 GO
 
 create table DBO.PositionAccountMovement_hst(

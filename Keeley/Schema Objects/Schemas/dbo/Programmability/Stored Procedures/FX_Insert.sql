@@ -12,15 +12,8 @@ DROP PROCEDURE DBO.[FX_Insert]
 GO
 
 CREATE PROCEDURE DBO.[FX_Insert]
+		@EventID int, 
 		@InstrumentID int, 
-		@ReceiveCurrencyId int, 
-		@PayCurrencyId int, 
-		@CounterpartyId int, 
-		@ReceiveAmount decimal, 
-		@PayAmount decimal, 
-		@IsProp bit, 
-		@EnteredMultiply bit, 
-		@MaturityDate datetime, 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -29,13 +22,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FX
-			(InstrumentID, ReceiveCurrencyId, PayCurrencyId, CounterpartyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, MaturityDate, UpdateUserID, StartDt)
+			(EventID, InstrumentID, UpdateUserID, StartDt)
 	VALUES
-			(@InstrumentID, @ReceiveCurrencyId, @PayCurrencyId, @CounterpartyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @MaturityDate, @UpdateUserID, @StartDt)
+			(@EventID, @InstrumentID, @UpdateUserID, @StartDt)
 
-	SELECT	InstrumentID, StartDt, DataVersion
+	SELECT	EventID, StartDt, DataVersion
 	FROM	FX
-	WHERE	InstrumentID = @InstrumentID
+	WHERE	EventID = @EventID
 	AND		@@ROWCOUNT > 0
 
 GO

@@ -12,15 +12,8 @@ DROP PROCEDURE DBO.[FX_Update]
 GO
 
 CREATE PROCEDURE DBO.[FX_Update]
+		@EventID int, 
 		@InstrumentID int, 
-		@ReceiveCurrencyId int, 
-		@PayCurrencyId int, 
-		@CounterpartyId int, 
-		@ReceiveAmount decimal, 
-		@PayAmount decimal, 
-		@IsProp bit, 
-		@EnteredMultiply bit, 
-		@MaturityDate datetime, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -30,19 +23,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FX_hst (
-			InstrumentID, ReceiveCurrencyId, PayCurrencyId, CounterpartyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentID, ReceiveCurrencyId, PayCurrencyId, CounterpartyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, MaturityDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EventID, InstrumentID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	FX
-	WHERE	InstrumentID = @InstrumentID
+	WHERE	EventID = @EventID
 
 	UPDATE	FX
-	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, CounterpartyId = @CounterpartyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, MaturityDate = @MaturityDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	InstrumentID = @InstrumentID
+	SET		InstrumentID = @InstrumentID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	FX
-	WHERE	InstrumentID = @InstrumentID
+	WHERE	EventID = @EventID
 	AND		@@ROWCOUNT > 0
 
 GO
