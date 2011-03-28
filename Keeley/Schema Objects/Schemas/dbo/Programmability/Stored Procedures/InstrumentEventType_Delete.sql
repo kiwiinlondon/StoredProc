@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InstrumentEventType_hst (
-			InstrumentEventTypeID, Name, FmContClass, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentEventTypeID, Name, FmContClass, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentEventTypeID, Name, StartDt, UpdateUserID, DataVersion, FmCnevSubType, EndDt, LastActionUserID)
+	SELECT	InstrumentEventTypeID, Name, StartDt, UpdateUserID, DataVersion, FmCnevSubType, @EndDt, @UpdateUserID
 	FROM	InstrumentEventType
 	WHERE	InstrumentEventTypeID = @InstrumentEventTypeID
 

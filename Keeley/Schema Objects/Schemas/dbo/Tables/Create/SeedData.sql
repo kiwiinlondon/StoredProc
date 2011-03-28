@@ -101,6 +101,11 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
 INSERT INTO [Keeley].[dbo].[IdentifierType]
            ([FMIdentType],[Name],[StartDt],[UpdateUserID])
      VALUES      
+           (null, 'FM Charge Type',GETDATE(),1)  
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES      
            (null, 'Fund Manager Strategy',GETDATE(),1)  
 
 INSERT INTO [Keeley].[dbo].[IdentifierType]
@@ -117,6 +122,22 @@ INSERT INTO [Keeley].[dbo].[IdentifierType]
            ([FMIdentType],[Name],[StartDt],[UpdateUserID])
      VALUES      
            (null, 'Fund Manager XTFO Id',GETDATE(),1)   
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Original Contract Event Id',GETDATE(),1)
+
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Contract Event Id',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[IdentifierType]
+           ([FMIdentType],[Name],[StartDt],[UpdateUserID])
+     VALUES
+           (null, 'Fund Manager Contract Event Sub Type',GETDATE(),1)
 
 INSERT INTO [Keeley].[dbo].[Region]
            ([Name],[IsoCode],[StartDt],[UpdateUserID])

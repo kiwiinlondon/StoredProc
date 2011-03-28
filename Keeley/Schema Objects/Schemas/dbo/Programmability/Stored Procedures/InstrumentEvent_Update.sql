@@ -18,8 +18,10 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Update]
 		@EventDate datetime, 
 		@ValueDate datetime, 
 		@Quantity numeric(27,8), 
-		@Price numeric(35,16), 
 		@FXRate numeric(35,16), 
+		@FXRateMultiply bit, 
+		@AmendmentNumber int, 
+		@IsCancelled bit, 
 		@CurrencyId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -30,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentEvent_hst (
-			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, Price, FXRate, CurrencyId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, Price, FXRate, CurrencyId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	InstrumentEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, Price = @Price, FXRate = @FXRate, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, FXRate = @FXRate, FXRateMultiply = @FXRateMultiply, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

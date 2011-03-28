@@ -14,9 +14,9 @@ GO
 CREATE PROCEDURE DBO.[InstrumentEventType_Update]
 		@InstrumentEventTypeID int, 
 		@Name varchar(70), 
-		@FmContClass varchar(70), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@FmCnevSubType varchar(70)
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentEventType_hst (
-			InstrumentEventTypeID, Name, FmContClass, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentEventTypeID, Name, FmContClass, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentEventTypeID, Name, StartDt, UpdateUserID, DataVersion, FmCnevSubType, EndDt, LastActionUserID)
+	SELECT	InstrumentEventTypeID, Name, StartDt, UpdateUserID, DataVersion, FmCnevSubType, @StartDt, @UpdateUserID
 	FROM	InstrumentEventType
 	WHERE	InstrumentEventTypeID = @InstrumentEventTypeID
 
 	UPDATE	InstrumentEventType
-	SET		Name = @Name, FmContClass = @FmContClass, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, FmCnevSubType = @FmCnevSubType,  StartDt = @StartDt
 	WHERE	InstrumentEventTypeID = @InstrumentEventTypeID
 	AND		DataVersion = @DataVersion
 

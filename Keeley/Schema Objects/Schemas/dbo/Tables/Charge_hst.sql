@@ -1,15 +1,13 @@
 USE Keeley
 
-create table DBO.CapitalEvent_hst(
-	EventID int not null,
-	TradeDate datetime not null,
-	SettlementDate datetime not null,
+create table DBO.Charge_hst(
+	ChargeId int not null,
+	InternalAllocationID int not null,
+	ChargeTypeId int not null,
+	CurrencyId int not null,
 	Quantity numeric(27,8) not null,
 	FXRate numeric(35,16) not null,
 	FXRateMultiply bit not null,
-	AmendmentNumber int not null,
-	IsCancelled bit not null,
-	CurrencyId int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,

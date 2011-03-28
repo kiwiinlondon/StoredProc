@@ -4,7 +4,7 @@ create table DBO.ApplicationUser(
 	UserID int identity(2,1) not null CONSTRAINT ApplicationUserPK PRIMARY KEY,
 	FMPersID int,
 	Name varchar(100) not null,
-	Email varchar(100) not null,
+	Email varchar(100),
 	WindowsLogin varchar(100),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ApplicationUserUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -12,8 +12,8 @@ create table DBO.ApplicationUser(
 )
 
 create unique index ApplicationUserNameUK on ApplicationUser(Name)
-create unique index ApplicationUserWindowsLoginUK on ApplicationUser(WindowsLogin)
-create unique index ApplicationUserEmailUK on ApplicationUser(Email)
+create unique index ApplicationUserWindowsLoginUK on ApplicationUser(WindowsLogin) WHERE ([WindowsLogin] IS NOT NULL
+create unique index ApplicationUserEmailUK on ApplicationUser(Email) where Email is not null
 create unique index ApplicationUserFMPersIdUK on ApplicationUser(FMPersID) where FMPersID is not null
 
 create table DBO.Region (

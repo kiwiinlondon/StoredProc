@@ -11,7 +11,7 @@ create unique index EventTypeNameUK on EventType(Name)
 create table DBO.InstrumentEventType (
 	InstrumentEventTypeID int identity(1,1) not null CONSTRAINT InstrumentEventTypePK PRIMARY KEY nonclustered,
 	Name varchar(70) not null,
-	FmContClass varchar(70) not null,
+	FmCnevSubType varchar(70) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT InstrumentEventTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
@@ -39,8 +39,10 @@ create table DBO.InstrumentEvent(
 	EventDate DateTime not null,
 	ValueDate DateTime not null,
 	Quantity  numeric(27,8) not null,
-	Price numeric(35,16) not null,
 	FXRate numeric(35,16) not null,
+	FXRateMultiply bit not null,
+	AmendmentNumber int not null,
+	IsCancelled bit not null,
 	CurrencyId int not null  CONSTRAINT InstrumentEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),		
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT InstrumentEventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -90,10 +92,10 @@ create table DBO.FXTradeEvent
 	IsProp bit not null,
 	EnteredMultiply bit not null,
 	Ticket varchar(100),
-	IsCancelled bit not null,
 	IsForward bit not null,
 	CounterpartyId  int not null CONSTRAINT FXTradeEventCounterpartyIDFK FOREIGN KEY REFERENCES Counterparty(LegalEntityID),
 	AmendmentNumber int not null,
+	IsCancelled bit not null,
 	TradeDate datetime not null,
 	MaturityDate datetime not null,
 	TraderId  int not null CONSTRAINT FXTradeEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -110,6 +112,9 @@ create table DBO.CapitalEvent(
 	SettlementDate DateTime not null,
 	Quantity  numeric(27,8) not null,
 	FXRate numeric(35,16) not null,
+	FXRateMultiply bit not null,
+	AmendmentNumber int not null,
+	IsCancelled bit not null,
 	CurrencyId int not null CONSTRAINT CapitalEventCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT CapitalEventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -247,13 +252,23 @@ INSERT INTO [Keeley].[dbo].[EventType]
            ('FX Trade Event',GETDATE(),1)   		        
 GO
 
-create table DBO.PositionAccountMovement_hst(
-	PositionAccountMovementID int not null,
-	InternalAllocationID int not null,
-	PositionAccountID int not null,
-	Quantity numeric(27,8) not null,
+create table ChargeType(
+	ChargeTypeId  int identity(1,1) not null CONSTRAINT ChargeTypePK PRIMARY KEY,
+	Code varchar(30),
+	Name varchar(200),
 	StartDt datetime not null,
-	UpdateUserID int not null,
-	DataVersion binary(8) not null,
-	EndDt datetime,
-	LastActionUserID int)
+	UpdateUserID int not null CONSTRAINT ChargeTypeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)
+
+create table Charge(
+	ChargeId  int identity(1,1) not null CONSTRAINT ChargePK PRIMARY KEY,
+	InternalAllocationID int not null CONSTRAINT ChargeInternalAllocationIDFK FOREIGN KEY REFERENCES InternalAllocation(InternalAllocationID),
+	ReferenceDate DateTime not null,
+	ChargeTypeId int not null CONSTRAINT ChargeChargeTypeIDFK FOREIGN KEY REFERENCES ChargeType(ChargeTypeId),
+	CurrencyId int not null CONSTRAINT ChargeCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentId),
+	Quantity  numeric(27,8) not null,
+	FXRate numeric(35,16) not null,
+	FXRateMultiply bit not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ChargeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)

@@ -13,8 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[InstrumentEventType_Insert]
 		@Name varchar(70), 
-		@FmContClass varchar(70), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FmCnevSubType varchar(70)
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentEventType
-			(Name, FmContClass, UpdateUserID, StartDt)
+			(Name, UpdateUserID, FmCnevSubType, StartDt)
 	VALUES
-			(@Name, @FmContClass, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @FmCnevSubType, @StartDt)
 
 	SELECT	InstrumentEventTypeID, StartDt, DataVersion
 	FROM	InstrumentEventType
