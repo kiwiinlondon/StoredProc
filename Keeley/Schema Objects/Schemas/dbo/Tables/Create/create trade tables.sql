@@ -141,7 +141,7 @@ create table Account (
 	DataVersion rowversion not null
 )	
 
-create unique index AccountNameUK on Account(Name)
+create unique index AccountNameUK on Account(Name,CustodianId)
 create unique index AccountExternalIdCustodianIdUK on Account(CustodianId,ExternalId)
 
 create table BuySellReason(
@@ -272,3 +272,38 @@ create table Charge(
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ChargeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
+
+create table PortfolioAggregationLevel (
+	PortfolioAggregationLevelId int identity(1,1) not null CONSTRAINT PortfolioAggregationLevelPK PRIMARY KEY,
+	Name varchar2(50) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioAggregationLevelUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)
+
+create table DBO.PortfolioPositionAccountMovement(
+	PortfolioPositionAccountMovementID int identity(1,1) not null CONSTRAINT PortfolioPositionAccountMovementPK PRIMARY KEY,
+	PositionAccountMovementId int not null CONSTRAINT PortfolioPositionAccountMovementPositionAccountMovementIdFK FOREIGN KEY REFERENCES PositionAccountMovement(PositionAccountMovementId),
+	PositionAccountId int not null CONSTRAINT PortfolioPositionAccountMovementPositionAccountIdFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountId),
+	ReferenceDate DateTime not null,
+	PortfolioAggregationLevelId int not null CONSTRAINT PortfolioPositionAccountMovementPortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
+	ChangeNumber int not null,
+	Quantity numeric(27, 8) NOT NULL,
+	FXRate numeric(35, 16) NOT NULL,
+	Price numeric(35, 16) NOT NULL,
+	NetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	NetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	NetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	NetCostBookCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	DeltaNetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
+	NetPosition numeric (27, 8) NOT NULL,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountMovementUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)
+
+	create unique index PortfolioPositionAccountMovementUK on PortfolioPositionAccountMovement(PositionAccountMovementId,PortfolioAggregationLevelId)
+	create index PortfolioPositionAccountMovement1 on PortfolioPositionAccountMovement(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
+	create index PortfolioPositionAccountMovementUK2 on PortfolioPositionAccountMovement(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
+

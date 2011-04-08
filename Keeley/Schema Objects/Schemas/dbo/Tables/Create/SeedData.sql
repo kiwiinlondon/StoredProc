@@ -198,6 +198,16 @@ INSERT INTO [Keeley].[dbo].[MatchedStatus]
      VALUES
            ('NA','Not Applicable',GETDATE(),1)  
 
+	INSERT INTO [Keeley].[dbo].[PortfolioAggregationLevel]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Trade Date',getdate(),1)
+
+	INSERT INTO [Keeley].[dbo].[PortfolioAggregationLevel]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Settlement Date',getdate(),1)           
+           
 
 ALTER TABLE Instrument WITH CHECK CHECK CONSTRAINT all
 
