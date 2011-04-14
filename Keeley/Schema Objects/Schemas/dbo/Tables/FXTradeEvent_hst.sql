@@ -19,5 +19,7 @@ create table DBO.FXTradeEvent_hst(
 	DataVersion binary(8) not null,
 	TradeDate datetime not null,
 	IsForward bit not null,
+	PayBookXrate numeric(35,16) not null,
+	ReceiveBookXrate numeric(35,16) not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -16,7 +16,10 @@ CREATE PROCEDURE DBO.[PositionAccount_Update]
 		@AccountID int, 
 		@PositionId int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@BookID int, 
+		@InstrumentMarketID int, 
+		@CurrencyID int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PositionAccount_hst (
-			PositionAccountID, AccountID, PositionId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionAccountID, AccountID, PositionId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PositionAccountID, AccountID, PositionId, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EndDt, LastActionUserID)
+	SELECT	PositionAccountID, AccountID, PositionId, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, @StartDt, @UpdateUserID
 	FROM	PositionAccount
 	WHERE	PositionAccountID = @PositionAccountID
 
 	UPDATE	PositionAccount
-	SET		AccountID = @AccountID, PositionId = @PositionId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		AccountID = @AccountID, PositionId = @PositionId, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID,  StartDt = @StartDt
 	WHERE	PositionAccountID = @PositionAccountID
 	AND		DataVersion = @DataVersion
 

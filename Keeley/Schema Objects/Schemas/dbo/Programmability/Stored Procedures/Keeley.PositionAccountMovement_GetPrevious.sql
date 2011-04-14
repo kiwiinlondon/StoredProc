@@ -5,13 +5,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[PortfolioPositionAccountMovement_GetPrevious]')
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[PositionAccountMovement_GetPrevious]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
-DROP PROCEDURE DBO.[PortfolioPositionAccountMovement_GetPrevious]
+DROP PROCEDURE DBO.PositionAccountMovement_GetPrevious
 GO
 
-CREATE PROCEDURE [DBO].[PortfolioPositionAccountMovement_GetPrevious]
+CREATE PROCEDURE [DBO].[PositionAccountMovement_GetPrevious]
 		@PositionAccountID int,
 		@ReferenceDate date,
 		@PortfolioAggregationLevelId int,
@@ -20,18 +20,16 @@ AS
 
 DECLARE @ChangeNumber int
 
-DECLARE @ChangeNumber int
-
 if @PositionAccountMovementId is null 
 	begin
 		SELECT	@ChangeNumber = MAX(m.ChangeNumber)
-		FROM	PortfolioPositionAccountMovement m
+		FROM	PositionAccountMovement m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ReferenceDate <= @ReferenceDate
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
 		
 		SELECT	*
-		FROM	PortfolioPositionAccountMovement m
+		FROM	PositionAccountMovement m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ChangeNumber = @ChangeNumber
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
@@ -39,14 +37,14 @@ if @PositionAccountMovementId is null
 else
 	begin
 		SELECT	@ChangeNumber = MAX(m.ChangeNumber)
-		FROM	PortfolioPositionAccountMovement m
+		FROM	PositionAccountMovement m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ReferenceDate <= @ReferenceDate
 		AND		m.PositionAccountMovementId != @PositionAccountMovementId
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
 		
 		SELECT	*
-		FROM	PortfolioPositionAccountMovement m
+		FROM	PositionAccountMovement m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ChangeNumber = @ChangeNumber
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId

@@ -12,7 +12,8 @@ DROP PROCEDURE DBO.[Charge_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Charge_Insert]
-		@InternalAllocationID int, 
+		@EventID int, 
+		@ReferenceDate datetime, 
 		@ChargeTypeId int, 
 		@CurrencyId int, 
 		@Quantity numeric(27,8), 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Charge
-			(InternalAllocationID, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, UpdateUserID, StartDt)
+			(EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, UpdateUserID, StartDt)
 	VALUES
-			(@InternalAllocationID, @ChargeTypeId, @CurrencyId, @Quantity, @FXRate, @FXRateMultiply, @UpdateUserID, @StartDt)
+			(@EventID, @ReferenceDate, @ChargeTypeId, @CurrencyId, @Quantity, @FXRate, @FXRateMultiply, @UpdateUserID, @StartDt)
 
 	SELECT	ChargeId, StartDt, DataVersion
 	FROM	Charge

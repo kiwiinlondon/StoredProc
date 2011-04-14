@@ -15,13 +15,14 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@EventID int, 
 		@FMContEventInd varchar(1), 
 		@FMContEventId int, 
+		@FMOriginalContEventId int, 
+		@MatchedStatusId int, 
 		@AccountID int, 
 		@BookID int, 
 		@Quantity numeric(27,8), 
-		@UpdateUserID int, 
-		@FMOriginalContEventId int, 
 		@IsCancelled bit, 
-		@MatchedStatusId int
+		@UpdateUserID int, 
+		@ParentEventId int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAllocation
-			(EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, UpdateUserID, FMOriginalContEventId, IsCancelled, MatchedStatusId, StartDt)
+			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, StartDt)
 	VALUES
-			(@EventID, @FMContEventInd, @FMContEventId, @AccountID, @BookID, @Quantity, @UpdateUserID, @FMOriginalContEventId, @IsCancelled, @MatchedStatusId, @StartDt)
+			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @StartDt)
 
-	SELECT	InternalAllocationID, StartDt, DataVersion
+	SELECT	EventID, StartDt, DataVersion
 	FROM	InternalAllocation
-	WHERE	InternalAllocationID = SCOPE_IDENTITY()
+	WHERE	EventID = @EventID
 	AND		@@ROWCOUNT > 0
 
 GO

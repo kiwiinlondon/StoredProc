@@ -14,7 +14,10 @@ GO
 CREATE PROCEDURE DBO.[PositionAccount_Insert]
 		@AccountID int, 
 		@PositionId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@BookID int, 
+		@InstrumentMarketID int, 
+		@CurrencyID int
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PositionAccount
-			(AccountID, PositionId, UpdateUserID, StartDt)
+			(AccountID, PositionId, UpdateUserID, BookID, InstrumentMarketID, CurrencyID, StartDt)
 	VALUES
-			(@AccountID, @PositionId, @UpdateUserID, @StartDt)
+			(@AccountID, @PositionId, @UpdateUserID, @BookID, @InstrumentMarketID, @CurrencyID, @StartDt)
 
 	SELECT	PositionAccountID, StartDt, DataVersion
 	FROM	PositionAccount

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PositionAccountMovement_hst (
-			PositionAccountMovementID, InternalAllocationID, PositionAccountID, Quantity, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionAccountMovementID, InternalAllocationID, PositionAccountID, Quantity, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PositionAccountMovementID, InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PositionAccountMovementID, InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	PositionAccountMovement
 	WHERE	PositionAccountMovementID = @PositionAccountMovementID
 

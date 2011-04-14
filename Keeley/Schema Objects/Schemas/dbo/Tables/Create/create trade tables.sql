@@ -49,7 +49,6 @@ create table DBO.InstrumentEvent(
 	DataVersion rowversion not null
 )
 	
-drop table TradeEvent
 create table DBO.TradeEvent(
 	EventID int not null CONSTRAINT TradeEventPK PRIMARY KEY,
 							   CONSTRAINT TradeEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
@@ -81,6 +80,35 @@ create table DBO.TradeEvent(
 	DataVersion rowversion not null
 	)
 
+create table DBO.InternalAccountingEventType (
+	InternalAccountingEventTypeID int identity(1,1) not null CONSTRAINT InternalAccountingEventTypePK PRIMARY KEY nonclustered,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InternalAccountingEventTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create table DBO.InternalAccountingEvent(
+	EventID int not null CONSTRAINT InternalAccountingEventPK PRIMARY KEY,
+							   CONSTRAINT InternalAccountingEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	InstrumentMarketID int not null CONSTRAINT InternalAccountingEventInstrumentMarketIDFK FOREIGN KEY REFERENCES InstrumentMarket(InstrumentMarketID),
+	InternalAccountingEventTypeId int not null  CONSTRAINT InternalAccountingEventInternalAccountingEventTypeIdFK FOREIGN KEY REFERENCES InternalAccountingEventType(InternalAccountingEventTypeID),
+	TradeDate DateTime not null,
+	SettlementDate DateTime not null,
+	TraderId  int not null CONSTRAINT InternalAccountingEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	NetPrice numeric(35,16) not null,
+	GrossPrice numeric(35,16) not null,
+	Quantity  numeric(27,8) not null,	
+	NetConsideration numeric(27,8) not null,
+	InstrumentBookFXRate numeric(35,16) not null,
+	IsCancelled bit not null,
+	AmendmentNumber int not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InternalAccountingEventUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+
+
 create table DBO.FXTradeEvent
 (
 	EventID int not null CONSTRAINT FXTradeEventPK PRIMARY KEY,
@@ -98,6 +126,8 @@ create table DBO.FXTradeEvent
 	IsCancelled bit not null,
 	TradeDate datetime not null,
 	MaturityDate datetime not null,
+	PayBookXrate numeric(35,16) not null,
+	ReceiveBookXrate numeric(35,16) not null,
 	TraderId  int not null CONSTRAINT FXTradeEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT FXTradeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
@@ -169,13 +199,14 @@ create unique index MatchedStatusCodeUK on MatchedStatus(Code)
 create unique index MatchedStatusNameUK on MatchedStatus(Name)
           
 
-create table InternalAllocation(
-	InternalAllocationID int identity(1,1) not null CONSTRAINT InternalAllocationPK PRIMARY KEY,
-	EventID int not null CONSTRAINT InternalAllocationEventIDFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+create table DBO.InternalAllocation(
+	EventID int not null CONSTRAINT InternalAllocationEventPK PRIMARY KEY,
+							   CONSTRAINT InternalAllocationEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
+	ParentEventId int not null CONSTRAINT InternalAllocationParentEventIdFK FOREIGN KEY (ParentEventID) REFERENCES Event(EventID),
 	FMContEventInd varchar(1) not null,
 	FMContEventId int not null,
 	FMOriginalContEventId int not null,
-	MatchedStatusId int not null CONSTRAINT InternalAllocationMatchedStatusIdFK FOREIGN KEY (MatchedStatusID) REFERENCES MatchedStatus(MatchedTypeID),
+	MatchedStatusId int not null CONSTRAINT InternalAllocationMatchedStatusIdFK FOREIGN KEY (MatchedStatusID) REFERENCES MatchedStatus(MatchedStatusID),
 	AccountID int not null CONSTRAINT InternalAllocationAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
 	BookID int not null CONSTRAINT InternalAllocationBookIDFK FOREIGN KEY (BookID) REFERENCES Book(BookID),
 	Quantity  numeric(27,8) not null,
@@ -185,51 +216,27 @@ create table InternalAllocation(
 	DataVersion rowversion not null
 )			
 
-alter table InternalAllocation add IsCancelled bit not null,
 
 create unique index InternalAllocationFMContEventIdUK on InternalAllocation(FMContEventInd,FMContEventId)
 create unique index InternalAllocationFMOriginalContEventIdUK on InternalAllocation(FMContEventInd,FMOriginalContEventId)
+create unique index InternalAllocationUK on InternalAllocation(ParentEventId,BookID,AccountID)
+
 
 create table PositionAccount(
 	PositionAccountID int identity(1,1) not null CONSTRAINT PositionAccountPK PRIMARY KEY,
 	AccountID int not null CONSTRAINT PositionAccountAccountIDFK FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+	BookID int not null CONSTRAINT PositionAccountBookIDFK FOREIGN KEY REFERENCES Book(BookID),
+	InstrumentMarketID int not null CONSTRAINT PositionAccountInstrumentMarketIDFK FOREIGN KEY REFERENCES InstrumentMarket(InstrumentMarketID),
+	CurrencyID int not null CONSTRAINT PositionAccountCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),	
 	PositionId int not null CONSTRAINT PositionAccountPositionIDFK FOREIGN KEY (PositionID) REFERENCES Position(PositionID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT PositionAccountUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+create unique index PositionAccountUK on PositionAccount(positionId, AccountId)
+create unique index PositionAccountUK2 on PositionAccount(BookId,InstrumentMarketID,CurrencyID, AccountId)
 
-create table PositionAccountMovement(
-	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
-	InternalAllocationID int not null CONSTRAINT PositionAccountMovementInternalAllocationIDFK FOREIGN KEY REFERENCES InternalAllocation(InternalAllocationID),
-	PositionAccountID int not null CONSTRAINT PositionAccountMovementPositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
-	Quantity  numeric(27,8) not null,
-	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PositionAccountMovementUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
-	DataVersion rowversion not null
-)	
 
-create table PortfolioPositionAccountTradeDate(
-	PortfolioPositionAccountTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountTradeDatePK PRIMARY KEY,
-	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountTradeDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
-	ReferenceDate DateTime not null,
-	Quantity  numeric(27,8) not null,
-	TotalCost numeric(27,8) not null,
-	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountTradeDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
-	DataVersion rowversion not null
-)	
-
-create table PortfolioPositionAccountSettlementDate(
-	PortfolioPositionAccountSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountSettlementDatePK PRIMARY KEY,
-	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
-	ReferenceDate DateTime not null,
-	Quantity  numeric(27,8) not null,
-	TotalCost numeric(27,8) not null,
-	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
-	DataVersion rowversion not null
-)	
 
 INSERT INTO [Keeley].[dbo].[EventType]
            ([Name],[StartDt],[UpdateUserID])
@@ -250,6 +257,11 @@ INSERT INTO [Keeley].[dbo].[EventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('FX Trade Event',GETDATE(),1)   		        
+
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Internal Allocation',GETDATE(),1) 
 GO
 
 create table ChargeType(
@@ -262,7 +274,7 @@ create table ChargeType(
 
 create table Charge(
 	ChargeId  int identity(1,1) not null CONSTRAINT ChargePK PRIMARY KEY,
-	InternalAllocationID int not null CONSTRAINT ChargeInternalAllocationIDFK FOREIGN KEY REFERENCES InternalAllocation(InternalAllocationID),
+	EventID int not null CONSTRAINT ChargeEventIDFK FOREIGN KEY REFERENCES Event(EventID),
 	ReferenceDate DateTime not null,
 	ChargeTypeId int not null CONSTRAINT ChargeChargeTypeIDFK FOREIGN KEY REFERENCES ChargeType(ChargeTypeId),
 	CurrencyId int not null CONSTRAINT ChargeCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentId),
@@ -280,12 +292,12 @@ create table PortfolioAggregationLevel (
 	UpdateUserID int not null CONSTRAINT PortfolioAggregationLevelUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
-create table DBO.PortfolioPositionAccountMovement(
-	PortfolioPositionAccountMovementID int identity(1,1) not null CONSTRAINT PortfolioPositionAccountMovementPK PRIMARY KEY,
-	PositionAccountMovementId int not null CONSTRAINT PortfolioPositionAccountMovementPositionAccountMovementIdFK FOREIGN KEY REFERENCES PositionAccountMovement(PositionAccountMovementId),
-	PositionAccountId int not null CONSTRAINT PortfolioPositionAccountMovementPositionAccountIdFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountId),
+create table DBO.PositionAccountMovement(
+	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
+	InternalAllocationId int not null CONSTRAINT PositionAccountMovementPositionInternalAllocationIdFK FOREIGN KEY REFERENCES InternalAllocation(EventId),
+	PositionAccountId int not null CONSTRAINT PositionAccountMovementPositionAccountIdFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountId),
 	ReferenceDate DateTime not null,
-	PortfolioAggregationLevelId int not null CONSTRAINT PortfolioPositionAccountMovementPortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
+	PortfolioAggregationLevelId int not null CONSTRAINT PositionAccountMovementPortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
 	ChangeNumber int not null,
 	Quantity numeric(27, 8) NOT NULL,
 	FXRate numeric(35, 16) NOT NULL,
@@ -300,10 +312,43 @@ create table DBO.PortfolioPositionAccountMovement(
 	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
 	NetPosition numeric (27, 8) NOT NULL,
 	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountMovementUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	UpdateUserID int not null CONSTRAINT PositionAccountMovementUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
-	create unique index PortfolioPositionAccountMovementUK on PortfolioPositionAccountMovement(PositionAccountMovementId,PortfolioAggregationLevelId)
-	create index PortfolioPositionAccountMovement1 on PortfolioPositionAccountMovement(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
-	create index PortfolioPositionAccountMovementUK2 on PortfolioPositionAccountMovement(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
+	create unique index PositionAccountMovementUK on PositionAccountMovement(PositionAccountMovementId,PortfolioAggregationLevelId)
+	create index PositionAccountMovement1 on PositionAccountMovement(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
+	create index PositionAccountMovement2 on PositionAccountMovement(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
 
+create table PortfolioPositionAccountTradeDate(
+	PortfolioPositionAccountTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountTradeDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountTradeDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	ReferenceDate DateTime not null,
+	NetPosition  numeric(27,8) not null,
+	TotalCost numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountTradeDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+
+create table PortfolioPositionAccountSettlementDate(
+	PortfolioPositionAccountSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountSettlementDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	ReferenceDate DateTime not null,
+	NetPosition  numeric(27,8) not null,
+	TotalBuy numeric(27,8) not null,
+	TotalSell numeric(27,8) not null,
+	TotalBuyForTurnover numeric(27,8) not null,
+	TotalSellForTurnover numeric(27,8) not null,
+	NetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	NetCostBookCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
+	TotalDeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TotalDeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	TotalNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TotalNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	TotalCost numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	

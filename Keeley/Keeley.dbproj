@@ -439,6 +439,30 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InstrumentRelationship_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InternalAccountingEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InternalAccountingEventType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -547,18 +571,6 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\PortfolioChangeControl_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioPositionAccountMovement_Delete.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioPositionAccountMovement_Insert.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioPositionAccountMovement_Update.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\PortfolioPositionAccountMovement_hst.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioPositionAccountSettlementDate_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -660,7 +672,7 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Keeley.Portfolio_GetForFMRec.proc.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Keeley.PortfolioPositionAccountMovement_GetPrevious.sql">
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Keeley.PositionAccountMovement_GetPrevious.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>

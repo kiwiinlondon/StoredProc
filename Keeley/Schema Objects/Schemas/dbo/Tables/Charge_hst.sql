@@ -2,7 +2,8 @@ USE Keeley
 
 create table DBO.Charge_hst(
 	ChargeId int not null,
-	InternalAllocationID int not null,
+	EventID int not null,
+	ReferenceDate datetime not null,
 	ChargeTypeId int not null,
 	CurrencyId int not null,
 	Quantity numeric(27,8) not null,

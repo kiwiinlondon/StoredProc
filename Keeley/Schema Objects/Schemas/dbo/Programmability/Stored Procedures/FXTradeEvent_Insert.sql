@@ -27,7 +27,9 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Insert]
 		@TraderId int, 
 		@UpdateUserID int, 
 		@TradeDate datetime, 
-		@IsForward bit
+		@IsForward bit, 
+		@PayBookXrate numeric(35,16), 
+		@ReceiveBookXrate numeric(35,16)
 AS
 	SET NOCOUNT ON
 
@@ -35,9 +37,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXTradeEvent
-			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, StartDt)
+			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, StartDt)
 	VALUES
-			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @StartDt)
+			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @PayBookXrate, @ReceiveBookXrate, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	FXTradeEvent

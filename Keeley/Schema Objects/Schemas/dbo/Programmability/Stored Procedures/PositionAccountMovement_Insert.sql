@@ -12,9 +12,23 @@ DROP PROCEDURE DBO.[PositionAccountMovement_Insert]
 GO
 
 CREATE PROCEDURE DBO.[PositionAccountMovement_Insert]
-		@InternalAllocationID int, 
-		@PositionAccountID int, 
+		@InternalAllocationId int, 
+		@PositionAccountId int, 
+		@ReferenceDate datetime, 
+		@PortfolioAggregationLevelId int, 
+		@ChangeNumber int, 
 		@Quantity numeric(27,8), 
+		@FXRate numeric(35,16), 
+		@Price numeric(35,16), 
+		@NetCostChangeInstrumentCurrency numeric(27,8), 
+		@NetCostChangeBookCurrency numeric(27,8), 
+		@NetCostInstrumentCurrency numeric(27,8), 
+		@NetCostBookCurrency numeric(27,8), 
+		@DeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@DeltaNetCostChangeBookCurrency numeric(27,8), 
+		@DeltaNetCostInstrumentCurrency numeric(27,8), 
+		@DeltaNetCostBookCurrency numeric(27,8), 
+		@NetPosition numeric(27,8), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -23,9 +37,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PositionAccountMovement
-			(InternalAllocationID, PositionAccountID, Quantity, UpdateUserID, StartDt)
+			(InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, UpdateUserID, StartDt)
 	VALUES
-			(@InternalAllocationID, @PositionAccountID, @Quantity, @UpdateUserID, @StartDt)
+			(@InternalAllocationId, @PositionAccountId, @ReferenceDate, @PortfolioAggregationLevelId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @NetPosition, @UpdateUserID, @StartDt)
 
 	SELECT	PositionAccountMovementID, StartDt, DataVersion
 	FROM	PositionAccountMovement

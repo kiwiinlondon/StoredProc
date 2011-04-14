@@ -28,7 +28,9 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@TradeDate datetime, 
-		@IsForward bit
+		@IsForward bit, 
+		@PayBookXrate numeric(35,16), 
+		@ReceiveBookXrate numeric(35,16)
 AS
 	SET NOCOUNT ON
 
@@ -36,13 +38,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXTradeEvent_hst (
-			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, EndDt, LastActionUserID)
-	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, @StartDt, @UpdateUserID
+			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, EndDt, LastActionUserID)
+	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, @StartDt, @UpdateUserID
 	FROM	FXTradeEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	FXTradeEvent
-	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward,  StartDt = @StartDt
+	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, PayBookXrate = @PayBookXrate, ReceiveBookXrate = @ReceiveBookXrate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

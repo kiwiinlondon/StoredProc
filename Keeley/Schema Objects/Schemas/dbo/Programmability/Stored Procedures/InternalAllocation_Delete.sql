@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[InternalAllocation_Delete]
 GO
 
 CREATE PROCEDURE DBO.[InternalAllocation_Delete]
-		@InternalAllocationID int,
+		@EventID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			InternalAllocationID, EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, IsCancelled, MatchedStatusId, EndDt, LastActionUserID)
-	SELECT	InternalAllocationID, EventID, FMContEventInd, FMContEventId, AccountID, BookID, Quantity, StartDt, UpdateUserID, DataVersion, FMOriginalContEventId, IsCancelled, MatchedStatusId, @EndDt, @UpdateUserID
+			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EndDt, LastActionUserID)
+	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, @EndDt, @UpdateUserID
 	FROM	InternalAllocation
-	WHERE	InternalAllocationID = @InternalAllocationID
+	WHERE	EventID = @EventID
 
 	DELETE	InternalAllocation
-	WHERE	InternalAllocationID = @InternalAllocationID
+	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 GO
