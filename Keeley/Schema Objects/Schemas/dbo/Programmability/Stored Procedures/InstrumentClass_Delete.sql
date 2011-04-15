@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InstrumentClass_hst (
-			InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	InstrumentClass
 	WHERE	InstrumentClassID = @InstrumentClassID
 

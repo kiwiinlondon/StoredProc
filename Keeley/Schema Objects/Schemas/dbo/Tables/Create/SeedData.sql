@@ -209,6 +209,15 @@ INSERT INTO [Keeley].[dbo].[MatchedStatus]
            ('Settlement Date',getdate(),1)           
            
 
+	INSERT INTO [Keeley].[dbo].[InstrumentClassHierarchy]
+			   ([Name],[StartDt],[UpdateUserID])
+		 VALUES
+			   ('Fund Manager',GETDATE(),1)
+
+	INSERT INTO [Keeley].[dbo].[InstrumentClassHierarchy]
+			   ([Name],[StartDt],[UpdateUserID])
+		 VALUES
+			   ('Odey',GETDATE(),1)         
 ALTER TABLE Instrument WITH CHECK CHECK CONSTRAINT all
 
 DBCC CHECKIDENT (InstrumentClass, reseed, 0)

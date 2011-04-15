@@ -13,7 +13,6 @@ GO
 
 CREATE PROCEDURE DBO.[InstrumentClass_Update]
 		@InstrumentClassID int, 
-		@ParentInstrumentClassID int, 
 		@FMInstClass varchar(100), 
 		@Name varchar(100), 
 		@UpdateUserID int, 
@@ -25,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentClass_hst (
-			InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentClassID, ParentInstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	InstrumentClass
 	WHERE	InstrumentClassID = @InstrumentClassID
 
 	UPDATE	InstrumentClass
-	SET		ParentInstrumentClassID = @ParentInstrumentClassID, FMInstClass = @FMInstClass, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FMInstClass = @FMInstClass, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	InstrumentClassID = @InstrumentClassID
 	AND		DataVersion = @DataVersion
 

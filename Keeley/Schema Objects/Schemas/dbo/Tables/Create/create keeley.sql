@@ -75,9 +75,17 @@ create table DBO.Issuer
 	DataVersion rowversion not null
 )
 
+create table DBO.InstrumentClassHierarchy (
+	InstrumentClassHierarchyId int identity(1,1) not null CONSTRAINT InstrumentClassHierarchyPK PRIMARY KEY,
+	Name varchar(50) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InstrumentClassHierarchyUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)
+
+create unique index InstrumentClassHierarchyUK on InstrumentClassHierarchy(Name)
+
 create table DBO.InstrumentClass (
 	InstrumentClassID int identity(1,1) not null CONSTRAINT InstrumentClassPK PRIMARY KEY,	
-	ParentInstrumentClassID int null CONSTRAINT InstrumentClassParentInstrumentClassIDFK FOREIGN KEY REFERENCES InstrumentClass(InstrumentClassID), 
 	FMInstClass varchar(100),
 	Name varchar(100) not null,	
 	StartDt datetime not null,
@@ -87,6 +95,20 @@ create table DBO.InstrumentClass (
 
 create unique index InstrumentClassNameUK on InstrumentClass(Name)
 create unique index InstrumentClassFMInstClassUK on InstrumentClass(FMInstClass) where FMInstClass is not null
+
+create table DBO.InstrumentClassRelationship (
+	InstrumentClassRelationshipID int identity(1,1) not null CONSTRAINT InstrumentClassRelationshipPK PRIMARY KEY,	
+	InstrumentClassID int not null CONSTRAINT InstrumentClassRelationshipInstrumentClassIDFK FOREIGN KEY REFERENCES InstrumentClass(InstrumentClassID), 
+	ParentInstrumentClassID int not null CONSTRAINT InstrumentClassRelationshipParentInstrumentClassIDFK FOREIGN KEY REFERENCES InstrumentClass(InstrumentClassID), 
+	InstrumentClassHierarchyId int not null CONSTRAINT InstrumentClassRelationshipInstrumentClassHierarchyIdFK FOREIGN KEY REFERENCES InstrumentClassHierarchy(InstrumentClassHierarchyId), 
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT InstrumentClassRelationshipUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)
+
+create unique index InstrumentClassRelationshipUK on InstrumentClassRelationship(InstrumentClassID,InstrumentClassHierarchyId)
+
+
 
 create table DBO.Instrument (
 	InstrumentID int identity(1,1) not null CONSTRAINT InstrumentPK PRIMARY KEY,

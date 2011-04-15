@@ -12,7 +12,6 @@ DROP PROCEDURE DBO.[InstrumentClass_Insert]
 GO
 
 CREATE PROCEDURE DBO.[InstrumentClass_Insert]
-		@ParentInstrumentClassID int, 
 		@FMInstClass varchar(100), 
 		@Name varchar(100), 
 		@UpdateUserID int
@@ -23,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentClass
-			(ParentInstrumentClassID, FMInstClass, Name, UpdateUserID, StartDt)
+			(FMInstClass, Name, UpdateUserID, StartDt)
 	VALUES
-			(@ParentInstrumentClassID, @FMInstClass, @Name, @UpdateUserID, @StartDt)
+			(@FMInstClass, @Name, @UpdateUserID, @StartDt)
 
 	SELECT	InstrumentClassID, StartDt, DataVersion
 	FROM	InstrumentClass

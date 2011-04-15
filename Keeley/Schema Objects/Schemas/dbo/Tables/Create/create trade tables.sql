@@ -262,6 +262,11 @@ INSERT INTO [Keeley].[dbo].[EventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Internal Allocation',GETDATE(),1) 
+
+INSERT INTO [Keeley].[dbo].[EventType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Internal Accounting Event',GETDATE(),1) 
 GO
 
 create table ChargeType(
@@ -292,6 +297,8 @@ create table PortfolioAggregationLevel (
 	UpdateUserID int not null CONSTRAINT PortfolioAggregationLevelUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
+create unique index PortfolioAggregationLevelUK on PortfolioAggregationLevel(Name)
+
 create table PositionAccountMovementType (
 	PositionAccountMovementTypeId int identity(1,1) not null CONSTRAINT PositionAccountMovementTypePK PRIMARY KEY,
 	Name varchar(50) not null,
@@ -299,6 +306,7 @@ create table PositionAccountMovementType (
 	UpdateUserID int not null CONSTRAINT PositionAccountMovementTypeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
+create unique index PositionAccountMovementTypeUK on PositionAccountMovementType(Name)
 
 create table DBO.PositionAccountMovement(
 	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
@@ -397,3 +405,8 @@ INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Instrument Event',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Cash From Trading',GETDATE(),1)

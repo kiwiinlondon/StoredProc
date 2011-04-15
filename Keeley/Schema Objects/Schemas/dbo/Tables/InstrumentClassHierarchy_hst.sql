@@ -1,9 +1,8 @@
 USE Keeley
 
-create table DBO.InstrumentClass_hst(
-	InstrumentClassID int not null,
-	FMInstClass varchar(100),
-	Name varchar(100) not null,
+create table DBO.InstrumentClassHierarchy_hst(
+	InstrumentClassHierarchyId int not null,
+	Name varchar(50) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
