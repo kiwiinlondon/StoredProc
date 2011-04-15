@@ -287,10 +287,18 @@ create table Charge(
 
 create table PortfolioAggregationLevel (
 	PortfolioAggregationLevelId int identity(1,1) not null CONSTRAINT PortfolioAggregationLevelPK PRIMARY KEY,
-	Name varchar2(50) not null,
+	Name varchar(50) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT PortfolioAggregationLevelUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
+
+create table PositionAccountMovementType (
+	PositionAccountMovementTypeId int identity(1,1) not null CONSTRAINT PositionAccountMovementTypePK PRIMARY KEY,
+	Name varchar(50) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PositionAccountMovementTypeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null)
+
 
 create table DBO.PositionAccountMovement(
 	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
@@ -298,6 +306,7 @@ create table DBO.PositionAccountMovement(
 	PositionAccountId int not null CONSTRAINT PositionAccountMovementPositionAccountIdFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountId),
 	ReferenceDate DateTime not null,
 	PortfolioAggregationLevelId int not null CONSTRAINT PositionAccountMovementPortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
+	PositionAccountMovementTypeId int not null CONSTRAINT PositionAccountMovementPositionAccountMovementTypeIdFK FOREIGN KEY REFERENCES PositionAccountMovementType(PositionAccountMovementTypeId),
 	ChangeNumber int not null,
 	Quantity numeric(27, 8) NOT NULL,
 	FXRate numeric(35, 16) NOT NULL,
@@ -334,21 +343,57 @@ create table PortfolioPositionAccountSettlementDate(
 	PortfolioPositionAccountSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountSettlementDatePK PRIMARY KEY,
 	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
 	ReferenceDate DateTime not null,
-	NetPosition  numeric(27,8) not null,
-	TotalBuy numeric(27,8) not null,
-	TotalSell numeric(27,8) not null,
-	TotalBuyForTurnover numeric(27,8) not null,
-	TotalSellForTurnover numeric(27,8) not null,
+	NetPosition  numeric(27,8) not null,	
+	NetPostionChange numeric(27,8) not null,	
 	NetCostInstrumentCurrency numeric(27, 8) NOT NULL,
 	NetCostBookCurrency numeric(27, 8) NOT NULL,
 	DeltaNetCostInstrumentCurrency numeric(27, 8) NOT NULL,
 	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
-	TotalDeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
-	TotalDeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
-	TotalNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
-	TotalNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
-	TotalCost numeric(27,8) not null,
+	DeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	NetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	NetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Equity Trade',GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Non Equity Trade',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Proprietary FX Trade',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Hedging FX Trade',GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Subscription',GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Redemption',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Internal Accounting',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Instrument Event',GETDATE(),1)

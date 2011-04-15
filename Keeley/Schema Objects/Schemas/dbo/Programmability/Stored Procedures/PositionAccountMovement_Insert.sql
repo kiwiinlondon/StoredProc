@@ -29,7 +29,8 @@ CREATE PROCEDURE DBO.[PositionAccountMovement_Insert]
 		@DeltaNetCostInstrumentCurrency numeric(27,8), 
 		@DeltaNetCostBookCurrency numeric(27,8), 
 		@NetPosition numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@PositionAccountMovementTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -37,9 +38,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PositionAccountMovement
-			(InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, UpdateUserID, StartDt)
+			(InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, UpdateUserID, PositionAccountMovementTypeId, StartDt)
 	VALUES
-			(@InternalAllocationId, @PositionAccountId, @ReferenceDate, @PortfolioAggregationLevelId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @NetPosition, @UpdateUserID, @StartDt)
+			(@InternalAllocationId, @PositionAccountId, @ReferenceDate, @PortfolioAggregationLevelId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @NetPosition, @UpdateUserID, @PositionAccountMovementTypeId, @StartDt)
 
 	SELECT	PositionAccountMovementID, StartDt, DataVersion
 	FROM	PositionAccountMovement
