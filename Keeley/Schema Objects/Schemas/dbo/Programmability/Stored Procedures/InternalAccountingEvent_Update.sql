@@ -26,7 +26,8 @@ CREATE PROCEDURE DBO.[InternalAccountingEvent_Update]
 		@IsCancelled bit, 
 		@AmendmentNumber int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@SettlementCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -34,13 +35,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InternalAccountingEvent_hst (
-			EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, @StartDt, @UpdateUserID
 	FROM	InternalAccountingEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	InternalAccountingEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, InternalAccountingEventTypeId = @InternalAccountingEventTypeId, TradeDate = @TradeDate, SettlementDate = @SettlementDate, TraderId = @TraderId, NetPrice = @NetPrice, GrossPrice = @GrossPrice, Quantity = @Quantity, NetConsideration = @NetConsideration, InstrumentBookFXRate = @InstrumentBookFXRate, IsCancelled = @IsCancelled, AmendmentNumber = @AmendmentNumber, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, InternalAccountingEventTypeId = @InternalAccountingEventTypeId, TradeDate = @TradeDate, SettlementDate = @SettlementDate, TraderId = @TraderId, NetPrice = @NetPrice, GrossPrice = @GrossPrice, Quantity = @Quantity, NetConsideration = @NetConsideration, InstrumentBookFXRate = @InstrumentBookFXRate, IsCancelled = @IsCancelled, AmendmentNumber = @AmendmentNumber, UpdateUserID = @UpdateUserID, SettlementCurrencyId = @SettlementCurrencyId,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

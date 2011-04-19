@@ -17,5 +17,6 @@ create table DBO.InternalAccountingEvent_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	SettlementCurrencyId int not null,
 	EndDt datetime,
 	LastActionUserID int)

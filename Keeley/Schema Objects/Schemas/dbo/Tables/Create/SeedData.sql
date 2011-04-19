@@ -222,3 +222,29 @@ ALTER TABLE Instrument WITH CHECK CHECK CONSTRAINT all
 
 DBCC CHECKIDENT (InstrumentClass, reseed, 0)
 
+INSERT INTO [Keeley].[dbo].[InstrumentClass]
+           ([FMInstClass]
+           ,[Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (null
+           ,'Cash Equivalent'
+           ,GETDATE()
+           ,1)
+
+update InstrumentClassRelationship set ParentInstrumentClassID = 53 where InstrumentClassID in (49,48,34,3) and InstrumentClassHierarchyId = 2
+
+INSERT INTO [Keeley].[dbo].[InstrumentClassRelationship]
+           ([InstrumentClassID]
+           ,[ParentInstrumentClassID]
+           ,[InstrumentClassHierarchyId]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (53
+           ,1
+           ,2
+           ,GETDATE()
+           ,1)
+GO

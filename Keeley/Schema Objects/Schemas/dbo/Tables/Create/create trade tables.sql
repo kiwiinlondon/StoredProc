@@ -25,11 +25,12 @@ create table DBO.Event (
 	EventTypeID int not null CONSTRAINT EventEventTypeIDFK FOREIGN KEY REFERENCES EventType(EventTypeID),
 	IdentifierTypeId int not null  CONSTRAINT EventIdentifierTypeIDFK FOREIGN KEY REFERENCES IdentifierType(IdentifierTypeID),
 	Identifier varchar(100) not null,
+	IsTopLevel bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT EventUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
-
+create unique index EventUK on Event(IdentifierTypeId,Identifier,IsTopLevel)
 
 create table DBO.InstrumentEvent(
 	EventID int not null CONSTRAINT InstrumentEventPK PRIMARY KEY,
@@ -88,6 +89,9 @@ create table DBO.InternalAccountingEventType (
 	DataVersion rowversion not null
 )
 
+create unique index InternalAccountingEventTypeUK on InternalAccountingEventType(Name)
+
+
 create table DBO.InternalAccountingEvent(
 	EventID int not null CONSTRAINT InternalAccountingEventPK PRIMARY KEY,
 							   CONSTRAINT InternalAccountingEventFK FOREIGN KEY (EventID) REFERENCES Event(EventID),
@@ -96,6 +100,7 @@ create table DBO.InternalAccountingEvent(
 	TradeDate DateTime not null,
 	SettlementDate DateTime not null,
 	TraderId  int not null CONSTRAINT InternalAccountingEventTraderIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	SettlementCurrencyId  int not null CONSTRAINT InternalAccountingEventSettlementCurrencyIDFK FOREIGN KEY REFERENCES Currency(InstrumentID),
 	NetPrice numeric(35,16) not null,
 	GrossPrice numeric(35,16) not null,
 	Quantity  numeric(27,8) not null,	
@@ -336,36 +341,45 @@ create table DBO.PositionAccountMovement(
 	create index PositionAccountMovement1 on PositionAccountMovement(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
 	create index PositionAccountMovement2 on PositionAccountMovement(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
 
-create table PortfolioPositionAccountTradeDate(
-	PortfolioPositionAccountTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountTradeDatePK PRIMARY KEY,
-	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountTradeDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+create table PortfolioTradeDate(
+	PortfolioTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioTradeDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioTradeDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
 	ReferenceDate DateTime not null,
-	NetPosition  numeric(27,8) not null,
-	TotalCost numeric(27,8) not null,
-	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountTradeDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
-	DataVersion rowversion not null
-)	
-
-create table PortfolioPositionAccountSettlementDate(
-	PortfolioPositionAccountSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioPositionAccountSettlementDatePK PRIMARY KEY,
-	PositionAccountID int not null CONSTRAINT PortfolioPositionAccountSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
-	ReferenceDate DateTime not null,
-	NetPosition  numeric(27,8) not null,	
-	NetPostionChange numeric(27,8) not null,	
+	NetPosition  numeric(27,8) not null,		
 	NetCostInstrumentCurrency numeric(27, 8) NOT NULL,
 	NetCostBookCurrency numeric(27, 8) NOT NULL,
 	DeltaNetCostInstrumentCurrency numeric(27, 8) NOT NULL,
 	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
-	DeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
-	DeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
-	NetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
-	NetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	TodayNetPostionChange numeric(27,8) not null,	
+	TodayDeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TodayDeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	TodayNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TodayNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
 	StartDt datetime not null,
-	UpdateUserID int not null CONSTRAINT PortfolioPositionAccountSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	UpdateUserID int not null CONSTRAINT PortfolioTradeDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+)	
+create unique index PortfolioTradeDateUK on PortfolioTradeDate(PositionAccountID,ReferenceDate)
+create table PortfolioSettlementDate(
+	PortfolioSettlementDateId  int identity(1,1) not null CONSTRAINT PortfolioSettlementDatePK PRIMARY KEY,
+	PositionAccountID int not null CONSTRAINT PortfolioSettlementDatePositionAccountIDFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountID),
+	ReferenceDate DateTime not null,
+	NetPosition  numeric(27,8) not null,		
+	NetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	NetCostBookCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostInstrumentCurrency numeric(27, 8) NOT NULL,
+	DeltaNetCostBookCurrency numeric(27, 8) NOT NULL,
+	TodayNetPostionChange numeric(27,8) not null,	
+	TodayDeltaNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TodayDeltaNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	TodayNetCostChangeInstrumentCurrency numeric(27, 8) NOT NULL,
+	TodayNetCostChangeBookCurrency numeric(27, 8) NOT NULL,	
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT PortfolioSettlementDateUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
 
+create unique index PortfolioSettlementDateUK on PortfolioSettlementDate(PositionAccountID,ReferenceDate)
 INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
@@ -374,7 +388,22 @@ INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
 INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
-           ('Non Equity Trade',GETDATE(),1)
+           ('Fixed Income Trade',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Future Trade',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Option Trade',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Cash Equivalent Trade',GETDATE(),1)
 
 INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
            ([Name],[StartDt],[UpdateUserID])
@@ -410,3 +439,31 @@ INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Cash From Trading',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[InternalAccountingEventType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Convert To Underlyer'
+           ,GETDATE()
+           ,1)
+
+INSERT INTO [Keeley].[dbo].[InternalAccountingEventType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Roll to realise PNL'
+           ,GETDATE()
+           ,1)
+           
+INSERT INTO [Keeley].[dbo].[InternalAccountingEventType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Other'
+           ,GETDATE()
+           ,1)           
+GO

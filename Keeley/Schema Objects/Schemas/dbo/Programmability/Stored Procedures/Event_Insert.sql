@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Event_Insert]
 		@EventTypeID int, 
 		@UpdateUserID int, 
 		@IdentifierTypeId int, 
-		@Identifier varchar(100)
+		@Identifier varchar(100), 
+		@IsTopLevel bit
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Event
-			(EventTypeID, UpdateUserID, IdentifierTypeId, Identifier, StartDt)
+			(EventTypeID, UpdateUserID, IdentifierTypeId, Identifier, IsTopLevel, StartDt)
 	VALUES
-			(@EventTypeID, @UpdateUserID, @IdentifierTypeId, @Identifier, @StartDt)
+			(@EventTypeID, @UpdateUserID, @IdentifierTypeId, @Identifier, @IsTopLevel, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	Event

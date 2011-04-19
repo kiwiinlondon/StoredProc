@@ -8,5 +8,6 @@ create table DBO.Event_hst(
 	DataVersion binary(8) not null,
 	IdentifierTypeId int not null,
 	Identifier varchar(100) not null,
+	IsTopLevel bit not null,
 	EndDt datetime,
 	LastActionUserID int)

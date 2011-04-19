@@ -25,7 +25,8 @@ CREATE PROCEDURE DBO.[InternalAccountingEvent_Insert]
 		@InstrumentBookFXRate numeric(35,16), 
 		@IsCancelled bit, 
 		@AmendmentNumber int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@SettlementCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -33,9 +34,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAccountingEvent
-			(EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, UpdateUserID, StartDt)
+			(EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, UpdateUserID, SettlementCurrencyId, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @InternalAccountingEventTypeId, @TradeDate, @SettlementDate, @TraderId, @NetPrice, @GrossPrice, @Quantity, @NetConsideration, @InstrumentBookFXRate, @IsCancelled, @AmendmentNumber, @UpdateUserID, @StartDt)
+			(@EventID, @InstrumentMarketID, @InternalAccountingEventTypeId, @TradeDate, @SettlementDate, @TraderId, @NetPrice, @GrossPrice, @Quantity, @NetConsideration, @InstrumentBookFXRate, @IsCancelled, @AmendmentNumber, @UpdateUserID, @SettlementCurrencyId, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InternalAccountingEvent
