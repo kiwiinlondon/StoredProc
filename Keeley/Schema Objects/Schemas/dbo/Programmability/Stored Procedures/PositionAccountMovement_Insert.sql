@@ -16,6 +16,7 @@ CREATE PROCEDURE DBO.[PositionAccountMovement_Insert]
 		@PositionAccountId int, 
 		@ReferenceDate datetime, 
 		@PortfolioAggregationLevelId int, 
+		@PositionAccountMovementTypeId int, 
 		@ChangeNumber int, 
 		@Quantity numeric(27,8), 
 		@FXRate numeric(35,16), 
@@ -28,9 +29,13 @@ CREATE PROCEDURE DBO.[PositionAccountMovement_Insert]
 		@DeltaNetCostChangeBookCurrency numeric(27,8), 
 		@DeltaNetCostInstrumentCurrency numeric(27,8), 
 		@DeltaNetCostBookCurrency numeric(27,8), 
+		@TodayNetPositionChange numeric(27,8), 
+		@TodayDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@TodayNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayNetCostChangeBookCurrency numeric(27,8), 
 		@NetPosition numeric(27,8), 
-		@UpdateUserID int, 
-		@PositionAccountMovementTypeId int
+		@UpdateUserID int
 AS
 	SET NOCOUNT ON
 
@@ -38,9 +43,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PositionAccountMovement
-			(InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, NetPosition, UpdateUserID, PositionAccountMovementTypeId, StartDt)
+			(InternalAllocationId, PositionAccountId, ReferenceDate, PortfolioAggregationLevelId, PositionAccountMovementTypeId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPositionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, NetPosition, UpdateUserID, StartDt)
 	VALUES
-			(@InternalAllocationId, @PositionAccountId, @ReferenceDate, @PortfolioAggregationLevelId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @NetPosition, @UpdateUserID, @PositionAccountMovementTypeId, @StartDt)
+			(@InternalAllocationId, @PositionAccountId, @ReferenceDate, @PortfolioAggregationLevelId, @PositionAccountMovementTypeId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPositionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @NetPosition, @UpdateUserID, @StartDt)
 
 	SELECT	PositionAccountMovementID, StartDt, DataVersion
 	FROM	PositionAccountMovement
