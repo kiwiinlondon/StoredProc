@@ -1,9 +1,10 @@
 USE Keeley
 
-create table DBO.ExtractEventFieldOutputConfiguration_hst(
-	ExtractFieldOutputConfigurationID int not null,
+create table DBO.ExtractOutputConfiguration_hst(
+	ExtractOutputConfigurationID int not null,
 	ExtractId int not null,
-	EventFieldId int not null,
+	EntityPropertyId int not null,
+	Label varchar(1000),
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,

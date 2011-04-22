@@ -1,9 +1,10 @@
 USE Keeley
 
-create table DBO.ExtractEventConfiguration_hst(
-	ExtractEventConfigurationID int not null,
+create table DBO.ExtractConfiguration_hst(
+	ExtracttConfigurationID int not null,
 	ExtractId int not null,
-	BuildForInternalAllocationOnly bit not null,
+	ConfigurationKey varchar(100) not null,
+	ConfigurationValue varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,

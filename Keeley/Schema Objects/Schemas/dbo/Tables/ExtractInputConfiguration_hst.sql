@@ -1,10 +1,14 @@
 USE Keeley
 
-create table DBO.ExtractEventFieldConfiguration_hst(
+create table DBO.ExtractInputConfiguration_hst(
 	ExtractFieldConfigurationID int not null,
 	ExtractId int not null,
-	EventFieldId int not null,
-	EventFieldIntValue int,
+	EntityPropertyId int not null,
+	IntValue int,
+	StringValue varchar(1000),
+	DecimalValue decimal,
+	DateTimeValue datetime,
+	BitValue bit,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
