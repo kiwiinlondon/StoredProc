@@ -86,6 +86,7 @@ create table DBO.ExtractOutputConfiguration(
 	ExtractId int not null  CONSTRAINT ExtractFieldOutputConfigurationExtractIdFK FOREIGN KEY REFERENCES Extract(ExtractId),
 	EntityPropertyId int not null  CONSTRAINT ExtractOutputConfigurationEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
 	Label varchar(1000),
+	ChangesCanBeIgnored bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractFieldOutputConfigurationUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
@@ -152,6 +153,11 @@ INSERT INTO [Keeley].[dbo].[EntityType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Internal Accounting Event',GETDATE(),1)           
+
+INSERT INTO [Keeley].[dbo].[ExtractType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Event Extract',GETDATE(),1) 
            
 select * from [EntityType]           
 
