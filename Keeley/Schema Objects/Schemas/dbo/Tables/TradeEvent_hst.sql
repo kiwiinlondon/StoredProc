@@ -29,5 +29,6 @@ create table DBO.TradeEvent_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
+	SupressFromExtracts bit not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -5,31 +5,31 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[PositionAccountMovement_GetPrevious]')
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'[PortfolioEvent_GetPrevious]')
 AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 
-DROP PROCEDURE DBO.PositionAccountMovement_GetPrevious
+DROP PROCEDURE DBO.PortfolioEvent_GetPrevious
 GO
 
-CREATE PROCEDURE [DBO].[PositionAccountMovement_GetPrevious]
+CREATE PROCEDURE [DBO].[PortfolioEvent_GetPrevious]
 		@PositionAccountID int,
 		@ReferenceDate date,
 		@PortfolioAggregationLevelId int,
-		@PositionAccountMovementId int = null		
+		@PortfolioEventId int = null		
 AS		
 
 DECLARE @ChangeNumber int
 
-if @PositionAccountMovementId is null 
+if @PortfolioEventId is null 
 	begin
 		SELECT	@ChangeNumber = MAX(m.ChangeNumber)
-		FROM	PositionAccountMovement m
+		FROM	PortfolioEvent m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ReferenceDate <= @ReferenceDate
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
 		
 		SELECT	*
-		FROM	PositionAccountMovement m
+		FROM	PortfolioEvent m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ChangeNumber = @ChangeNumber
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
@@ -37,16 +37,16 @@ if @PositionAccountMovementId is null
 else
 	begin
 		SELECT	@ChangeNumber = MAX(m.ChangeNumber)
-		FROM	PositionAccountMovement m
+		FROM	PortfolioEvent m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ReferenceDate <= @ReferenceDate
-		AND		m.PositionAccountMovementId != @PositionAccountMovementId
+		AND		m.PortfolioEventId != @PortfolioEventId
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
 		
 		SELECT	*
-		FROM	PositionAccountMovement m
+		FROM	PortfolioEvent m
 		WHERE	m.PositionAccountId = @PositionAccountID
 		AND		m.ChangeNumber = @ChangeNumber
 		AND		m.PortfolioAggregationLevelId = @PortfolioAggregationLevelId
-		AND		m.PositionAccountMovementId != @PositionAccountMovementId
+		AND		m.PortfolioEventId != @PortfolioEventId
 	end

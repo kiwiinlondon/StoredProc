@@ -77,6 +77,7 @@ create table DBO.TradeEvent(
 	Ticket varchar(100),
 	IsCancelled bit not null,
 	AmendmentNumber int not null,
+	SupressFromExtracts bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT TradeEventUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
@@ -306,22 +307,22 @@ create table PortfolioAggregationLevel (
 
 create unique index PortfolioAggregationLevelUK on PortfolioAggregationLevel(Name)
 
-create table PositionAccountMovementType (
-	PositionAccountMovementTypeId int identity(1,1) not null CONSTRAINT PositionAccountMovementTypePK PRIMARY KEY,
+create table PortfolioEventType (
+	PortfolioEventTypeId int identity(1,1) not null CONSTRAINT PositionAccountMovementTypePK PRIMARY KEY,
 	Name varchar(50) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT PositionAccountMovementTypeUpdateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
-create unique index PositionAccountMovementTypeUK on PositionAccountMovementType(Name)
+create unique index PortfolioEventTypeUK on PortfolioEventType(Name)
 
-create table DBO.PositionAccountMovement(
-	PositionAccountMovementID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
+create table DBO.PortfolioEvent(
+	PortfolioEventID int identity(1,1) not null CONSTRAINT PositionAccountMovementPK PRIMARY KEY,
 	InternalAllocationId int not null CONSTRAINT PositionAccountMovementPositionInternalAllocationIdFK FOREIGN KEY REFERENCES InternalAllocation(EventId),
 	PositionAccountId int not null CONSTRAINT PositionAccountMovementPositionAccountIdFK FOREIGN KEY REFERENCES PositionAccount(PositionAccountId),
 	ReferenceDate DateTime not null,
 	PortfolioAggregationLevelId int not null CONSTRAINT PositionAccountMovementPortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
-	PositionAccountMovementTypeId int not null CONSTRAINT PositionAccountMovementPositionAccountMovementTypeIdFK FOREIGN KEY REFERENCES PositionAccountMovementType(PositionAccountMovementTypeId),
+	PortfolioEventTypeId int not null CONSTRAINT PortfolioEventPortfolioEventTypeIdFK FOREIGN KEY REFERENCES PortfolioEventType(PortfolioEventTypeId),
 	ChangeNumber int not null,
 	Quantity numeric(27, 8) NOT NULL,
 	FXRate numeric(35, 16) NOT NULL,
@@ -344,9 +345,9 @@ create table DBO.PositionAccountMovement(
 	UpdateUserID int not null CONSTRAINT PositionAccountMovementUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
-	create unique index PositionAccountMovementUK on PositionAccountMovement(PositionAccountMovementId,PortfolioAggregationLevelId)
-	create index PositionAccountMovement1 on PositionAccountMovement(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
-	create index PositionAccountMovement2 on PositionAccountMovement(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
+	create unique index PortfolioEventUK on PortfolioEvent(PositionAccountId,PortfolioAggregationLevelId)
+	create index PortfolioEventIDX1 on PortfolioEvent(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
+	create index PortfolioEventIDX2 on PortfolioEvent(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
 
 create table PortfolioTradeDate(
 	PortfolioTradeDateId  int identity(1,1) not null CONSTRAINT PortfolioTradeDatePK PRIMARY KEY,
@@ -387,62 +388,62 @@ create table PortfolioSettlementDate(
 )	
 
 create unique index PortfolioSettlementDateUK on PortfolioSettlementDate(PositionAccountID,ReferenceDate)
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Equity Trade',GETDATE(),1)
            
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Fixed Income Trade',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Future Trade',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Option Trade',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Cash Equivalent Trade',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Proprietary FX Trade',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Hedging FX Trade',GETDATE(),1)
            
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Subscription',GETDATE(),1)
            
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Redemption',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Internal Accounting',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Instrument Event',GETDATE(),1)
 
-INSERT INTO [Keeley].[dbo].[PositionAccountMovementType]
+INSERT INTO [Keeley].[dbo].[PortfolioEventType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Cash From Trading',GETDATE(),1)
