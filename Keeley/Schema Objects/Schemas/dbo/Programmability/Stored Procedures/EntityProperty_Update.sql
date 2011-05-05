@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[EntityProperty_Update]
 		@Name varchar(70), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@PropertyOnChildEntity bit
+		@PropertyOnChildEntity bit, 
+		@TypeCode int
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO EntityProperty_hst (
-			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, EndDt, LastActionUserID)
-	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, @StartDt, @UpdateUserID
+			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, EndDt, LastActionUserID)
+	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, @StartDt, @UpdateUserID
 	FROM	EntityProperty
 	WHERE	EntityPropertyID = @EntityPropertyID
 
 	UPDATE	EntityProperty
-	SET		EntityTypeId = @EntityTypeId, NeedsToBeCalculated = @NeedsToBeCalculated, Name = @Name, UpdateUserID = @UpdateUserID, PropertyOnChildEntity = @PropertyOnChildEntity,  StartDt = @StartDt
+	SET		EntityTypeId = @EntityTypeId, NeedsToBeCalculated = @NeedsToBeCalculated, Name = @Name, UpdateUserID = @UpdateUserID, PropertyOnChildEntity = @PropertyOnChildEntity, TypeCode = @TypeCode,  StartDt = @StartDt
 	WHERE	EntityPropertyID = @EntityPropertyID
 	AND		DataVersion = @DataVersion
 

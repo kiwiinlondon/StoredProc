@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Extract_Insert]
 		@ExtractTypeId int, 
 		@Name varchar(70), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@ExtractOutputTypeID int
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Extract
-			(ExtractTypeId, Name, UpdateUserID, StartDt)
+			(ExtractTypeId, Name, UpdateUserID, ExtractOutputTypeID, StartDt)
 	VALUES
-			(@ExtractTypeId, @Name, @UpdateUserID, @StartDt)
+			(@ExtractTypeId, @Name, @UpdateUserID, @ExtractOutputTypeID, @StartDt)
 
 	SELECT	ExtractID, StartDt, DataVersion
 	FROM	Extract

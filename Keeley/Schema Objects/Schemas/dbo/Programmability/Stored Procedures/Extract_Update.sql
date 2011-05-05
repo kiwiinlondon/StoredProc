@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Extract_Update]
 		@ExtractTypeId int, 
 		@Name varchar(70), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@ExtractOutputTypeID int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Extract_hst (
-			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, EndDt, LastActionUserID)
+	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, @StartDt, @UpdateUserID
 	FROM	Extract
 	WHERE	ExtractID = @ExtractID
 
 	UPDATE	Extract
-	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID, ExtractOutputTypeID = @ExtractOutputTypeID,  StartDt = @StartDt
 	WHERE	ExtractID = @ExtractID
 	AND		DataVersion = @DataVersion
 

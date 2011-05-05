@@ -14,7 +14,10 @@ GO
 CREATE PROCEDURE DBO.[ExtractRun_Insert]
 		@ExtractId int, 
 		@RunTime datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@InProgress bit, 
+		@NumberRecords int, 
+		@FilePath varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractRun
-			(ExtractId, RunTime, UpdateUserID, StartDt)
+			(ExtractId, RunTime, UpdateUserID, InProgress, NumberRecords, FilePath, StartDt)
 	VALUES
-			(@ExtractId, @RunTime, @UpdateUserID, @StartDt)
+			(@ExtractId, @RunTime, @UpdateUserID, @InProgress, @NumberRecords, @FilePath, @StartDt)
 
 	SELECT	ExtractRunId, StartDt, DataVersion
 	FROM	ExtractRun

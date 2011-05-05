@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[ExtractEntity_Insert]
 		@LastSentInExtractRunId int, 
 		@IsCancelled bit, 
 		@SendInNextRun bit, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@EntityTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractEntity
-			(ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, UpdateUserID, StartDt)
+			(ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, UpdateUserID, EntityTypeId, StartDt)
 	VALUES
-			(@ExtractId, @EntityId, @LastSentInExtractRunId, @IsCancelled, @SendInNextRun, @UpdateUserID, @StartDt)
+			(@ExtractId, @EntityId, @LastSentInExtractRunId, @IsCancelled, @SendInNextRun, @UpdateUserID, @EntityTypeId, @StartDt)
 
 	SELECT	ExtractEntityID, StartDt, DataVersion
 	FROM	ExtractEntity

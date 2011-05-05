@@ -6,6 +6,7 @@ CREATE TABLE [dbo].[EntityType](
 	[UpdateUserID] [int] NOT NULL  CONSTRAINT EntityTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	[DataVersion] [timestamp] NOT NULL)
 
+create unique index [EntityTypeUK] on [EntityType](Name)
 
 create table DBO.EntityProperty (
 	EntityPropertyID int identity(1,1) not null CONSTRAINT EntityPropertyPK PRIMARY KEY,
@@ -61,7 +62,7 @@ create table DBO.ExtractInputConfiguration(
 	EntityPropertyId int not null  CONSTRAINT ExtractInputConfigurationEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
 	IntValue int ,
 	StringValue varchar(1000) ,
-	DecimalValue decimal ,
+	DecimalValue numeric(27,8),
 	DateTimeValue DateTime ,
 	BitValue bit ,
 	StartDt datetime not null,
@@ -84,7 +85,8 @@ create unique index ExtractRunUK on ExtractRun(ExtractId,RunTime)
 create table DBO.ExtractOutputConfiguration(
 	ExtractOutputConfigurationID int identity(1,1) not null CONSTRAINT ExtractOutputConfigurationPK PRIMARY KEY,
 	ExtractId int not null  CONSTRAINT ExtractFieldOutputConfigurationExtractIdFK FOREIGN KEY REFERENCES Extract(ExtractId),
-	EntityPropertyId int not null  CONSTRAINT ExtractOutputConfigurationEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
+	PrincipalEntityPropertyId int not null  CONSTRAINT ExtractOutputConfigurationPrincipalEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),	
+	DependantEntityPropertyId int  CONSTRAINT ExtractOutputConfigurationDependantEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
 	Label varchar(1000),
 	ChangesCanBeIgnored bit not null,
 	StartDt datetime not null,
@@ -92,8 +94,7 @@ create table DBO.ExtractOutputConfiguration(
 	DataVersion rowversion not null
 ) 
 
-create unique index ExtractOutputConfigurationUK on ExtractOutputConfiguration(ExtractId,EntityPropertyId)
-
+create unique index ExtractOutputConfigurationUK on ExtractOutputConfiguration(ExtractId,PrincipalEntityPropertyId)
 
 create table DBO.ExtractEntity(
 	ExtractEntityID int identity(1,1) not null CONSTRAINT ExtractEntityPK PRIMARY KEY,
@@ -118,8 +119,8 @@ create table DBO.ExtractEntityPropertyValue(
 	IntValue int ,
 	StringValue varchar(1000) ,
 	PreviousStringValue varchar(1000) ,
-	DecimalValue decimal ,
-	PreviousDecimalValue decimal ,
+	DecimalValue numeric(27,8),
+	PreviousDecimalValue numeric(27,8),
 	DateTimeValue DateTime ,
 	PreviousDateTimeValue DateTime ,
 	BitValue bit ,

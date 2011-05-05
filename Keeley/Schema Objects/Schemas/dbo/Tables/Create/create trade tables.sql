@@ -345,7 +345,7 @@ create table DBO.PortfolioEvent(
 	UpdateUserID int not null CONSTRAINT PositionAccountMovementUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null)
 
-	create unique index PortfolioEventUK on PortfolioEvent(PositionAccountId,PortfolioAggregationLevelId)
+	create unique index PortfolioEventUK on PortfolioEvent(InternalAllocationId,PositionAccountId,PortfolioAggregationLevelId)
 	create index PortfolioEventIDX1 on PortfolioEvent(PositionAccountId,ReferenceDate,PortfolioAggregationLevelId)
 	create index PortfolioEventIDX2 on PortfolioEvent(PositionAccountId,ChangeNumber,PortfolioAggregationLevelId)
 

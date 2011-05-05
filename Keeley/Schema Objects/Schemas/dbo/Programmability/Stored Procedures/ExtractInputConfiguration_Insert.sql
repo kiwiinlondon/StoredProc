@@ -16,7 +16,7 @@ CREATE PROCEDURE DBO.[ExtractInputConfiguration_Insert]
 		@EntityPropertyId int, 
 		@IntValue int, 
 		@StringValue varchar(1000), 
-		@DecimalValue decimal, 
+		@DecimalValue numeric(27,8), 
 		@DateTimeValue datetime, 
 		@BitValue bit, 
 		@UpdateUserID int

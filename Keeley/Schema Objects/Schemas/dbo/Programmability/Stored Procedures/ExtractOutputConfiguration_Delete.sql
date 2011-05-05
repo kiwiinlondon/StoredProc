@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ExtractOutputConfiguration_hst (
-			ExtractOutputConfigurationID, ExtractId, EntityPropertyId, Label, StartDt, UpdateUserID, DataVersion, ChangesCanBeIgnored, EndDt, LastActionUserID)
-	SELECT	ExtractOutputConfigurationID, ExtractId, EntityPropertyId, Label, StartDt, UpdateUserID, DataVersion, ChangesCanBeIgnored, @EndDt, @UpdateUserID
+			ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyIdToWrite, EndDt, LastActionUserID)
+	SELECT	ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyIdToWrite, @EndDt, @UpdateUserID
 	FROM	ExtractOutputConfiguration
 	WHERE	ExtractOutputConfigurationID = @ExtractOutputConfigurationID
 

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ExtractEntity_hst (
-			ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EntityTypeId, EndDt, LastActionUserID)
+	SELECT	ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EntityTypeId, @EndDt, @UpdateUserID
 	FROM	ExtractEntity
 	WHERE	ExtractEntityID = @ExtractEntityID
 

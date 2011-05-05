@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[ExtractEntity_Update]
 		@IsCancelled bit, 
 		@SendInNextRun bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@EntityTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractEntity_hst (
-			ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EntityTypeId, EndDt, LastActionUserID)
+	SELECT	ExtractEntityID, ExtractId, EntityId, LastSentInExtractRunId, IsCancelled, SendInNextRun, StartDt, UpdateUserID, DataVersion, EntityTypeId, @StartDt, @UpdateUserID
 	FROM	ExtractEntity
 	WHERE	ExtractEntityID = @ExtractEntityID
 
 	UPDATE	ExtractEntity
-	SET		ExtractId = @ExtractId, EntityId = @EntityId, LastSentInExtractRunId = @LastSentInExtractRunId, IsCancelled = @IsCancelled, SendInNextRun = @SendInNextRun, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, EntityId = @EntityId, LastSentInExtractRunId = @LastSentInExtractRunId, IsCancelled = @IsCancelled, SendInNextRun = @SendInNextRun, UpdateUserID = @UpdateUserID, EntityTypeId = @EntityTypeId,  StartDt = @StartDt
 	WHERE	ExtractEntityID = @ExtractEntityID
 	AND		DataVersion = @DataVersion
 

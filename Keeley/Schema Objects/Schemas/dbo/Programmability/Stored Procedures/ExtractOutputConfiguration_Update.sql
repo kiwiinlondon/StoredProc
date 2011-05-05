@@ -14,11 +14,13 @@ GO
 CREATE PROCEDURE DBO.[ExtractOutputConfiguration_Update]
 		@ExtractOutputConfigurationID int, 
 		@ExtractId int, 
-		@EntityPropertyId int, 
 		@Label varchar(1000), 
+		@ChangesCanBeIgnored bit, 
+		@OrderBy int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@ChangesCanBeIgnored bit
+		@EntityPropertyId int, 
+		@EntityPropertyIdToWrite int
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractOutputConfiguration_hst (
-			ExtractOutputConfigurationID, ExtractId, EntityPropertyId, Label, StartDt, UpdateUserID, DataVersion, ChangesCanBeIgnored, EndDt, LastActionUserID)
-	SELECT	ExtractOutputConfigurationID, ExtractId, EntityPropertyId, Label, StartDt, UpdateUserID, DataVersion, ChangesCanBeIgnored, @StartDt, @UpdateUserID
+			ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyIdToWrite, EndDt, LastActionUserID)
+	SELECT	ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyIdToWrite, @StartDt, @UpdateUserID
 	FROM	ExtractOutputConfiguration
 	WHERE	ExtractOutputConfigurationID = @ExtractOutputConfigurationID
 
 	UPDATE	ExtractOutputConfiguration
-	SET		ExtractId = @ExtractId, EntityPropertyId = @EntityPropertyId, Label = @Label, UpdateUserID = @UpdateUserID, ChangesCanBeIgnored = @ChangesCanBeIgnored,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, Label = @Label, ChangesCanBeIgnored = @ChangesCanBeIgnored, OrderBy = @OrderBy, UpdateUserID = @UpdateUserID, EntityPropertyId = @EntityPropertyId, EntityPropertyIdToWrite = @EntityPropertyIdToWrite,  StartDt = @StartDt
 	WHERE	ExtractOutputConfigurationID = @ExtractOutputConfigurationID
 	AND		DataVersion = @DataVersion
 
