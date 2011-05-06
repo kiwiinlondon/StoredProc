@@ -78,7 +78,7 @@ create table DBO.ExtractInputConfiguration(
 	DataVersion rowversion not null
 ) 
 
-create unique index ExtractInputConfigurationUK on ExtractInputConfiguration(ExtractId,EntityPropertyId)
+create unique index ExtractInputConfigurationUK on ExtractInputConfiguration(ExtractId,EntityPropertyId,IntValue,StringValue,DecimalValue,DateTimeValue,BitValue)
 
 create table DBO.ExtractRun (
 	ExtractRunId int identity(1,1) not null CONSTRAINT ExtractRunPk PRIMARY KEY,
@@ -237,4 +237,6 @@ private const string OutputFileNameFormatKey = "OutputFileNameFormat";
         
 update EntityProperty set Name = 'IsoCode' where EntityPropertyId = 29        
 
-select * from EntityProperty where EntityTypeId =9
+select * from ExtractEntity where EntityTypeId =9
+
+select * from ExtractInputConfiguration
