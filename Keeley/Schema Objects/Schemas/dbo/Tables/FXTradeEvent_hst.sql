@@ -22,5 +22,8 @@ create table DBO.FXTradeEvent_hst(
 	PayBookXrate numeric(35,16) not null,
 	ReceiveBookXrate numeric(35,16) not null,
 	InputDate datetime not null,
+	SettlementCurrencyId int not null,
+	SettlementBookXrate numeric(35,16) not null,
+	SupressFromExtracts bit not null,
 	EndDt datetime,
 	LastActionUserID int)

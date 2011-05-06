@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[ExtractConfiguration_Update]
 GO
 
 CREATE PROCEDURE DBO.[ExtractConfiguration_Update]
-		@ExtracttConfigurationID int, 
+		@ExtractConfigurationId int, 
 		@ExtractId int, 
 		@ConfigurationKey varchar(100), 
 		@ConfigurationValue varchar(100), 
@@ -25,19 +25,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractConfiguration_hst (
-			ExtracttConfigurationID, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtracttConfigurationID, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ExtractConfigurationId, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	ExtractConfigurationId, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	ExtractConfiguration
-	WHERE	ExtracttConfigurationID = @ExtracttConfigurationID
+	WHERE	ExtractConfigurationId = @ExtractConfigurationId
 
 	UPDATE	ExtractConfiguration
 	SET		ExtractId = @ExtractId, ConfigurationKey = @ConfigurationKey, ConfigurationValue = @ConfigurationValue, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	ExtracttConfigurationID = @ExtracttConfigurationID
+	WHERE	ExtractConfigurationId = @ExtractConfigurationId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	ExtractConfiguration
-	WHERE	ExtracttConfigurationID = @ExtracttConfigurationID
+	WHERE	ExtractConfigurationId = @ExtractConfigurationId
 	AND		@@ROWCOUNT > 0
 
 GO

@@ -1,7 +1,7 @@
 USE Keeley
 
 create table DBO.ExtractConfiguration_hst(
-	ExtracttConfigurationID int not null,
+	ExtractConfigurationId int not null,
 	ExtractId int not null,
 	ConfigurationKey varchar(100) not null,
 	ConfigurationValue varchar(100) not null,

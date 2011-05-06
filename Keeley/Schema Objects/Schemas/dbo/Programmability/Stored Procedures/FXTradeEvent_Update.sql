@@ -31,7 +31,10 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Update]
 		@IsForward bit, 
 		@PayBookXrate numeric(35,16), 
 		@ReceiveBookXrate numeric(35,16), 
-		@InputDate datetime
+		@InputDate datetime, 
+		@SettlementCurrencyId int, 
+		@SettlementBookXrate numeric(35,16), 
+		@SupressFromExtracts bit
 AS
 	SET NOCOUNT ON
 
@@ -39,13 +42,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXTradeEvent_hst (
-			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, EndDt, LastActionUserID)
-	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, @StartDt, @UpdateUserID
+			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, SettlementCurrencyId, SettlementBookXrate, SupressFromExtracts, EndDt, LastActionUserID)
+	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, SettlementCurrencyId, SettlementBookXrate, SupressFromExtracts, @StartDt, @UpdateUserID
 	FROM	FXTradeEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	FXTradeEvent
-	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, PayBookXrate = @PayBookXrate, ReceiveBookXrate = @ReceiveBookXrate, InputDate = @InputDate,  StartDt = @StartDt
+	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, PayBookXrate = @PayBookXrate, ReceiveBookXrate = @ReceiveBookXrate, InputDate = @InputDate, SettlementCurrencyId = @SettlementCurrencyId, SettlementBookXrate = @SettlementBookXrate, SupressFromExtracts = @SupressFromExtracts,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

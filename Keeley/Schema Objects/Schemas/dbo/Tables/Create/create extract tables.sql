@@ -13,13 +13,12 @@ create table DBO.EntityProperty (
 	EntityTypeId int not null  CONSTRAINT EntityPropertyEntityTypeIDFK FOREIGN KEY REFERENCES EntityType(EntityTypeId),
 	NeedsToBeCalculated bit not null,
 	PropertyOnChildEntity bit not null,
+	TypeCode int not null,
 	Name varchar(70) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT EntityPropertyUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
-
-alter table EntityProperty add PropertyOnChildEntity bit not null,
 
 create unique index EntityPropertyUK on EntityProperty(EntityTypeId,Name)
 
@@ -34,15 +33,24 @@ create table DBO.ExtractType (
 
 create unique index ExtractTypeUK on ExtractType(Name)
 
+create table DBO.ExtractOutputType (
+	ExtractOutputTypeID int identity(1,1) not null CONSTRAINT ExtractOutputTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+create unique index ExtractOutputTypeUK on ExtractOutputType(Name)
+
 create table DBO.Extract (
 	ExtractID int identity(1,1) not null CONSTRAINT ExtractPK PRIMARY KEY,
 	ExtractTypeId int not null  CONSTRAINT ExtractExtractTypeIdFK FOREIGN KEY REFERENCES ExtractType(ExtractTypeId),
-	Name varchar(70) not null,
+	Name varchar(70) not null, 
+	ExtractOutputTypeID  int not null  CONSTRAINT ExtractExtractOutputTypeIDFK FOREIGN KEY REFERENCES ExtractOutputType(ExtractOutputTypeID),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
-
 create unique index ExtractUK on ExtractType(Name)
 
 create table DBO.ExtractConfiguration (
@@ -76,30 +84,40 @@ create table DBO.ExtractRun (
 	ExtractRunId int identity(1,1) not null CONSTRAINT ExtractRunPk PRIMARY KEY,
 	ExtractId int not null  CONSTRAINT ExtractRunExtractIdFK FOREIGN KEY REFERENCES Extract(ExtractId),
 	RunTime DateTime not null,
+	InProgress bit not null,
+	NumberRecords int not null,
+	FilePath varchar(100),
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractRunUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+
 create unique index ExtractRunUK on ExtractRun(ExtractId,RunTime)
 
+drop table DBO.ExtractOutputConfiguration
 create table DBO.ExtractOutputConfiguration(
 	ExtractOutputConfigurationID int identity(1,1) not null CONSTRAINT ExtractOutputConfigurationPK PRIMARY KEY,
 	ExtractId int not null  CONSTRAINT ExtractFieldOutputConfigurationExtractIdFK FOREIGN KEY REFERENCES Extract(ExtractId),
-	PrincipalEntityPropertyId int not null  CONSTRAINT ExtractOutputConfigurationPrincipalEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),	
-	DependantEntityPropertyId int  CONSTRAINT ExtractOutputConfigurationDependantEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
+	EntityPropertyId int not null CONSTRAINT ExtractOutputConfigurationDependantEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
+	EntityPropertyToWriteId int not null CONSTRAINT ExtractOutputConfigurationPrincipalEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),		
 	Label varchar(1000),
 	ChangesCanBeIgnored bit not null,
+	OrderBy int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractFieldOutputConfigurationUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 ) 
 
-create unique index ExtractOutputConfigurationUK on ExtractOutputConfiguration(ExtractId,PrincipalEntityPropertyId)
+select * from ExtractOutputConfiguration
+
+create unique index ExtractOutputConfigurationUK on ExtractOutputConfiguration(ExtractId,EntityPropertyId,EntityPropertyIdToWrite)
+create unique index ExtractOutputConfigurationUK2 on ExtractOutputConfiguration(ExtractId,Orderby)
 
 create table DBO.ExtractEntity(
 	ExtractEntityID int identity(1,1) not null CONSTRAINT ExtractEntityPK PRIMARY KEY,
 	ExtractId int not null CONSTRAINT ExtractEntityExtractIdFK FOREIGN KEY REFERENCES Extract(ExtractId),
 	EntityId int not null,
+	EntityTypeId int not null CONSTRAINT ExtractEntityEntityTypeIdFK FOREIGN KEY REFERENCES EntityType(EntityTypeId),
 	LastSentInExtractRunId int CONSTRAINT ExtractEntityLastSentInExtractRunIdFK FOREIGN KEY REFERENCES ExtractRun(ExtractRunId),
 	IsCancelled bit not null,
 	SendInNextRun bit not null,
@@ -107,9 +125,8 @@ create table DBO.ExtractEntity(
 	UpdateUserID int not null CONSTRAINT ExtractEntityUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 	)
-alter table ExtractEntity alter column IsCancelled bit not null
-
-create unique index ExtractEntityUK on ExtractEntity(ExtractId,EntityId)	
+	
+create unique index ExtractEntityUK on ExtractEntity(ExtractId,EntityTypeId,EntityId)	
 		
 create table DBO.ExtractEntityPropertyValue(
 	ExtractEntityPropertyValueID  int identity(1,1) not null CONSTRAINT ExtractEntityPropertyValuePK PRIMARY KEY,
@@ -154,13 +171,70 @@ INSERT INTO [Keeley].[dbo].[EntityType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Internal Accounting Event',GETDATE(),1)           
-
+select * from [EntityType]
 INSERT INTO [Keeley].[dbo].[ExtractType]
            ([Name],[StartDt],[UpdateUserID])
      VALUES
            ('Event Extract',GETDATE(),1) 
            
-select * from [EntityType]           
+create table DBO.ExtractOutputType (
+	ExtractOutputTypeID int identity(1,1) not null CONSTRAINT ExtractOutputTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
 
+create table DBO.ExtractOutputContainer (
+	ExtractOutputTypeID int identity(1,1) not null CONSTRAINT ExtractOutputContainerPK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputContainerUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+
+create table DBO.ExtractDeliveryMechanism (
+	ExtractOutputTypeID int identity(1,1) not null CONSTRAINT ExtractOutputContainerPK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputContainerUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+
+select * from ExtractOutputConfiguration      
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputType]
+           ([Name],[StartDt],[UpdateUserID])
+     VALUES
+           ('Email With Generic CSV File',GETDATE(),1)
+
+select * from LegalEntity where LegalEntityID in (select legalentityId from Counterparty)
+
+update [ExtractConfiguration] set ConfigurationValue = 'CAC_{0:yyyyMMddHHmmss}.csv'
+where ExtracttConfigurationId = 2
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (1,'OutputFileNameFormat','CAC_{0:yyyyMMddHHmmss}.csv',GETDATE(),1)
+
+
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (1,'OutputFileNameValue','DateTime.Now',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (1,'OutputDirectory','c:\temp',GETDATE(),1)
 GO
 
+private const string OutputFileNameFormatKey = "OutputFileNameFormat";
+        private const string OutputFileNameValueKey = "OutputFileNameValue";
+        private const string OutputDirectoryKey = "OutputDirectory"
+        
+update EntityProperty set Name = 'IsoCode' where EntityPropertyId = 29        
+
+select * from EntityProperty where EntityTypeId =9

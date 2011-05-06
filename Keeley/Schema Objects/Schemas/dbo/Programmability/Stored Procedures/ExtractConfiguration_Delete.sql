@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[ExtractConfiguration_Delete]
 GO
 
 CREATE PROCEDURE DBO.[ExtractConfiguration_Delete]
-		@ExtracttConfigurationID int,
+		@ExtractConfigurationId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ExtractConfiguration_hst (
-			ExtracttConfigurationID, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtracttConfigurationID, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ExtractConfigurationId, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	ExtractConfigurationId, ExtractId, ConfigurationKey, ConfigurationValue, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	ExtractConfiguration
-	WHERE	ExtracttConfigurationID = @ExtracttConfigurationID
+	WHERE	ExtractConfigurationId = @ExtractConfigurationId
 
 	DELETE	ExtractConfiguration
-	WHERE	ExtracttConfigurationID = @ExtracttConfigurationID
+	WHERE	ExtractConfigurationId = @ExtractConfigurationId
 	AND		DataVersion = @DataVersion
 GO

@@ -30,7 +30,10 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Insert]
 		@IsForward bit, 
 		@PayBookXrate numeric(35,16), 
 		@ReceiveBookXrate numeric(35,16), 
-		@InputDate datetime
+		@InputDate datetime, 
+		@SettlementCurrencyId int, 
+		@SettlementBookXrate numeric(35,16), 
+		@SupressFromExtracts bit
 AS
 	SET NOCOUNT ON
 
@@ -38,9 +41,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXTradeEvent
-			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, StartDt)
+			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, SettlementCurrencyId, SettlementBookXrate, SupressFromExtracts, StartDt)
 	VALUES
-			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @PayBookXrate, @ReceiveBookXrate, @InputDate, @StartDt)
+			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @PayBookXrate, @ReceiveBookXrate, @InputDate, @SettlementCurrencyId, @SettlementBookXrate, @SupressFromExtracts, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	FXTradeEvent

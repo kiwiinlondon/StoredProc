@@ -27,9 +27,9 @@ AS
 	VALUES
 			(@ExtractId, @ConfigurationKey, @ConfigurationValue, @UpdateUserID, @StartDt)
 
-	SELECT	ExtracttConfigurationID, StartDt, DataVersion
+	SELECT	ExtractConfigurationId, StartDt, DataVersion
 	FROM	ExtractConfiguration
-	WHERE	ExtracttConfigurationID = SCOPE_IDENTITY()
+	WHERE	ExtractConfigurationId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO
