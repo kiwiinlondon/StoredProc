@@ -12,10 +12,12 @@ DROP PROCEDURE DBO.[Position_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Position_Insert]
+		@AccountID int, 
+		@UpdateUserID int, 
 		@BookID int, 
 		@InstrumentMarketID int, 
 		@CurrencyID int, 
-		@UpdateUserID int
+		@EntityRankingSchemeId int
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Position
-			(BookID, InstrumentMarketID, CurrencyID, UpdateUserID, StartDt)
+			(AccountID, UpdateUserID, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, StartDt)
 	VALUES
-			(@BookID, @InstrumentMarketID, @CurrencyID, @UpdateUserID, @StartDt)
+			(@AccountID, @UpdateUserID, @BookID, @InstrumentMarketID, @CurrencyID, @EntityRankingSchemeId, @StartDt)
 
-	SELECT	PositionID, StartDt, DataVersion
+	SELECT	PositionId, StartDt, DataVersion
 	FROM	Position
-	WHERE	PositionID = SCOPE_IDENTITY()
+	WHERE	PositionId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO

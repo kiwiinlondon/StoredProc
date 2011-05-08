@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[PortfolioSettlementDate_Insert]
 GO
 
 CREATE PROCEDURE DBO.[PortfolioSettlementDate_Insert]
-		@PositionAccountID int, 
+		@PositionId int, 
 		@ReferenceDate datetime, 
 		@NetPosition numeric(27,8), 
 		@NetCostInstrumentCurrency numeric(27,8), 
@@ -32,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PortfolioSettlementDate
-			(PositionAccountID, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, UpdateUserID, StartDt)
+			(PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, UpdateUserID, StartDt)
 	VALUES
-			(@PositionAccountID, @ReferenceDate, @NetPosition, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPostionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @UpdateUserID, @StartDt)
+			(@PositionId, @ReferenceDate, @NetPosition, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPostionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @UpdateUserID, @StartDt)
 
 	SELECT	PortfolioSettlementDateId, StartDt, DataVersion
 	FROM	PortfolioSettlementDate

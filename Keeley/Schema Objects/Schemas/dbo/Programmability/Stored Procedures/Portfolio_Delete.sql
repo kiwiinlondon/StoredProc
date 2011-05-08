@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Portfolio_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Portfolio_Delete]
-		@PortfolioID int,
+		@PortfolioId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Portfolio_hst (
-			PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, EndDt, LastActionUserID)
-	SELECT	PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, @EndDt, @UpdateUserID
+			PortfolioId, PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PortfolioId, PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Portfolio
-	WHERE	PortfolioID = @PortfolioID
+	WHERE	PortfolioId = @PortfolioId
 
 	DELETE	Portfolio
-	WHERE	PortfolioID = @PortfolioID
+	WHERE	PortfolioId = @PortfolioId
 	AND		DataVersion = @DataVersion
 GO

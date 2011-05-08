@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Position_Delete]
 GO
 
 CREATE PROCEDURE DBO.[Position_Delete]
-		@PositionID int,
+		@PositionId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, EndDt, LastActionUserID)
+	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, @EndDt, @UpdateUserID
 	FROM	Position
-	WHERE	PositionID = @PositionID
+	WHERE	PositionId = @PositionId
 
 	DELETE	Position
-	WHERE	PositionID = @PositionID
+	WHERE	PositionId = @PositionId
 	AND		DataVersion = @DataVersion
 GO

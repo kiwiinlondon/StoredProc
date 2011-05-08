@@ -3,7 +3,7 @@ USE Keeley
 create table DBO.PortfolioEvent_hst(
 	PortfolioEventID int not null,
 	InternalAllocationId int not null,
-	PositionAccountId int not null,
+	PositionId int not null,
 	ReferenceDate datetime not null,
 	PortfolioAggregationLevelId int not null,
 	PortfolioEventTypeId int not null,

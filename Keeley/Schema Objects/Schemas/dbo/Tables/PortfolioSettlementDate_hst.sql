@@ -2,7 +2,7 @@ USE Keeley
 
 create table DBO.PortfolioSettlementDate_hst(
 	PortfolioSettlementDateId int not null,
-	PositionAccountID int not null,
+	PositionId int not null,
 	ReferenceDate datetime not null,
 	NetPosition numeric(27,8) not null,
 	NetCostInstrumentCurrency numeric(27,8) not null,

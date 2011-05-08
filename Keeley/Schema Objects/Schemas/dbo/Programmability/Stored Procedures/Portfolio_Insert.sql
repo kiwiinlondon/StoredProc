@@ -12,22 +12,19 @@ DROP PROCEDURE DBO.[Portfolio_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Portfolio_Insert]
-		@PositionID int, 
+		@PositionId int, 
 		@ReferenceDate datetime, 
 		@NetPosition numeric(27,8), 
-		@UnitCost numeric(35,16), 
-		@MarkPrice numeric(35,16), 
-		@FXRate numeric(35,16), 
-		@MarketValue numeric(27,8), 
-		@DeltaEquityPosition numeric(27,8), 
-		@RealisedFXPNL numeric(27,8), 
-		@UnRealisedFXPNL numeric(27,8), 
-		@RealisedPricePNL numeric(27,8), 
-		@UnRealisedPricePNL numeric(27,8), 
-		@Accrual numeric(27,8), 
-		@CashIncome numeric(27,8), 
-		@UpdateUserID int, 
-		@FMContViewLadderID int
+		@NetCostInstrumentCurrency numeric(27,8), 
+		@NetCostBookCurrency numeric(27,8), 
+		@DeltaNetCostInstrumentCurrency numeric(27,8), 
+		@DeltaNetCostBookCurrency numeric(27,8), 
+		@TodayNetPostionChange numeric(27,8), 
+		@TodayDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@TodayNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayNetCostChangeBookCurrency numeric(27,8), 
+		@UpdateUserID int
 AS
 	SET NOCOUNT ON
 
@@ -35,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Portfolio
-			(PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, UpdateUserID, FMContViewLadderID, StartDt)
+			(PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, UpdateUserID, StartDt)
 	VALUES
-			(@PositionID, @ReferenceDate, @NetPosition, @UnitCost, @MarkPrice, @FXRate, @MarketValue, @DeltaEquityPosition, @RealisedFXPNL, @UnRealisedFXPNL, @RealisedPricePNL, @UnRealisedPricePNL, @Accrual, @CashIncome, @UpdateUserID, @FMContViewLadderID, @StartDt)
+			(@PositionId, @ReferenceDate, @NetPosition, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPostionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @UpdateUserID, @StartDt)
 
-	SELECT	PortfolioID, StartDt, DataVersion
+	SELECT	PortfolioId, StartDt, DataVersion
 	FROM	Portfolio
-	WHERE	PortfolioID = SCOPE_IDENTITY()
+	WHERE	PortfolioId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO

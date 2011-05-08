@@ -12,12 +12,14 @@ DROP PROCEDURE DBO.[Position_Update]
 GO
 
 CREATE PROCEDURE DBO.[Position_Update]
-		@PositionID int, 
+		@PositionId int, 
+		@AccountID int, 
+		@UpdateUserID int, 
+		@DataVersion rowversion, 
 		@BookID int, 
 		@InstrumentMarketID int, 
 		@CurrencyID int, 
-		@UpdateUserID int, 
-		@DataVersion rowversion
+		@EntityRankingSchemeId int
 AS
 	SET NOCOUNT ON
 
@@ -25,19 +27,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PositionID, BookID, InstrumentMarketID, CurrencyID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, EndDt, LastActionUserID)
+	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, @StartDt, @UpdateUserID
 	FROM	Position
-	WHERE	PositionID = @PositionID
+	WHERE	PositionId = @PositionId
 
 	UPDATE	Position
-	SET		BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	PositionID = @PositionID
+	SET		AccountID = @AccountID, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, EntityRankingSchemeId = @EntityRankingSchemeId,  StartDt = @StartDt
+	WHERE	PositionId = @PositionId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	Position
-	WHERE	PositionID = @PositionID
+	WHERE	PositionId = @PositionId
 	AND		@@ROWCOUNT > 0
 
 GO

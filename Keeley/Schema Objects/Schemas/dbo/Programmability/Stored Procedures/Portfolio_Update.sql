@@ -12,24 +12,21 @@ DROP PROCEDURE DBO.[Portfolio_Update]
 GO
 
 CREATE PROCEDURE DBO.[Portfolio_Update]
-		@PortfolioID int, 
-		@PositionID int, 
+		@PortfolioId int, 
+		@PositionId int, 
 		@ReferenceDate datetime, 
 		@NetPosition numeric(27,8), 
-		@UnitCost numeric(35,16), 
-		@MarkPrice numeric(35,16), 
-		@FXRate numeric(35,16), 
-		@MarketValue numeric(27,8), 
-		@DeltaEquityPosition numeric(27,8), 
-		@RealisedFXPNL numeric(27,8), 
-		@UnRealisedFXPNL numeric(27,8), 
-		@RealisedPricePNL numeric(27,8), 
-		@UnRealisedPricePNL numeric(27,8), 
-		@Accrual numeric(27,8), 
-		@CashIncome numeric(27,8), 
+		@NetCostInstrumentCurrency numeric(27,8), 
+		@NetCostBookCurrency numeric(27,8), 
+		@DeltaNetCostInstrumentCurrency numeric(27,8), 
+		@DeltaNetCostBookCurrency numeric(27,8), 
+		@TodayNetPostionChange numeric(27,8), 
+		@TodayDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@TodayNetCostChangeInstrumentCurrency numeric(27,8), 
+		@TodayNetCostChangeBookCurrency numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion, 
-		@FMContViewLadderID int
+		@DataVersion rowversion
 AS
 	SET NOCOUNT ON
 
@@ -37,19 +34,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Portfolio_hst (
-			PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, EndDt, LastActionUserID)
-	SELECT	PortfolioID, PositionID, ReferenceDate, NetPosition, UnitCost, MarkPrice, FXRate, MarketValue, DeltaEquityPosition, RealisedFXPNL, UnRealisedFXPNL, RealisedPricePNL, UnRealisedPricePNL, Accrual, CashIncome, StartDt, UpdateUserID, DataVersion, FMContViewLadderID, @StartDt, @UpdateUserID
+			PortfolioId, PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PortfolioId, PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Portfolio
-	WHERE	PortfolioID = @PortfolioID
+	WHERE	PortfolioId = @PortfolioId
 
 	UPDATE	Portfolio
-	SET		PositionID = @PositionID, ReferenceDate = @ReferenceDate, NetPosition = @NetPosition, UnitCost = @UnitCost, MarkPrice = @MarkPrice, FXRate = @FXRate, MarketValue = @MarketValue, DeltaEquityPosition = @DeltaEquityPosition, RealisedFXPNL = @RealisedFXPNL, UnRealisedFXPNL = @UnRealisedFXPNL, RealisedPricePNL = @RealisedPricePNL, UnRealisedPricePNL = @UnRealisedPricePNL, Accrual = @Accrual, CashIncome = @CashIncome, UpdateUserID = @UpdateUserID, FMContViewLadderID = @FMContViewLadderID,  StartDt = @StartDt
-	WHERE	PortfolioID = @PortfolioID
+	SET		PositionId = @PositionId, ReferenceDate = @ReferenceDate, NetPosition = @NetPosition, NetCostInstrumentCurrency = @NetCostInstrumentCurrency, NetCostBookCurrency = @NetCostBookCurrency, DeltaNetCostInstrumentCurrency = @DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency = @DeltaNetCostBookCurrency, TodayNetPostionChange = @TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency = @TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency = @TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency = @TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency = @TodayNetCostChangeBookCurrency, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	WHERE	PortfolioId = @PortfolioId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	Portfolio
-	WHERE	PortfolioID = @PortfolioID
+	WHERE	PortfolioId = @PortfolioId
 	AND		@@ROWCOUNT > 0
 
 GO
