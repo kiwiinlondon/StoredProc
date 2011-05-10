@@ -15,7 +15,6 @@ CREATE PROCEDURE DBO.[EntityRankingSchemeItem_Update]
 		@EntityRankingSchemeItemId int, 
 		@Name varchar(100), 
 		@EntityTypeId int, 
-		@EntityRankingSchemeId int, 
 		@FMValueSpecId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -26,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO EntityRankingSchemeItem_hst (
-			EntityRankingSchemeItemId, Name, EntityTypeId, EntityRankingSchemeId, FMValueSpecId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityRankingSchemeItemId, Name, EntityTypeId, EntityRankingSchemeId, FMValueSpecId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EntityRankingSchemeItemId, Name, EntityTypeId, FMValueSpecId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	EntityRankingSchemeItemId, Name, EntityTypeId, FMValueSpecId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	EntityRankingSchemeItem
 	WHERE	EntityRankingSchemeItemId = @EntityRankingSchemeItemId
 
 	UPDATE	EntityRankingSchemeItem
-	SET		Name = @Name, EntityTypeId = @EntityTypeId, EntityRankingSchemeId = @EntityRankingSchemeId, FMValueSpecId = @FMValueSpecId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, EntityTypeId = @EntityTypeId, FMValueSpecId = @FMValueSpecId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	EntityRankingSchemeItemId = @EntityRankingSchemeItemId
 	AND		DataVersion = @DataVersion
 

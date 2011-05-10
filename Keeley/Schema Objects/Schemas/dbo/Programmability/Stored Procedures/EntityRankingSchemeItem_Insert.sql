@@ -14,7 +14,6 @@ GO
 CREATE PROCEDURE DBO.[EntityRankingSchemeItem_Insert]
 		@Name varchar(100), 
 		@EntityTypeId int, 
-		@EntityRankingSchemeId int, 
 		@FMValueSpecId int, 
 		@UpdateUserID int
 AS
@@ -24,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityRankingSchemeItem
-			(Name, EntityTypeId, EntityRankingSchemeId, FMValueSpecId, UpdateUserID, StartDt)
+			(Name, EntityTypeId, FMValueSpecId, UpdateUserID, StartDt)
 	VALUES
-			(@Name, @EntityTypeId, @EntityRankingSchemeId, @FMValueSpecId, @UpdateUserID, @StartDt)
+			(@Name, @EntityTypeId, @FMValueSpecId, @UpdateUserID, @StartDt)
 
 	SELECT	EntityRankingSchemeItemId, StartDt, DataVersion
 	FROM	EntityRankingSchemeItem

@@ -4,7 +4,6 @@ create table DBO.EntityRankingSchemeItem_hst(
 	EntityRankingSchemeItemId int not null,
 	Name varchar(100) not null,
 	EntityTypeId int not null,
-	EntityRankingSchemeId int not null,
 	FMValueSpecId int,
 	StartDt datetime not null,
 	UpdateUserID int not null,
