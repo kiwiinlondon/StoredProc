@@ -117,6 +117,7 @@
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
     <Folder Include="Schema Objects\Schemas\dbo\Tables\Create" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -317,6 +318,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeItem_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeOrder_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Delete.sql">
@@ -895,12 +908,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Keeley.Portfolio_GetForFMRec.proc.sql">
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioEvent_GetPrevious.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Keeley.PortfolioEvent_GetPrevious.sql">
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_GetForFMRec.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_Roll.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioSettlementDate_Roll.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>

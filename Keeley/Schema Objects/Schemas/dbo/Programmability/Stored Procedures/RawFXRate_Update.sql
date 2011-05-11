@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[RawFXRate_Update]
 		@AskValue numeric(27,8), 
 		@AskUpdateDate datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@RawFXRateUsedId int
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO RawFXRate_hst (
-			RawFXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	RawFXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			RawFXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, RawFXRateUsedId, EndDt, LastActionUserID)
+	SELECT	RawFXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, RawFXRateUsedId, @StartDt, @UpdateUserID
 	FROM	RawFXRate
 	WHERE	RawFXRateId = @RawFXRateId
 
 	UPDATE	RawFXRate
-	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, ForwardDate = @ForwardDate, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, BidValue = @BidValue, BidUpdateDate = @BidUpdateDate, AskValue = @AskValue, AskUpdateDate = @AskUpdateDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, ForwardDate = @ForwardDate, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, BidValue = @BidValue, BidUpdateDate = @BidUpdateDate, AskValue = @AskValue, AskUpdateDate = @AskUpdateDate, UpdateUserID = @UpdateUserID, RawFXRateUsedId = @RawFXRateUsedId,  StartDt = @StartDt
 	WHERE	RawFXRateId = @RawFXRateId
 	AND		DataVersion = @DataVersion
 

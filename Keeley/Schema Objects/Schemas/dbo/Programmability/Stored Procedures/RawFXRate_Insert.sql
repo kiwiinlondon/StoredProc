@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[RawFXRate_Insert]
 		@BidUpdateDate datetime, 
 		@AskValue numeric(27,8), 
 		@AskUpdateDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@RawFXRateUsedId int
 AS
 	SET NOCOUNT ON
 
@@ -29,9 +30,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into RawFXRate
-			(FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, UpdateUserID, StartDt)
+			(FromCurrencyId, ToCurrencyId, ReferenceDate, ForwardDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, UpdateUserID, RawFXRateUsedId, StartDt)
 	VALUES
-			(@FromCurrencyId, @ToCurrencyId, @ReferenceDate, @ForwardDate, @EntityRankingSchemeItemId, @BidValue, @BidUpdateDate, @AskValue, @AskUpdateDate, @UpdateUserID, @StartDt)
+			(@FromCurrencyId, @ToCurrencyId, @ReferenceDate, @ForwardDate, @EntityRankingSchemeItemId, @BidValue, @BidUpdateDate, @AskValue, @AskUpdateDate, @UpdateUserID, @RawFXRateUsedId, @StartDt)
 
 	SELECT	RawFXRateId, StartDt, DataVersion
 	FROM	RawFXRate

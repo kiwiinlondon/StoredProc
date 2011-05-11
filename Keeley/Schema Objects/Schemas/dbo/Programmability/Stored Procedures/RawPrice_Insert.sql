@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[RawPrice_Insert]
 		@BidUpdateDate datetime, 
 		@AskValue numeric(27,8), 
 		@AskUpdateDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@RawPriceUsedId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into RawPrice
-			(InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, UpdateUserID, StartDt)
+			(InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, UpdateUserID, RawPriceUsedId, StartDt)
 	VALUES
-			(@InstrumentMarketId, @ReferenceDate, @EntityRankingSchemeItemId, @BidValue, @BidUpdateDate, @AskValue, @AskUpdateDate, @UpdateUserID, @StartDt)
+			(@InstrumentMarketId, @ReferenceDate, @EntityRankingSchemeItemId, @BidValue, @BidUpdateDate, @AskValue, @AskUpdateDate, @UpdateUserID, @RawPriceUsedId, @StartDt)
 
 	SELECT	RawPriceId, StartDt, DataVersion
 	FROM	RawPrice

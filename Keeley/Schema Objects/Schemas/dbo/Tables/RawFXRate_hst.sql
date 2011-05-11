@@ -14,5 +14,6 @@ create table DBO.RawFXRate_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	RawFXRateUsedId int,
 	EndDt datetime,
 	LastActionUserID int)
