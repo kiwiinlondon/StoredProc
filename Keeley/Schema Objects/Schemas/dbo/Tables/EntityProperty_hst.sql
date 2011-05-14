@@ -10,5 +10,6 @@ create table DBO.EntityProperty_hst(
 	DataVersion binary(8) not null,
 	PropertyOnChildEntity bit not null,
 	TypeCode int not null,
+	IdentifierTypeId int,
 	EndDt datetime,
 	LastActionUserID int)

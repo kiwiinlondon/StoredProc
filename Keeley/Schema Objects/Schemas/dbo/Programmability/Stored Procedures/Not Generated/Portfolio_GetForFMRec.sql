@@ -20,18 +20,18 @@ AS
 		b.FMOrgId,
 		im.FMSecId,
 		ccy.Name,
-		NetPosition, 
-		UnitCost,
-		MarkPrice,
-		FXRate,
-		MarketValue,
-		DeltaEquityPosition,
-		Accrual,
-		CashIncome,
-		RealisedFXPNL,
-		UnRealisedFXPNL,
-		RealisedPricePNL,
-		UnRealisedPricePNL
+		sum(NetPosition) NetPosition--, 
+		--UnitCost,
+		--MarkPrice,
+		--FXRate,
+		--MarketValue,
+		--DeltaEquityPosition,
+		--Accrual,
+		--CashIncome,
+		--RealisedFXPNL,
+		--UnRealisedFXPNL,
+		--RealisedPricePNL,
+		--UnRealisedPricePNL
 from	Portfolio p,
 		Position pos,
 		Book b,
@@ -43,3 +43,7 @@ and		pos.InstrumentMarketID = im.InstrumentMarketID
 and		pos.CurrencyID = ccy.InstrumentID
 and		b.FundID = @fundId
 and		p.ReferenceDate between @fromDt and @toDt
+group by p.ReferenceDate,
+		b.FMOrgId,
+		im.FMSecId,
+		ccy.Name

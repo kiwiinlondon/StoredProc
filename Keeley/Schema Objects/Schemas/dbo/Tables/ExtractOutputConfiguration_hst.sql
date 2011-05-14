@@ -11,5 +11,6 @@ create table DBO.ExtractOutputConfiguration_hst(
 	DataVersion binary(8) not null,
 	EntityPropertyId int not null,
 	EntityPropertyToWriteId int not null,
+	Format varchar(1000),
 	EndDt datetime,
 	LastActionUserID int)

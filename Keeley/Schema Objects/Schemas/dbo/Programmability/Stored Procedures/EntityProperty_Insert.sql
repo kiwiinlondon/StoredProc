@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[EntityProperty_Insert]
 		@Name varchar(70), 
 		@UpdateUserID int, 
 		@PropertyOnChildEntity bit, 
-		@TypeCode int
+		@TypeCode int, 
+		@IdentifierTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityProperty
-			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, StartDt)
+			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, IdentifierTypeId, StartDt)
 	VALUES
-			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @StartDt)
+			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @IdentifierTypeId, @StartDt)
 
 	SELECT	EntityPropertyID, StartDt, DataVersion
 	FROM	EntityProperty

@@ -12,13 +12,39 @@ create table DBO.EntityProperty (
 	EntityPropertyID int identity(1,1) not null CONSTRAINT EntityPropertyPK PRIMARY KEY,
 	EntityTypeId int not null  CONSTRAINT EntityPropertyEntityTypeIDFK FOREIGN KEY REFERENCES EntityType(EntityTypeId),
 	NeedsToBeCalculated bit not null,
-	PropertyOnChildEntity bit not null,
+	PropertyOnChildEntity bit not null,	
+	IdentifierTypeId int CONSTRAINT EntityPropertyIdentifierTypeIDFK FOREIGN KEY REFERENCES IdentifierType(IdentifierTypeId),
 	TypeCode int not null,
 	Name varchar(70) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT EntityPropertyUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+
+alter table entityproperty add IdentifierTypeId int CONSTRAINT EntityPropertyIdentifierTypeIDFK FOREIGN KEY REFERENCES IdentifierType(IdentifierTypeId)
+select * from ExtractConfiguration
+delete from ExtractOutputConfiguration where ExtractOutputConfigurationID = 52
+update ExtractOutputConfiguration set format ='{0:F2}' where ExtractOutputConfigurationID = 54
+update EntityProperty set identifiertypeid = 2 where EntityPropertyID = 69
+update EntityProperty set for = 6 where EntityPropertyID = 70
+
+30
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId]
+           ,[ConfigurationKey]
+           ,[ConfigurationValue]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (4
+           ,'SubjectLookup'
+           ,36
+           ,GETDATE()
+           ,1)
+GO
+
+select * from Extract
 
 create unique index EntityPropertyUK on EntityProperty(EntityTypeId,Name)
 
@@ -42,16 +68,176 @@ create table DBO.ExtractOutputType (
 	)
 create unique index ExtractOutputTypeUK on ExtractOutputType(Name)
 
+create table DBO.ExtractRunnerType (
+	ExtractRunnerTypeID int identity(1,1) not null CONSTRAINT ExtractRunnerTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractRunnerTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+create unique index ExtractRunnerTypeTypeUK on ExtractOutputType(Name)
+
+create table DBO.ExtractInputType (
+	ExtractInputTypeID int identity(1,1) not null CONSTRAINT ExtractInputTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractInputTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+create unique index ExtractInputTypeUK on ExtractInputType(Name)
+create table DBO.ExtractDeliveryType (
+	ExtractDeliveryTypeID int identity(1,1) not null CONSTRAINT ExtractDeliveryTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractDeliveryTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+create unique index ExtractDeliveryTypeUK on ExtractDeliveryType(Name)
 create table DBO.Extract (
 	ExtractID int identity(1,1) not null CONSTRAINT ExtractPK PRIMARY KEY,
 	ExtractTypeId int not null  CONSTRAINT ExtractExtractTypeIdFK FOREIGN KEY REFERENCES ExtractType(ExtractTypeId),
 	Name varchar(70) not null, 
 	ExtractOutputTypeID  int not null  CONSTRAINT ExtractExtractOutputTypeIDFK FOREIGN KEY REFERENCES ExtractOutputType(ExtractOutputTypeID),
+	ExtractRunnerTypeID  int not null  CONSTRAINT ExtractExtractRunnerTypeIDFK FOREIGN KEY REFERENCES ExtractRunnerType(ExtractRunnerTypeID),
+	ExtractInputTypeID  int not null  CONSTRAINT ExtractExtractInputTypeIDFK FOREIGN KEY REFERENCES ExtractInputType(ExtractInputTypeID),
+	ExtractDeliveryTypeID  int not null  CONSTRAINT ExtractExtractDeliveryTypeIDFK FOREIGN KEY REFERENCES ExtractDeliveryType(ExtractDeliveryTypeID),
+	ExtractOutputContainerTypeID  int not null  CONSTRAINT ExtractExtractOutputContainerTypeIDFK FOREIGN KEY REFERENCES ExtractOutputContainerType(ExtractOutputContainerTypeID),
+	SendIfEmpty bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 )	
+
+alter table Extract alter column ExtractOutputContainerTypeID int not null CONSTRAINT ExtractExtractOutputContainerTypeIDFK FOREIGN KEY REFERENCES ExtractOutputContainerType(ExtractOutputContainerTypeID)
+
+update ExtractDeliveryType set name = 'Email'
+delete from ExtractDeliveryType where ExtractDeliveryTypeID =2
+
+insert into ExtractConfiguration(ExtractId,ConfigurationKey,ConfigurationValue,StartDt,UpdateUserID)
+
+select 4,ConfigurationKey,ConfigurationValue,GETDATE(),1 from ExtractConfiguration where ExtractId = 1 and ConfigurationKey not in (select ConfigurationKey from ExtractConfiguration where ExtractId = 4) and ExtractConfigurationId not in (1)
+
+update Extract set extractoutputcontainertypeid = 2,ExtractOutputTypeID =3 where ExtractID = 4
+select * from extractoutputcontainertype
+alter table extractRun add RuntimeParameters varchar(1000) alter column ExtractDeliveryTypeID  int not null CONSTRAINT ExtractExtractDeliveryTypeIDFK FOREIGN KEY REFERENCES ExtractDeliveryType(ExtractDeliveryTypeID)
+
+create table DBO.ExtractOutputContainerType (
+	ExtractOutputContainerTypeID int identity(1,1) not null CONSTRAINT ExtractOutputContainerTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputContainerTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
+create unique index ExtractOutputContainerTypeUK on ExtractOutputContainerType(Name)
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputContainerType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('File'
+           ,GETDATE()
+           ,1)
+INSERT INTO [Keeley].[dbo].[ExtractOutputContainerType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('String'
+           ,GETDATE()
+           ,1)
+select * f
+
+GO
+
+
+
+
+select * from ExtractDeliveryType 
+
+USE Keeley
+
+create table DBO.ExtractRun_hst(
+	ExtractRunId int not null,
+	ExtractId int not null,
+	RunTime datetime not null,
+	StartDt datetime not null,
+	UpdateUserID int not null,
+	DataVersion binary(8) not null,
+	InProgress bit not null,
+	NumberRecords int not null,
+	FilePath varchar(100),
+	RuntimeParameters varchar(1000),
+	EndDt datetime,
+	LastActionUserID int)
+
+alter table Extract alter column SendIfEmpty bit not null,
+
+update extract set sendifempty = 1
+update Extract set ExtractDeliveryTypeID = 1 where ExtractID in ( 1,3)
+update ExtractOutputType set Name = 'Delimited' where ExtractOutputTypeID = 2
+
+select * from ExtractDeliveryType
+select * from ExtractInputType
+update Extract set ExtractOutputTypeID = 3 where ExtractID = 4
+
+INSERT INTO [Keeley].[dbo].[ExtractDeliveryType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Email with Output in Attached File'
+           ,GETDATE()
+           ,1)
+
+INSERT INTO [Keeley].[dbo].[ExtractDeliveryType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Email with Output Embedded in Message'
+           ,GETDATE()
+           ,1)
+GO
+
+delete from ExtractInputType where ExtractInputTypeid = 3
+
+ExtractInputTypeID  int not null  CONSTRAINT ExtractExtractInputTypeIDFK FOREIGN KEY REFERENCES ExtractInputType(ExtractInputTypeID),
+	ExtractDeliveryTypeID  int not null  CONSTRAINT ExtractExtractDeliveryTypeIDFK FOREIGN KEY REFERENCES ExtractDeliveryType(ExtractDeliveryTypeID)
+
+
+create table DBO.ExtractOutputType (
+	ExtractOutputTypeID int identity(1,1) not null CONSTRAINT ExtractOutputTypePK PRIMARY KEY,
+	Name varchar(70) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null CONSTRAINT ExtractOutputTypeUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	DataVersion rowversion not null
+	)
 create unique index ExtractUK on ExtractType(Name)
+
+INSERT INTO [Keeley].[dbo].[ExtractRunnerType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('All Funds'
+           ,GETDATE()
+           ,1)
+
+INSERT INTO [Keeley].[dbo].[ExtractRunnerType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Standard'
+           ,GETDATE()
+           ,1)
+
+alter table Extract alter column ExtractRunnerTypeId int not null
+set ExtractRunnerTypeId = 2
+GO
+
+
 
 create table DBO.ExtractConfiguration (
 	ExtracttConfigurationID int identity(1,1) not null CONSTRAINT ExtractConfigurationPK PRIMARY KEY,
@@ -101,12 +287,15 @@ create table DBO.ExtractOutputConfiguration(
 	EntityPropertyId int not null CONSTRAINT ExtractOutputConfigurationDependantEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),
 	EntityPropertyToWriteId int not null CONSTRAINT ExtractOutputConfigurationPrincipalEntityPropertyIdFK FOREIGN KEY REFERENCES EntityProperty(EntityPropertyId),		
 	Label varchar(1000),
+	Format varchar(1000),
 	ChangesCanBeIgnored bit not null,
 	OrderBy int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null CONSTRAINT ExtractFieldOutputConfigurationUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
 	DataVersion rowversion not null
 ) 
+
+alter table ExtractOutputConfiguration add Format varchar(1000)
 
 select * from ExtractOutputConfiguration
 
@@ -239,4 +428,180 @@ update EntityProperty set Name = 'IsoCode' where EntityPropertyId = 29
 
 select * from ExtractEntity where EntityTypeId =9
 
-select * from ExtractInputConfiguration
+select * from [ExtractOutputType]
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Email With Embedded CSV Reconciliation Output'
+           ,GETDATE()
+           ,1)
+GO
+
+INSERT INTO [Keeley].[dbo].[ExtractType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Reconciliation'
+           ,GetDate()
+           ,1)
+GO
+
+update extract set name = 'CAC Trade File' where ExtractID = 1
+
+select * from extract
+
+INSERT INTO [Keeley].[dbo].[Extract]
+           ([ExtractTypeId]
+           ,[Name]
+           ,[StartDt]
+           ,[UpdateUserID]
+           ,[ExtractOutputTypeID]
+           ,[ExtractRunnerTypeID])
+     VALUES
+           (3
+           ,'Fund Manager Position Rec - All Funds'
+           ,GETDATE()
+           ,1
+           ,2
+           ,1)
+           
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'FromAddress','KeeleyReconciliation@odey.com',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'ToAddress','g.poore@odey.com',GETDATE(),1)
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'FromName','Keeley Reconciliation',GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'SubjectFormat','{0} Fund Manager Position Reconciliation',GETDATE(),1)           
+           
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'Subject','Runtime 0',GETDATE(),1)                      
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'ReconciliationTypeId','1',GETDATE(),1)   
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'FromDate','DateTime.Now',GETDATE(),1)   
+
+INSERT INTO [Keeley].[dbo].[ExtractConfiguration]
+           ([ExtractId],[ConfigurationKey],[ConfigurationValue],[StartDt],[UpdateUserID])
+     VALUES
+           (4,'NumberOfDays','0',GETDATE(),1)   
+GO
+
+ReconciliationTypeId
+FromDate
+NumberOfDays 0
+select * from Portfolio  where ReferenceDate = '11-may-2011'         
+
+PortfolioSettlementDate_roll '31-may-2011',1 
+
+select * from [EntityType]
+
+INSERT INTO [Keeley].[dbo].[EntityType]
+           ([Name]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Book'
+           ,GETDATE()
+           ,1)
+GO
+
+select * from ExtractConfiguration
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'Date',0,0,GETDATE(),1,68,68,'{0:dd-MMM-yyyy}')
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'Book',0,1,GETDATE(),1,69,73,null)
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'FMSecId',0,2,GETDATE(),1,70,70,null)
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'Security',0,3,GETDATE(),1,70,32,null)
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'Currency',0,4,GETDATE(),1,71,71,null)
+
+INSERT INTO [Keeley].[dbo].[ExtractOutputConfiguration]
+           ([ExtractId]
+           ,[Label],[ChangesCanBeIgnored],[OrderBy],[StartDt],[UpdateUserID],[EntityPropertyId],[EntityPropertyToWriteId],[Format])
+     VALUES
+           (4,'Position',0,5,GETDATE(),1,72,72,null)
+
+GO
+
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (20,0,'ReferenceDate',GETDATE(),1,0,16)
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (20,0,'FMBookId',GETDATE(),1,0,9)           
+
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (20,0,'FMSecId',GETDATE(),1,0,9)           
+
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (20,0,'CcyIso',GETDATE(),1,0,18)  
+
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (20,0,'NetPosition',GETDATE(),1,0,15)  
+
+
+INSERT INTO [Keeley].[dbo].[EntityProperty]
+           ([EntityTypeId],[NeedsToBeCalculated],[Name],[StartDt],[UpdateUserID],[PropertyOnChildEntity],[TypeCode])
+     VALUES
+           (22,0,'Name',GETDATE(),1,0,18)  
+
+
+22
+
+select t.Name,p.* from EntityProperty p, EntityType t where p.EntityTypeId = t.EntityTypeID
+
+select * from EntityProperty

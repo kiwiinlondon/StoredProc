@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ExtractRun_hst (
-			ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, EndDt, LastActionUserID)
-	SELECT	ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, @EndDt, @UpdateUserID
+			ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, RuntimeParameters, EndDt, LastActionUserID)
+	SELECT	ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, RuntimeParameters, @EndDt, @UpdateUserID
 	FROM	ExtractRun
 	WHERE	ExtractRunId = @ExtractRunId
 

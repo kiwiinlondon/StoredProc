@@ -8,5 +8,9 @@ create table DBO.Extract_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	ExtractOutputTypeID int not null,
+	ExtractRunnerTypeID int not null,
+	ExtractInputTypeID int not null,
+	ExtractDeliveryTypeID int not null,
+	SendIfEmpty bit not null,
 	EndDt datetime,
 	LastActionUserID int)

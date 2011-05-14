@@ -152,6 +152,9 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Create\create trade tables.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioEvent_GetPrevious.sql">
+      <SubType>Code</SubType>
+    </Build>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -392,6 +395,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractConfiguration_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractDeliveryType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -428,6 +443,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractInputConfiguration_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractInputType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -462,6 +489,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql">
@@ -908,9 +947,6 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioEvent_GetPrevious.sql">
-      <SubType>Code</SubType>
-    </Build>
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_GetForFMRec.sql">

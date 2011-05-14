@@ -10,5 +10,6 @@ create table DBO.ExtractRun_hst(
 	InProgress bit not null,
 	NumberRecords int not null,
 	FilePath varchar(100),
+	RuntimeParameters varchar(1000),
 	EndDt datetime,
 	LastActionUserID int)

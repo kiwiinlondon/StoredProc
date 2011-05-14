@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[ExtractOutputConfiguration_Insert]
 		@OrderBy int, 
 		@UpdateUserID int, 
 		@EntityPropertyId int, 
-		@EntityPropertyToWriteId int
+		@EntityPropertyToWriteId int, 
+		@Format varchar(1000)
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractOutputConfiguration
-			(ExtractId, Label, ChangesCanBeIgnored, OrderBy, UpdateUserID, EntityPropertyId, EntityPropertyToWriteId, StartDt)
+			(ExtractId, Label, ChangesCanBeIgnored, OrderBy, UpdateUserID, EntityPropertyId, EntityPropertyToWriteId, Format, StartDt)
 	VALUES
-			(@ExtractId, @Label, @ChangesCanBeIgnored, @OrderBy, @UpdateUserID, @EntityPropertyId, @EntityPropertyToWriteId, @StartDt)
+			(@ExtractId, @Label, @ChangesCanBeIgnored, @OrderBy, @UpdateUserID, @EntityPropertyId, @EntityPropertyToWriteId, @Format, @StartDt)
 
 	SELECT	ExtractOutputConfigurationID, StartDt, DataVersion
 	FROM	ExtractOutputConfiguration

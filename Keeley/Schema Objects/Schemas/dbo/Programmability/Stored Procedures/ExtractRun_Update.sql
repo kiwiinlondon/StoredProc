@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[ExtractRun_Update]
 		@DataVersion rowversion, 
 		@InProgress bit, 
 		@NumberRecords int, 
-		@FilePath varchar(100)
+		@FilePath varchar(100), 
+		@RuntimeParameters varchar(1000)
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractRun_hst (
-			ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, EndDt, LastActionUserID)
-	SELECT	ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, @StartDt, @UpdateUserID
+			ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, RuntimeParameters, EndDt, LastActionUserID)
+	SELECT	ExtractRunId, ExtractId, RunTime, StartDt, UpdateUserID, DataVersion, InProgress, NumberRecords, FilePath, RuntimeParameters, @StartDt, @UpdateUserID
 	FROM	ExtractRun
 	WHERE	ExtractRunId = @ExtractRunId
 
 	UPDATE	ExtractRun
-	SET		ExtractId = @ExtractId, RunTime = @RunTime, UpdateUserID = @UpdateUserID, InProgress = @InProgress, NumberRecords = @NumberRecords, FilePath = @FilePath,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, RunTime = @RunTime, UpdateUserID = @UpdateUserID, InProgress = @InProgress, NumberRecords = @NumberRecords, FilePath = @FilePath, RuntimeParameters = @RuntimeParameters,  StartDt = @StartDt
 	WHERE	ExtractRunId = @ExtractRunId
 	AND		DataVersion = @DataVersion
 
