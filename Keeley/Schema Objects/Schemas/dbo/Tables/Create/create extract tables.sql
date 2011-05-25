@@ -146,7 +146,7 @@ INSERT INTO [Keeley].[dbo].[ExtractOutputContainerType]
            ('String'
            ,GETDATE()
            ,1)
-select * f
+select * from position
 
 GO
 
@@ -604,4 +604,114 @@ INSERT INTO [Keeley].[dbo].[EntityProperty]
 
 select t.Name,p.* from EntityProperty p, EntityType t where p.EntityTypeId = t.EntityTypeID
 
-select * from EntityProperty
+drop table PortfolioRollDate
+
+CREATE TABLE [dbo].PortfolioRollDate(
+	[PortfolioRollDateId] [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PortfolioRollDatePK] PRIMARY KEY,
+	[PortfolioAggregationLevelId] [int] NOT NULL  CONSTRAINT PortfolioRollDatePortfolioAggregationLevelIdFK FOREIGN KEY REFERENCES PortfolioAggregationLevel(PortfolioAggregationLevelId),
+	[RollDate] [datetime] NOT NULL,
+	[StartDt] [datetime] NOT NULL,
+	[UpdateUserID] [int] NOT NULL  CONSTRAINT PortfolioRollDateUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	[DataVersion] [timestamp] NOT NULL)
+	
+INSERT INTO [Keeley].[dbo].[PortfolioRollDate]
+           ([PortfolioAggregationLevelId]
+           ,[RollDate]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (3,
+           '12-jun-2011'
+           ,GETDATE()
+           ,1)
+GO
+
+select * from [PortfolioEvent] where ReferenceDate between '24-may-2011' and '25-may-2011' and PortfolioAggregationLevelId = 3
+
+update ExtractConfiguration set ConfigurationValue = 'g.poore@odey.com;i.murray@odey.com;d.bentley@odey.com'
+where ExtractConfigurationId in (6,20)
+
+delete from PortfolioSettlementDate where ReferenceDate = '13-jun-2011'
+update PortfolioRollDate set RollDate = '12-jun-2011' where PortfolioAggregationLevelId = 3
+	
+	select * from PortfolioRollDate
+select * from country
+
+
+
+
+INSERT INTO [Keeley].[dbo].[RawPrice]
+           ([InstrumentMarketId]
+           ,[ReferenceDate]
+           ,[EntityRankingSchemeItemId]
+           ,[BidValue]
+           ,[BidUpdateDate]
+           ,[AskValue]
+           ,[AskUpdateDate]
+           ,[StartDt]
+           ,[UpdateUserID]
+           ,[RawPriceUsedId])
+     VALUES
+           (2
+           ,'7-may-2011'
+           ,1
+           ,7
+           ,GETDATE()
+           ,7
+           ,GETDATE()
+           ,GETDATE()
+           ,1
+           ,null)
+GO
+
+INSERT INTO [Keeley].[dbo].[EntityRankingSchemeItem]
+           ([Name]
+           ,[EntityTypeId]
+           ,[FMValueSpecId]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Manual Price'
+           ,18
+           ,1
+           ,GETDATE()
+           ,1)
+GO
+
+select * from [EntityRankingSchemeItem]
+
+
+
+INSERT INTO [Keeley].[dbo].[Price]
+           ([InstrumentMarketId]
+           ,[ReferenceDate]
+           ,[EntityRankingSchemeId]
+           ,[RawPriceId]
+           ,[Value]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (2
+           ,'7-may-2011'
+           ,1
+           ,2
+           ,1
+           ,GETDATE()
+           ,1)
+GO
+
+select	* 
+from	Price p,
+		RawPrice r
+where	p.RawPriceId = r.RawPriceId		
+and		'2-may-2011' between r.ReferenceDate and p.ReferenceDate
+
+alter table RawPrice add  CONSTRAINT RawPriceUserIDFK FOREIGN KEY (updateUSERID) REFERENCES ApplicationUser(UserID)
+
+alter table Price add EntityRankingSchemeItemId int CONSTRAINT PriceEntityRankingSchemeItemIdFK FOREIGN KEY REFERENCES EntityRankingSchemeItem(EntityRankingSchemeItemId)
+
+alter table Price alter column EntityRankingSchemeItemId int not null
+
+update Price set EntityRankingSchemeItemId = 1
+
+drop table Price_hst

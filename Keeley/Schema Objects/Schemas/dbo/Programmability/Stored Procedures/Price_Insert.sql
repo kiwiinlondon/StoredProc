@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Price_Insert]
 		@EntityRankingSchemeId int, 
 		@RawPriceId int, 
 		@Value numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@EntityRankingSchemeItemId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Price
-			(InstrumentMarketId, ReferenceDate, EntityRankingSchemeId, RawPriceId, Value, UpdateUserID, StartDt)
+			(InstrumentMarketId, ReferenceDate, EntityRankingSchemeId, RawPriceId, Value, UpdateUserID, EntityRankingSchemeItemId, StartDt)
 	VALUES
-			(@InstrumentMarketId, @ReferenceDate, @EntityRankingSchemeId, @RawPriceId, @Value, @UpdateUserID, @StartDt)
+			(@InstrumentMarketId, @ReferenceDate, @EntityRankingSchemeId, @RawPriceId, @Value, @UpdateUserID, @EntityRankingSchemeItemId, @StartDt)
 
 	SELECT	PriceId, StartDt, DataVersion
 	FROM	Price

@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[CapitalEvent_Insert]
 		@AmendmentNumber int, 
 		@IsCancelled bit, 
 		@CurrencyId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@InputDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -29,9 +30,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into CapitalEvent
-			(EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, StartDt)
+			(EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, StartDt)
 	VALUES
-			(@EventID, @TradeDate, @SettlementDate, @Quantity, @FXRate, @FXRateMultiply, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @StartDt)
+			(@EventID, @TradeDate, @SettlementDate, @Quantity, @FXRate, @FXRateMultiply, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	CapitalEvent

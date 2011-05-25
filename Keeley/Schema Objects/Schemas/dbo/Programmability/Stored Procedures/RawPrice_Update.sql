@@ -21,8 +21,7 @@ CREATE PROCEDURE DBO.[RawPrice_Update]
 		@AskValue numeric(27,8), 
 		@AskUpdateDate datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion, 
-		@RawPriceUsedId int
+		@DataVersion rowversion
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO RawPrice_hst (
-			RawPriceId, InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, RawPriceUsedId, EndDt, LastActionUserID)
-	SELECT	RawPriceId, InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, RawPriceUsedId, @StartDt, @UpdateUserID
+			RawPriceId, InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	RawPriceId, InstrumentMarketId, ReferenceDate, EntityRankingSchemeItemId, BidValue, BidUpdateDate, AskValue, AskUpdateDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	RawPrice
 	WHERE	RawPriceId = @RawPriceId
 
 	UPDATE	RawPrice
-	SET		InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, BidValue = @BidValue, BidUpdateDate = @BidUpdateDate, AskValue = @AskValue, AskUpdateDate = @AskUpdateDate, UpdateUserID = @UpdateUserID, RawPriceUsedId = @RawPriceUsedId,  StartDt = @StartDt
+	SET		InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, BidValue = @BidValue, BidUpdateDate = @BidUpdateDate, AskValue = @AskValue, AskUpdateDate = @AskUpdateDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	RawPriceId = @RawPriceId
 	AND		DataVersion = @DataVersion
 

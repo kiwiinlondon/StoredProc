@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[Extract_Update]
 		@ExtractRunnerTypeID int, 
 		@ExtractInputTypeID int, 
 		@ExtractDeliveryTypeID int, 
-		@SendIfEmpty bit
+		@SendIfEmpty bit, 
+		@ExtractOutputContainerTypeID int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Extract_hst (
-			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, EndDt, LastActionUserID)
-	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, @StartDt, @UpdateUserID
+			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, EndDt, LastActionUserID)
+	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, @StartDt, @UpdateUserID
 	FROM	Extract
 	WHERE	ExtractID = @ExtractID
 
 	UPDATE	Extract
-	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID, ExtractOutputTypeID = @ExtractOutputTypeID, ExtractRunnerTypeID = @ExtractRunnerTypeID, ExtractInputTypeID = @ExtractInputTypeID, ExtractDeliveryTypeID = @ExtractDeliveryTypeID, SendIfEmpty = @SendIfEmpty,  StartDt = @StartDt
+	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID, ExtractOutputTypeID = @ExtractOutputTypeID, ExtractRunnerTypeID = @ExtractRunnerTypeID, ExtractInputTypeID = @ExtractInputTypeID, ExtractDeliveryTypeID = @ExtractDeliveryTypeID, SendIfEmpty = @SendIfEmpty, ExtractOutputContainerTypeID = @ExtractOutputContainerTypeID,  StartDt = @StartDt
 	WHERE	ExtractID = @ExtractID
 	AND		DataVersion = @DataVersion
 

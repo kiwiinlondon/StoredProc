@@ -12,5 +12,6 @@ create table DBO.Extract_hst(
 	ExtractInputTypeID int not null,
 	ExtractDeliveryTypeID int not null,
 	SendIfEmpty bit not null,
+	ExtractOutputContainerTypeID int not null,
 	EndDt datetime,
 	LastActionUserID int)
