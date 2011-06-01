@@ -18,11 +18,11 @@ CREATE PROCEDURE DBO.[FXRate_Update]
 		@ReferenceDate datetime, 
 		@EntityRankingSchemeId int, 
 		@ForwardDate datetime, 
-		@RawFXRateId int, 
-		@RawFXRate2Id int, 
 		@Value numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@FromRawFXRateId int, 
+		@ToRawFXRateId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXRate_hst (
-			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, RawFXRateId, RawFXRate2Id, Value, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, RawFXRateId, RawFXRate2Id, Value, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, EndDt, LastActionUserID)
+	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, @StartDt, @UpdateUserID
 	FROM	FXRate
 	WHERE	FXRateId = @FXRateId
 
 	UPDATE	FXRate
-	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, EntityRankingSchemeId = @EntityRankingSchemeId, ForwardDate = @ForwardDate, RawFXRateId = @RawFXRateId, RawFXRate2Id = @RawFXRate2Id, Value = @Value, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, EntityRankingSchemeId = @EntityRankingSchemeId, ForwardDate = @ForwardDate, Value = @Value, UpdateUserID = @UpdateUserID, FromRawFXRateId = @FromRawFXRateId, ToRawFXRateId = @ToRawFXRateId,  StartDt = @StartDt
 	WHERE	FXRateId = @FXRateId
 	AND		DataVersion = @DataVersion
 

@@ -17,10 +17,10 @@ CREATE PROCEDURE DBO.[FXRate_Insert]
 		@ReferenceDate datetime, 
 		@EntityRankingSchemeId int, 
 		@ForwardDate datetime, 
-		@RawFXRateId int, 
-		@RawFXRate2Id int, 
 		@Value numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FromRawFXRateId int, 
+		@ToRawFXRateId int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXRate
-			(FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, RawFXRateId, RawFXRate2Id, Value, UpdateUserID, StartDt)
+			(FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, UpdateUserID, FromRawFXRateId, ToRawFXRateId, StartDt)
 	VALUES
-			(@FromCurrencyId, @ToCurrencyId, @ReferenceDate, @EntityRankingSchemeId, @ForwardDate, @RawFXRateId, @RawFXRate2Id, @Value, @UpdateUserID, @StartDt)
+			(@FromCurrencyId, @ToCurrencyId, @ReferenceDate, @EntityRankingSchemeId, @ForwardDate, @Value, @UpdateUserID, @FromRawFXRateId, @ToRawFXRateId, @StartDt)
 
 	SELECT	FXRateId, StartDt, DataVersion
 	FROM	FXRate

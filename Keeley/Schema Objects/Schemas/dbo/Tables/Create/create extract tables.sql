@@ -689,22 +689,30 @@ INSERT INTO [Keeley].[dbo].[Price]
            ,[RawPriceId]
            ,[Value]
            ,[StartDt]
-           ,[UpdateUserID])
+           ,[UpdateUserID]
+           ,[EntityRankingSchemeItemId])
      VALUES
            (2
-           ,'7-may-2011'
-           ,1
+           ,'24-may-2011'
            ,2
-           ,1
+           ,5
+           ,3.5
            ,GETDATE()
+           ,1
            ,1)
-GO
+delete from RawPrice where RawPriceId = 6
 
 select	* 
 from	Price p,
 		RawPrice r
 where	p.RawPriceId = r.RawPriceId		
-and		'2-may-2011' between r.ReferenceDate and p.ReferenceDate
+and		'13-may-2011' between r.ReferenceDate and p.ReferenceDate
+
+select * from Price set RawPriceId = 1 where RawPriceId = 3
+
+select * from EntityRankingSchemeItem
+
+select * from RawPrice where RawPriceId = 3
 
 alter table RawPrice add  CONSTRAINT RawPriceUserIDFK FOREIGN KEY (updateUSERID) REFERENCES ApplicationUser(UserID)
 
@@ -715,3 +723,142 @@ alter table Price alter column EntityRankingSchemeItemId int not null
 update Price set EntityRankingSchemeItemId = 1
 
 drop table Price_hst
+
+create table EntityRankingSchemeOrdering
+(
+EntityRankingSchemeOrdering
+)
+
+select * from EntityRankingSchemeItem Order
+
+drop table EntityRankingSchemeOrdering
+
+CREATE TABLE [dbo].EntityRankingSchemeOrdering(
+	[EntityRankingSchemeOrderingId] [int] IDENTITY(1,1) NOT NULL CONSTRAINT [EntityRankingSchemeOrderingPK] PRIMARY KEY,
+	[EntityRankingSchemeId] [int] NOT NULL  CONSTRAINT EntityRankingSchemeOrderingEntityRankingSchemeIdFK FOREIGN KEY REFERENCES EntityRankingScheme(EntityRankingSchemeId),
+	[EntityRankingSchemeItemId] [int] NOT NULL  CONSTRAINT EntityRankingSchemeOrderingEntityRankingSchemeItemIdFK FOREIGN KEY REFERENCES EntityRankingSchemeItem(EntityRankingSchemeItemId),
+	[Ordering] int not null,
+	[StartDt] [datetime] NOT NULL,
+	[UpdateUserID] [int] NOT NULL  CONSTRAINT EntityRankingSchemeOrderingUserIDFK FOREIGN KEY REFERENCES ApplicationUser(UserID),
+	[DataVersion] [timestamp] NOT NULL)
+	select * from Portfolio where ReferenceDate = '24-may-2011'	
+	
+	select * from Position where PositionId = 25
+	
+	select * from InstrumentMarket where FMSecId = 1172745 = 25
+select	s.FMValueSchemeId,o.Ordering,i.FMValueSpecId,i.EntityRankingSchemeItemId 
+from	EntityRankingSchemeItem i,
+		EntityRankingScheme s,
+		EntityRankingSchemeOrder o
+where	i.EntityRankingSchemeItemId = o.EntityRankingSchemeItemId
+and		s.EntityRankingSchemeId = o.EntityRankingSchemeId		
+and	o.EntityTypeId =19
+order by s.FMValueSchemeId,o.Ordering		
+select * from RawFXRate	
+	
+INSERT INTO [Keeley].[dbo].[EntityRankingSchemeOrder]
+           ([EntityRankingSchemeId],[EntityTypeId],[EntityRankingSchemeItemId],[Ordering],[StartDt],[UpdateUserID])
+     VALUES
+           (3,19,11,1,GETDATE(),1)
+           
+INSERT INTO [Keeley].[dbo].[EntityRankingSchemeOrder]
+           ([EntityRankingSchemeId],[EntityTypeId],[EntityRankingSchemeItemId],[Ordering],[StartDt],[UpdateUserID])
+     VALUES
+           (3,19,12,2,GETDATE(),1)
+INSERT INTO [Keeley].[dbo].[EntityRankingSchemeOrder]
+           ([EntityRankingSchemeId],[EntityTypeId],[EntityRankingSchemeItemId],[Ordering],[StartDt],[UpdateUserID])
+     VALUES
+           (3,19,13,3,GETDATE(),1)
+
+select * from EntityRankingSchemeItem
+           
+GO
+
+drop table rawfxrate_hst
+
+alterFXRate
+
+USE [Keeley]
+GO
+
+ALTER TABLE [dbo].[FXRate] add FromRawFXRateId int not null CONSTRAINT [FXRateFromRawFXRateId] FOREIGN KEY REFERENCES [RawFXRate](RawFXRateId)
+ALTER TABLE [dbo].[FXRate] add ToRawFXRateId int not null CONSTRAINT [FXRateToRawFXRateId] FOREIGN KEY REFERENCES [RawFXRate](RawFXRateId)
+GO
+
+USE [Keeley]
+GO
+
+/****** Object:  Table [dbo].[RawFXRate]    Script Date: 05/25/2011 14:36:05 ******/
+SET ANSI_NULLS ON
+GO
+
+
+
+
+
+USE [Keeley]
+GO
+
+ALTER TABLE [dbo].[FXRate]  WITH CHECK ADD  CONSTRAINT [FXRateFromRawFXRateId] FOREIGN KEY([FromRawFXRateId])
+REFERENCES [dbo].[RawFXRate] ([RawFXRateId])
+GO
+
+ALTER TABLE [dbo].[FXRate] CHECK CONSTRAINT [FXRateFromRawFXRateId]
+GO
+
+ALTER TABLE [dbo].[FXRate]  WITH CHECK ADD  CONSTRAINT [FXRateToRawFXRateId] FOREIGN KEY([ToRawFXRateId])
+REFERENCES [dbo].[RawFXRate] ([RawFXRateId])
+GO
+
+ALTER TABLE [dbo].[FXRate] CHECK CONSTRAINT [FXRateToRawFXRateId]
+GO
+
+select * from EntityRankingSchemeItem
+
+SET QUOTED_IDENTIFIER ON
+GO
+drop table [RawFXRate]
+CREATE TABLE [dbo].[RawFXRate](
+	[RawFXRateId] [int] IDENTITY(1,1) NOT NULL,
+	[CurrencyId] [int] NOT NULL,	
+	[ReferenceDate] [datetime] NOT NULL,
+	[ForwardDate] [datetime] NOT NULL,
+	[EntityRankingSchemeItemId] [int] NOT NULL,
+	[BidValue] [numeric](27, 8) NOT NULL,
+	[BidUpdateDate] [datetime] NOT NULL,
+	[AskValue] [numeric](27, 8) NOT NULL,
+	[AskUpdateDate] [datetime] NOT NULL,
+	[StartDt] [datetime] NOT NULL,
+	[UpdateUserID] [int] NOT NULL,
+	[DataVersion] [timestamp] NOT NULL,	
+ CONSTRAINT [RawFXRatePK] PRIMARY KEY CLUSTERED 
+(
+	[RawFXRateId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[RawFXRate]  WITH CHECK ADD  CONSTRAINT [RawFXRateEntityRankingSchemeIDFK] FOREIGN KEY([EntityRankingSchemeItemId])
+REFERENCES [dbo].[EntityRankingSchemeItem] ([EntityRankingSchemeItemId])
+GO
+
+ALTER TABLE [dbo].[RawFXRate] CHECK CONSTRAINT [RawFXRateEntityRankingSchemeIDFK]
+GO
+
+ALTER TABLE [dbo].[RawFXRate]  WITH CHECK ADD  CONSTRAINT [RawFxRateCurrencyIDFK] FOREIGN KEY([CurrencyId])
+REFERENCES [dbo].[Currency] ([InstrumentID])
+GO
+
+ALTER TABLE [dbo].[RawFXRate] CHECK CONSTRAINT [RawFxRateCurrencyIDFK]
+GO
+
+
+ALTER TABLE [dbo].[RawFXRate]  WITH CHECK ADD  CONSTRAINT [RawFXRateUserIDFK] FOREIGN KEY([UpdateUserID])
+REFERENCES [dbo].[ApplicationUser] ([UserID])
+GO
+
+ALTER TABLE [dbo].[RawFXRate] CHECK CONSTRAINT [RawFXRateUserIDFK]
+GO
+
+

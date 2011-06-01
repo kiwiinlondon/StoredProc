@@ -2,8 +2,7 @@ USE Keeley
 
 create table DBO.RawFXRate_hst(
 	RawFXRateId int not null,
-	FromCurrencyId int not null,
-	ToCurrencyId int not null,
+	CurrencyId int not null,
 	ReferenceDate datetime not null,
 	ForwardDate datetime not null,
 	EntityRankingSchemeItemId int not null,
@@ -14,6 +13,5 @@ create table DBO.RawFXRate_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	RawFXRateUsedId int,
 	EndDt datetime,
 	LastActionUserID int)
