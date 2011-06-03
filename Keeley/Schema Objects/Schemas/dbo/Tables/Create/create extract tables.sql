@@ -862,3 +862,15 @@ ALTER TABLE [dbo].[RawFXRate] CHECK CONSTRAINT [RawFXRateUserIDFK]
 GO
 
 
+INSERT INTO [Keeley].[dbo].[EntityRankingSchemeItem]
+           ([Name]
+           ,[EntityTypeId]
+           ,[FMValueSpecId]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           ('Dummy Price'
+           ,18
+           ,null
+           ,GETDATE()
+           ,1)

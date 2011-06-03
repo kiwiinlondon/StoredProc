@@ -17,5 +17,10 @@ create table DBO.Portfolio_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	CurrentPrice numeric(27,8),
+	CurrentPriceId int,
+	CurrentFXRate numeric(27,8),
+	CurrentFXRateId int,
+	NotionalMarketValue numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

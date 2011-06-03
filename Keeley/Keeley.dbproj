@@ -934,5 +934,11 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioSettlementDate_Roll.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\RawPrice_GetLatest.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\RawFXRate_GetLatest.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
 </Project>
