@@ -16,5 +16,6 @@ create table DBO.InstrumentEvent_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
+	IsPending bit not null,
 	EndDt datetime,
 	LastActionUserID int)

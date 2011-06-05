@@ -22,5 +22,11 @@ create table DBO.Portfolio_hst(
 	CurrentFXRate numeric(27,8),
 	CurrentFXRateId int,
 	NotionalMarketValue numeric(27,8),
+	TodayCashBenefit numeric(27,8) not null,
+	TodayCashBenefitBookCurrency numeric(27,8) not null,
+	TodayAccrual numeric(27,8) not null,
+	TodayRealisedPricePnl numeric(27,8),
+	TodayRealisedFxPnl numeric(27,8),
+	TotalAccrual numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

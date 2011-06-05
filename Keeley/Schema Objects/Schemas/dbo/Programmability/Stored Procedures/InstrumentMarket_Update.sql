@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Update]
 		@Sedol varchar(150), 
 		@IsPrimary bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@PriceCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentMarket_hst (
-			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, @StartDt, @UpdateUserID
 	FROM	InstrumentMarket
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	UPDATE	InstrumentMarket
-	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID, PriceCurrencyId = @PriceCurrencyId,  StartDt = @StartDt
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 	AND		DataVersion = @DataVersion
 
