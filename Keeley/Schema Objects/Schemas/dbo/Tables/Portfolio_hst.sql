@@ -28,5 +28,9 @@ create table DBO.Portfolio_hst(
 	TodayRealisedPricePnl numeric(27,8),
 	TodayRealisedFxPnl numeric(27,8),
 	TotalAccrual numeric(27,8) not null,
+	TodayRealisedPricePnlBookCurrency numeric(27,8),
+	UnrealisedFXPnl numeric(27,8),
+	UnrealisedPricePnl numeric(27,8),
+	MarketValue numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

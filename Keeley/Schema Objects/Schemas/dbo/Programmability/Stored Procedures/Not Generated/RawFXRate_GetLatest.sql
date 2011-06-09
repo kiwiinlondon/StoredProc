@@ -1,47 +1,83 @@
 ﻿USE [Keeley]
 GO
-/****** Object:  StoredProcedure [dbo].[Price_Getlatest]    Script Date: 05/19/2011 18:28:51 ******/
+/****** Object:  StoredProcedure [dbo].[RawFXRate_Getlatest]    Script Date: 06/06/2011 08:54:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[RawFXRate_GetLatest]
+ALTER PROCEDURE [dbo].[RawFXRate_Getlatest]
 		@CurrencyID int,
 		@ReferenceDate datetime,	
+		@ForwardDate datetime,	
 		@EntityRankingSchemeId int,
 		@RawFXRateIdToIgnore int = null
 AS		
 
 DECLARE @MaxReferenceDate datetime
 
-	if @RawFXRateIdToIgnore is null 
+	if @ForwardDate = @ReferenceDate
 		begin
-			SELECT	@MaxReferenceDate = MAX(ReferenceDate)
-			FROM	RawFXRate
-			WHERE	CurrencyID = @CurrencyID
-			AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
-			AND		ReferenceDate <= @ReferenceDate
-	
+			if @RawFXRateIdToIgnore is null
+				begin
+					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					FROM	RawFXRate
+					WHERE	CurrencyID = @CurrencyID
+					AND		ForwardDate = ReferenceDate
+					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
+					AND		ReferenceDate <= @ReferenceDate
+				end
+			else
+				begin
+					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					FROM	RawFXRate
+					WHERE	CurrencyID = @CurrencyID
+					AND		ReferenceDate <= @ReferenceDate
+					AND		ForwardDate = ReferenceDate
+					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
+					and		RawFXRateId != @RawFXRateIdToIgnore;
+				end
+			SET @ForwardDate = @MaxReferenceDate
+		end
+		
+	else
+		begin
+			if @RawFXRateIdToIgnore is null
+				begin
+					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					FROM	RawFXRate
+					WHERE	CurrencyID = @CurrencyID
+					AND		ForwardDate = @ForwardDate
+					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
+					AND		ReferenceDate <= @ReferenceDate
+				end
+			else
+				begin
+					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					FROM	RawFXRate
+					WHERE	CurrencyID = @CurrencyID
+					AND		ReferenceDate <= @ReferenceDate
+					AND		ForwardDate = @ForwardDate
+					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
+					and		RawFXRateId != @RawFXRateIdToIgnore;
+				end
+		end
+	if @RawFXRateIdToIgnore is null 
+		begin	
 			SELECT	*
 			FROM	RawFXRate
 			WHERE	CurrencyID = @CurrencyID
 			AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
 			AND		ReferenceDate = @MaxReferenceDate
+			AND		ForwardDate = @ForwardDate
 		end
 	else
 		begin
-			SELECT	@MaxReferenceDate = MAX(ReferenceDate)
-			FROM	RawFXRate
-			WHERE	CurrencyID = @CurrencyID
-			AND		ReferenceDate <= @ReferenceDate
-			AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
-			and		RawFXRateId != @RawFXRateIdToIgnore;
-	
 			SELECT	*
 			FROM	RawFXRate
 			WHERE	CurrencyID = @CurrencyID
 			AND		ReferenceDate = @MaxReferenceDate
-			AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemeId from entityRankingSchemeOrdering o where o.entityRankingSchemeId = @EntityRankingSchemeId)
+			AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
 			and		RawFXRateId != @RawFXRateIdToIgnore
+			AND		ForwardDate = @ForwardDate
 		end
