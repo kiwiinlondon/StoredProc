@@ -30,11 +30,11 @@ AS
            ,[TodayNetCostChangeBookCurrency]
            ,[StartDt]
            ,[UpdateUserID]
-		   ,[CurrentPrice]
-		   ,[CurrentPriceId]
-		   ,[CurrentFXRate]
-		   ,[CurrentFXRateId]
-		   ,[NotionalMarketValue]
+		   ,[Price]
+		   ,[PriceId]
+		   ,[FXRate]
+		   ,[FXRateId]
+		   ,[DeltaMarketValue]
 		   ,[TodayCashBenefit]
 		   ,[TodayCashBenefitBookCurrency]
 		   ,[TodayAccrual]
@@ -42,8 +42,8 @@ AS
 		   ,[TodayRealisedFXPnl]
 		   ,[TotalAccrual]
 		   ,[TodayRealisedPricePnlBookCurrency]
-		   ,[UnrealisedFXPnl]
-		   ,[UnrealisedPricePnl]
+		   ,[TodayUnrealisedFXPnl]
+		   ,[TodayUnrealisedPricePnl]
 		   ,[MarketValue])
      SELECT
            PositionId, 
@@ -60,11 +60,11 @@ AS
            0,
            GETDATE(),
            @UpdateUserId,
-		   [CurrentPrice],
+		   [Price],
 		   newprice.PriceId,
-		   [CurrentFXRate],
+		   [FXRate],
 		   newfx.FXRateId,
-		   [NotionalMarketValue],
+		   [DeltaMarketValue],
 		   0,
 		   0,
 		   0,
@@ -76,9 +76,9 @@ AS
 		   0,
 		   [MarketValue]
      FROM  [Portfolio] p
-	 left outer join price pr on p.currentpriceId = pr.PriceId
+	 left outer join price pr on p.priceId = pr.PriceId
 	 left outer join price newprice on pr.instrumentMarketId = newprice.InstrumentMarketId and dbo.nextbusinessdate(p.ReferenceDate) = newprice.ReferenceDate and pr.entityrankingschemeid =  newprice.EntityRankingSchemeId
-	 left outer join fxrate fx on p.currentfxrateId = fx.FXRateId
+	 left outer join fxrate fx on p.fxrateId = fx.FXRateId
 	 left outer join FXRate newfx on fx.FromCurrencyId = newfx.FromCurrencyId and fx.ToCurrencyId = newfx.ToCurrencyId and dbo.nextbusinessdate(fx.ReferenceDate) = newFX.ReferenceDate and fx.entityrankingschemeid =  newFX.EntityRankingSchemeId
 					and newfx.ForwardDate = case fx.forwardDate when fx.ReferenceDate then dbo.NextBusinessDate(fx.ReferenceDate) else fx.[ForwardDate] end	
 	 where p.ReferenceDate = @fromDt

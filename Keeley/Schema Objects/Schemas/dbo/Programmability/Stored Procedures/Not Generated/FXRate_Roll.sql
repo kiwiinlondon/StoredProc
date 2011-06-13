@@ -47,7 +47,7 @@ AS
 					 and	dbo.NextBusinessDate(p.ReferenceDate) = p2.ReferenceDate)	
 	 and exists (select 1 
 				 from	Portfolio port
-				 where	port.CurrentFXRateId = p.FXRateId
+				 where	port.FXRateId = p.FXRateId
 				 and	port.NetPosition != 0
 				 )
 

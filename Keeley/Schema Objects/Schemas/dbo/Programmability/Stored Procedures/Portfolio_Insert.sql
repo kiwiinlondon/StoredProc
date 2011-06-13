@@ -25,11 +25,11 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@TodayNetCostChangeInstrumentCurrency numeric(27,8), 
 		@TodayNetCostChangeBookCurrency numeric(27,8), 
 		@UpdateUserID int, 
-		@CurrentPrice numeric(27,8), 
-		@CurrentPriceId int, 
-		@CurrentFXRate numeric(27,8), 
-		@CurrentFXRateId int, 
-		@NotionalMarketValue numeric(27,8), 
+		@Price numeric(27,8), 
+		@PriceId int, 
+		@FXRate numeric(27,8), 
+		@FXRateId int, 
+		@DeltaMarketValue numeric(27,8), 
 		@TodayCashBenefit numeric(27,8), 
 		@TodayCashBenefitBookCurrency numeric(27,8), 
 		@TodayAccrual numeric(27,8), 
@@ -37,8 +37,8 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@TodayRealisedFxPnl numeric(27,8), 
 		@TotalAccrual numeric(27,8), 
 		@TodayRealisedPricePnlBookCurrency numeric(27,8), 
-		@UnrealisedFXPnl numeric(27,8), 
-		@UnrealisedPricePnl numeric(27,8), 
+		@TodayUnrealisedFXPnl numeric(27,8), 
+		@TodayUnrealisedPricePnl numeric(27,8), 
 		@MarketValue numeric(27,8)
 AS
 	SET NOCOUNT ON
@@ -47,9 +47,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Portfolio
-			(PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, UpdateUserID, CurrentPrice, CurrentPriceId, CurrentFXRate, CurrentFXRateId, NotionalMarketValue, TodayCashBenefit, TodayCashBenefitBookCurrency, TodayAccrual, TodayRealisedPricePnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, UnrealisedFXPnl, UnrealisedPricePnl, MarketValue, StartDt)
+			(PositionId, ReferenceDate, NetPosition, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPostionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, UpdateUserID, Price, PriceId, FXRate, FXRateId, DeltaMarketValue, TodayCashBenefit, TodayCashBenefitBookCurrency, TodayAccrual, TodayRealisedPricePnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, TodayUnrealisedFXPnl, TodayUnrealisedPricePnl, MarketValue, StartDt)
 	VALUES
-			(@PositionId, @ReferenceDate, @NetPosition, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPostionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @UpdateUserID, @CurrentPrice, @CurrentPriceId, @CurrentFXRate, @CurrentFXRateId, @NotionalMarketValue, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @TodayAccrual, @TodayRealisedPricePnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @UnrealisedFXPnl, @UnrealisedPricePnl, @MarketValue, @StartDt)
+			(@PositionId, @ReferenceDate, @NetPosition, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPostionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @UpdateUserID, @Price, @PriceId, @FXRate, @FXRateId, @DeltaMarketValue, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @TodayAccrual, @TodayRealisedPricePnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @TodayUnrealisedFXPnl, @TodayUnrealisedPricePnl, @MarketValue, @StartDt)
 
 	SELECT	PortfolioId, StartDt, DataVersion
 	FROM	Portfolio
