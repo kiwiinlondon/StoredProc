@@ -19,7 +19,7 @@ create table DBO.Portfolio_hst(
 	DataVersion binary(8) not null,
 	Price numeric(27,8) not null,
 	PriceId int,
-	FXRate numeric(27,8) not null,
+	FXRate numeric(35,16),
 	FXRateId int,
 	DeltaMarketValue numeric(27,8) not null,
 	TodayCashBenefit numeric(27,8) not null,
@@ -32,5 +32,7 @@ create table DBO.Portfolio_hst(
 	TodayUnrealisedFXPnl numeric(27,8) not null,
 	TodayUnrealisedPricePnl numeric(27,8) not null,
 	MarketValue numeric(27,8) not null,
+	PriceToPositionFXRate numeric(35,16),
+	PriceToPositionFXRateId int,
 	EndDt datetime,
 	LastActionUserID int)

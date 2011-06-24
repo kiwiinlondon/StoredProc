@@ -40,7 +40,7 @@ AS
 	 and exists (select 1 
 				 from	Portfolio port
 				 where	port.PriceId = p.PriceId
-				 and	port.NetPosition != 0
+				 and	not (port.NetPosition = 0 and port.TotalAccrual = 0)
 				 )
 
 select dbo.NextBusinessDate(@fromDt)

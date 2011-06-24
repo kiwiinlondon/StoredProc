@@ -44,23 +44,24 @@ DECLARE @MaxReferenceDate datetime
 		begin
 			if @RawFXRateIdToIgnore is null
 				begin
-					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					SELECT	@ForwardDate = MAX(ForwardDate)
 					FROM	RawFXRate
 					WHERE	CurrencyID = @CurrencyID
-					AND		ForwardDate = @ForwardDate
+					AND		ForwardDate <= @ForwardDate
 					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
-					AND		ReferenceDate <= @ReferenceDate
+					AND		ReferenceDate = @ReferenceDate
 				end
 			else
 				begin
-					SELECT	@MaxReferenceDate = MAX(ReferenceDate)
+					SELECT	@ForwardDate = MAX(ForwardDate)
 					FROM	RawFXRate
 					WHERE	CurrencyID = @CurrencyID
-					AND		ReferenceDate <= @ReferenceDate
-					AND		ForwardDate = @ForwardDate
+					AND		ReferenceDate = @ReferenceDate
+					AND		ForwardDate <= @ForwardDate
 					AND		EntityRankingSchemeItemId in (select o.entityrankingSchemeItemId from entityRankingSchemeOrder o where o.entityRankingSchemeId = @EntityRankingSchemeId)
 					and		RawFXRateId != @RawFXRateIdToIgnore;
 				end
+			SET @MaxReferenceDate = @ReferenceDate
 		end
 	if @RawFXRateIdToIgnore is null 
 		begin	

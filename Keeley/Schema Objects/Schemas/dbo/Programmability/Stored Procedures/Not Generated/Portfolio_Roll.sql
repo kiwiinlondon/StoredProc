@@ -44,7 +44,9 @@ AS
 		   ,[TodayRealisedPricePnlBookCurrency]
 		   ,[TodayUnrealisedFXPnl]
 		   ,[TodayUnrealisedPricePnl]
-		   ,[MarketValue])
+		   ,[MarketValue]
+		   ,[PriceToPositionFXRate]
+		   ,[PriceToPositionFXRateId])
      SELECT
            PositionId, 
            dbo.NextBusinessDate(p.ReferenceDate),
@@ -74,19 +76,24 @@ AS
 		   0,
 		   0,
 		   0,
-		   [MarketValue]
+		   [MarketValue],
+		   [PriceToPositionFXRate],
+		   newfxToPos.FXRateId
      FROM  [Portfolio] p
 	 left outer join price pr on p.priceId = pr.PriceId
 	 left outer join price newprice on pr.instrumentMarketId = newprice.InstrumentMarketId and dbo.nextbusinessdate(p.ReferenceDate) = newprice.ReferenceDate and pr.entityrankingschemeid =  newprice.EntityRankingSchemeId
 	 left outer join fxrate fx on p.fxrateId = fx.FXRateId
 	 left outer join FXRate newfx on fx.FromCurrencyId = newfx.FromCurrencyId and fx.ToCurrencyId = newfx.ToCurrencyId and dbo.nextbusinessdate(fx.ReferenceDate) = newFX.ReferenceDate and fx.entityrankingschemeid =  newFX.EntityRankingSchemeId
 					and newfx.ForwardDate = case fx.forwardDate when fx.ReferenceDate then dbo.NextBusinessDate(fx.ReferenceDate) else fx.[ForwardDate] end	
+	 left outer join fxrate fxtoPos on p.pricetoPositionfxrateId = fxtopos.FXRateId
+	 left outer join FXRate newfxToPos on fxtoPos.FromCurrencyId = newfxToPos.FromCurrencyId and fxtoPos.ToCurrencyId = newfxToPos.ToCurrencyId and dbo.nextbusinessdate(fxtoPos.ReferenceDate) = newfxToPos.ReferenceDate and fxtoPos.entityrankingschemeid =  newfxToPos.EntityRankingSchemeId
+					and newfxToPos.ForwardDate = newfxToPos.ReferenceDate 
 	 where p.ReferenceDate = @fromDt
 	 and not exists (select 1 
 					 from   Portfolio p2
 					 where	p.PositionId = p2.PositionId
 					 and	p2.ReferenceDate = dbo.NextBusinessDate(p.ReferenceDate))
-	 and NetPosition != 0
+	 and not (NetPosition = 0 and TotalAccrual = 0)
 	 
 	 Update	PortfolioRollDate
 	 SET	RollDate = dbo.NextBusinessDate(RollDate)
