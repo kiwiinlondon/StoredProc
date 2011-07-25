@@ -11,7 +11,9 @@ create table DBO.FXRate_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	FromRawFXRateId int not null,
+	FromRawFXRateId int,
 	ToRawFXRateId int not null,
+	FromSecondRawFXRateId int,
+	ToSecondRawFXRateId int,
 	EndDt datetime,
 	LastActionUserID int)

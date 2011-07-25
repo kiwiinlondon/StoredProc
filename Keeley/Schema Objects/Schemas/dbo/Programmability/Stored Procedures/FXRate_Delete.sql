@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FXRate_hst (
-			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, EndDt, LastActionUserID)
-	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, @EndDt, @UpdateUserID
+			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, FromSecondRawFXRateId, ToSecondRawFXRateId, EndDt, LastActionUserID)
+	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, FromSecondRawFXRateId, ToSecondRawFXRateId, @EndDt, @UpdateUserID
 	FROM	FXRate
 	WHERE	FXRateId = @FXRateId
 

@@ -19,5 +19,7 @@ create table DBO.InternalAccountingEvent_hst(
 	DataVersion binary(8) not null,
 	SettlementCurrencyId int not null,
 	InputDate datetime not null,
+	TradeInstrumentFXRate numeric(35,16) not null,
+	TradeInstrumentFXRateMultiply bit not null,
 	EndDt datetime,
 	LastActionUserID int)

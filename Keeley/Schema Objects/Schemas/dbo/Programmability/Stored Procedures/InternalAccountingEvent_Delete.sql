@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InternalAccountingEvent_hst (
-			EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, InputDate, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, InputDate, @EndDt, @UpdateUserID
+			EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, InputDate, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InternalAccountingEventTypeId, TradeDate, SettlementDate, TraderId, NetPrice, GrossPrice, Quantity, NetConsideration, InstrumentBookFXRate, IsCancelled, AmendmentNumber, StartDt, UpdateUserID, DataVersion, SettlementCurrencyId, InputDate, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, @EndDt, @UpdateUserID
 	FROM	InternalAccountingEvent
 	WHERE	EventID = @EventID
 

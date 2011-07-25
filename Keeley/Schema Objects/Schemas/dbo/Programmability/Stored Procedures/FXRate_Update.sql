@@ -22,7 +22,9 @@ CREATE PROCEDURE DBO.[FXRate_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@FromRawFXRateId int, 
-		@ToRawFXRateId int
+		@ToRawFXRateId int, 
+		@FromSecondRawFXRateId int, 
+		@ToSecondRawFXRateId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXRate_hst (
-			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, EndDt, LastActionUserID)
-	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, @StartDt, @UpdateUserID
+			FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, FromSecondRawFXRateId, ToSecondRawFXRateId, EndDt, LastActionUserID)
+	SELECT	FXRateId, FromCurrencyId, ToCurrencyId, ReferenceDate, EntityRankingSchemeId, ForwardDate, Value, StartDt, UpdateUserID, DataVersion, FromRawFXRateId, ToRawFXRateId, FromSecondRawFXRateId, ToSecondRawFXRateId, @StartDt, @UpdateUserID
 	FROM	FXRate
 	WHERE	FXRateId = @FXRateId
 
 	UPDATE	FXRate
-	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, EntityRankingSchemeId = @EntityRankingSchemeId, ForwardDate = @ForwardDate, Value = @Value, UpdateUserID = @UpdateUserID, FromRawFXRateId = @FromRawFXRateId, ToRawFXRateId = @ToRawFXRateId,  StartDt = @StartDt
+	SET		FromCurrencyId = @FromCurrencyId, ToCurrencyId = @ToCurrencyId, ReferenceDate = @ReferenceDate, EntityRankingSchemeId = @EntityRankingSchemeId, ForwardDate = @ForwardDate, Value = @Value, UpdateUserID = @UpdateUserID, FromRawFXRateId = @FromRawFXRateId, ToRawFXRateId = @ToRawFXRateId, FromSecondRawFXRateId = @FromSecondRawFXRateId, ToSecondRawFXRateId = @ToSecondRawFXRateId,  StartDt = @StartDt
 	WHERE	FXRateId = @FXRateId
 	AND		DataVersion = @DataVersion
 

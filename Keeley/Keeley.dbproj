@@ -164,6 +164,9 @@
     <NotInBuild Include="Schema Objects\Database Level Objects\Security\Industry_Insert.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_GetPositionIdsWherePortfolioEventBreak.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>

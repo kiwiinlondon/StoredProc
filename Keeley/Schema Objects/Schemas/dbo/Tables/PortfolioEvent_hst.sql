@@ -42,5 +42,6 @@ create table DBO.PortfolioEvent_hst(
 	TotalAccrual numeric(27,8) not null,
 	TodayRealisedPricePnlBookCurrency numeric(27,8) not null,
 	RealisePnl bit not null,
+	TradeInstrumentFXRate numeric(35,16) not null,
 	EndDt datetime,
 	LastActionUserID int)

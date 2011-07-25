@@ -9,8 +9,8 @@ create table DBO.ExtractOutputConfiguration_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	EntityPropertyId int not null,
-	EntityPropertyToWriteId int not null,
+	EntityPropertyId int,
+	EntityPropertyToWriteId int,
 	Format varchar(1000),
 	EndDt datetime,
 	LastActionUserID int)
