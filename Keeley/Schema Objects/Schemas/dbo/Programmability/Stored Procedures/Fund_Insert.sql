@@ -14,7 +14,12 @@ GO
 CREATE PROCEDURE DBO.[Fund_Insert]
 		@LegalEntityID int, 
 		@CurrencyID int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@PositionsExist bit, 
+		@PerfFundName varchar(100), 
+		@InstrumentMarketId int, 
+		@BenchmarkInstrumentMarketId int, 
+		@ParentFundId int
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Fund
-			(LegalEntityID, CurrencyID, UpdateUserID, StartDt)
+			(LegalEntityID, CurrencyID, UpdateUserID, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, StartDt)
 	VALUES
-			(@LegalEntityID, @CurrencyID, @UpdateUserID, @StartDt)
+			(@LegalEntityID, @CurrencyID, @UpdateUserID, @PositionsExist, @PerfFundName, @InstrumentMarketId, @BenchmarkInstrumentMarketId, @ParentFundId, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Fund
