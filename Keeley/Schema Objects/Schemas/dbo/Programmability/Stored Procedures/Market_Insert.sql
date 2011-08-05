@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Market_Insert]
 		@LegalEntityID int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@BBExchangeCode varchar(30)
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Market
-			(LegalEntityID, UpdateUserID, StartDt)
+			(LegalEntityID, UpdateUserID, BBExchangeCode, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @BBExchangeCode, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Market

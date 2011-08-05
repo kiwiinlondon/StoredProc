@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Market_Update]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@BBExchangeCode varchar(30)
 AS
 	SET NOCOUNT ON
 
@@ -22,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Market_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, @StartDt, @UpdateUserID
 	FROM	Market
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Market
-	SET		UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, BBExchangeCode = @BBExchangeCode,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 
