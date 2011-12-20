@@ -20,7 +20,12 @@ CREATE PROCEDURE DBO.[Fund_Update]
 		@PerfFundName varchar(100), 
 		@InstrumentMarketId int, 
 		@BenchmarkInstrumentMarketId int, 
-		@ParentFundId int
+		@ParentFundId int, 
+		@IsActive bit, 
+		@FundTypeId int, 
+		@IsExternallyVisible bit, 
+		@InceptionDate datetime, 
+		@RiskFreeInstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +33,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Fund_hst (
-			LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, @StartDt, @UpdateUserID
+			LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, IsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, IsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, @StartDt, @UpdateUserID
 	FROM	Fund
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Fund
-	SET		CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID, PositionsExist = @PositionsExist, PerfFundName = @PerfFundName, InstrumentMarketId = @InstrumentMarketId, BenchmarkInstrumentMarketId = @BenchmarkInstrumentMarketId, ParentFundId = @ParentFundId,  StartDt = @StartDt
+	SET		CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID, PositionsExist = @PositionsExist, PerfFundName = @PerfFundName, InstrumentMarketId = @InstrumentMarketId, BenchmarkInstrumentMarketId = @BenchmarkInstrumentMarketId, ParentFundId = @ParentFundId, IsActive = @IsActive, FundTypeId = @FundTypeId, IsExternallyVisible = @IsExternallyVisible, InceptionDate = @InceptionDate, RiskFreeInstrumentMarketId = @RiskFreeInstrumentMarketId,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

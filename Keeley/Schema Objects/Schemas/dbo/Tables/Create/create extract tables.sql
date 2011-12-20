@@ -22,7 +22,7 @@ create table DBO.EntityProperty (
 )	
 
 alter table entityproperty add IdentifierTypeId int CONSTRAINT EntityPropertyIdentifierTypeIDFK FOREIGN KEY REFERENCES IdentifierType(IdentifierTypeId)
-select * from ExtractConfiguration
+select * from instrumentmarket
 delete from ExtractOutputConfiguration where ExtractOutputConfigurationID = 52
 update ExtractOutputConfiguration set format ='{0:F2}' where ExtractOutputConfigurationID = 54
 update EntityProperty set identifiertypeid = 2 where EntityPropertyID = 69
@@ -874,3 +874,44 @@ INSERT INTO [Keeley].[dbo].[EntityRankingSchemeItem]
            ,null
            ,GETDATE()
            ,1)
+           
+select * from instrument where name like 'SMART METERING%'       
+
+select * from instrumentmarketproxy where instrumentid = 15067   
+
+select * from position where instrumentmarketid = 3488 
+
+select * from fund
+
+INSERT INTO [Keeley].[dbo].[InstrumentMarketProxy]
+           ([InstrumentMarketId]
+           ,[ProxyInstrumentMarketId]
+           ,[StartDt]
+           ,[UpdateUserID])
+     VALUES
+           (3789
+           ,2201
+           ,getdate()
+           ,1)
+GO
+
+create unique index [InstrumentMarketProxyUK] on [InstrumentMarketProxy]([InstrumentMarketId])
+
+select * from instrumentmarket where bloombergticker like '%QQQ%'
+select * from instrument where instrumentid = 22718
+
+
+
+update [InstrumentMarketProxy] set [ProxyInstrumentMarketId] = (11525)
+select instrumentmarketid from [InstrumentMarketProxy])
+
+select * from [InstrumentMarket] where [InstrumentMarketId] = (11525)
+
+select * from instrumentmarket im,instrument i
+ where i.instrumentid = im.instrumentid 
+ and name like'%LLOYDS%'
+ 
+ select * from instrumentmarket where bloombergticker like 'LLOY%' and instrumentid in (select instrumentid from instrument
+ where instrumentclassid = 4)
+ 
+ select * from instrumentclass

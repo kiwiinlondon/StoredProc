@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[EntityRankingSchemeOrder_Insert]
 		@EntityTypeId int, 
 		@EntityRankingSchemeItemId int, 
 		@Ordering int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@AlwaysStore bit
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityRankingSchemeOrder
-			(EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, UpdateUserID, StartDt)
+			(EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, UpdateUserID, AlwaysStore, StartDt)
 	VALUES
-			(@EntityRankingSchemeId, @EntityTypeId, @EntityRankingSchemeItemId, @Ordering, @UpdateUserID, @StartDt)
+			(@EntityRankingSchemeId, @EntityTypeId, @EntityRankingSchemeItemId, @Ordering, @UpdateUserID, @AlwaysStore, @StartDt)
 
 	SELECT	EntityRankingSchemeOrderId, StartDt, DataVersion
 	FROM	EntityRankingSchemeOrder

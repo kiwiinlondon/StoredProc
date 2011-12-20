@@ -13,5 +13,9 @@ create table DBO.InstrumentMarket_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	PriceCurrencyId int not null,
+	ListingStatusId int not null,
+	UnderlyingInstrumentMarketId int not null,
+	UltimateUnderlyingInstrumentMarketId int not null,
+	PriceQuoteMultiplier decimal,
 	EndDt datetime,
 	LastActionUserID int)

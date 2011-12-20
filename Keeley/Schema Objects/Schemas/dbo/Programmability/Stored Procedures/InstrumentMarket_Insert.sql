@@ -20,7 +20,11 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@Sedol varchar(150), 
 		@IsPrimary bit, 
 		@UpdateUserID int, 
-		@PriceCurrencyId int
+		@PriceCurrencyId int, 
+		@ListingStatusId int, 
+		@UnderlyingInstrumentMarketId int, 
+		@UltimateUnderlyingInstrumentMarketId int, 
+		@PriceQuoteMultiplier decimal
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentMarket
-			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, StartDt)
+			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, StartDt)
 	VALUES
-			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @StartDt)
+			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @StartDt)
 
 	SELECT	InstrumentMarketID, StartDt, DataVersion
 	FROM	InstrumentMarket

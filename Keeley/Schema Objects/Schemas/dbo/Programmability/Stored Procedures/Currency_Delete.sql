@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Currency_hst (
-			InstrumentID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, EndDt, LastActionUserID)
+	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, @EndDt, @UpdateUserID
 	FROM	Currency
 	WHERE	InstrumentID = @InstrumentID
 

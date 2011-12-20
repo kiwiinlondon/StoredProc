@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO EntityRankingSchemeOrder_hst (
-			EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, AlwaysStore, EndDt, LastActionUserID)
+	SELECT	EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, AlwaysStore, @EndDt, @UpdateUserID
 	FROM	EntityRankingSchemeOrder
 	WHERE	EntityRankingSchemeOrderId = @EntityRankingSchemeOrderId
 

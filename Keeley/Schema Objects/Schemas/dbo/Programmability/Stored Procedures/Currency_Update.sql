@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Currency_Update]
 		@InstrumentID int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@Ordering int
 AS
 	SET NOCOUNT ON
 
@@ -22,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Currency_hst (
-			InstrumentID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, EndDt, LastActionUserID)
+	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, @StartDt, @UpdateUserID
 	FROM	Currency
 	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Currency
-	SET		UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, Ordering = @Ordering,  StartDt = @StartDt
 	WHERE	InstrumentID = @InstrumentID
 	AND		DataVersion = @DataVersion
 

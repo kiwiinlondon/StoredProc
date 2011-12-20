@@ -21,7 +21,9 @@ CREATE PROCEDURE DBO.[Instrument_Update]
 		@LongName varchar(250), 
 		@Isin varchar(150), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@UnderlyingIssuerId int, 
+		@DerivedAssetClassId int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Instrument_hst (
-			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, EndDt, LastActionUserID)
+	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, @StartDt, @UpdateUserID
 	FROM	Instrument
 	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Instrument
-	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID, UnderlyingIssuerId = @UnderlyingIssuerId, DerivedAssetClassId = @DerivedAssetClassId,  StartDt = @StartDt
 	WHERE	InstrumentID = @InstrumentID
 	AND		DataVersion = @DataVersion
 

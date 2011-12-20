@@ -19,7 +19,9 @@ CREATE PROCEDURE DBO.[Instrument_Insert]
 		@Name varchar(200), 
 		@LongName varchar(250), 
 		@Isin varchar(150), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@UnderlyingIssuerId int, 
+		@DerivedAssetClassId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Instrument
-			(IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, UpdateUserID, StartDt)
+			(IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, UpdateUserID, UnderlyingIssuerId, DerivedAssetClassId, StartDt)
 	VALUES
-			(@IssuerID, @InstrumentClassID, @IssueCurrencyID, @FMInstId, @Name, @LongName, @Isin, @UpdateUserID, @StartDt)
+			(@IssuerID, @InstrumentClassID, @IssueCurrencyID, @FMInstId, @Name, @LongName, @Isin, @UpdateUserID, @UnderlyingIssuerId, @DerivedAssetClassId, @StartDt)
 
 	SELECT	InstrumentID, StartDt, DataVersion
 	FROM	Instrument

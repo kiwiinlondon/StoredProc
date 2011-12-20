@@ -11,5 +11,10 @@ create table DBO.Fund_hst(
 	InstrumentMarketId int,
 	BenchmarkInstrumentMarketId int,
 	ParentFundId int,
+	IsActive bit not null,
+	FundTypeId int not null,
+	IsExternallyVisible bit not null,
+	InceptionDate datetime not null,
+	RiskFreeInstrumentMarketId int,
 	EndDt datetime,
 	LastActionUserID int)

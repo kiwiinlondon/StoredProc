@@ -22,7 +22,8 @@ CREATE PROCEDURE DBO.[Extract_Update]
 		@ExtractInputTypeID int, 
 		@ExtractDeliveryTypeID int, 
 		@SendIfEmpty bit, 
-		@ExtractOutputContainerTypeID int
+		@ExtractOutputContainerTypeID int, 
+		@ExtractResponseHandlerTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Extract_hst (
-			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, EndDt, LastActionUserID)
-	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, @StartDt, @UpdateUserID
+			ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, ExtractResponseHandlerTypeId, EndDt, LastActionUserID)
+	SELECT	ExtractID, ExtractTypeId, Name, StartDt, UpdateUserID, DataVersion, ExtractOutputTypeID, ExtractRunnerTypeID, ExtractInputTypeID, ExtractDeliveryTypeID, SendIfEmpty, ExtractOutputContainerTypeID, ExtractResponseHandlerTypeId, @StartDt, @UpdateUserID
 	FROM	Extract
 	WHERE	ExtractID = @ExtractID
 
 	UPDATE	Extract
-	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID, ExtractOutputTypeID = @ExtractOutputTypeID, ExtractRunnerTypeID = @ExtractRunnerTypeID, ExtractInputTypeID = @ExtractInputTypeID, ExtractDeliveryTypeID = @ExtractDeliveryTypeID, SendIfEmpty = @SendIfEmpty, ExtractOutputContainerTypeID = @ExtractOutputContainerTypeID,  StartDt = @StartDt
+	SET		ExtractTypeId = @ExtractTypeId, Name = @Name, UpdateUserID = @UpdateUserID, ExtractOutputTypeID = @ExtractOutputTypeID, ExtractRunnerTypeID = @ExtractRunnerTypeID, ExtractInputTypeID = @ExtractInputTypeID, ExtractDeliveryTypeID = @ExtractDeliveryTypeID, SendIfEmpty = @SendIfEmpty, ExtractOutputContainerTypeID = @ExtractOutputContainerTypeID, ExtractResponseHandlerTypeId = @ExtractResponseHandlerTypeId,  StartDt = @StartDt
 	WHERE	ExtractID = @ExtractID
 	AND		DataVersion = @DataVersion
 

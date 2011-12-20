@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Currency_Insert]
 		@InstrumentID int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@Ordering int
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Currency
-			(InstrumentID, UpdateUserID, StartDt)
+			(InstrumentID, UpdateUserID, Ordering, StartDt)
 	VALUES
-			(@InstrumentID, @UpdateUserID, @StartDt)
+			(@InstrumentID, @UpdateUserID, @Ordering, @StartDt)
 
 	SELECT	InstrumentID, StartDt, DataVersion
 	FROM	Currency

@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[EntityRankingSchemeOrder_Update]
 		@EntityRankingSchemeItemId int, 
 		@Ordering int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@AlwaysStore bit
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO EntityRankingSchemeOrder_hst (
-			EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, AlwaysStore, EndDt, LastActionUserID)
+	SELECT	EntityRankingSchemeOrderId, EntityRankingSchemeId, EntityTypeId, EntityRankingSchemeItemId, Ordering, StartDt, UpdateUserID, DataVersion, AlwaysStore, @StartDt, @UpdateUserID
 	FROM	EntityRankingSchemeOrder
 	WHERE	EntityRankingSchemeOrderId = @EntityRankingSchemeOrderId
 
 	UPDATE	EntityRankingSchemeOrder
-	SET		EntityRankingSchemeId = @EntityRankingSchemeId, EntityTypeId = @EntityTypeId, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, Ordering = @Ordering, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		EntityRankingSchemeId = @EntityRankingSchemeId, EntityTypeId = @EntityTypeId, EntityRankingSchemeItemId = @EntityRankingSchemeItemId, Ordering = @Ordering, UpdateUserID = @UpdateUserID, AlwaysStore = @AlwaysStore,  StartDt = @StartDt
 	WHERE	EntityRankingSchemeOrderId = @EntityRankingSchemeOrderId
 	AND		DataVersion = @DataVersion
 
