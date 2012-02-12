@@ -17,5 +17,6 @@ create table DBO.InstrumentMarket_hst(
 	UnderlyingInstrumentMarketId int not null,
 	UltimateUnderlyingInstrumentMarketId int not null,
 	PriceQuoteMultiplier decimal,
+	BloombergGlobalId varchar(25),
 	EndDt datetime,
 	LastActionUserID int)

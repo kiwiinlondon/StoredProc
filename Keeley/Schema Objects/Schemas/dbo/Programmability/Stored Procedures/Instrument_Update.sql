@@ -23,7 +23,10 @@ CREATE PROCEDURE DBO.[Instrument_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@UnderlyingIssuerId int, 
-		@DerivedAssetClassId int
+		@DerivedAssetClassId int, 
+		@BloombergGlobalId varchar(25), 
+		@BloombergTicker varchar(25), 
+		@BloombergYellowKeyId int
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Instrument_hst (
-			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, EndDt, LastActionUserID)
-	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, @StartDt, @UpdateUserID
+			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, EndDt, LastActionUserID)
+	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, @StartDt, @UpdateUserID
 	FROM	Instrument
 	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Instrument
-	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID, UnderlyingIssuerId = @UnderlyingIssuerId, DerivedAssetClassId = @DerivedAssetClassId,  StartDt = @StartDt
+	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID, UnderlyingIssuerId = @UnderlyingIssuerId, DerivedAssetClassId = @DerivedAssetClassId, BloombergGlobalId = @BloombergGlobalId, BloombergTicker = @BloombergTicker, BloombergYellowKeyId = @BloombergYellowKeyId,  StartDt = @StartDt
 	WHERE	InstrumentID = @InstrumentID
 	AND		DataVersion = @DataVersion
 

@@ -2,9 +2,9 @@ USE Keeley
 
 create table DBO.InternalAllocation_hst(
 	EventID int not null,
-	FMContEventInd varchar(1) not null,
-	FMContEventId int not null,
-	FMOriginalContEventId int not null,
+	FMContEventInd varchar(1),
+	FMContEventId int,
+	FMOriginalContEventId int,
 	MatchedStatusId int not null,
 	AccountID int not null,
 	BookID int not null,

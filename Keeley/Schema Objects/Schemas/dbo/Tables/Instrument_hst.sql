@@ -14,5 +14,8 @@ create table DBO.Instrument_hst(
 	DataVersion binary(8) not null,
 	UnderlyingIssuerId int not null,
 	DerivedAssetClassId int not null,
+	BloombergGlobalId varchar(25),
+	BloombergTicker varchar(25),
+	BloombergYellowKeyId int,
 	EndDt datetime,
 	LastActionUserID int)
