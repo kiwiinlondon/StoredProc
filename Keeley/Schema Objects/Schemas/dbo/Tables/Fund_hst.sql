@@ -16,5 +16,6 @@ create table DBO.Fund_hst(
 	IsExternallyVisible bit not null,
 	InceptionDate datetime not null,
 	RiskFreeInstrumentMarketId int,
+	DealingDateDefinitionId int not null,
 	EndDt datetime,
 	LastActionUserID int)
