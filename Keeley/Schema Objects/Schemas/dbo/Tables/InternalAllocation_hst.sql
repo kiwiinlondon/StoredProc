@@ -14,5 +14,6 @@ create table DBO.InternalAllocation_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	ParentEventId int not null,
+	EventToBookFXRate numeric(35,16) not null,
 	EndDt datetime,
 	LastActionUserID int)

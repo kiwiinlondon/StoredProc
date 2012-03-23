@@ -28,12 +28,13 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Insert]
 		@UpdateUserID int, 
 		@TradeDate datetime, 
 		@IsForward bit, 
-		@PayBookXrate numeric(35,16), 
-		@ReceiveBookXrate numeric(35,16), 
 		@InputDate datetime, 
 		@SettlementCurrencyId int, 
-		@SettlementBookXrate numeric(35,16), 
-		@SupressFromExtracts bit
+		@SupressFromExtracts bit, 
+		@NonEuroPairReceiveToEuroFXRate numeric(27,8), 
+		@NonEuroPairReceiveToEuroFXRateId int, 
+		@IsRoll bit, 
+		@ContraEventId int
 AS
 	SET NOCOUNT ON
 
@@ -41,9 +42,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXTradeEvent
-			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, PayBookXrate, ReceiveBookXrate, InputDate, SettlementCurrencyId, SettlementBookXrate, SupressFromExtracts, StartDt)
+			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, StartDt)
 	VALUES
-			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @PayBookXrate, @ReceiveBookXrate, @InputDate, @SettlementCurrencyId, @SettlementBookXrate, @SupressFromExtracts, @StartDt)
+			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @InputDate, @SettlementCurrencyId, @SupressFromExtracts, @NonEuroPairReceiveToEuroFXRate, @NonEuroPairReceiveToEuroFXRateId, @IsRoll, @ContraEventId, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	FXTradeEvent

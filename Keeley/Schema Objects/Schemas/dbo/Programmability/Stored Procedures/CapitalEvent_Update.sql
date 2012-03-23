@@ -16,8 +16,6 @@ CREATE PROCEDURE DBO.[CapitalEvent_Update]
 		@TradeDate datetime, 
 		@SettlementDate datetime, 
 		@Quantity numeric(27,8), 
-		@FXRate numeric(35,16), 
-		@FXRateMultiply bit, 
 		@AmendmentNumber int, 
 		@IsCancelled bit, 
 		@CurrencyId int, 
@@ -31,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO CapitalEvent_hst (
-			EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, EndDt, LastActionUserID)
-	SELECT	EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, @StartDt, @UpdateUserID
+			EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, EndDt, LastActionUserID)
+	SELECT	EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, @StartDt, @UpdateUserID
 	FROM	CapitalEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	CapitalEvent
-	SET		TradeDate = @TradeDate, SettlementDate = @SettlementDate, Quantity = @Quantity, FXRate = @FXRate, FXRateMultiply = @FXRateMultiply, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate,  StartDt = @StartDt
+	SET		TradeDate = @TradeDate, SettlementDate = @SettlementDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

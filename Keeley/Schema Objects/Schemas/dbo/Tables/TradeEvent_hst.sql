@@ -21,7 +21,6 @@ create table DBO.TradeEvent_hst(
 	TradeSettlementFXRateMultiply bit not null,
 	TradeInstrumentFXRate numeric(35,16) not null,
 	TradeInstrumentFXRateMultiply bit not null,
-	InstrumentBookFXRate numeric(35,16) not null,
 	Ticket varchar(100),
 	IsCancelled bit not null,
 	AmendmentNumber int not null,
@@ -30,5 +29,8 @@ create table DBO.TradeEvent_hst(
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
 	SupressFromExtracts bit not null,
+	TradeEuroFXRate numeric(27,8) not null,
+	TradeEuroFXRateId int,
+	IsRoll bit not null,
 	EndDt datetime,
 	LastActionUserID int)

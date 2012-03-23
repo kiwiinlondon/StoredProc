@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[InternalAllocation_Update]
 		@IsCancelled bit, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@ParentEventId int
+		@ParentEventId int, 
+		@EventToBookFXRate numeric(35,16)
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EndDt, LastActionUserID)
-	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, @StartDt, @UpdateUserID
+			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, EndDt, LastActionUserID)
+	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, @StartDt, @UpdateUserID
 	FROM	InternalAllocation
 	WHERE	EventID = @EventID
 
 	UPDATE	InternalAllocation
-	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId,  StartDt = @StartDt
+	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId, EventToBookFXRate = @EventToBookFXRate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

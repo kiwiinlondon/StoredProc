@@ -18,8 +18,6 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Update]
 		@EventDate datetime, 
 		@ValueDate datetime, 
 		@Quantity numeric(27,8), 
-		@FXRate numeric(35,16), 
-		@FXRateMultiply bit, 
 		@AmendmentNumber int, 
 		@IsCancelled bit, 
 		@CurrencyId int, 
@@ -34,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentEvent_hst (
-			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, @StartDt, @UpdateUserID
 	FROM	InstrumentEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	InstrumentEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, FXRate = @FXRate, FXRateMultiply = @FXRateMultiply, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, IsPending = @IsPending,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, IsPending = @IsPending,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

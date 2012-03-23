@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EndDt, LastActionUserID)
-	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, @EndDt, @UpdateUserID
+			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, EndDt, LastActionUserID)
+	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, @EndDt, @UpdateUserID
 	FROM	InternalAllocation
 	WHERE	EventID = @EventID
 

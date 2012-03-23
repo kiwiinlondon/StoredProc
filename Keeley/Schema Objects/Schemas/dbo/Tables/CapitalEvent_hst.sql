@@ -5,8 +5,6 @@ create table DBO.CapitalEvent_hst(
 	TradeDate datetime not null,
 	SettlementDate datetime not null,
 	Quantity numeric(27,8) not null,
-	FXRate numeric(35,16) not null,
-	FXRateMultiply bit not null,
 	AmendmentNumber int not null,
 	IsCancelled bit not null,
 	CurrencyId int not null,

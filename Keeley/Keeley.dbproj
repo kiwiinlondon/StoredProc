@@ -971,18 +971,6 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InstrumentRelationship_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Delete.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Insert.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEvent_Update.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InternalAccountingEvent_hst.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -1269,6 +1257,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Delete.sql">

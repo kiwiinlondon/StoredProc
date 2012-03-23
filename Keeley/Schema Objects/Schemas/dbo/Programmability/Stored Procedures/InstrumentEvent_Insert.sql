@@ -18,8 +18,6 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Insert]
 		@EventDate datetime, 
 		@ValueDate datetime, 
 		@Quantity numeric(27,8), 
-		@FXRate numeric(35,16), 
-		@FXRateMultiply bit, 
 		@AmendmentNumber int, 
 		@IsCancelled bit, 
 		@CurrencyId int, 
@@ -33,9 +31,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentEvent
-			(EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, IsPending, StartDt)
+			(EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, IsPending, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @InstrumentEventTypeID, @EventDate, @ValueDate, @Quantity, @FXRate, @FXRateMultiply, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @IsPending, @StartDt)
+			(@EventID, @InstrumentMarketID, @InstrumentEventTypeID, @EventDate, @ValueDate, @Quantity, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @IsPending, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InstrumentEvent

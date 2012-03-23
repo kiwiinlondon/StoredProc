@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO CapitalEvent_hst (
-			EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, EndDt, LastActionUserID)
-	SELECT	EventID, TradeDate, SettlementDate, Quantity, FXRate, FXRateMultiply, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, @EndDt, @UpdateUserID
+			EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, EndDt, LastActionUserID)
+	SELECT	EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, @EndDt, @UpdateUserID
 	FROM	CapitalEvent
 	WHERE	EventID = @EventID
 

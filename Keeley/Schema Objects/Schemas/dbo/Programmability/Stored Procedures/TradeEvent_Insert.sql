@@ -32,13 +32,15 @@ CREATE PROCEDURE DBO.[TradeEvent_Insert]
 		@TradeSettlementFXRateMultiply bit, 
 		@TradeInstrumentFXRate numeric(35,16), 
 		@TradeInstrumentFXRateMultiply bit, 
-		@InstrumentBookFXRate numeric(35,16), 
 		@Ticket varchar(100), 
 		@IsCancelled bit, 
 		@AmendmentNumber int, 
 		@UpdateUserID int, 
 		@InputDate datetime, 
-		@SupressFromExtracts bit
+		@SupressFromExtracts bit, 
+		@TradeEuroFXRate numeric(27,8), 
+		@TradeEuroFXRateId int, 
+		@IsRoll bit
 AS
 	SET NOCOUNT ON
 
@@ -46,9 +48,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into TradeEvent
-			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, InstrumentBookFXRate, Ticket, IsCancelled, AmendmentNumber, UpdateUserID, InputDate, SupressFromExtracts, StartDt)
+			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, Ticket, IsCancelled, AmendmentNumber, UpdateUserID, InputDate, SupressFromExtracts, TradeEuroFXRate, TradeEuroFXRateId, IsRoll, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @GrossPrice, @NetPrice, @Quantity, @BuySellReasonId, @TradedNet, @PriceIsClean, @TradeCurrencyId, @SettlementCurrencyId, @NetConsideration, @GrossConsideration, @CounterpartyId, @TradeSettlementFXRate, @TradeSettlementFXRateMultiply, @TradeInstrumentFXRate, @TradeInstrumentFXRateMultiply, @InstrumentBookFXRate, @Ticket, @IsCancelled, @AmendmentNumber, @UpdateUserID, @InputDate, @SupressFromExtracts, @StartDt)
+			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @GrossPrice, @NetPrice, @Quantity, @BuySellReasonId, @TradedNet, @PriceIsClean, @TradeCurrencyId, @SettlementCurrencyId, @NetConsideration, @GrossConsideration, @CounterpartyId, @TradeSettlementFXRate, @TradeSettlementFXRateMultiply, @TradeInstrumentFXRate, @TradeInstrumentFXRateMultiply, @Ticket, @IsCancelled, @AmendmentNumber, @UpdateUserID, @InputDate, @SupressFromExtracts, @TradeEuroFXRate, @TradeEuroFXRateId, @IsRoll, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	TradeEvent
