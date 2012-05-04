@@ -179,6 +179,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Account_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -227,6 +239,18 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Bond_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -273,6 +297,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Charge_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ChargeSchedule_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Delete.sql">
@@ -357,6 +393,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\Custodian_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\DayCountConvention_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Delete.sql">
@@ -1029,6 +1077,18 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Delete.sql">

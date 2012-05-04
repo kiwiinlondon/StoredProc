@@ -50,7 +50,10 @@ CREATE PROCEDURE DBO.[PortfolioEvent_Insert]
 		@TotalAccrual numeric(27,8), 
 		@TodayRealisedPricePnlBookCurrency numeric(27,8), 
 		@RealisePnl bit, 
-		@TradeInstrumentFXRate numeric(35,16)
+		@TradeInstrumentFXRate numeric(35,16), 
+		@ZeroOutAccrual bit, 
+		@BondNominal numeric(28,7), 
+		@BondNominalChange numeric(28,7)
 AS
 	SET NOCOUNT ON
 
@@ -58,9 +61,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PortfolioEvent
-			(InternalAllocationId, PositionId, ReferenceDate, PortfolioAggregationLevelId, PortfolioEventTypeId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPositionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, NetPosition, UpdateUserID, InputDate, OrderingResolution, Accrual, TodayAccrual, CashBenefit, TodayCashBenefit, TodayCashBenefitBookCurrency, RealisedPricePnl, TodayRealisedPricePnl, RealisedFxPnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, RealisePnl, TradeInstrumentFXRate, StartDt)
+			(InternalAllocationId, PositionId, ReferenceDate, PortfolioAggregationLevelId, PortfolioEventTypeId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPositionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, NetPosition, UpdateUserID, InputDate, OrderingResolution, Accrual, TodayAccrual, CashBenefit, TodayCashBenefit, TodayCashBenefitBookCurrency, RealisedPricePnl, TodayRealisedPricePnl, RealisedFxPnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, RealisePnl, TradeInstrumentFXRate, ZeroOutAccrual, BondNominal, BondNominalChange, StartDt)
 	VALUES
-			(@InternalAllocationId, @PositionId, @ReferenceDate, @PortfolioAggregationLevelId, @PortfolioEventTypeId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPositionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @NetPosition, @UpdateUserID, @InputDate, @OrderingResolution, @Accrual, @TodayAccrual, @CashBenefit, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @RealisedPricePnl, @TodayRealisedPricePnl, @RealisedFxPnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @RealisePnl, @TradeInstrumentFXRate, @StartDt)
+			(@InternalAllocationId, @PositionId, @ReferenceDate, @PortfolioAggregationLevelId, @PortfolioEventTypeId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPositionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @NetPosition, @UpdateUserID, @InputDate, @OrderingResolution, @Accrual, @TodayAccrual, @CashBenefit, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @RealisedPricePnl, @TodayRealisedPricePnl, @RealisedFxPnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @RealisePnl, @TradeInstrumentFXRate, @ZeroOutAccrual, @BondNominal, @BondNominalChange, @StartDt)
 
 	SELECT	PortfolioEventID, StartDt, DataVersion
 	FROM	PortfolioEvent

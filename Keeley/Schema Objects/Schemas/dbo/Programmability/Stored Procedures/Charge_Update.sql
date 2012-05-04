@@ -19,9 +19,9 @@ CREATE PROCEDURE DBO.[Charge_Update]
 		@CurrencyId int, 
 		@Quantity numeric(27,8), 
 		@FXRate numeric(35,16), 
-		@FXRateMultiply bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@LegalEntityChargeScheduleId int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Charge_hst (
-			ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, StartDt, UpdateUserID, DataVersion, LegalEntityChargeScheduleId, EndDt, LastActionUserID)
+	SELECT	ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, StartDt, UpdateUserID, DataVersion, LegalEntityChargeScheduleId, @StartDt, @UpdateUserID
 	FROM	Charge
 	WHERE	ChargeId = @ChargeId
 
 	UPDATE	Charge
-	SET		EventID = @EventID, ReferenceDate = @ReferenceDate, ChargeTypeId = @ChargeTypeId, CurrencyId = @CurrencyId, Quantity = @Quantity, FXRate = @FXRate, FXRateMultiply = @FXRateMultiply, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		EventID = @EventID, ReferenceDate = @ReferenceDate, ChargeTypeId = @ChargeTypeId, CurrencyId = @CurrencyId, Quantity = @Quantity, FXRate = @FXRate, UpdateUserID = @UpdateUserID, LegalEntityChargeScheduleId = @LegalEntityChargeScheduleId,  StartDt = @StartDt
 	WHERE	ChargeId = @ChargeId
 	AND		DataVersion = @DataVersion
 

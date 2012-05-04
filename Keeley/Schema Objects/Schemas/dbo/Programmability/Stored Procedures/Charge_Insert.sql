@@ -18,8 +18,8 @@ CREATE PROCEDURE DBO.[Charge_Insert]
 		@CurrencyId int, 
 		@Quantity numeric(27,8), 
 		@FXRate numeric(35,16), 
-		@FXRateMultiply bit, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@LegalEntityChargeScheduleId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Charge
-			(EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, UpdateUserID, StartDt)
+			(EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, UpdateUserID, LegalEntityChargeScheduleId, StartDt)
 	VALUES
-			(@EventID, @ReferenceDate, @ChargeTypeId, @CurrencyId, @Quantity, @FXRate, @FXRateMultiply, @UpdateUserID, @StartDt)
+			(@EventID, @ReferenceDate, @ChargeTypeId, @CurrencyId, @Quantity, @FXRate, @UpdateUserID, @LegalEntityChargeScheduleId, @StartDt)
 
 	SELECT	ChargeId, StartDt, DataVersion
 	FROM	Charge

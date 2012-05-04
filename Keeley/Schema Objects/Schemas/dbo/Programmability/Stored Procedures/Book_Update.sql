@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Book_Update]
 		@FundID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@ManagerId int
+		@ManagerId int, 
+		@EZEIdentifier varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Book_hst (
-			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EndDt, LastActionUserID)
-	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, @StartDt, @UpdateUserID
+			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, EndDt, LastActionUserID)
+	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, @StartDt, @UpdateUserID
 	FROM	Book
 	WHERE	BookID = @BookID
 
 	UPDATE	Book
-	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId,  StartDt = @StartDt
+	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId, EZEIdentifier = @EZEIdentifier,  StartDt = @StartDt
 	WHERE	BookID = @BookID
 	AND		DataVersion = @DataVersion
 

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Charge_hst (
-			ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, FXRateMultiply, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, StartDt, UpdateUserID, DataVersion, LegalEntityChargeScheduleId, EndDt, LastActionUserID)
+	SELECT	ChargeId, EventID, ReferenceDate, ChargeTypeId, CurrencyId, Quantity, FXRate, StartDt, UpdateUserID, DataVersion, LegalEntityChargeScheduleId, @EndDt, @UpdateUserID
 	FROM	Charge
 	WHERE	ChargeId = @ChargeId
 

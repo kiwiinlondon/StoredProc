@@ -8,9 +8,9 @@ create table DBO.Charge_hst(
 	CurrencyId int not null,
 	Quantity numeric(27,8) not null,
 	FXRate numeric(35,16) not null,
-	FXRateMultiply bit not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	LegalEntityChargeScheduleId int,
 	EndDt datetime,
 	LastActionUserID int)

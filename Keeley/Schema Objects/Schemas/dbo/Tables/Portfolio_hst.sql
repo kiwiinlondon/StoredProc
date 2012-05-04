@@ -35,5 +35,7 @@ create table DBO.Portfolio_hst(
 	PriceToPositionFXRate numeric(35,16) not null,
 	PriceToPositionFXRateId int,
 	PriceIsLastTradePrice bit not null,
+	PreviousPortfolioId int,
+	BondNominal numeric(28,7),
 	EndDt datetime,
 	LastActionUserID int)

@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[Position_Update]
 		@BookID int, 
 		@InstrumentMarketID int, 
 		@CurrencyID int, 
-		@EntityRankingSchemeId int
+		@EntityRankingSchemeId int, 
+		@IsAccrual bit
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, EndDt, LastActionUserID)
-	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, @StartDt, @UpdateUserID
+			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, EndDt, LastActionUserID)
+	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, @StartDt, @UpdateUserID
 	FROM	Position
 	WHERE	PositionId = @PositionId
 
 	UPDATE	Position
-	SET		AccountID = @AccountID, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, EntityRankingSchemeId = @EntityRankingSchemeId,  StartDt = @StartDt
+	SET		AccountID = @AccountID, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, EntityRankingSchemeId = @EntityRankingSchemeId, IsAccrual = @IsAccrual,  StartDt = @StartDt
 	WHERE	PositionId = @PositionId
 	AND		DataVersion = @DataVersion
 

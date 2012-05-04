@@ -10,5 +10,6 @@ create table DBO.Position_hst(
 	InstrumentMarketID int not null,
 	CurrencyID int not null,
 	EntityRankingSchemeId int not null,
+	IsAccrual bit not null,
 	EndDt datetime,
 	LastActionUserID int)

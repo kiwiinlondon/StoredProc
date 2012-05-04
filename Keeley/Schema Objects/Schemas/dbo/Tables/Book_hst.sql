@@ -9,5 +9,6 @@ create table DBO.Book_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	ManagerId int,
+	EZEIdentifier varchar(100),
 	EndDt datetime,
 	LastActionUserID int)

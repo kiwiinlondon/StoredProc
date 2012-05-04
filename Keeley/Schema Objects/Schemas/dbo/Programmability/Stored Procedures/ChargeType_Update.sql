@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[ChargeType_Update]
 		@Code varchar(30), 
 		@Name varchar(200), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@PaidToCustodian bit
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ChargeType_hst (
-			ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, PaidToCustodian, EndDt, LastActionUserID)
+	SELECT	ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, PaidToCustodian, @StartDt, @UpdateUserID
 	FROM	ChargeType
 	WHERE	ChargeTypeId = @ChargeTypeId
 
 	UPDATE	ChargeType
-	SET		Code = @Code, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Code = @Code, Name = @Name, UpdateUserID = @UpdateUserID, PaidToCustodian = @PaidToCustodian,  StartDt = @StartDt
 	WHERE	ChargeTypeId = @ChargeTypeId
 	AND		DataVersion = @DataVersion
 

@@ -24,7 +24,7 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@InputDate datetime, 
-		@IsPending bit
+		@ExDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentEvent_hst (
-			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, @StartDt, @UpdateUserID
 	FROM	InstrumentEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	InstrumentEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, IsPending = @IsPending,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, ExDate = @ExDate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

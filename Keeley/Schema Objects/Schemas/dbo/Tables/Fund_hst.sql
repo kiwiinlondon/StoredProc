@@ -13,9 +13,11 @@ create table DBO.Fund_hst(
 	ParentFundId int,
 	IsActive bit not null,
 	FundTypeId int not null,
-	IsExternallyVisible bit not null,
+	PriceIsExternallyVisible bit not null,
 	InceptionDate datetime not null,
 	RiskFreeInstrumentMarketId int not null,
 	DealingDateDefinitionId int not null,
+	EZEIdentifier varchar(100),
+	PortfolioIsExternallyVisible bit not null,
 	EndDt datetime,
 	LastActionUserID int)

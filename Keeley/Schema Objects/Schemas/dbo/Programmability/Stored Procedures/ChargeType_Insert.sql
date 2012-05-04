@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[ChargeType_Insert]
 		@Code varchar(30), 
 		@Name varchar(200), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@PaidToCustodian bit
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ChargeType
-			(Code, Name, UpdateUserID, StartDt)
+			(Code, Name, UpdateUserID, PaidToCustodian, StartDt)
 	VALUES
-			(@Code, @Name, @UpdateUserID, @StartDt)
+			(@Code, @Name, @UpdateUserID, @PaidToCustodian, @StartDt)
 
 	SELECT	ChargeTypeId, StartDt, DataVersion
 	FROM	ChargeType

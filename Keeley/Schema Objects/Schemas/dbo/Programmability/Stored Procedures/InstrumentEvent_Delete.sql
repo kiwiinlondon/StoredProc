@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InstrumentEvent_hst (
-			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, IsPending, @EndDt, @UpdateUserID
+			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, @EndDt, @UpdateUserID
 	FROM	InstrumentEvent
 	WHERE	EventID = @EventID
 

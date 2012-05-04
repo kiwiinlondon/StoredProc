@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ChargeType_hst (
-			ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, PaidToCustodian, EndDt, LastActionUserID)
+	SELECT	ChargeTypeId, Code, Name, StartDt, UpdateUserID, DataVersion, PaidToCustodian, @EndDt, @UpdateUserID
 	FROM	ChargeType
 	WHERE	ChargeTypeId = @ChargeTypeId
 
