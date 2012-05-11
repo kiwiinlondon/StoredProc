@@ -37,5 +37,6 @@ create table DBO.Portfolio_hst(
 	PriceIsLastTradePrice bit not null,
 	PreviousPortfolioId int,
 	BondNominal numeric(28,7),
+	TodayCarryAccrual numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

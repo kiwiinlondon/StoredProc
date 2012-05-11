@@ -18,5 +18,6 @@ create table DBO.Instrument_hst(
 	BloombergTicker varchar(25),
 	BloombergYellowKeyId int,
 	Is13F bit not null,
+	Cusip varchar(10),
 	EndDt datetime,
 	LastActionUserID int)

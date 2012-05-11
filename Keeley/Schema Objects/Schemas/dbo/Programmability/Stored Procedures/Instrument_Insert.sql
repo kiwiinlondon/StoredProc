@@ -25,7 +25,8 @@ CREATE PROCEDURE DBO.[Instrument_Insert]
 		@BloombergGlobalId varchar(25), 
 		@BloombergTicker varchar(25), 
 		@BloombergYellowKeyId int, 
-		@Is13F bit
+		@Is13F bit, 
+		@Cusip varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -33,9 +34,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Instrument
-			(IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, UpdateUserID, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, StartDt)
+			(IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, UpdateUserID, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, Cusip, StartDt)
 	VALUES
-			(@IssuerID, @InstrumentClassID, @IssueCurrencyID, @FMInstId, @Name, @LongName, @Isin, @UpdateUserID, @UnderlyingIssuerId, @DerivedAssetClassId, @BloombergGlobalId, @BloombergTicker, @BloombergYellowKeyId, @Is13F, @StartDt)
+			(@IssuerID, @InstrumentClassID, @IssueCurrencyID, @FMInstId, @Name, @LongName, @Isin, @UpdateUserID, @UnderlyingIssuerId, @DerivedAssetClassId, @BloombergGlobalId, @BloombergTicker, @BloombergYellowKeyId, @Is13F, @Cusip, @StartDt)
 
 	SELECT	InstrumentID, StartDt, DataVersion
 	FROM	Instrument
