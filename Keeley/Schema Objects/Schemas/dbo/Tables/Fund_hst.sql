@@ -19,5 +19,6 @@ create table DBO.Fund_hst(
 	DealingDateDefinitionId int not null,
 	EZEIdentifier varchar(100),
 	PortfolioIsExternallyVisible bit not null,
+	AssetManagementCompanyId int not null,
 	EndDt datetime,
 	LastActionUserID int)
