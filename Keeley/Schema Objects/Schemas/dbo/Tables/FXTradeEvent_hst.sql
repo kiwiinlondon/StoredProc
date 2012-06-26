@@ -26,6 +26,6 @@ create table DBO.FXTradeEvent_hst(
 	NonEuroPairReceiveToEuroFXRateId int,
 	IsRoll bit not null,
 	ContraEventId int,
-	InstrumentMarketId int,
+	InstrumentMarketId int not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -8,7 +8,7 @@ create table DBO.ChargeSchedule_hst(
 	IssuerId int,
 	CurrencyId int,
 	ApplyToQuantity bit not null,
-	PercentageToApply numeric(27,8) not null,
+	PercentageToApply numeric(27,8),
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	EndDt datetime,

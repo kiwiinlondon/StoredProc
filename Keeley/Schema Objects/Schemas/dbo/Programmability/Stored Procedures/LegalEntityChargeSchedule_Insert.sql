@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[LegalEntityChargeSchedule_Insert]
 		@ChargeScheduleId int, 
 		@EffectiveFromDt datetime, 
 		@EffectiveToDt datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@CountryId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into LegalEntityChargeSchedule
-			(CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, StartDt)
+			(CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, CountryId, StartDt)
 	VALUES
-			(@CounterpartyId, @CustodianId, @ChargeScheduleId, @EffectiveFromDt, @EffectiveToDt, @UpdateUserID, @StartDt)
+			(@CounterpartyId, @CustodianId, @ChargeScheduleId, @EffectiveFromDt, @EffectiveToDt, @UpdateUserID, @CountryId, @StartDt)
 
 	SELECT	LegalEntityChargeScheduleId, StartDt, DataVersion
 	FROM	LegalEntityChargeSchedule

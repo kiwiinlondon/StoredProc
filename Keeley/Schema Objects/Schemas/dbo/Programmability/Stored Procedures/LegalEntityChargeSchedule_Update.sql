@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[LegalEntityChargeSchedule_Update]
 		@EffectiveFromDt datetime, 
 		@EffectiveToDt datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@CountryId int
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO LegalEntityChargeSchedule_hst (
-			LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, CountryId, EndDt, LastActionUserID)
+	SELECT	LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, CountryId, @StartDt, @UpdateUserID
 	FROM	LegalEntityChargeSchedule
 	WHERE	LegalEntityChargeScheduleId = @LegalEntityChargeScheduleId
 
 	UPDATE	LegalEntityChargeSchedule
-	SET		CounterpartyId = @CounterpartyId, CustodianId = @CustodianId, ChargeScheduleId = @ChargeScheduleId, EffectiveFromDt = @EffectiveFromDt, EffectiveToDt = @EffectiveToDt, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		CounterpartyId = @CounterpartyId, CustodianId = @CustodianId, ChargeScheduleId = @ChargeScheduleId, EffectiveFromDt = @EffectiveFromDt, EffectiveToDt = @EffectiveToDt, UpdateUserID = @UpdateUserID, CountryId = @CountryId,  StartDt = @StartDt
 	WHERE	LegalEntityChargeScheduleId = @LegalEntityChargeScheduleId
 	AND		DataVersion = @DataVersion
 

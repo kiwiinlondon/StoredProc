@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Counterparty_Insert]
 		@LegalEntityID int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@IsElectronic bit
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Counterparty
-			(LegalEntityID, UpdateUserID, StartDt)
+			(LegalEntityID, UpdateUserID, IsElectronic, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @IsElectronic, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Counterparty

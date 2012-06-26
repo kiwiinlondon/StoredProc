@@ -9,5 +9,6 @@ create table DBO.LegalEntityChargeSchedule_hst(
 	EffectiveToDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	CountryId int,
 	EndDt datetime,
 	LastActionUserID int)

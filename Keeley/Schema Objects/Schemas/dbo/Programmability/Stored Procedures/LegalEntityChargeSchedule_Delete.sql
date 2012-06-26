@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO LegalEntityChargeSchedule_hst (
-			LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, CountryId, EndDt, LastActionUserID)
+	SELECT	LegalEntityChargeScheduleId, CounterpartyId, CustodianId, ChargeScheduleId, EffectiveFromDt, EffectiveToDt, UpdateUserID, DataVersion, CountryId, @EndDt, @UpdateUserID
 	FROM	LegalEntityChargeSchedule
 	WHERE	LegalEntityChargeScheduleId = @LegalEntityChargeScheduleId
 
