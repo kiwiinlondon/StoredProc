@@ -25,7 +25,9 @@ CREATE PROCEDURE DBO.[FundPerformance_Insert]
 		@BenchmarkPriceId int, 
 		@BenchmarkFundFXRate numeric(27,8), 
 		@BenchmarkFundFXRateId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@BenchmarkPriceExistsOnDay bit, 
+		@BenchmarkPriceValidUntil datetime
 AS
 	SET NOCOUNT ON
 
@@ -33,9 +35,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundPerformance
-			(FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, UpdateUserID, StartDt)
+			(FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, UpdateUserID, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, StartDt)
 	VALUES
-			(@FundId, @ValuationBusinessDate, @ValuationCalandarDate, @ValidUntil, @IsInception, @FundPrice, @FundPriceId, @RiskFreeRate, @RiskFreeRatePriceId, @BenchmarkPrice, @BenchmarkPriceId, @BenchmarkFundFXRate, @BenchmarkFundFXRateId, @UpdateUserID, @StartDt)
+			(@FundId, @ValuationBusinessDate, @ValuationCalandarDate, @ValidUntil, @IsInception, @FundPrice, @FundPriceId, @RiskFreeRate, @RiskFreeRatePriceId, @BenchmarkPrice, @BenchmarkPriceId, @BenchmarkFundFXRate, @BenchmarkFundFXRateId, @UpdateUserID, @BenchmarkPriceExistsOnDay, @BenchmarkPriceValidUntil, @StartDt)
 
 	SELECT	FundPerformanceId, StartDt, DataVersion
 	FROM	FundPerformance

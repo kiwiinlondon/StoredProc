@@ -18,5 +18,7 @@ create table DBO.FundPerformance_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	BenchmarkPriceExistsOnDay bit not null,
+	BenchmarkPriceValidUntil datetime,
 	EndDt datetime,
 	LastActionUserID int)

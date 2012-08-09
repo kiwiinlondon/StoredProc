@@ -38,5 +38,11 @@ create table DBO.Portfolio_hst(
 	PreviousPortfolioId int,
 	BondNominal numeric(28,7),
 	TodayCarryAccrual numeric(27,8),
+	Delta numeric(27,8),
+	UnderlyingPrice numeric(27,8),
+	DeltaId int,
+	UnderlyingPriceId int,
+	UnderlyingPriceToPositionFXRate numeric(27,8),
+	UnderlyingPriceToPositionFXRateId int,
 	EndDt datetime,
 	LastActionUserID int)

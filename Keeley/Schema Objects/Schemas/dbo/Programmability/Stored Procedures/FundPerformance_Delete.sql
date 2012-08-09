@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundPerformance_hst (
-			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, EndDt, LastActionUserID)
+	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, @EndDt, @UpdateUserID
 	FROM	FundPerformance
 	WHERE	FundPerformanceId = @FundPerformanceId
 

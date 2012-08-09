@@ -20,5 +20,10 @@ create table DBO.Fund_hst(
 	EZEIdentifier varchar(100),
 	PortfolioIsExternallyVisible bit not null,
 	AssetManagementCompanyId int not null,
+	IntranetOrdering int,
+	ReferenceFundId int,
+	PerformanceFeeTypeId int not null,
+	LossWarning numeric(27,8),
+	LossTrigger numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
