@@ -44,5 +44,10 @@ create table DBO.Portfolio_hst(
 	UnderlyingPriceId int,
 	UnderlyingPriceToPositionFXRate numeric(27,8),
 	UnderlyingPriceToPositionFXRateId int,
+	ValuationFXRate numeric(35,16) not null,
+	ValuationNetPosition numeric(27,8) not null,
+	ValuationDeltaNetCostInstrumentCurrency numeric(27,8) not null,
+	ValuationPrice numeric(27,8) not null,
+	ValuationPriceToPositionFXRate numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)
