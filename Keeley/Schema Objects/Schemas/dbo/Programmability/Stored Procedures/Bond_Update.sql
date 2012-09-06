@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Bond_Update]
 		@CouponFrequency int, 
 		@Coupon numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@InDefault bit
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Bond_hst (
-			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, EndDt, LastActionUserID)
+	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, @StartDt, @UpdateUserID
 	FROM	Bond
 	WHERE	InstrumentId = @InstrumentId
 
 	UPDATE	Bond
-	SET		DayCountConventionID = @DayCountConventionID, FirstCouponDate = @FirstCouponDate, CouponFrequency = @CouponFrequency, Coupon = @Coupon, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		DayCountConventionID = @DayCountConventionID, FirstCouponDate = @FirstCouponDate, CouponFrequency = @CouponFrequency, Coupon = @Coupon, UpdateUserID = @UpdateUserID, InDefault = @InDefault,  StartDt = @StartDt
 	WHERE	InstrumentId = @InstrumentId
 	AND		DataVersion = @DataVersion
 

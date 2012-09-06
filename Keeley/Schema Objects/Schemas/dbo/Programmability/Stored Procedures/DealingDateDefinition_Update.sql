@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[DealingDateDefinition_Update]
 		@CutOffTime time, 
 		@CutOffDaysPrior int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@ValuationCutOff time
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO DealingDateDefinition_hst (
-			DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, ValuationCutOff, EndDt, LastActionUserID)
+	SELECT	DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, ValuationCutOff, @StartDt, @UpdateUserID
 	FROM	DealingDateDefinition
 	WHERE	DealingDateDefinitionId = @DealingDateDefinitionId
 
 	UPDATE	DealingDateDefinition
-	SET		Name = @Name, PeriodicityId = @PeriodicityId, CutOffTime = @CutOffTime, CutOffDaysPrior = @CutOffDaysPrior, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, PeriodicityId = @PeriodicityId, CutOffTime = @CutOffTime, CutOffDaysPrior = @CutOffDaysPrior, UpdateUserID = @UpdateUserID, ValuationCutOff = @ValuationCutOff,  StartDt = @StartDt
 	WHERE	DealingDateDefinitionId = @DealingDateDefinitionId
 	AND		DataVersion = @DataVersion
 

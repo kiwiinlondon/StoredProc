@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO DealingDateDefinition_hst (
-			DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, ValuationCutOff, EndDt, LastActionUserID)
+	SELECT	DealingDateDefinitionId, Name, PeriodicityId, CutOffTime, CutOffDaysPrior, StartDt, UpdateUserID, DataVersion, ValuationCutOff, @EndDt, @UpdateUserID
 	FROM	DealingDateDefinition
 	WHERE	DealingDateDefinitionId = @DealingDateDefinitionId
 

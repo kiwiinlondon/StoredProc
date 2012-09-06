@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Bond_Insert]
 		@FirstCouponDate datetime, 
 		@CouponFrequency int, 
 		@Coupon numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@InDefault bit
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Bond
-			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, StartDt)
+			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, InDefault, StartDt)
 	VALUES
-			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @StartDt)
+			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @InDefault, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	Bond

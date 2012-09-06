@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[DealingDateDefinition_Insert]
 		@PeriodicityId int, 
 		@CutOffTime time, 
 		@CutOffDaysPrior int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@ValuationCutOff time
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into DealingDateDefinition
-			(Name, PeriodicityId, CutOffTime, CutOffDaysPrior, UpdateUserID, StartDt)
+			(Name, PeriodicityId, CutOffTime, CutOffDaysPrior, UpdateUserID, ValuationCutOff, StartDt)
 	VALUES
-			(@Name, @PeriodicityId, @CutOffTime, @CutOffDaysPrior, @UpdateUserID, @StartDt)
+			(@Name, @PeriodicityId, @CutOffTime, @CutOffDaysPrior, @UpdateUserID, @ValuationCutOff, @StartDt)
 
 	SELECT	DealingDateDefinitionId, StartDt, DataVersion
 	FROM	DealingDateDefinition

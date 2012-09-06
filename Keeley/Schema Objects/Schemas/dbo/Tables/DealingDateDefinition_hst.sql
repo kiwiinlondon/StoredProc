@@ -9,5 +9,6 @@ create table DBO.DealingDateDefinition_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	ValuationCutOff time,
 	EndDt datetime,
 	LastActionUserID int)
