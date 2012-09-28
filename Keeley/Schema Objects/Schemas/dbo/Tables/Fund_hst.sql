@@ -25,5 +25,6 @@ create table DBO.Fund_hst(
 	PerformanceFeeTypeId int not null,
 	LossWarning numeric(27,8),
 	LossTrigger numeric(27,8),
+	ShareClassDescriptor varchar(50),
 	EndDt datetime,
 	LastActionUserID int)

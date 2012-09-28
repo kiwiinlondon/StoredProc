@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO DisclosureRule_hst (
-			DisclosureRuleId, Name, LongLimit, LongStep, ShortLimit, ShortStep, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	DisclosureRuleId, Name, LongLimit, LongStep, ShortLimit, ShortStep, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			DisclosureRuleId, Name, LongLimit, LongStep, ShortLimit, ShortStep, StartDt, UpdateUserID, DataVersion, CountryId, EndDt, LastActionUserID)
+	SELECT	DisclosureRuleId, Name, LongLimit, LongStep, ShortLimit, ShortStep, StartDt, UpdateUserID, DataVersion, CountryId, @EndDt, @UpdateUserID
 	FROM	DisclosureRule
 	WHERE	DisclosureRuleId = @DisclosureRuleId
 

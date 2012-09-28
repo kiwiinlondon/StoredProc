@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[DisclosureRule_Insert]
 		@LongStep numeric(27,8), 
 		@ShortLimit numeric(27,8), 
 		@ShortStep numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@CountryId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into DisclosureRule
-			(Name, LongLimit, LongStep, ShortLimit, ShortStep, UpdateUserID, StartDt)
+			(Name, LongLimit, LongStep, ShortLimit, ShortStep, UpdateUserID, CountryId, StartDt)
 	VALUES
-			(@Name, @LongLimit, @LongStep, @ShortLimit, @ShortStep, @UpdateUserID, @StartDt)
+			(@Name, @LongLimit, @LongStep, @ShortLimit, @ShortStep, @UpdateUserID, @CountryId, @StartDt)
 
 	SELECT	DisclosureRuleId, StartDt, DataVersion
 	FROM	DisclosureRule

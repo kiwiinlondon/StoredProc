@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Counterparty_Update]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@IsElectronic bit
+		@IsElectronic bit, 
+		@UbsCsaName varchar(50)
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Counterparty_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, @StartDt, @UpdateUserID
 	FROM	Counterparty
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Counterparty
-	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic, UbsCsaName = @UbsCsaName,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 
