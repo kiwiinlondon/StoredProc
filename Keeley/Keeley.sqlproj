@@ -1,0 +1,1648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Keeley</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Keeley</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6f988eb4-cae4-473c-a973-6ef2150f27c7}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Create" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Create\create keeley.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Create\drop keeley.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Create\SeedData.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Create\create trade tables.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Permissions.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioEvent_GetPrevious.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <None Include="Schema Objects\Database Level Objects\Security\Industry_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Database Level Objects\Security\Industry_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Database Level Objects\Security\Industry_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_GetPositionIdsWherePortfolioEventBreak.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Account_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Analytic_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\AnalyticType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Bond_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Book_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\BuySellReason_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\CacheInvalidation_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\CapitalEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Charge_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ChargeSchedule_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ChargeType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Counterparty_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Country_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\CountryHoliday_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Currency_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Custodian_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\DayCountConvention_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\DealingDateDefinition_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\DerivedAssetClass_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\DisclosureRule_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityMapping_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityMappingProxy_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityMappingSet_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityProperty_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityPropertyOverride_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityRankingScheme_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeItem_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeOrder_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EntityType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Event_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EventIdToRepull_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\eventinstrumentmap_tmp_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\EventType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Exposure_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Extract_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractConfiguration_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractDeliveryType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractEntity_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractEntityPropertyValue_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractGroup_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractGroupItem_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractInputConfiguration_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractInputType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractOutputConfiguration_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractOutputContainerType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractOutputType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractResponseHandlerType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ExtractType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FailedTrade_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileCollected_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileCollectionType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileNameResolutionType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileProcessingMethod_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileToBeCollected_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FileType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Fund_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundCountryHoliday_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundGroup_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundGroupMember_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundHighWaterMark_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundPerformance_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FundWebsiteCacheTime_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FXRate_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\FXTradeEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\IdentifierMapping_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\IdentifierType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\IndexConstituent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Industry_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\IndustryClassification_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Instrument_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentClass_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentClassHierarchy_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentClassRelationship_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentEventType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentMarket_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentMarketProxy_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InstrumentRelationship_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InternalAccountingEventType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\InternalAllocation_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Issuer_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\IssuerIndustry_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\ListingStatus_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Market_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PerformanceFeeType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Periodicity_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PeriodicityInterval_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PeriodicityType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Portfolio_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PortfolioAggregationLevel_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PortfolioEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PortfolioEventType_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PortfolioRollDate_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\PortfolioSettlementDate_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Position_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Price_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\RawAnalytic_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\RawFXRate_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\Region_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_GetForFMRec.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Portfolio_Roll.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioSettlementDate_Roll.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\RawPrice_GetLatest.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\RawFXRate_GetLatest.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\Price_Roll.sql.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\FXRate_Roll.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>
