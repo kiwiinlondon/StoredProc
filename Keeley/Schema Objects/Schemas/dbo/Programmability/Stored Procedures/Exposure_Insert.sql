@@ -13,16 +13,24 @@ GO
 
 CREATE PROCEDURE DBO.[Exposure_Insert]
 		@PositionId int, 
-		@InstrumentId int, 
+		@InstrumentMarketId int, 
 		@PortfolioId int, 
 		@ReferenceDate datetime, 
-		@NetPosition numeric(27,8), 
 		@EquityExposure numeric(27,8), 
-		@FXExposure numeric(27,8), 
+		@CurrencyExposure numeric(27,8), 
 		@CommodityExposure numeric(27,8), 
 		@FixedIncomeExposure numeric(27,8), 
 		@OtherExposure numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@GovernmentBondExposure numeric(27,8), 
+		@ChangeEquityExposure numeric(27,8), 
+		@ChangeCurrencyExposure numeric(27,8), 
+		@ChangeCommodityExposure numeric(27,8), 
+		@ChangeFixedIncomeExposure numeric(27,8), 
+		@ChangeOtherExposure numeric(27,8), 
+		@ChangeGovernmentBondExposure numeric(27,8), 
+		@MaturityDate datetime, 
+		@IsPrimaryExposure bit
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +38,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Exposure
-			(PositionId, InstrumentId, PortfolioId, ReferenceDate, NetPosition, EquityExposure, FXExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, StartDt)
+			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, StartDt)
 	VALUES
-			(@PositionId, @InstrumentId, @PortfolioId, @ReferenceDate, @NetPosition, @EquityExposure, @FXExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @StartDt)
+			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @StartDt)
 
 	SELECT	ExposureId, StartDt, DataVersion
 	FROM	Exposure
