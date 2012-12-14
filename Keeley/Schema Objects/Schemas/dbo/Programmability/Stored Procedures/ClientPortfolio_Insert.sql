@@ -21,7 +21,11 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@PriceId int, 
 		@Price numeric(27,8), 
 		@Cost numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@TodayRealisedPnl numeric(27,8), 
+		@OpeningValue numeric(27,8), 
+		@TodayUnRealisedPnl numeric(27,8), 
+		@ChangeInCost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -29,9 +33,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio

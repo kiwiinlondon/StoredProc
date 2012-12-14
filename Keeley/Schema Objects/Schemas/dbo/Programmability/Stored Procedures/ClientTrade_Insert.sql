@@ -25,7 +25,10 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@Commission numeric(27,8), 
 		@DilutionLevy numeric(27,8), 
 		@ClientAccountId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@HWMPrice numeric(27,8), 
+		@CurrentQuantity numeric(27,8), 
+		@EqFactor numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -33,9 +36,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientTrade
-			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, StartDt)
+			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, StartDt)
 	VALUES
-			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @StartDt)
+			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @StartDt)
 
 	SELECT	ClientTradeId, StartDt, DataVersion
 	FROM	ClientTrade

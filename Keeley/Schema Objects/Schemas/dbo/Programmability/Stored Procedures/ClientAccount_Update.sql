@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[ClientAccount_Update]
 		@ClientAccountId int, 
 		@ClientId int, 
-		@AccountReference varchar(20), 
+		@AccountReference varchar(50), 
 		@AdministratorId int, 
 		@Name varchar(100), 
 		@CountryId int, 

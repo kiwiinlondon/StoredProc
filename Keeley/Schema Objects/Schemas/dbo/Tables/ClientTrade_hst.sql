@@ -18,5 +18,8 @@ create table DBO.ClientTrade_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	HWMPrice numeric(27,8) not null,
+	CurrentQuantity numeric(27,8) not null,
+	EqFactor numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

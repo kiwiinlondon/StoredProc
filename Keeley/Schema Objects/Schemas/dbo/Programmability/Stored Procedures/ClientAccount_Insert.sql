@@ -13,7 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[ClientAccount_Insert]
 		@ClientId int, 
-		@AccountReference varchar(20), 
+		@AccountReference varchar(50), 
 		@AdministratorId int, 
 		@Name varchar(100), 
 		@CountryId int, 

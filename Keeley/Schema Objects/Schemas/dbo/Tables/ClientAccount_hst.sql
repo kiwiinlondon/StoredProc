@@ -3,7 +3,7 @@ USE Keeley
 create table DBO.ClientAccount_hst(
 	ClientAccountId int not null,
 	ClientId int not null,
-	AccountReference varchar(20) not null,
+	AccountReference varchar(50),
 	AdministratorId int not null,
 	Name varchar(100) not null,
 	CountryId int,

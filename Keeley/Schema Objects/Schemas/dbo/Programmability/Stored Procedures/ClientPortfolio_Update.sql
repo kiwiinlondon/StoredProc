@@ -23,7 +23,11 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@Price numeric(27,8), 
 		@Cost numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@TodayRealisedPnl numeric(27,8), 
+		@OpeningValue numeric(27,8), 
+		@TodayUnRealisedPnl numeric(27,8), 
+		@ChangeInCost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +35,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolio_hst (
-			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, @StartDt, @UpdateUserID
 	FROM	ClientPortfolio
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 
 	UPDATE	ClientPortfolio
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost,  StartDt = @StartDt
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 	AND		DataVersion = @DataVersion
 

@@ -14,5 +14,9 @@ create table DBO.ClientPortfolio_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	TodayRealisedPnl numeric(27,8) not null,
+	OpeningValue numeric(27,8) not null,
+	TodayUnRealisedPnl numeric(27,8) not null,
+	ChangeInCost numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
