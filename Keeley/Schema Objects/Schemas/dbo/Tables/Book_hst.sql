@@ -10,5 +10,6 @@ create table DBO.Book_hst(
 	DataVersion binary(8) not null,
 	ManagerId int,
 	EZEIdentifier varchar(100),
+	IsPrimary bit not null,
 	EndDt datetime,
 	LastActionUserID int)

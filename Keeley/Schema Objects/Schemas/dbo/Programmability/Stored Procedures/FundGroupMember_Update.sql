@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[FundGroupMember_Update]
 		@FundGroupId int, 
 		@FundId int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@BookId int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundGroupMember_hst (
-			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, EndDt, LastActionUserID)
+	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, @StartDt, @UpdateUserID
 	FROM	FundGroupMember
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 
 	UPDATE	FundGroupMember
-	SET		FundGroupId = @FundGroupId, FundId = @FundId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FundGroupId = @FundGroupId, FundId = @FundId, UpdateUserID = @UpdateUserID, BookId = @BookId,  StartDt = @StartDt
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 	AND		DataVersion = @DataVersion
 

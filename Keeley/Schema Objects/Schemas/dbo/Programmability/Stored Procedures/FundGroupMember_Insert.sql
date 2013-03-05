@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[FundGroupMember_Insert]
 		@FundGroupId int, 
 		@FundId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@BookId int
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundGroupMember
-			(FundGroupId, FundId, UpdateUserID, StartDt)
+			(FundGroupId, FundId, UpdateUserID, BookId, StartDt)
 	VALUES
-			(@FundGroupId, @FundId, @UpdateUserID, @StartDt)
+			(@FundGroupId, @FundId, @UpdateUserID, @BookId, @StartDt)
 
 	SELECT	FundGroupMemberId, StartDt, DataVersion
 	FROM	FundGroupMember

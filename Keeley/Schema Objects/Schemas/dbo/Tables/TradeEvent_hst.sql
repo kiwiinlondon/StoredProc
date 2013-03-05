@@ -32,5 +32,6 @@ create table DBO.TradeEvent_hst(
 	TradeEuroFXRate numeric(27,8) not null,
 	TradeEuroFXRateId int,
 	IsRoll bit not null,
+	ContraEventId int,
 	EndDt datetime,
 	LastActionUserID int)
