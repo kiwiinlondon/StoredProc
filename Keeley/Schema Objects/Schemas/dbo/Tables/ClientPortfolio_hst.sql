@@ -17,7 +17,7 @@ create table DBO.ClientPortfolio_hst(
 	TodayRealisedPnl numeric(27,8) not null,
 	OpeningValue numeric(27,8) not null,
 	TodayUnRealisedPnl numeric(27,8) not null,
-	ChangeInCost numeric(27,8),
+	ChangeInCost numeric(27,8) not null,
 	EqualisationFactor numeric(27,8) not null,
 	ITDSubscriptions numeric(27,8) not null,
 	ITDRealisedPNL numeric(27,8) not null,
