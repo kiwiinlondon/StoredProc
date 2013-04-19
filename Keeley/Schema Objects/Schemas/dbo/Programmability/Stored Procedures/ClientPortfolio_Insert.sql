@@ -26,10 +26,7 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@OpeningValue numeric(27,8), 
 		@TodayUnRealisedPnl numeric(27,8), 
 		@ChangeInCost numeric(27,8), 
-		@EqualisationFactor numeric(27,8), 
-		@ITDSubscriptions numeric(27,8), 
-		@ITDRealisedPNL numeric(27,8), 
-		@ITDSubscriptionsValue numeric(27,8)
+		@EqualisationFactor numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -37,9 +34,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSubscriptions, ITDRealisedPNL, ITDSubscriptionsValue, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSubscriptions, @ITDRealisedPNL, @ITDSubscriptionsValue, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio
