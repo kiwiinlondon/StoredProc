@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ApplicationUser_hst (
-			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, EndDt, LastActionUserID)
+	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, @EndDt, @UpdateUserID
 	FROM	ApplicationUser
 	WHERE	UserID = @UserID
 

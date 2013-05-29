@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FileType_hst (
-			FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FileTypeId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EnableManualFileUpload, EndDt, LastActionUserID)
+	SELECT	FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EnableManualFileUpload, @EndDt, @UpdateUserID
 	FROM	FileType
 	WHERE	FileTypeId = @FileTypeId
 

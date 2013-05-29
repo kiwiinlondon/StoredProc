@@ -1680,18 +1680,6 @@
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolio_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio2_Delete.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio2_Insert.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio2_Update.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolio2_hst.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Indx_Delete.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
@@ -1714,18 +1702,6 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\InterestRateReturn_hst.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioDate_Delete.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioDate_Insert.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioDate_Update.sql">
-      <SubType>NotInBuild</SubType>
-    </NotInBuild>
-    <NotInBuild Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolioDate_hst.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

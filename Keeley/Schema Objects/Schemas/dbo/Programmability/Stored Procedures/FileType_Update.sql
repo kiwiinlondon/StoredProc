@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[FileType_Update]
 		@FileTypeId int, 
 		@Name varchar(70), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@EnableManualFileUpload bit
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FileType_hst (
-			FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FileTypeId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EnableManualFileUpload, EndDt, LastActionUserID)
+	SELECT	FileTypeId, Name, StartDt, UpdateUserID, DataVersion, EnableManualFileUpload, @StartDt, @UpdateUserID
 	FROM	FileType
 	WHERE	FileTypeId = @FileTypeId
 
 	UPDATE	FileType
-	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, EnableManualFileUpload = @EnableManualFileUpload,  StartDt = @StartDt
 	WHERE	FileTypeId = @FileTypeId
 	AND		DataVersion = @DataVersion
 

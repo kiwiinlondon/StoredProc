@@ -24,6 +24,6 @@ create table DBO.ClientTrade_hst(
 	Balance numeric(27,8) not null,
 	TotalCost numeric(27,8) not null,
 	AdministratorCurrentQuantity numeric(27,8),
-	Cost numeric(27,8),
+	Cost numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

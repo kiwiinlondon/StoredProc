@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[FileType_Insert]
 		@Name varchar(70), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@EnableManualFileUpload bit
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FileType
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, EnableManualFileUpload, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @EnableManualFileUpload, @StartDt)
 
 	SELECT	FileTypeId, StartDt, DataVersion
 	FROM	FileType

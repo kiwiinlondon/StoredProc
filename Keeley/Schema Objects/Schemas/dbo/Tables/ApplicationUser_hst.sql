@@ -9,5 +9,6 @@ create table DBO.ApplicationUser_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	Initials varchar(10),
 	EndDt datetime,
 	LastActionUserID int)
