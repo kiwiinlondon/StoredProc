@@ -35,7 +35,8 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Insert]
 		@NonEuroPairReceiveToEuroFXRateId int, 
 		@IsRoll bit, 
 		@ContraEventId int, 
-		@InstrumentMarketId int
+		@InstrumentMarketId int, 
+		@OriginalInputDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +44,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXTradeEvent
-			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, StartDt)
+			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, StartDt)
 	VALUES
-			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @InputDate, @SettlementCurrencyId, @SupressFromExtracts, @NonEuroPairReceiveToEuroFXRate, @NonEuroPairReceiveToEuroFXRateId, @IsRoll, @ContraEventId, @InstrumentMarketId, @StartDt)
+			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @InputDate, @SettlementCurrencyId, @SupressFromExtracts, @NonEuroPairReceiveToEuroFXRate, @NonEuroPairReceiveToEuroFXRateId, @IsRoll, @ContraEventId, @InstrumentMarketId, @OriginalInputDate, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	FXTradeEvent

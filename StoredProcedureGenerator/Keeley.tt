@@ -1,4 +1,5 @@
-﻿<#@ template language="C#" hostspecific="True" debug="True" #> 
+﻿<#@ assembly name="System.Xml" #>
+<#@ template language="C#" hostspecific="True" debug="True" #> 
 <#@ output extension="txt" #> 
 <#@ include file="T4Toolbox.tt" #> 
 <#@ include file="CrudProcedureGenerator.tt" #> 
@@ -11,6 +12,6 @@
 	generator.UpdatePath = outputPath;
 	generator.InsertPath = outputPath;
 	generator.HistoryPath = @"..\Keeley\Schema Objects\Schemas\dbo\Tables\";
-	generator.ProjectPath = @"..\Keeley\Keeley.dbproj";
+	generator.ProjectPath = @"..\Keeley\Keeley.sqlproj";
     generator.Run(); 
 #> 

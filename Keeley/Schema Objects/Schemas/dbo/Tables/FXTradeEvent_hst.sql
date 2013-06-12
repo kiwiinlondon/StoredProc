@@ -27,5 +27,6 @@ create table DBO.FXTradeEvent_hst(
 	IsRoll bit not null,
 	ContraEventId int,
 	InstrumentMarketId int not null,
+	OriginalInputDate datetime not null,
 	EndDt datetime,
 	LastActionUserID int)

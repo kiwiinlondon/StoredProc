@@ -36,7 +36,8 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Update]
 		@NonEuroPairReceiveToEuroFXRateId int, 
 		@IsRoll bit, 
 		@ContraEventId int, 
-		@InstrumentMarketId int
+		@InstrumentMarketId int, 
+		@OriginalInputDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -44,13 +45,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXTradeEvent_hst (
-			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, EndDt, LastActionUserID)
-	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, @StartDt, @UpdateUserID
+			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, EndDt, LastActionUserID)
+	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, @StartDt, @UpdateUserID
 	FROM	FXTradeEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	FXTradeEvent
-	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, InputDate = @InputDate, SettlementCurrencyId = @SettlementCurrencyId, SupressFromExtracts = @SupressFromExtracts, NonEuroPairReceiveToEuroFXRate = @NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId = @NonEuroPairReceiveToEuroFXRateId, IsRoll = @IsRoll, ContraEventId = @ContraEventId, InstrumentMarketId = @InstrumentMarketId,  StartDt = @StartDt
+	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, InputDate = @InputDate, SettlementCurrencyId = @SettlementCurrencyId, SupressFromExtracts = @SupressFromExtracts, NonEuroPairReceiveToEuroFXRate = @NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId = @NonEuroPairReceiveToEuroFXRateId, IsRoll = @IsRoll, ContraEventId = @ContraEventId, InstrumentMarketId = @InstrumentMarketId, OriginalInputDate = @OriginalInputDate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 
