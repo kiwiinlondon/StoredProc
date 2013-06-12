@@ -16,7 +16,7 @@
     <Name>Keeley</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.0</ProjectVersion>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <ShowWizard>False</ShowWizard>
     <OutputType>Database</OutputType>
@@ -31,7 +31,7 @@
     <PreviousProjectVersion>4.0</PreviousProjectVersion>
     <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67cbc824-a49e-4e9b-a947-360f3dfe65c3}</ProjectGuid>
+    <ProjectGuid>{6b413caf-41bd-477f-8cba-21c1cab50ca8}</ProjectGuid>
     <GenerateDatabaseFile>False</GenerateDatabaseFile>
     <GenerateCreateScript>False</GenerateCreateScript>
     <SqlServerVerification>False</SqlServerVerification>
@@ -138,7 +138,7 @@
     <None Include="Schema Objects\Schemas\dbo\Tables\Create\create trade tables.sql">
       <SubType>NotInBuild</SubType>
     </None>
-    <Build Include="Permissions_1.sql" />
+    <Build Include="Permissions_2.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\PortfolioEvent_GetPrevious.sql">
       <SubType>Code</SubType>
     </Build>
@@ -1715,8 +1715,8 @@
     </Build>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Debug_1.publish.xml" />
-    <None Include="Release_1.publish.xml" />
+    <None Include="Debug_2.publish.xml" />
+    <None Include="Release_2.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
