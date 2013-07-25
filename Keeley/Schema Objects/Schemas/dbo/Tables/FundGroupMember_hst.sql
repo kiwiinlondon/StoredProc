@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FundGroupMember_hst(
 	FundGroupMemberId int not null,
@@ -8,5 +8,6 @@ create table DBO.FundGroupMember_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	BookId int,
+	IncludeOnlyLongs bit not null,
 	EndDt datetime,
 	LastActionUserID int)

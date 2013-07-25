@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -32,7 +32,8 @@ CREATE PROCEDURE DBO.[Exposure_Update]
 		@ChangeOtherExposure numeric(27,8), 
 		@ChangeGovernmentBondExposure numeric(27,8), 
 		@MaturityDate datetime, 
-		@IsPrimaryExposure bit
+		@IsPrimaryExposure bit, 
+		@IsLong bit
 AS
 	SET NOCOUNT ON
 
@@ -40,13 +41,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Exposure_hst (
-			ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, EndDt, LastActionUserID)
-	SELECT	ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, @StartDt, @UpdateUserID
+			ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, EndDt, LastActionUserID)
+	SELECT	ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, @StartDt, @UpdateUserID
 	FROM	Exposure
 	WHERE	ExposureId = @ExposureId
 
 	UPDATE	Exposure
-	SET		PositionId = @PositionId, InstrumentMarketId = @InstrumentMarketId, PortfolioId = @PortfolioId, ReferenceDate = @ReferenceDate, EquityExposure = @EquityExposure, CurrencyExposure = @CurrencyExposure, CommodityExposure = @CommodityExposure, FixedIncomeExposure = @FixedIncomeExposure, OtherExposure = @OtherExposure, UpdateUserID = @UpdateUserID, GovernmentBondExposure = @GovernmentBondExposure, ChangeEquityExposure = @ChangeEquityExposure, ChangeCurrencyExposure = @ChangeCurrencyExposure, ChangeCommodityExposure = @ChangeCommodityExposure, ChangeFixedIncomeExposure = @ChangeFixedIncomeExposure, ChangeOtherExposure = @ChangeOtherExposure, ChangeGovernmentBondExposure = @ChangeGovernmentBondExposure, MaturityDate = @MaturityDate, IsPrimaryExposure = @IsPrimaryExposure,  StartDt = @StartDt
+	SET		PositionId = @PositionId, InstrumentMarketId = @InstrumentMarketId, PortfolioId = @PortfolioId, ReferenceDate = @ReferenceDate, EquityExposure = @EquityExposure, CurrencyExposure = @CurrencyExposure, CommodityExposure = @CommodityExposure, FixedIncomeExposure = @FixedIncomeExposure, OtherExposure = @OtherExposure, UpdateUserID = @UpdateUserID, GovernmentBondExposure = @GovernmentBondExposure, ChangeEquityExposure = @ChangeEquityExposure, ChangeCurrencyExposure = @ChangeCurrencyExposure, ChangeCommodityExposure = @ChangeCommodityExposure, ChangeFixedIncomeExposure = @ChangeFixedIncomeExposure, ChangeOtherExposure = @ChangeOtherExposure, ChangeGovernmentBondExposure = @ChangeGovernmentBondExposure, MaturityDate = @MaturityDate, IsPrimaryExposure = @IsPrimaryExposure, IsLong = @IsLong,  StartDt = @StartDt
 	WHERE	ExposureId = @ExposureId
 	AND		DataVersion = @DataVersion
 

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundGroupMember_hst (
-			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, EndDt, LastActionUserID)
-	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, @EndDt, @UpdateUserID
+			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, EndDt, LastActionUserID)
+	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, @EndDt, @UpdateUserID
 	FROM	FundGroupMember
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 

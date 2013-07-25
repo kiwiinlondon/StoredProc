@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -30,7 +30,8 @@ CREATE PROCEDURE DBO.[Exposure_Insert]
 		@ChangeOtherExposure numeric(27,8), 
 		@ChangeGovernmentBondExposure numeric(27,8), 
 		@MaturityDate datetime, 
-		@IsPrimaryExposure bit
+		@IsPrimaryExposure bit, 
+		@IsLong bit
 AS
 	SET NOCOUNT ON
 
@@ -38,9 +39,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Exposure
-			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, StartDt)
+			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, StartDt)
 	VALUES
-			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @StartDt)
+			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @IsLong, @StartDt)
 
 	SELECT	ExposureId, StartDt, DataVersion
 	FROM	Exposure

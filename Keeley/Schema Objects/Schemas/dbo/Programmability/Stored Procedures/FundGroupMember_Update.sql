@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[FundGroupMember_Update]
 		@FundId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@BookId int
+		@BookId int, 
+		@IncludeOnlyLongs bit
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +26,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundGroupMember_hst (
-			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, EndDt, LastActionUserID)
-	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, @StartDt, @UpdateUserID
+			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, EndDt, LastActionUserID)
+	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, @StartDt, @UpdateUserID
 	FROM	FundGroupMember
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 
 	UPDATE	FundGroupMember
-	SET		FundGroupId = @FundGroupId, FundId = @FundId, UpdateUserID = @UpdateUserID, BookId = @BookId,  StartDt = @StartDt
+	SET		FundGroupId = @FundGroupId, FundId = @FundId, UpdateUserID = @UpdateUserID, BookId = @BookId, IncludeOnlyLongs = @IncludeOnlyLongs,  StartDt = @StartDt
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 	AND		DataVersion = @DataVersion
 

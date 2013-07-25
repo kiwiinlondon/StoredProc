@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[FundGroupMember_Insert]
 		@FundGroupId int, 
 		@FundId int, 
 		@UpdateUserID int, 
-		@BookId int
+		@BookId int, 
+		@IncludeOnlyLongs bit
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundGroupMember
-			(FundGroupId, FundId, UpdateUserID, BookId, StartDt)
+			(FundGroupId, FundId, UpdateUserID, BookId, IncludeOnlyLongs, StartDt)
 	VALUES
-			(@FundGroupId, @FundId, @UpdateUserID, @BookId, @StartDt)
+			(@FundGroupId, @FundId, @UpdateUserID, @BookId, @IncludeOnlyLongs, @StartDt)
 
 	SELECT	FundGroupMemberId, StartDt, DataVersion
 	FROM	FundGroupMember

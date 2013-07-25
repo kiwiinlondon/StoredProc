@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Portfolio_hst(
 	PortfolioId int not null,
@@ -50,5 +50,7 @@ create table DBO.Portfolio_hst(
 	ValuationPrice numeric(27,8) not null,
 	ValuationPriceToPositionFXRate numeric(27,8) not null,
 	ValuationMarketValue numeric(27,8) not null,
+	HedgeRatio numeric(27,8),
+	HedgeRatioId int,
 	EndDt datetime,
 	LastActionUserID int)

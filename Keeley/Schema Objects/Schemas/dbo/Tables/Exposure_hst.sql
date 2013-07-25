@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Exposure_hst(
 	ExposureId int not null,
@@ -23,5 +23,6 @@ create table DBO.Exposure_hst(
 	ChangeGovernmentBondExposure numeric(27,8),
 	MaturityDate datetime,
 	IsPrimaryExposure bit not null,
+	IsLong bit not null,
 	EndDt datetime,
 	LastActionUserID int)
