@@ -31,7 +31,9 @@ CREATE PROCEDURE DBO.[Exposure_Insert]
 		@ChangeGovernmentBondExposure numeric(27,8), 
 		@MaturityDate datetime, 
 		@IsPrimaryExposure bit, 
-		@IsLong bit
+		@IsLong bit, 
+		@InterestRateExposure numeric(27,8), 
+		@ChangeInterestRateExposure numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -39,9 +41,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Exposure
-			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, StartDt)
+			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, InterestRateExposure, ChangeInterestRateExposure, StartDt)
 	VALUES
-			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @IsLong, @StartDt)
+			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @IsLong, @InterestRateExposure, @ChangeInterestRateExposure, @StartDt)
 
 	SELECT	ExposureId, StartDt, DataVersion
 	FROM	Exposure

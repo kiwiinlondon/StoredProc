@@ -33,7 +33,9 @@ CREATE PROCEDURE DBO.[Exposure_Update]
 		@ChangeGovernmentBondExposure numeric(27,8), 
 		@MaturityDate datetime, 
 		@IsPrimaryExposure bit, 
-		@IsLong bit
+		@IsLong bit, 
+		@InterestRateExposure numeric(27,8), 
+		@ChangeInterestRateExposure numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -41,13 +43,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Exposure_hst (
-			ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, EndDt, LastActionUserID)
-	SELECT	ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, @StartDt, @UpdateUserID
+			ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, InterestRateExposure, ChangeInterestRateExposure, EndDt, LastActionUserID)
+	SELECT	ExposureId, PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, StartDt, UpdateUserID, DataVersion, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, InterestRateExposure, ChangeInterestRateExposure, @StartDt, @UpdateUserID
 	FROM	Exposure
 	WHERE	ExposureId = @ExposureId
 
 	UPDATE	Exposure
-	SET		PositionId = @PositionId, InstrumentMarketId = @InstrumentMarketId, PortfolioId = @PortfolioId, ReferenceDate = @ReferenceDate, EquityExposure = @EquityExposure, CurrencyExposure = @CurrencyExposure, CommodityExposure = @CommodityExposure, FixedIncomeExposure = @FixedIncomeExposure, OtherExposure = @OtherExposure, UpdateUserID = @UpdateUserID, GovernmentBondExposure = @GovernmentBondExposure, ChangeEquityExposure = @ChangeEquityExposure, ChangeCurrencyExposure = @ChangeCurrencyExposure, ChangeCommodityExposure = @ChangeCommodityExposure, ChangeFixedIncomeExposure = @ChangeFixedIncomeExposure, ChangeOtherExposure = @ChangeOtherExposure, ChangeGovernmentBondExposure = @ChangeGovernmentBondExposure, MaturityDate = @MaturityDate, IsPrimaryExposure = @IsPrimaryExposure, IsLong = @IsLong,  StartDt = @StartDt
+	SET		PositionId = @PositionId, InstrumentMarketId = @InstrumentMarketId, PortfolioId = @PortfolioId, ReferenceDate = @ReferenceDate, EquityExposure = @EquityExposure, CurrencyExposure = @CurrencyExposure, CommodityExposure = @CommodityExposure, FixedIncomeExposure = @FixedIncomeExposure, OtherExposure = @OtherExposure, UpdateUserID = @UpdateUserID, GovernmentBondExposure = @GovernmentBondExposure, ChangeEquityExposure = @ChangeEquityExposure, ChangeCurrencyExposure = @ChangeCurrencyExposure, ChangeCommodityExposure = @ChangeCommodityExposure, ChangeFixedIncomeExposure = @ChangeFixedIncomeExposure, ChangeOtherExposure = @ChangeOtherExposure, ChangeGovernmentBondExposure = @ChangeGovernmentBondExposure, MaturityDate = @MaturityDate, IsPrimaryExposure = @IsPrimaryExposure, IsLong = @IsLong, InterestRateExposure = @InterestRateExposure, ChangeInterestRateExposure = @ChangeInterestRateExposure,  StartDt = @StartDt
 	WHERE	ExposureId = @ExposureId
 	AND		DataVersion = @DataVersion
 

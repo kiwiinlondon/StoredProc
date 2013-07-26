@@ -24,5 +24,7 @@ create table DBO.Exposure_hst(
 	MaturityDate datetime,
 	IsPrimaryExposure bit not null,
 	IsLong bit not null,
+	InterestRateExposure numeric(27,8),
+	ChangeInterestRateExposure numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
