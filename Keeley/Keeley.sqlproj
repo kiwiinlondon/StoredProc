@@ -1713,6 +1713,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Not Generated\FXRate_Roll.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Beta_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BetaType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
