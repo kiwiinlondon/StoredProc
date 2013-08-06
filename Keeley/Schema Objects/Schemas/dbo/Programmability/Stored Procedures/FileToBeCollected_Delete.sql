@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FileToBeCollected_hst (
-			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, EndDt, LastActionUserID)
-	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, @EndDt, @UpdateUserID
+			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FilesToBeCollectedGroupId, EndDt, LastActionUserID)
+	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FilesToBeCollectedGroupId, @EndDt, @UpdateUserID
 	FROM	FileToBeCollected
 	WHERE	FileToBeCollectedId = @FileToBeCollectedId
 

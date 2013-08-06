@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[FileToBeCollected_Insert]
 		@FileNameResolutionTypeId int, 
 		@FileTypeId int, 
 		@UpdateUserID int, 
-		@EmailWhenReceived varchar(1000)
+		@EmailWhenReceived varchar(1000), 
+		@FilesToBeCollectedGroupId int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FileToBeCollected
-			(Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, UpdateUserID, EmailWhenReceived, StartDt)
+			(Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, UpdateUserID, EmailWhenReceived, FilesToBeCollectedGroupId, StartDt)
 	VALUES
-			(@Name, @FileCollectionTypeId, @FileCollectionTypeProfileName, @FileDestinationPath, @FileNameTemplate, @FileNameResolutionTypeId, @FileTypeId, @UpdateUserID, @EmailWhenReceived, @StartDt)
+			(@Name, @FileCollectionTypeId, @FileCollectionTypeProfileName, @FileDestinationPath, @FileNameTemplate, @FileNameResolutionTypeId, @FileTypeId, @UpdateUserID, @EmailWhenReceived, @FilesToBeCollectedGroupId, @StartDt)
 
 	SELECT	FileToBeCollectedId, StartDt, DataVersion
 	FROM	FileToBeCollected

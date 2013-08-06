@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Beta_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Beta_Insert]
-		@BetaTypeId int, 
+		@AnalyticTypeId int, 
 		@InstrumentMarketId int, 
 		@RelativeIndexInstrumentMarketId int, 
 		@CurrencyId int, 
@@ -26,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Beta
-			(BetaTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, UpdateUserID, StartDt)
+			(AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, UpdateUserID, StartDt)
 	VALUES
-			(@BetaTypeId, @InstrumentMarketId, @RelativeIndexInstrumentMarketId, @CurrencyId, @ReferenceDate, @Value, @UpdateUserID, @StartDt)
+			(@AnalyticTypeId, @InstrumentMarketId, @RelativeIndexInstrumentMarketId, @CurrencyId, @ReferenceDate, @Value, @UpdateUserID, @StartDt)
 
 	SELECT	BetaId, StartDt, DataVersion
 	FROM	Beta

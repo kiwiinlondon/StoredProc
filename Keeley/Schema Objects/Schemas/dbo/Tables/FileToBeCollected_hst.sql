@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FileToBeCollected_hst(
 	FileToBeCollectedId int not null,
@@ -13,5 +13,6 @@ create table DBO.FileToBeCollected_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	EmailWhenReceived varchar(1000),
+	FilesToBeCollectedGroupId int,
 	EndDt datetime,
 	LastActionUserID int)

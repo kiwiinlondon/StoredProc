@@ -2,7 +2,7 @@
 
 create table DBO.Beta_hst(
 	BetaId int not null,
-	BetaTypeId int not null,
+	AnalyticTypeId int not null,
 	InstrumentMarketId int not null,
 	RelativeIndexInstrumentMarketId int not null,
 	CurrencyId int not null,

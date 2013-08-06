@@ -13,7 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[Beta_Update]
 		@BetaId int, 
-		@BetaTypeId int, 
+		@AnalyticTypeId int, 
 		@InstrumentMarketId int, 
 		@RelativeIndexInstrumentMarketId int, 
 		@CurrencyId int, 
@@ -28,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Beta_hst (
-			BetaId, BetaTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	BetaId, BetaTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	Beta
 	WHERE	BetaId = @BetaId
 
 	UPDATE	Beta
-	SET		BetaTypeId = @BetaTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		AnalyticTypeId = @AnalyticTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	BetaId = @BetaId
 	AND		DataVersion = @DataVersion
 

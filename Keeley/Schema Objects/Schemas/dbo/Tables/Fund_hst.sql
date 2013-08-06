@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Fund_hst(
 	LegalEntityID int not null,
@@ -28,5 +28,6 @@ create table DBO.Fund_hst(
 	ShareClassDescriptor varchar(50),
 	PerformanceFee numeric(27,8),
 	ManagementFee numeric(27,8),
+	AdministratorId int,
 	EndDt datetime,
 	LastActionUserID int)
