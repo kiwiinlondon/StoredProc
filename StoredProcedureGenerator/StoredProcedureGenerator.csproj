@@ -91,9 +91,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BetaType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Update.sql
@@ -283,6 +280,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Update.sql
@@ -465,7 +465,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\BetaType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Book_hst.sql
@@ -529,6 +528,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileNameResolutionType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileProcessingMethod_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollected_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollectedGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
