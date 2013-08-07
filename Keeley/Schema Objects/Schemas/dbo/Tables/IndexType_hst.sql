@@ -1,10 +1,10 @@
 ﻿USE Keeley
 
-create table DBO.Indx_hst(
-	InstrumentMarketId int not null,
+create table DBO.IndexType_hst(
+	IndexTypeId int not null,
+	Name varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	IndexTypeId int not null,
 	EndDt datetime,
 	LastActionUserID int)

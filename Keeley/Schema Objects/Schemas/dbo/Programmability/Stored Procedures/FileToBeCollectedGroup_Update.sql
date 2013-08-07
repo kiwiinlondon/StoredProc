@@ -12,10 +12,12 @@ DROP PROCEDURE DBO.[FileToBeCollectedGroup_Update]
 GO
 
 CREATE PROCEDURE DBO.[FileToBeCollectedGroup_Update]
-		@FilesToBeCollectedGroupId int, 
+		@FileToBeCollectedGroupId int, 
 		@Name varchar(200), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@FileGroupTypeId int, 
+		@Email varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -23,19 +25,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FileToBeCollectedGroup_hst (
-			FilesToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FilesToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FileToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, FileGroupTypeId, Email, EndDt, LastActionUserID)
+	SELECT	FileToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, FileGroupTypeId, Email, @StartDt, @UpdateUserID
 	FROM	FileToBeCollectedGroup
-	WHERE	FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId
+	WHERE	FileToBeCollectedGroupId = @FileToBeCollectedGroupId
 
 	UPDATE	FileToBeCollectedGroup
-	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, FileGroupTypeId = @FileGroupTypeId, Email = @Email,  StartDt = @StartDt
+	WHERE	FileToBeCollectedGroupId = @FileToBeCollectedGroupId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	FileToBeCollectedGroup
-	WHERE	FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId
+	WHERE	FileToBeCollectedGroupId = @FileToBeCollectedGroupId
 	AND		@@ROWCOUNT > 0
 
 GO

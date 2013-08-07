@@ -1721,6 +1721,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FileToBeCollectedGroup_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FileGroupType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IndexType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

@@ -271,6 +271,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Update.sql
@@ -331,6 +334,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Update.sql
@@ -525,6 +531,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollected_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollectionType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileGroupType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileNameResolutionType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileProcessingMethod_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollected_hst.sql
@@ -545,6 +552,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexConstituent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Industry_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IndustryClassification_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Indx_hst.sql

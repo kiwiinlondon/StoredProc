@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[FileToBeCollectedGroup_Delete]
 GO
 
 CREATE PROCEDURE DBO.[FileToBeCollectedGroup_Delete]
-		@FilesToBeCollectedGroupId int,
+		@FileToBeCollectedGroupId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FileToBeCollectedGroup_hst (
-			FilesToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FilesToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FileToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, FileGroupTypeId, Email, EndDt, LastActionUserID)
+	SELECT	FileToBeCollectedGroupId, Name, StartDt, UpdateUserID, DataVersion, FileGroupTypeId, Email, @EndDt, @UpdateUserID
 	FROM	FileToBeCollectedGroup
-	WHERE	FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId
+	WHERE	FileToBeCollectedGroupId = @FileToBeCollectedGroupId
 
 	DELETE	FileToBeCollectedGroup
-	WHERE	FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId
+	WHERE	FileToBeCollectedGroupId = @FileToBeCollectedGroupId
 	AND		DataVersion = @DataVersion
 GO

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Indx_Update]
 		@InstrumentMarketId int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IndexTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -22,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Indx_hst (
-			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, @StartDt, @UpdateUserID
 	FROM	Indx
 	WHERE	InstrumentMarketId = @InstrumentMarketId
 
 	UPDATE	Indx
-	SET		UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, IndexTypeId = @IndexTypeId,  StartDt = @StartDt
 	WHERE	InstrumentMarketId = @InstrumentMarketId
 	AND		DataVersion = @DataVersion
 

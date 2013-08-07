@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.InstrumentMarket_hst(
 	InstrumentMarketID int not null,
@@ -19,5 +19,6 @@ create table DBO.InstrumentMarket_hst(
 	PriceQuoteMultiplier decimal,
 	BloombergGlobalId varchar(25),
 	LastRepulledFromSourceDate datetime,
+	FactsetId varchar(150),
 	EndDt datetime,
 	LastActionUserID int)

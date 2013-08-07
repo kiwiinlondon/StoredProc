@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[FileToBeCollected_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@EmailWhenReceived varchar(1000), 
-		@FilesToBeCollectedGroupId int
+		@FileToBeCollectedGroupId int, 
+		@FundId int
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FileToBeCollected_hst (
-			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FilesToBeCollectedGroupId, EndDt, LastActionUserID)
-	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FilesToBeCollectedGroupId, @StartDt, @UpdateUserID
+			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, EndDt, LastActionUserID)
+	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, @StartDt, @UpdateUserID
 	FROM	FileToBeCollected
 	WHERE	FileToBeCollectedId = @FileToBeCollectedId
 
 	UPDATE	FileToBeCollected
-	SET		Name = @Name, FileCollectionTypeId = @FileCollectionTypeId, FileCollectionTypeProfileName = @FileCollectionTypeProfileName, FileDestinationPath = @FileDestinationPath, FileNameTemplate = @FileNameTemplate, FileNameResolutionTypeId = @FileNameResolutionTypeId, FileTypeId = @FileTypeId, UpdateUserID = @UpdateUserID, EmailWhenReceived = @EmailWhenReceived, FilesToBeCollectedGroupId = @FilesToBeCollectedGroupId,  StartDt = @StartDt
+	SET		Name = @Name, FileCollectionTypeId = @FileCollectionTypeId, FileCollectionTypeProfileName = @FileCollectionTypeProfileName, FileDestinationPath = @FileDestinationPath, FileNameTemplate = @FileNameTemplate, FileNameResolutionTypeId = @FileNameResolutionTypeId, FileTypeId = @FileTypeId, UpdateUserID = @UpdateUserID, EmailWhenReceived = @EmailWhenReceived, FileToBeCollectedGroupId = @FileToBeCollectedGroupId, FundId = @FundId,  StartDt = @StartDt
 	WHERE	FileToBeCollectedId = @FileToBeCollectedId
 	AND		DataVersion = @DataVersion
 

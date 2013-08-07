@@ -13,6 +13,7 @@ create table DBO.FileToBeCollected_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	EmailWhenReceived varchar(1000),
-	FilesToBeCollectedGroupId int,
+	FileToBeCollectedGroupId int,
+	FundId int,
 	EndDt datetime,
 	LastActionUserID int)

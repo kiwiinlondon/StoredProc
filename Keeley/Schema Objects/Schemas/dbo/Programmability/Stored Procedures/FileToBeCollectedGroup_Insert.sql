@@ -13,7 +13,9 @@ GO
 
 CREATE PROCEDURE DBO.[FileToBeCollectedGroup_Insert]
 		@Name varchar(200), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FileGroupTypeId int, 
+		@Email varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -21,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FileToBeCollectedGroup
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, FileGroupTypeId, Email, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @FileGroupTypeId, @Email, @StartDt)
 
-	SELECT	FilesToBeCollectedGroupId, StartDt, DataVersion
+	SELECT	FileToBeCollectedGroupId, StartDt, DataVersion
 	FROM	FileToBeCollectedGroup
-	WHERE	FilesToBeCollectedGroupId = SCOPE_IDENTITY()
+	WHERE	FileToBeCollectedGroupId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO
