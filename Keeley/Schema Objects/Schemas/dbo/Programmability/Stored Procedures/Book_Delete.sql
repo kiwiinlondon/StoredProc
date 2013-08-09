@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Book_hst (
-			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, EndDt, LastActionUserID)
-	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, @EndDt, @UpdateUserID
+			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, EndDt, LastActionUserID)
+	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, @EndDt, @UpdateUserID
 	FROM	Book
 	WHERE	BookID = @BookID
 

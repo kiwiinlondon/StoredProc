@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Book_hst(
 	BookID int not null,
@@ -11,5 +11,6 @@ create table DBO.Book_hst(
 	ManagerId int,
 	EZEIdentifier varchar(100),
 	IsPrimary bit not null,
+	IsActive bit not null,
 	EndDt datetime,
 	LastActionUserID int)

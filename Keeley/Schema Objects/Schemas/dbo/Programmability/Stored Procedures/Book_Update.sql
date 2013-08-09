@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[Book_Update]
 		@DataVersion rowversion, 
 		@ManagerId int, 
 		@EZEIdentifier varchar(100), 
-		@IsPrimary bit
+		@IsPrimary bit, 
+		@IsActive bit
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Book_hst (
-			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, EndDt, LastActionUserID)
-	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, @StartDt, @UpdateUserID
+			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, EndDt, LastActionUserID)
+	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, @StartDt, @UpdateUserID
 	FROM	Book
 	WHERE	BookID = @BookID
 
 	UPDATE	Book
-	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId, EZEIdentifier = @EZEIdentifier, IsPrimary = @IsPrimary,  StartDt = @StartDt
+	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId, EZEIdentifier = @EZEIdentifier, IsPrimary = @IsPrimary, IsActive = @IsActive,  StartDt = @StartDt
 	WHERE	BookID = @BookID
 	AND		DataVersion = @DataVersion
 

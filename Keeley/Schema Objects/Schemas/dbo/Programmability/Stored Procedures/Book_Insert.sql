@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Book_Insert]
 		@UpdateUserID int, 
 		@ManagerId int, 
 		@EZEIdentifier varchar(100), 
-		@IsPrimary bit
+		@IsPrimary bit, 
+		@IsActive bit
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Book
-			(FMOrgId, Name, FundID, UpdateUserID, ManagerId, EZEIdentifier, IsPrimary, StartDt)
+			(FMOrgId, Name, FundID, UpdateUserID, ManagerId, EZEIdentifier, IsPrimary, IsActive, StartDt)
 	VALUES
-			(@FMOrgId, @Name, @FundID, @UpdateUserID, @ManagerId, @EZEIdentifier, @IsPrimary, @StartDt)
+			(@FMOrgId, @Name, @FundID, @UpdateUserID, @ManagerId, @EZEIdentifier, @IsPrimary, @IsActive, @StartDt)
 
 	SELECT	BookID, StartDt, DataVersion
 	FROM	Book
