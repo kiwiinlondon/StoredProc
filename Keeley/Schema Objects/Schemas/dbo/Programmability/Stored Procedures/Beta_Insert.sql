@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Beta_Insert]
 		@CurrencyId int, 
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@UpdateDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Beta
-			(AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, UpdateUserID, StartDt)
+			(AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, UpdateUserID, UpdateDate, StartDt)
 	VALUES
-			(@AnalyticTypeId, @InstrumentMarketId, @RelativeIndexInstrumentMarketId, @CurrencyId, @ReferenceDate, @Value, @UpdateUserID, @StartDt)
+			(@AnalyticTypeId, @InstrumentMarketId, @RelativeIndexInstrumentMarketId, @CurrencyId, @ReferenceDate, @Value, @UpdateUserID, @UpdateDate, @StartDt)
 
 	SELECT	BetaId, StartDt, DataVersion
 	FROM	Beta

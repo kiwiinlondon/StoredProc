@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[Beta_Update]
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@UpdateDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Beta_hst (
-			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, EndDt, LastActionUserID)
+	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, @StartDt, @UpdateUserID
 	FROM	Beta
 	WHERE	BetaId = @BetaId
 
 	UPDATE	Beta
-	SET		AnalyticTypeId = @AnalyticTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		AnalyticTypeId = @AnalyticTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, UpdateDate = @UpdateDate,  StartDt = @StartDt
 	WHERE	BetaId = @BetaId
 	AND		DataVersion = @DataVersion
 
