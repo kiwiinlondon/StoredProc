@@ -29,5 +29,6 @@ create table DBO.Fund_hst(
 	PerformanceFee numeric(27,8),
 	ManagementFee numeric(27,8),
 	AdministratorId int,
+	AdministratorIdentifier varchar(100),
 	EndDt datetime,
 	LastActionUserID int)

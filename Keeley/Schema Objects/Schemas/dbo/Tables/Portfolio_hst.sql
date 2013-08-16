@@ -52,5 +52,9 @@ create table DBO.Portfolio_hst(
 	ValuationMarketValue numeric(27,8) not null,
 	HedgeRatio numeric(27,8),
 	HedgeRatioId int,
+	BetaShortTerm numeric(27,8),
+	BetaShortTermId int,
+	BetaLongTerm numeric(27,8),
+	BetaLongTermId int,
 	EndDt datetime,
 	LastActionUserID int)
