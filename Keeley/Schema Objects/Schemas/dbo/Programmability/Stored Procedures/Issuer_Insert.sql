@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[Issuer_Insert]
 		@LegalEntityID int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FactsetId varchar(150)
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Issuer
-			(LegalEntityID, UpdateUserID, StartDt)
+			(LegalEntityID, UpdateUserID, FactsetId, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @FactsetId, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Issuer
