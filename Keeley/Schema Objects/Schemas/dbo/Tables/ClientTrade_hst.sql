@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ClientTrade_hst(
 	ClientTradeId int not null,
@@ -25,5 +25,6 @@ create table DBO.ClientTrade_hst(
 	TotalCost numeric(27,8) not null,
 	AdministratorCurrentQuantity numeric(27,8),
 	Cost numeric(27,8) not null,
+	RelatedTradeId int,
 	EndDt datetime,
 	LastActionUserID int)

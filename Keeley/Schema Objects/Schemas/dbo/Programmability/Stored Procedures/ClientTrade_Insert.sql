@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -32,7 +32,8 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@Balance numeric(27,8), 
 		@TotalCost numeric(27,8), 
 		@AdministratorCurrentQuantity numeric(27,8), 
-		@Cost numeric(27,8)
+		@Cost numeric(27,8), 
+		@RelatedTradeId int
 AS
 	SET NOCOUNT ON
 
@@ -40,9 +41,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientTrade
-			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, StartDt)
+			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, StartDt)
 	VALUES
-			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @StartDt)
+			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @RelatedTradeId, @StartDt)
 
 	SELECT	ClientTradeId, StartDt, DataVersion
 	FROM	ClientTrade

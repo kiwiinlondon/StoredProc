@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -34,7 +34,8 @@ CREATE PROCEDURE DBO.[ClientTrade_Update]
 		@Balance numeric(27,8), 
 		@TotalCost numeric(27,8), 
 		@AdministratorCurrentQuantity numeric(27,8), 
-		@Cost numeric(27,8)
+		@Cost numeric(27,8), 
+		@RelatedTradeId int
 AS
 	SET NOCOUNT ON
 
@@ -42,13 +43,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientTrade_hst (
-			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, EndDt, LastActionUserID)
-	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, @StartDt, @UpdateUserID
+			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, EndDt, LastActionUserID)
+	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, @StartDt, @UpdateUserID
 	FROM	ClientTrade
 	WHERE	ClientTradeId = @ClientTradeId
 
 	UPDATE	ClientTrade
-	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost,  StartDt = @StartDt
+	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost, RelatedTradeId = @RelatedTradeId,  StartDt = @StartDt
 	WHERE	ClientTradeId = @ClientTradeId
 	AND		DataVersion = @DataVersion
 
