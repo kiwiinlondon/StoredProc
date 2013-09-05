@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Client_Insert]
 		@ClientSubTypeId int, 
 		@Name varchar(100), 
 		@CountryId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@Unconfirmed bit
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Client
-			(ExternalReference, ClientSubTypeId, Name, CountryId, UpdateUserID, StartDt)
+			(ExternalReference, ClientSubTypeId, Name, CountryId, UpdateUserID, Unconfirmed, StartDt)
 	VALUES
-			(@ExternalReference, @ClientSubTypeId, @Name, @CountryId, @UpdateUserID, @StartDt)
+			(@ExternalReference, @ClientSubTypeId, @Name, @CountryId, @UpdateUserID, @Unconfirmed, @StartDt)
 
 	SELECT	ClientId, StartDt, DataVersion
 	FROM	Client
