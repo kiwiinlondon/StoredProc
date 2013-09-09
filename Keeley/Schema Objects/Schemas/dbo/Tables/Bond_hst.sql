@@ -1,9 +1,9 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Bond_hst(
 	InstrumentId int not null,
 	DayCountConventionID int not null,
-	FirstCouponDate datetime not null,
+	FirstCouponDate datetime,
 	CouponFrequency int not null,
 	Coupon numeric(27,8) not null,
 	StartDt datetime not null,
