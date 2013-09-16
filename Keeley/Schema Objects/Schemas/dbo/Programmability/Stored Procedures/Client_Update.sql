@@ -15,7 +15,7 @@ CREATE PROCEDURE DBO.[Client_Update]
 		@ClientId int, 
 		@ExternalReference varchar(20), 
 		@ClientSubTypeId int, 
-		@Name varchar(100), 
+		@Name varchar(150), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@Unconfirmed bit

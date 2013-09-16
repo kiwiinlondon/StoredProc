@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[Client_Insert]
 		@ExternalReference varchar(20), 
 		@ClientSubTypeId int, 
-		@Name varchar(100), 
+		@Name varchar(150), 
 		@UpdateUserID int, 
 		@Unconfirmed bit
 AS

@@ -5,7 +5,7 @@ create table DBO.ClientAccount_hst(
 	ClientId int not null,
 	AccountReference varchar(50),
 	AdministratorId int not null,
-	Name varchar(100) not null,
+	Name varchar(150) not null,
 	CountryId int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
