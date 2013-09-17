@@ -22,7 +22,8 @@ CREATE PROCEDURE DBO.[ClientAccount_Update]
 		@DataVersion rowversion, 
 		@IsActive bit, 
 		@ParentClientAccountId int, 
-		@StaffId int
+		@StaffId int, 
+		@FundId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientAccount_hst (
-			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, EndDt, LastActionUserID)
-	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, @StartDt, @UpdateUserID
+			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, EndDt, LastActionUserID)
+	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, @StartDt, @UpdateUserID
 	FROM	ClientAccount
 	WHERE	ClientAccountId = @ClientAccountId
 
 	UPDATE	ClientAccount
-	SET		ClientId = @ClientId, AccountReference = @AccountReference, AdministratorId = @AdministratorId, Name = @Name, CountryId = @CountryId, UpdateUserID = @UpdateUserID, IsActive = @IsActive, ParentClientAccountId = @ParentClientAccountId, StaffId = @StaffId,  StartDt = @StartDt
+	SET		ClientId = @ClientId, AccountReference = @AccountReference, AdministratorId = @AdministratorId, Name = @Name, CountryId = @CountryId, UpdateUserID = @UpdateUserID, IsActive = @IsActive, ParentClientAccountId = @ParentClientAccountId, StaffId = @StaffId, FundId = @FundId,  StartDt = @StartDt
 	WHERE	ClientAccountId = @ClientAccountId
 	AND		DataVersion = @DataVersion
 

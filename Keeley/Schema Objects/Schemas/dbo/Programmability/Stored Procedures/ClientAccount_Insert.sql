@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[ClientAccount_Insert]
 		@UpdateUserID int, 
 		@IsActive bit, 
 		@ParentClientAccountId int, 
-		@StaffId int
+		@StaffId int, 
+		@FundId int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientAccount
-			(ClientId, AccountReference, AdministratorId, Name, CountryId, UpdateUserID, IsActive, ParentClientAccountId, StaffId, StartDt)
+			(ClientId, AccountReference, AdministratorId, Name, CountryId, UpdateUserID, IsActive, ParentClientAccountId, StaffId, FundId, StartDt)
 	VALUES
-			(@ClientId, @AccountReference, @AdministratorId, @Name, @CountryId, @UpdateUserID, @IsActive, @ParentClientAccountId, @StaffId, @StartDt)
+			(@ClientId, @AccountReference, @AdministratorId, @Name, @CountryId, @UpdateUserID, @IsActive, @ParentClientAccountId, @StaffId, @FundId, @StartDt)
 
 	SELECT	ClientAccountId, StartDt, DataVersion
 	FROM	ClientAccount

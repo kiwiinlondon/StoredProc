@@ -13,5 +13,6 @@ create table DBO.ClientAccount_hst(
 	IsActive bit not null,
 	ParentClientAccountId int,
 	StaffId int,
+	FundId int,
 	EndDt datetime,
 	LastActionUserID int)
