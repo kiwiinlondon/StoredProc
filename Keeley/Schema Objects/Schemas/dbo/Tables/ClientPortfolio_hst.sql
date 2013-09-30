@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ClientPortfolio_hst(
 	ClientPortfolioId int not null,
@@ -21,5 +21,9 @@ create table DBO.ClientPortfolio_hst(
 	EqualisationFactor numeric(27,8) not null,
 	ITDSumCost numeric(27,8) not null,
 	ITDRealisedPnl numeric(27,8) not null,
+	ITDNumberDays int not null,
+	TwelveMonthSumCost numeric(27,8) not null,
+	TwelveMonthRealisedPnl numeric(27,8) not null,
+	TwelveMonthNumberDays int not null,
 	EndDt datetime,
 	LastActionUserID int)

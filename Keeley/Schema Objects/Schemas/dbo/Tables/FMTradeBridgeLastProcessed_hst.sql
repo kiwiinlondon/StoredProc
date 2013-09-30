@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FMTradeBridgeLastProcessed_hst(
 	FMTradeBridgeLastProcessedId int not null,
@@ -6,5 +6,6 @@ create table DBO.FMTradeBridgeLastProcessed_hst(
 	MaxInputDate datetime not null,
 	DataVersion binary(8) not null,
 	IsTrade bit,
+	LastProcessedTime datetime not null,
 	EndDt datetime,
 	LastActionUserID int)

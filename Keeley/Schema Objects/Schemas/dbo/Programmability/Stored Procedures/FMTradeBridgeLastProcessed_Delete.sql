@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FMTradeBridgeLastProcessed_hst (
-			FMTradeBridgeLastProcessedId, LastContEventId, MaxInputDate, DataVersion, IsTrade, EndDt, LastActionUserID)
-	SELECT	FMTradeBridgeLastProcessedId, LastContEventId, MaxInputDate, DataVersion, IsTrade, @EndDt, @UpdateUserID
+			FMTradeBridgeLastProcessedId, LastContEventId, MaxInputDate, DataVersion, IsTrade, LastProcessedTime, EndDt, LastActionUserID)
+	SELECT	FMTradeBridgeLastProcessedId, LastContEventId, MaxInputDate, DataVersion, IsTrade, LastProcessedTime, @EndDt, @UpdateUserID
 	FROM	FMTradeBridgeLastProcessed
 	WHERE	FMTradeBridgeLastProcessedId = @FMTradeBridgeLastProcessedId
 

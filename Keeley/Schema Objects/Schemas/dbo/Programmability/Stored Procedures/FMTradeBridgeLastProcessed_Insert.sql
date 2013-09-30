@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[FMTradeBridgeLastProcessed_Insert]
 		@LastContEventId int, 
 		@MaxInputDate datetime, 
-		@IsTrade bit
+		@IsTrade bit, 
+		@LastProcessedTime datetime
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FMTradeBridgeLastProcessed
-			(LastContEventId, MaxInputDate, IsTrade, StartDt)
+			(LastContEventId, MaxInputDate, IsTrade, LastProcessedTime, StartDt)
 	VALUES
-			(@LastContEventId, @MaxInputDate, @IsTrade, @StartDt)
+			(@LastContEventId, @MaxInputDate, @IsTrade, @LastProcessedTime, @StartDt)
 
 	SELECT	FMTradeBridgeLastProcessedId, StartDt, DataVersion
 	FROM	FMTradeBridgeLastProcessed

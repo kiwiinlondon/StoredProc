@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -28,7 +28,11 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@ChangeInCost numeric(27,8), 
 		@EqualisationFactor numeric(27,8), 
 		@ITDSumCost numeric(27,8), 
-		@ITDRealisedPnl numeric(27,8)
+		@ITDRealisedPnl numeric(27,8), 
+		@ITDNumberDays int, 
+		@TwelveMonthSumCost numeric(27,8), 
+		@TwelveMonthRealisedPnl numeric(27,8), 
+		@TwelveMonthNumberDays int
 AS
 	SET NOCOUNT ON
 
@@ -36,9 +40,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSumCost, @ITDRealisedPnl, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSumCost, @ITDRealisedPnl, @ITDNumberDays, @TwelveMonthSumCost, @TwelveMonthRealisedPnl, @TwelveMonthNumberDays, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio
