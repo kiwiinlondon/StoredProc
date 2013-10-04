@@ -127,6 +127,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Update.sql
@@ -486,6 +489,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Client_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientAccount_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolioBridge_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolioPeriodReturn_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql

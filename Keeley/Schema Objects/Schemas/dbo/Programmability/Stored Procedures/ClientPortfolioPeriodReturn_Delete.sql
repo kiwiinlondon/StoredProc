@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ClientPortfolioPeriodReturn_hst (
-			ClientPortfolioPeriodReturnID, StartDt, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioPeriodReturnID, StartDt, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, @EndDt, @UpdateUserID
 	FROM	ClientPortfolioPeriodReturn
 	WHERE	ClientPortfolioPeriodReturnID = @ClientPortfolioPeriodReturnID
 
