@@ -17,5 +17,6 @@ create table DBO.ClientPortfolioPeriodReturn_hst(
 	DataVersion binary(8) not null,
 	ITDSumCost numeric(27,8) not null,
 	UnrealisedPnlTwelveMonthsAgo numeric(27,8) not null,
+	FirstTradeDate datetime not null,
 	EndDt datetime,
 	LastActionUserID int)

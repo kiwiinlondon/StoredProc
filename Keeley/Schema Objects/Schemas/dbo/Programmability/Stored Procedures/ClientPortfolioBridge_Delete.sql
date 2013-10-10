@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ClientPortfolioBridge_hst (
-			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateReturns, ClientFundReturnId, AccountFundReturnId, StartDt, UpdateUserID, DataVersion, CurrencyId, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateReturns, ClientFundReturnId, AccountFundReturnId, StartDt, UpdateUserID, DataVersion, CurrencyId, @EndDt, @UpdateUserID
+			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, @EndDt, @UpdateUserID
 	FROM	ClientPortfolioBridge
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 

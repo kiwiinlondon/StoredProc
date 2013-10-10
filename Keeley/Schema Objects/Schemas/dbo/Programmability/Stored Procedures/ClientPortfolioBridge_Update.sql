@@ -17,12 +17,11 @@ CREATE PROCEDURE DBO.[ClientPortfolioBridge_Update]
 		@FundId int, 
 		@ParentFundId int, 
 		@ReferenceDate datetime, 
-		@UpdateReturns bit, 
-		@ClientFundReturnId int, 
-		@AccountFundReturnId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@CurrencyId int
+		@ClientFundReturnId int, 
+		@ClientAccountFundReturnId int, 
+		@IsFirst bit
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolioBridge_hst (
-			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateReturns, ClientFundReturnId, AccountFundReturnId, StartDt, UpdateUserID, DataVersion, CurrencyId, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateReturns, ClientFundReturnId, AccountFundReturnId, StartDt, UpdateUserID, DataVersion, CurrencyId, @StartDt, @UpdateUserID
+			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, @StartDt, @UpdateUserID
 	FROM	ClientPortfolioBridge
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 
 	UPDATE	ClientPortfolioBridge
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateReturns = @UpdateReturns, ClientFundReturnId = @ClientFundReturnId, AccountFundReturnId = @AccountFundReturnId, UpdateUserID = @UpdateUserID, CurrencyId = @CurrencyId,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst,  StartDt = @StartDt
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 	AND		DataVersion = @DataVersion
 

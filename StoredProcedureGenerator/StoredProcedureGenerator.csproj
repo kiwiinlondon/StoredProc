@@ -331,6 +331,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Update.sql
@@ -557,6 +563,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundWebsiteCacheTime_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FXRate_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FXTradeEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\HealthCheck_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\HealthCheckType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexConstituent_hst.sql

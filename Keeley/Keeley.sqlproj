@@ -1737,6 +1737,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolioBridge_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\HealthCheck_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\HealthCheckType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

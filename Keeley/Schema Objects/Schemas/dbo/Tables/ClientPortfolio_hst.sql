@@ -3,7 +3,7 @@
 create table DBO.ClientPortfolio_hst(
 	ClientPortfolioId int not null,
 	ClientAccountId int not null,
-	FundId int,
+	FundId int not null,
 	ReferenceDate datetime not null,
 	Quantity numeric(27,8) not null,
 	ChangeInQuantity numeric(27,8) not null,
@@ -25,5 +25,8 @@ create table DBO.ClientPortfolio_hst(
 	TwelveMonthSumCost numeric(27,8) not null,
 	TwelveMonthRealisedPnl numeric(27,8) not null,
 	TwelveMonthNumberDays int not null,
+	FirstTradeDate datetime not null,
+	UpdateClient bit not null,
+	ClientReturnId int not null,
 	EndDt datetime,
 	LastActionUserID int)

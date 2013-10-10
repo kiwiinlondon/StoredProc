@@ -26,7 +26,8 @@ CREATE PROCEDURE DBO.[ClientPortfolioPeriodReturn_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@ITDSumCost numeric(27,8), 
-		@UnrealisedPnlTwelveMonthsAgo numeric(27,8)
+		@UnrealisedPnlTwelveMonthsAgo numeric(27,8), 
+		@FirstTradeDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -34,13 +35,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolioPeriodReturn_hst (
-			ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, @StartDt, @UpdateUserID
+			ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, FirstTradeDate, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioPeriodReturnID, ClientAccountId, FundId, ReferenceDate, CurrentUnrealisedPnl, ITDNumberDays, ITDRealisedPnl, TwelveMonthNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, IsLast, StartDt, UpdateUserID, DataVersion, ITDSumCost, UnrealisedPnlTwelveMonthsAgo, FirstTradeDate, @StartDt, @UpdateUserID
 	FROM	ClientPortfolioPeriodReturn
 	WHERE	ClientPortfolioPeriodReturnID = @ClientPortfolioPeriodReturnID
 
 	UPDATE	ClientPortfolioPeriodReturn
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, CurrentUnrealisedPnl = @CurrentUnrealisedPnl, ITDNumberDays = @ITDNumberDays, ITDRealisedPnl = @ITDRealisedPnl, TwelveMonthNumberDays = @TwelveMonthNumberDays, TwelveMonthSumCost = @TwelveMonthSumCost, TwelveMonthRealisedPnl = @TwelveMonthRealisedPnl, IsLast = @IsLast, UpdateUserID = @UpdateUserID, ITDSumCost = @ITDSumCost, UnrealisedPnlTwelveMonthsAgo = @UnrealisedPnlTwelveMonthsAgo,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, CurrentUnrealisedPnl = @CurrentUnrealisedPnl, ITDNumberDays = @ITDNumberDays, ITDRealisedPnl = @ITDRealisedPnl, TwelveMonthNumberDays = @TwelveMonthNumberDays, TwelveMonthSumCost = @TwelveMonthSumCost, TwelveMonthRealisedPnl = @TwelveMonthRealisedPnl, IsLast = @IsLast, UpdateUserID = @UpdateUserID, ITDSumCost = @ITDSumCost, UnrealisedPnlTwelveMonthsAgo = @UnrealisedPnlTwelveMonthsAgo, FirstTradeDate = @FirstTradeDate,  StartDt = @StartDt
 	WHERE	ClientPortfolioPeriodReturnID = @ClientPortfolioPeriodReturnID
 	AND		DataVersion = @DataVersion
 
