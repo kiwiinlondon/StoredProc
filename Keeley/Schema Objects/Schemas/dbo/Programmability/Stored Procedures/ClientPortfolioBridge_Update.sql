@@ -21,7 +21,9 @@ CREATE PROCEDURE DBO.[ClientPortfolioBridge_Update]
 		@DataVersion rowversion, 
 		@ClientFundReturnId int, 
 		@ClientAccountFundReturnId int, 
-		@IsFirst bit
+		@IsFirst bit, 
+		@ClientReturnId int, 
+		@MarketValue numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolioBridge_hst (
-			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, @StartDt, @UpdateUserID
+			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, @StartDt, @UpdateUserID
 	FROM	ClientPortfolioBridge
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 
 	UPDATE	ClientPortfolioBridge
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst, ClientReturnId = @ClientReturnId, MarketValue = @MarketValue,  StartDt = @StartDt
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 	AND		DataVersion = @DataVersion
 

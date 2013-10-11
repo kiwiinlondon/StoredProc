@@ -12,5 +12,7 @@ create table DBO.ClientPortfolioBridge_hst(
 	ClientFundReturnId int not null,
 	ClientAccountFundReturnId int not null,
 	IsFirst bit not null,
+	ClientReturnId int not null,
+	MarketValue numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)
