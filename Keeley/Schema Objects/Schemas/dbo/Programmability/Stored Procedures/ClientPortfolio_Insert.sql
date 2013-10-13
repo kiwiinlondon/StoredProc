@@ -34,8 +34,7 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@TwelveMonthRealisedPnl numeric(27,8), 
 		@TwelveMonthNumberDays int, 
 		@FirstTradeDate datetime, 
-		@UpdateClient bit, 
-		@ClientReturnId int
+		@UpdateBridge bit
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +42,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, FirstTradeDate, UpdateClient, ClientReturnId, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, FirstTradeDate, UpdateBridge, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSumCost, @ITDRealisedPnl, @ITDNumberDays, @TwelveMonthSumCost, @TwelveMonthRealisedPnl, @TwelveMonthNumberDays, @FirstTradeDate, @UpdateClient, @ClientReturnId, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSumCost, @ITDRealisedPnl, @ITDNumberDays, @TwelveMonthSumCost, @TwelveMonthRealisedPnl, @TwelveMonthNumberDays, @FirstTradeDate, @UpdateBridge, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio

@@ -26,7 +26,6 @@ create table DBO.ClientPortfolio_hst(
 	TwelveMonthRealisedPnl numeric(27,8) not null,
 	TwelveMonthNumberDays int not null,
 	FirstTradeDate datetime not null,
-	UpdateClient bit not null,
-	ClientReturnId int not null,
+	UpdateBridge bit not null,
 	EndDt datetime,
 	LastActionUserID int)
