@@ -27,14 +27,9 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@TodayUnRealisedPnl numeric(27,8), 
 		@ChangeInCost numeric(27,8), 
 		@EqualisationFactor numeric(27,8), 
-		@ITDSumCost numeric(27,8), 
-		@ITDRealisedPnl numeric(27,8), 
-		@ITDNumberDays int, 
-		@TwelveMonthSumCost numeric(27,8), 
-		@TwelveMonthRealisedPnl numeric(27,8), 
-		@TwelveMonthNumberDays int, 
 		@FirstTradeDate datetime, 
-		@UpdateBridge bit
+		@UpdateBridge bit, 
+		@IsLast bit
 AS
 	SET NOCOUNT ON
 
@@ -42,9 +37,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, FirstTradeDate, UpdateBridge, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, UpdateBridge, IsLast, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @ITDSumCost, @ITDRealisedPnl, @ITDNumberDays, @TwelveMonthSumCost, @TwelveMonthRealisedPnl, @TwelveMonthNumberDays, @FirstTradeDate, @UpdateBridge, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @FirstTradeDate, @UpdateBridge, @IsLast, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio

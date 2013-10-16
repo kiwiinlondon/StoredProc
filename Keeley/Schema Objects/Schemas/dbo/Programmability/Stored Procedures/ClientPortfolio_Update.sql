@@ -29,14 +29,9 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@TodayUnRealisedPnl numeric(27,8), 
 		@ChangeInCost numeric(27,8), 
 		@EqualisationFactor numeric(27,8), 
-		@ITDSumCost numeric(27,8), 
-		@ITDRealisedPnl numeric(27,8), 
-		@ITDNumberDays int, 
-		@TwelveMonthSumCost numeric(27,8), 
-		@TwelveMonthRealisedPnl numeric(27,8), 
-		@TwelveMonthNumberDays int, 
 		@FirstTradeDate datetime, 
-		@UpdateBridge bit
+		@UpdateBridge bit, 
+		@IsLast bit
 AS
 	SET NOCOUNT ON
 
@@ -44,13 +39,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolio_hst (
-			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, FirstTradeDate, UpdateBridge, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, ITDSumCost, ITDRealisedPnl, ITDNumberDays, TwelveMonthSumCost, TwelveMonthRealisedPnl, TwelveMonthNumberDays, FirstTradeDate, UpdateBridge, @StartDt, @UpdateUserID
+			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, UpdateBridge, IsLast, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, UpdateBridge, IsLast, @StartDt, @UpdateUserID
 	FROM	ClientPortfolio
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 
 	UPDATE	ClientPortfolio
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, ITDSumCost = @ITDSumCost, ITDRealisedPnl = @ITDRealisedPnl, ITDNumberDays = @ITDNumberDays, TwelveMonthSumCost = @TwelveMonthSumCost, TwelveMonthRealisedPnl = @TwelveMonthRealisedPnl, TwelveMonthNumberDays = @TwelveMonthNumberDays, FirstTradeDate = @FirstTradeDate, UpdateBridge = @UpdateBridge,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, FirstTradeDate = @FirstTradeDate, UpdateBridge = @UpdateBridge, IsLast = @IsLast,  StartDt = @StartDt
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 	AND		DataVersion = @DataVersion
 
