@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Issuer_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, @EndDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	Issuer
 	WHERE	LegalEntityID = @LegalEntityID
 
