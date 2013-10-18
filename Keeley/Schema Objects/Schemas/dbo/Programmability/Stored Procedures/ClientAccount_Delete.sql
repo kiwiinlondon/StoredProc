@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ClientAccount_hst (
-			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, EndDt, LastActionUserID)
-	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, @EndDt, @UpdateUserID
+			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, EndDt, LastActionUserID)
+	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, @EndDt, @UpdateUserID
 	FROM	ClientAccount
 	WHERE	ClientAccountId = @ClientAccountId
 

@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[ClientPortfolioBridge_Update]
 		@ClientAccountFundReturnId int, 
 		@IsFirst bit, 
 		@ClientReturnId int, 
-		@MarketValue numeric(27,8)
+		@MarketValue numeric(27,8), 
+		@ClientId int
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolioBridge_hst (
-			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, @StartDt, @UpdateUserID
+			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, ClientId, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, ClientId, @StartDt, @UpdateUserID
 	FROM	ClientPortfolioBridge
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 
 	UPDATE	ClientPortfolioBridge
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst, ClientReturnId = @ClientReturnId, MarketValue = @MarketValue,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst, ClientReturnId = @ClientReturnId, MarketValue = @MarketValue, ClientId = @ClientId,  StartDt = @StartDt
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 	AND		DataVersion = @DataVersion
 
