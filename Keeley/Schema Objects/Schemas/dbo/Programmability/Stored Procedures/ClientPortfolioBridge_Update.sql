@@ -19,12 +19,9 @@ CREATE PROCEDURE DBO.[ClientPortfolioBridge_Update]
 		@ReferenceDate datetime, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@ClientFundReturnId int, 
-		@ClientAccountFundReturnId int, 
 		@IsFirst bit, 
-		@ClientReturnId int, 
 		@MarketValue numeric(27,8), 
-		@ClientId int
+		@Cost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolioBridge_hst (
-			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, ClientId, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, ClientId, @StartDt, @UpdateUserID
+			ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsFirst, MarketValue, Cost, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioBridgeId, ClientAccountId, FundId, ParentFundId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsFirst, MarketValue, Cost, @StartDt, @UpdateUserID
 	FROM	ClientPortfolioBridge
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 
 	UPDATE	ClientPortfolioBridge
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, ClientFundReturnId = @ClientFundReturnId, ClientAccountFundReturnId = @ClientAccountFundReturnId, IsFirst = @IsFirst, ClientReturnId = @ClientReturnId, MarketValue = @MarketValue, ClientId = @ClientId,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ParentFundId = @ParentFundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, IsFirst = @IsFirst, MarketValue = @MarketValue, Cost = @Cost,  StartDt = @StartDt
 	WHERE	ClientPortfolioBridgeId = @ClientPortfolioBridgeId
 	AND		DataVersion = @DataVersion
 

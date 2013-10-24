@@ -17,12 +17,9 @@ CREATE PROCEDURE DBO.[ClientPortfolioBridge_Insert]
 		@ParentFundId int, 
 		@ReferenceDate datetime, 
 		@UpdateUserID int, 
-		@ClientFundReturnId int, 
-		@ClientAccountFundReturnId int, 
 		@IsFirst bit, 
-		@ClientReturnId int, 
 		@MarketValue numeric(27,8), 
-		@ClientId int
+		@Cost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolioBridge
-			(ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateUserID, ClientFundReturnId, ClientAccountFundReturnId, IsFirst, ClientReturnId, MarketValue, ClientId, StartDt)
+			(ClientAccountId, FundId, ParentFundId, ReferenceDate, UpdateUserID, IsFirst, MarketValue, Cost, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ParentFundId, @ReferenceDate, @UpdateUserID, @ClientFundReturnId, @ClientAccountFundReturnId, @IsFirst, @ClientReturnId, @MarketValue, @ClientId, @StartDt)
+			(@ClientAccountId, @FundId, @ParentFundId, @ReferenceDate, @UpdateUserID, @IsFirst, @MarketValue, @Cost, @StartDt)
 
 	SELECT	ClientPortfolioBridgeId, StartDt, DataVersion
 	FROM	ClientPortfolioBridge
