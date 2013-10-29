@@ -1745,6 +1745,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\HealthCheckType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
