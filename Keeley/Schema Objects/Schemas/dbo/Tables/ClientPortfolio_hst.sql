@@ -20,7 +20,8 @@ create table DBO.ClientPortfolio_hst(
 	ChangeInCost numeric(27,8) not null,
 	EqualisationFactor numeric(27,8) not null,
 	FirstTradeDate datetime not null,
-	UpdateBridge bit not null,
 	IsLast bit not null,
+	ManagerQuantity numeric(27,8),
+	ManagerValue numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
