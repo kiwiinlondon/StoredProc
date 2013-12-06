@@ -3,7 +3,7 @@
 create table DBO.ClientAccount_hst(
 	ClientAccountId int not null,
 	ClientId int not null,
-	AccountReference varchar(50),
+	AccountReference varchar(150),
 	AdministratorId int not null,
 	Name varchar(150) not null,
 	CountryId int not null,

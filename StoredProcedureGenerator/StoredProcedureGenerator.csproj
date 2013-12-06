@@ -133,6 +133,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioPeriodReturn_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Update.sql
@@ -500,6 +503,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolioBridge_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolioPeriodReturn_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubAccountAdministratorMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTradeType_hst.sql

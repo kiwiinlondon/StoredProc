@@ -2,7 +2,7 @@
 
 create table DBO.Client_hst(
 	ClientId int not null,
-	ExternalReference varchar(20),
+	ExternalReference varchar(150),
 	ClientSubTypeId int not null,
 	Name varchar(150) not null,
 	StartDt datetime not null,

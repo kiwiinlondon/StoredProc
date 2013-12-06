@@ -13,7 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[Client_Update]
 		@ClientId int, 
-		@ExternalReference varchar(20), 
+		@ExternalReference varchar(150), 
 		@ClientSubTypeId int, 
 		@Name varchar(150), 
 		@UpdateUserID int, 

@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[Client_Insert]
 GO
 
 CREATE PROCEDURE DBO.[Client_Insert]
-		@ExternalReference varchar(20), 
+		@ExternalReference varchar(150), 
 		@ClientSubTypeId int, 
 		@Name varchar(150), 
 		@UpdateUserID int, 
