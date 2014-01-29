@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[LegalEntity_Insert]
 		@UpdateUserID int, 
 		@BBCompany int, 
 		@CountryOfIncorporationId int, 
-		@CountryOfDomicileId int
+		@CountryOfDomicileId int, 
+		@ParentLegalEntityId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into LegalEntity
-			(FMOrgId, Name, LongName, CountryID, UpdateUserID, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, StartDt)
+			(FMOrgId, Name, LongName, CountryID, UpdateUserID, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, StartDt)
 	VALUES
-			(@FMOrgId, @Name, @LongName, @CountryID, @UpdateUserID, @BBCompany, @CountryOfIncorporationId, @CountryOfDomicileId, @StartDt)
+			(@FMOrgId, @Name, @LongName, @CountryID, @UpdateUserID, @BBCompany, @CountryOfIncorporationId, @CountryOfDomicileId, @ParentLegalEntityId, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	LegalEntity

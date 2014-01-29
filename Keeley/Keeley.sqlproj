@@ -1753,6 +1753,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ClientSubAccountAdministratorMapping_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

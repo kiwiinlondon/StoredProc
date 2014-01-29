@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[OfficialNetAssetValue_Insert]
 		@FundId int, 
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@InSpecieTransfer numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into OfficialNetAssetValue
-			(FundId, ReferenceDate, Value, UpdateUserID, StartDt)
+			(FundId, ReferenceDate, Value, UpdateUserID, InSpecieTransfer, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @StartDt)
+			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @InSpecieTransfer, @StartDt)
 
 	SELECT	OfficialNetAssetValueId, StartDt, DataVersion
 	FROM	OfficialNetAssetValue

@@ -301,6 +301,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Update.sql
@@ -559,6 +562,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollectedGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Fund_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundCountryHoliday_hst.sql

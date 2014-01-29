@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.LegalEntity_hst(
 	LegalEntityID int not null,
@@ -12,5 +12,6 @@ create table DBO.LegalEntity_hst(
 	BBCompany int,
 	CountryOfIncorporationId int,
 	CountryOfDomicileId int not null,
+	ParentLegalEntityId int,
 	EndDt datetime,
 	LastActionUserID int)

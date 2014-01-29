@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[OfficialNetAssetValue_Update]
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@InSpecieTransfer numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +26,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO OfficialNetAssetValue_hst (
-			OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, EndDt, LastActionUserID)
+	SELECT	OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, @StartDt, @UpdateUserID
 	FROM	OfficialNetAssetValue
 	WHERE	OfficialNetAssetValueId = @OfficialNetAssetValueId
 
 	UPDATE	OfficialNetAssetValue
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, InSpecieTransfer = @InSpecieTransfer,  StartDt = @StartDt
 	WHERE	OfficialNetAssetValueId = @OfficialNetAssetValueId
 	AND		DataVersion = @DataVersion
 
