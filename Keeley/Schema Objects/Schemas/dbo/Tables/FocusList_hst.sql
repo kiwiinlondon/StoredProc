@@ -10,7 +10,7 @@ create table DBO.FocusList_hst(
 	IsLong bit not null,
 	OutDate datetime,
 	OutPrice numeric(27,8),
-	CurrentPrice numeric(27,8),
+	CurrentPrice numeric(27,8) not null,
 	CurrentPriceId int not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
