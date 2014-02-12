@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Beta_hst (
-			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, EndDt, LastActionUserID)
-	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, @EndDt, @UpdateUserID
+			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, EndDt, LastActionUserID)
+	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, @EndDt, @UpdateUserID
 	FROM	Beta
 	WHERE	BetaId = @BetaId
 
