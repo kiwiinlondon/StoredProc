@@ -22,7 +22,8 @@ CREATE PROCEDURE DBO.[LegalEntity_Update]
 		@BBCompany int, 
 		@CountryOfIncorporationId int, 
 		@CountryOfDomicileId int, 
-		@ParentLegalEntityId int
+		@ParentLegalEntityId int=null, 
+		@PulseIdentifier varchar(100)=null
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO LegalEntity_hst (
-			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, @StartDt, @UpdateUserID
+			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, @StartDt, @UpdateUserID
 	FROM	LegalEntity
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	LegalEntity
-	SET		FMOrgId = @FMOrgId, Name = @Name, LongName = @LongName, CountryID = @CountryID, UpdateUserID = @UpdateUserID, BBCompany = @BBCompany, CountryOfIncorporationId = @CountryOfIncorporationId, CountryOfDomicileId = @CountryOfDomicileId, ParentLegalEntityId = @ParentLegalEntityId,  StartDt = @StartDt
+	SET		FMOrgId = @FMOrgId, Name = @Name, LongName = @LongName, CountryID = @CountryID, UpdateUserID = @UpdateUserID, BBCompany = @BBCompany, CountryOfIncorporationId = @CountryOfIncorporationId, CountryOfDomicileId = @CountryOfDomicileId, ParentLegalEntityId = @ParentLegalEntityId, PulseIdentifier = @PulseIdentifier,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

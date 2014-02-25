@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[LegalEntity_Insert]
 		@BBCompany int, 
 		@CountryOfIncorporationId int, 
 		@CountryOfDomicileId int, 
-		@ParentLegalEntityId int
+		@ParentLegalEntityId int=null, 
+		@PulseIdentifier varchar(100) = NUll
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into LegalEntity
-			(FMOrgId, Name, LongName, CountryID, UpdateUserID, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, StartDt)
+			(FMOrgId, Name, LongName, CountryID, UpdateUserID, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, StartDt)
 	VALUES
-			(@FMOrgId, @Name, @LongName, @CountryID, @UpdateUserID, @BBCompany, @CountryOfIncorporationId, @CountryOfDomicileId, @ParentLegalEntityId, @StartDt)
+			(@FMOrgId, @Name, @LongName, @CountryID, @UpdateUserID, @BBCompany, @CountryOfIncorporationId, @CountryOfDomicileId, @ParentLegalEntityId, @PulseIdentifier, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	LegalEntity
