@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO OfficialNetAssetValue_hst (
-			OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, EndDt, LastActionUserID)
-	SELECT	OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, @EndDt, @UpdateUserID
+			OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, UnitsInIssue, EndDt, LastActionUserID)
+	SELECT	OfficialNetAssetValueId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, InSpecieTransfer, UnitsInIssue, @EndDt, @UpdateUserID
 	FROM	OfficialNetAssetValue
 	WHERE	OfficialNetAssetValueId = @OfficialNetAssetValueId
 

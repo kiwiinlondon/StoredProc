@@ -22,8 +22,8 @@ CREATE PROCEDURE DBO.[LegalEntity_Update]
 		@BBCompany int, 
 		@CountryOfIncorporationId int, 
 		@CountryOfDomicileId int, 
-		@ParentLegalEntityId int=null, 
-		@PulseIdentifier varchar(100)=null
+		@ParentLegalEntityId int, 
+		@PulseIdentifier varchar(100)
 AS
 	SET NOCOUNT ON
 

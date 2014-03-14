@@ -9,5 +9,6 @@ create table DBO.OfficialNetAssetValue_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InSpecieTransfer numeric(27,8),
+	UnitsInIssue decimal,
 	EndDt datetime,
 	LastActionUserID int)

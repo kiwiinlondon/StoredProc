@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FocusList_hst (
-			FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, CurrentPriceDate, EndOfYearPrice, EndDt, LastActionUserID)
+	SELECT	FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, CurrentPriceDate, EndOfYearPrice, @EndDt, @UpdateUserID
 	FROM	FocusList
 	WHERE	FocusListId = @FocusListId
 

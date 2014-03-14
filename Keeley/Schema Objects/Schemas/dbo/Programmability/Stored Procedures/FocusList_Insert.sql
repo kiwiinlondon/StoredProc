@@ -22,7 +22,9 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@OutPrice numeric(27,8), 
 		@CurrentPrice numeric(27,8), 
 		@CurrentPriceId int, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@CurrentPriceDate datetime, 
+		@EndOfYearPrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FocusList
-			(InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, StartDt)
+			(InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @StartOfYearPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @StartDt)
+			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @StartOfYearPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @StartDt)
 
 	SELECT	FocusListId, StartDt, DataVersion
 	FROM	FocusList

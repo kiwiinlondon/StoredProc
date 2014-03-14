@@ -24,7 +24,9 @@ CREATE PROCEDURE DBO.[FocusList_Update]
 		@CurrentPrice numeric(27,8), 
 		@CurrentPriceId int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@CurrentPriceDate datetime, 
+		@EndOfYearPrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FocusList_hst (
-			FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, CurrentPriceDate, EndOfYearPrice, EndDt, LastActionUserID)
+	SELECT	FocusListId, InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, StartDt, UpdateUserID, DataVersion, CurrentPriceDate, EndOfYearPrice, @StartDt, @UpdateUserID
 	FROM	FocusList
 	WHERE	FocusListId = @FocusListId
 
 	UPDATE	FocusList
-	SET		InstrumentMarketId = @InstrumentMarketId, AnalystId = @AnalystId, InDate = @InDate, InPrice = @InPrice, StartOfYearPrice = @StartOfYearPrice, IsLong = @IsLong, OutDate = @OutDate, OutPrice = @OutPrice, CurrentPrice = @CurrentPrice, CurrentPriceId = @CurrentPriceId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentMarketId = @InstrumentMarketId, AnalystId = @AnalystId, InDate = @InDate, InPrice = @InPrice, StartOfYearPrice = @StartOfYearPrice, IsLong = @IsLong, OutDate = @OutDate, OutPrice = @OutPrice, CurrentPrice = @CurrentPrice, CurrentPriceId = @CurrentPriceId, UpdateUserID = @UpdateUserID, CurrentPriceDate = @CurrentPriceDate, EndOfYearPrice = @EndOfYearPrice,  StartDt = @StartDt
 	WHERE	FocusListId = @FocusListId
 	AND		DataVersion = @DataVersion
 
