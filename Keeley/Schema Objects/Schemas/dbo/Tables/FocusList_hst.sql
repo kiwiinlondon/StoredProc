@@ -17,5 +17,11 @@ create table DBO.FocusList_hst(
 	DataVersion binary(8) not null,
 	CurrentPriceDate datetime not null,
 	EndOfYearPrice numeric(27,8) not null,
+	RelativeIndexInstrumentMarketId int,
+	RelativeInPrice numeric(27,8),
+	RelativeOutPrice numeric(27,8),
+	RelativeEndOfYearPrice numeric(27,8),
+	RelativeCurrentPrice numeric(27,8),
+	RelativeCurrentPriceId int,
 	EndDt datetime,
 	LastActionUserID int)

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Industry_hst (
-			IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, RelativeIndexInstrumentMarketId, EndDt, LastActionUserID)
+	SELECT	IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, RelativeIndexInstrumentMarketId, @EndDt, @UpdateUserID
 	FROM	Industry
 	WHERE	IndustryID = @IndustryID
 

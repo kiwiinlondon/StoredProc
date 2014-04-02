@@ -12,6 +12,6 @@ create table DBO.OfficialNetAssetValue_hst(
 	UnitsInIssue numeric(27,8),
 	GrossAssetValue numeric(27,8),
 	TodayManagementFee numeric(27,8),
-	ValueIsForReferenceDate bit,
+	ValueIsForReferenceDate bit not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Industry_Insert]
 		@IndustryClassificationID int, 
 		@Name varchar(100), 
 		@Code varchar(100), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@RelativeIndexInstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Industry
-			(ParentIndustryID, IndustryClassificationID, Name, Code, UpdateUserID, StartDt)
+			(ParentIndustryID, IndustryClassificationID, Name, Code, UpdateUserID, RelativeIndexInstrumentMarketId, StartDt)
 	VALUES
-			(@ParentIndustryID, @IndustryClassificationID, @Name, @Code, @UpdateUserID, @StartDt)
+			(@ParentIndustryID, @IndustryClassificationID, @Name, @Code, @UpdateUserID, @RelativeIndexInstrumentMarketId, @StartDt)
 
 	SELECT	IndustryID, StartDt, DataVersion
 	FROM	Industry

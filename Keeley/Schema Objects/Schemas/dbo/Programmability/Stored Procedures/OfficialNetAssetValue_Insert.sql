@@ -18,9 +18,9 @@ CREATE PROCEDURE DBO.[OfficialNetAssetValue_Insert]
 		@UpdateUserID int, 
 		@InSpecieTransfer numeric(27,8), 
 		@UnitsInIssue numeric(27,8), 
-		@GrossAssetValue numeric(27,8) = null, 
-		@TodayManagementFee numeric(27,8) = null, 
-		@ValueIsForReferenceDate bit = null
+		@GrossAssetValue numeric(27,8), 
+		@TodayManagementFee numeric(27,8), 
+		@ValueIsForReferenceDate bit
 AS
 	SET NOCOUNT ON
 

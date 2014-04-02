@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Industry_Update]
 		@Name varchar(100), 
 		@Code varchar(100), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@RelativeIndexInstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Industry_hst (
-			IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, RelativeIndexInstrumentMarketId, EndDt, LastActionUserID)
+	SELECT	IndustryID, ParentIndustryID, IndustryClassificationID, Name, Code, StartDt, UpdateUserID, DataVersion, RelativeIndexInstrumentMarketId, @StartDt, @UpdateUserID
 	FROM	Industry
 	WHERE	IndustryID = @IndustryID
 
 	UPDATE	Industry
-	SET		ParentIndustryID = @ParentIndustryID, IndustryClassificationID = @IndustryClassificationID, Name = @Name, Code = @Code, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ParentIndustryID = @ParentIndustryID, IndustryClassificationID = @IndustryClassificationID, Name = @Name, Code = @Code, UpdateUserID = @UpdateUserID, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId,  StartDt = @StartDt
 	WHERE	IndustryID = @IndustryID
 	AND		DataVersion = @DataVersion
 
