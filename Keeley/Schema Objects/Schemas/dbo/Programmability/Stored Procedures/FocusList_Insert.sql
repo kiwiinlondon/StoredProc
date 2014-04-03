@@ -16,7 +16,6 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@AnalystId int, 
 		@InDate datetime, 
 		@InPrice numeric(27,8), 
-		@StartOfYearPrice numeric(27,8), 
 		@IsLong bit, 
 		@OutDate datetime, 
 		@OutPrice numeric(27,8), 
@@ -30,7 +29,9 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@RelativeOutPrice numeric(27,8), 
 		@RelativeEndOfYearPrice numeric(27,8), 
 		@RelativeCurrentPrice numeric(27,8), 
-		@RelativeCurrentPriceId int
+		@RelativeCurrentPriceId int, 
+		@AdjustmentFactorITD numeric(27,8) = null, 
+		@AdjustmentFactorYTD numeric(27,8)= null
 AS
 	SET NOCOUNT ON
 
@@ -38,9 +39,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FocusList
-			(InstrumentMarketId, AnalystId, InDate, InPrice, StartOfYearPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, StartDt)
+			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @StartOfYearPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @StartDt)
+			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @StartDt)
 
 	SELECT	FocusListId, StartDt, DataVersion
 	FROM	FocusList
