@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.PortfolioEvent_hst(
 	PortfolioEventID int not null,
@@ -48,5 +48,7 @@ create table DBO.PortfolioEvent_hst(
 	BondNominalChange numeric(28,7),
 	ValuationDeltaNetCostInstrumentCurrency numeric(27,8) not null,
 	ValuationNetPosition numeric(27,8) not null,
+	CapitalChange numeric(27,8),
+	TodayCapitalChange numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

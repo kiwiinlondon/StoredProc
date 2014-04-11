@@ -34,7 +34,7 @@ CREATE PROCEDURE DBO.[FocusList_Update]
 		@RelativeCurrentPriceId int, 
 		@AdjustmentFactorITD numeric(27,8), 
 		@AdjustmentFactorYTD numeric(27,8), 
-		@RelativeCurrentPriceDate datetime = null
+		@RelativeCurrentPriceDate datetime
 AS
 	SET NOCOUNT ON
 
