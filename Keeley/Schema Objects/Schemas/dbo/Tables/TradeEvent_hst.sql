@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.TradeEvent_hst(
 	EventID int not null,
@@ -34,5 +34,6 @@ create table DBO.TradeEvent_hst(
 	IsRoll bit not null,
 	ContraEventId int,
 	OriginalInputDate datetime not null,
+	IndexRatio numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

@@ -66,8 +66,8 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@BetaLongTermId int, 
 		@PreviousReferenceDate datetime, 
 		@TodayCapitalChange numeric(27,8), 
-		@IndexRatio numeric(27,8) = null, 
-		@IndexRatioID int = null
+		@IndexRatio numeric(27,8), 
+		@IndexRatioID int
 AS
 	SET NOCOUNT ON
 
