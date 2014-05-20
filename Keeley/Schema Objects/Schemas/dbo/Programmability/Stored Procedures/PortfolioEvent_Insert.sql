@@ -58,8 +58,8 @@ CREATE PROCEDURE DBO.[PortfolioEvent_Insert]
 		@ValuationNetPosition numeric(27,8), 
 		@CapitalChange numeric(27,8), 
 		@TodayCapitalChange numeric(27,8), 
-		@FXRateId int = null, 
-		@UseFXRateForDay bit = 0
+		@FXRateId int, 
+		@UseFXRateForDay bit
 AS
 	SET NOCOUNT ON
 

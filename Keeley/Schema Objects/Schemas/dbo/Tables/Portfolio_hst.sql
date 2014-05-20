@@ -58,5 +58,7 @@ create table DBO.Portfolio_hst(
 	BetaLongTermId int,
 	PreviousReferenceDate datetime not null,
 	TodayCapitalChange numeric(27,8),
+	IndexRatio numeric(27,8),
+	IndexRatioID int,
 	EndDt datetime,
 	LastActionUserID int)
