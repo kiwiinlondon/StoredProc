@@ -23,5 +23,6 @@ create table DBO.ClientPortfolio_hst(
 	IsLast bit not null,
 	ManagerQuantity numeric(27,8),
 	ManagerValue numeric(27,8),
+	SubscriptionRedemptionValue numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

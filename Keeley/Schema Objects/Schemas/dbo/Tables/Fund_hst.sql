@@ -30,5 +30,6 @@ create table DBO.Fund_hst(
 	ManagementFee numeric(27,8) not null,
 	AdministratorId int,
 	AdministratorIdentifier varchar(100),
+	IsVoting bit not null,
 	EndDt datetime,
 	LastActionUserID int)

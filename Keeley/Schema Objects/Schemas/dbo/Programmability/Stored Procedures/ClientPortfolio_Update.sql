@@ -32,7 +32,8 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@FirstTradeDate datetime, 
 		@IsLast bit, 
 		@ManagerQuantity numeric(27,8), 
-		@ManagerValue numeric(27,8)
+		@ManagerValue numeric(27,8), 
+		@SubscriptionRedemptionValue numeric(27,8) = 0
 AS
 	SET NOCOUNT ON
 
@@ -40,13 +41,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolio_hst (
-			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, @StartDt, @UpdateUserID
+			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, @StartDt, @UpdateUserID
 	FROM	ClientPortfolio
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 
 	UPDATE	ClientPortfolio
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, FirstTradeDate = @FirstTradeDate, IsLast = @IsLast, ManagerQuantity = @ManagerQuantity, ManagerValue = @ManagerValue,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, FirstTradeDate = @FirstTradeDate, IsLast = @IsLast, ManagerQuantity = @ManagerQuantity, ManagerValue = @ManagerValue, SubscriptionRedemptionValue = @SubscriptionRedemptionValue,  StartDt = @StartDt
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 	AND		DataVersion = @DataVersion
 

@@ -39,7 +39,8 @@ CREATE PROCEDURE DBO.[Fund_Update]
 		@PerformanceFee numeric(27,8), 
 		@ManagementFee numeric(27,8), 
 		@AdministratorId int, 
-		@AdministratorIdentifier varchar(100)
+		@AdministratorIdentifier varchar(100), 
+		@IsVoting bit
 AS
 	SET NOCOUNT ON
 
@@ -47,13 +48,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Fund_hst (
-			LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, @StartDt, @UpdateUserID
+			LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, CurrencyID, StartDt, UpdateUserID, DataVersion, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, @StartDt, @UpdateUserID
 	FROM	Fund
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Fund
-	SET		CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID, PositionsExist = @PositionsExist, PerfFundName = @PerfFundName, InstrumentMarketId = @InstrumentMarketId, BenchmarkInstrumentMarketId = @BenchmarkInstrumentMarketId, ParentFundId = @ParentFundId, IsActive = @IsActive, FundTypeId = @FundTypeId, PriceIsExternallyVisible = @PriceIsExternallyVisible, InceptionDate = @InceptionDate, RiskFreeInstrumentMarketId = @RiskFreeInstrumentMarketId, DealingDateDefinitionId = @DealingDateDefinitionId, EZEIdentifier = @EZEIdentifier, PortfolioIsExternallyVisible = @PortfolioIsExternallyVisible, AssetManagementCompanyId = @AssetManagementCompanyId, IntranetOrdering = @IntranetOrdering, ReferenceFundId = @ReferenceFundId, PerformanceFeeTypeId = @PerformanceFeeTypeId, LossWarning = @LossWarning, LossTrigger = @LossTrigger, ShareClassDescriptor = @ShareClassDescriptor, PerformanceFee = @PerformanceFee, ManagementFee = @ManagementFee, AdministratorId = @AdministratorId, AdministratorIdentifier = @AdministratorIdentifier,  StartDt = @StartDt
+	SET		CurrencyID = @CurrencyID, UpdateUserID = @UpdateUserID, PositionsExist = @PositionsExist, PerfFundName = @PerfFundName, InstrumentMarketId = @InstrumentMarketId, BenchmarkInstrumentMarketId = @BenchmarkInstrumentMarketId, ParentFundId = @ParentFundId, IsActive = @IsActive, FundTypeId = @FundTypeId, PriceIsExternallyVisible = @PriceIsExternallyVisible, InceptionDate = @InceptionDate, RiskFreeInstrumentMarketId = @RiskFreeInstrumentMarketId, DealingDateDefinitionId = @DealingDateDefinitionId, EZEIdentifier = @EZEIdentifier, PortfolioIsExternallyVisible = @PortfolioIsExternallyVisible, AssetManagementCompanyId = @AssetManagementCompanyId, IntranetOrdering = @IntranetOrdering, ReferenceFundId = @ReferenceFundId, PerformanceFeeTypeId = @PerformanceFeeTypeId, LossWarning = @LossWarning, LossTrigger = @LossTrigger, ShareClassDescriptor = @ShareClassDescriptor, PerformanceFee = @PerformanceFee, ManagementFee = @ManagementFee, AdministratorId = @AdministratorId, AdministratorIdentifier = @AdministratorIdentifier, IsVoting = @IsVoting,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

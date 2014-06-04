@@ -44,7 +44,7 @@ CREATE PROCEDURE DBO.[TradeEvent_Update]
 		@IsRoll bit, 
 		@ContraEventId int, 
 		@OriginalInputDate datetime, 
-		@IndexRatio numeric(27,8) = null
+		@IndexRatio numeric(27,8)
 AS
 	SET NOCOUNT ON
 
