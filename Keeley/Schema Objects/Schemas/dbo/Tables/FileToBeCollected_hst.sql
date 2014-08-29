@@ -4,7 +4,7 @@ create table DBO.FileToBeCollected_hst(
 	FileToBeCollectedId int not null,
 	Name varchar(70) not null,
 	FileCollectionTypeId int not null,
-	FileCollectionTypeProfileName varchar(70) not null,
+	FileCollectionTypeProfileName varchar(70),
 	FileDestinationPath varchar(150) not null,
 	FileNameTemplate varchar(150) not null,
 	FileNameResolutionTypeId int,

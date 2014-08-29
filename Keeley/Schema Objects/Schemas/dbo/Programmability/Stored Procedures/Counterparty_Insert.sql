@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Counterparty_Insert]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
 		@IsElectronic bit, 
-		@UbsCsaName varchar(50)
+		@UbsCsaName varchar(50), 
+		@UbsCsaRateOverride numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Counterparty
-			(LegalEntityID, UpdateUserID, IsElectronic, UbsCsaName, StartDt)
+			(LegalEntityID, UpdateUserID, IsElectronic, UbsCsaName, UbsCsaRateOverride, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @IsElectronic, @UbsCsaName, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @IsElectronic, @UbsCsaName, @UbsCsaRateOverride, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Counterparty

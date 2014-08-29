@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Counterparty_hst(
 	LegalEntityID int not null,
@@ -7,5 +7,6 @@ create table DBO.Counterparty_hst(
 	DataVersion binary(8) not null,
 	IsElectronic bit,
 	UbsCsaName varchar(50),
+	UbsCsaRateOverride numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Counterparty_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, @EndDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, @EndDt, @UpdateUserID
 	FROM	Counterparty
 	WHERE	LegalEntityID = @LegalEntityID
 

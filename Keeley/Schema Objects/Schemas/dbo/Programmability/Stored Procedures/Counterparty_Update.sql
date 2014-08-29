@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Counterparty_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@IsElectronic bit, 
-		@UbsCsaName varchar(50)
+		@UbsCsaName varchar(50), 
+		@UbsCsaRateOverride numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Counterparty_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, @StartDt, @UpdateUserID
 	FROM	Counterparty
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Counterparty
-	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic, UbsCsaName = @UbsCsaName,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic, UbsCsaName = @UbsCsaName, UbsCsaRateOverride = @UbsCsaRateOverride,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

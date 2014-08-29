@@ -28,7 +28,7 @@ create table DBO.Fund_hst(
 	ShareClassDescriptor varchar(50),
 	PerformanceFee numeric(27,8),
 	ManagementFee numeric(27,8) not null,
-	AdministratorId int,
+	AdministratorId int not null,
 	AdministratorIdentifier varchar(100),
 	IsVoting bit not null,
 	EndDt datetime,
