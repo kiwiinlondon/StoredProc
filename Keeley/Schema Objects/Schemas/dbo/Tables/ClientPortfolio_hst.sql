@@ -28,5 +28,7 @@ create table DBO.ClientPortfolio_hst(
 	OpeningValueAfterTodaysTrades numeric(27,8),
 	TodayPnl numeric(27,8),
 	ClientPortfolioByClientShareClassId int,
+	TodayReturn numeric(27,8),
+	ITDReturn numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

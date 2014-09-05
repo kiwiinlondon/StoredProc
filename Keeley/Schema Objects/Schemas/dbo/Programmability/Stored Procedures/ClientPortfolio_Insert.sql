@@ -35,7 +35,9 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@TodayRedemptionPnl numeric(27,8), 
 		@OpeningValueAfterTodaysTrades numeric(27,8), 
 		@TodayPnl numeric(27,8), 
-		@ClientPortfolioByClientShareClassId int =null
+		@ClientPortfolioByClientShareClassId int, 
+		@TodayReturn numeric(27,8) = 999, 
+		@ITDReturn numeric(27,8) = 999
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +45,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @FirstTradeDate, @IsLast, @ManagerQuantity, @ManagerValue, @SubscriptionRedemptionValue, @TodayRedemptionPnl, @OpeningValueAfterTodaysTrades, @TodayPnl, @ClientPortfolioByClientShareClassId, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @FirstTradeDate, @IsLast, @ManagerQuantity, @ManagerValue, @SubscriptionRedemptionValue, @TodayRedemptionPnl, @OpeningValueAfterTodaysTrades, @TodayPnl, @ClientPortfolioByClientShareClassId, @TodayReturn, @ITDReturn, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio
