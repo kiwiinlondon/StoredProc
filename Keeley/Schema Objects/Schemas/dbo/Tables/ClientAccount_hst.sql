@@ -15,5 +15,6 @@ create table DBO.ClientAccount_hst(
 	StaffId int,
 	FundId int,
 	ManualUpdate bit not null,
+	ClientHasChanged bit not null,
 	EndDt datetime,
 	LastActionUserID int)

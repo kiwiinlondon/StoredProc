@@ -38,8 +38,8 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@OpeningValueAfterTodaysTrades numeric(27,8), 
 		@TodayPnl numeric(27,8), 
 		@ClientPortfolioByClientShareClassId int, 
-		@TodayReturn numeric(27,8) = 999, 
-		@ITDReturn numeric(27,8) = 999
+		@TodayReturn numeric(27,8), 
+		@ITDReturn numeric(27,8)
 AS
 	SET NOCOUNT ON
 

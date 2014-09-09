@@ -9,5 +9,6 @@ create table DBO.Client_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	Unconfirmed bit not null,
+	SalesPersonId int,
 	EndDt datetime,
 	LastActionUserID int)

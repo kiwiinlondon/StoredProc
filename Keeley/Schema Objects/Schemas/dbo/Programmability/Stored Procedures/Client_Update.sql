@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Client_Update]
 		@Name varchar(150), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@Unconfirmed bit
+		@Unconfirmed bit, 
+		@SalesPersonId int = null
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Client_hst (
-			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, EndDt, LastActionUserID)
-	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, @StartDt, @UpdateUserID
+			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, EndDt, LastActionUserID)
+	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, @StartDt, @UpdateUserID
 	FROM	Client
 	WHERE	ClientId = @ClientId
 
 	UPDATE	Client
-	SET		ExternalReference = @ExternalReference, ClientSubTypeId = @ClientSubTypeId, Name = @Name, UpdateUserID = @UpdateUserID, Unconfirmed = @Unconfirmed,  StartDt = @StartDt
+	SET		ExternalReference = @ExternalReference, ClientSubTypeId = @ClientSubTypeId, Name = @Name, UpdateUserID = @UpdateUserID, Unconfirmed = @Unconfirmed, SalesPersonId = @SalesPersonId,  StartDt = @StartDt
 	WHERE	ClientId = @ClientId
 	AND		DataVersion = @DataVersion
 
