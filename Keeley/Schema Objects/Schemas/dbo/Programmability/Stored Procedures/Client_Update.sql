@@ -19,7 +19,7 @@ CREATE PROCEDURE DBO.[Client_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@Unconfirmed bit, 
-		@SalesPersonId int = null
+		@SalesPersonId int
 AS
 	SET NOCOUNT ON
 

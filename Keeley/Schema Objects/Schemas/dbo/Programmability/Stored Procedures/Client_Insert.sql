@@ -17,7 +17,7 @@ CREATE PROCEDURE DBO.[Client_Insert]
 		@Name varchar(150), 
 		@UpdateUserID int, 
 		@Unconfirmed bit, 
-		@SalesPersonId int = null
+		@SalesPersonId int
 AS
 	SET NOCOUNT ON
 

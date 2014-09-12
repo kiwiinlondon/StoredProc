@@ -25,7 +25,7 @@ CREATE PROCEDURE DBO.[ClientAccount_Update]
 		@StaffId int, 
 		@FundId int, 
 		@ManualUpdate bit, 
-		@ClientHasChanged bit = 0
+		@ClientHasChanged bit
 AS
 	SET NOCOUNT ON
 

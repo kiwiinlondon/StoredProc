@@ -23,7 +23,7 @@ CREATE PROCEDURE DBO.[ClientAccount_Insert]
 		@StaffId int, 
 		@FundId int, 
 		@ManualUpdate bit, 
-		@ClientHasChanged bit = 0
+		@ClientHasChanged bit
 AS
 	SET NOCOUNT ON
 
