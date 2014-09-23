@@ -39,7 +39,12 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@TodayPnl numeric(27,8), 
 		@ClientPortfolioByClientShareClassId int, 
 		@TodayReturn numeric(27,8), 
-		@ITDReturn numeric(27,8)
+		@ITDReturn numeric(27,8), 
+		@TodayRedemptionValue numeric(27,8), 
+		@TodayRedemptionQuantity numeric(27,8), 
+		@TodaySubscriptionValue numeric(27,8), 
+		@TodaySubscriptionQuantity numeric(27,8), 
+		@ValueOfTodaysSubscriptionRedeemed numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -47,13 +52,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPortfolio_hst (
-			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, EndDt, LastActionUserID)
-	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, @StartDt, @UpdateUserID
+			ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, TodayRedemptionValue, TodayRedemptionQuantity, TodaySubscriptionValue, TodaySubscriptionQuantity, ValueOfTodaysSubscriptionRedeemed, EndDt, LastActionUserID)
+	SELECT	ClientPortfolioId, ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, StartDt, UpdateUserID, DataVersion, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, TodayRedemptionValue, TodayRedemptionQuantity, TodaySubscriptionValue, TodaySubscriptionQuantity, ValueOfTodaysSubscriptionRedeemed, @StartDt, @UpdateUserID
 	FROM	ClientPortfolio
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 
 	UPDATE	ClientPortfolio
-	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, FirstTradeDate = @FirstTradeDate, IsLast = @IsLast, ManagerQuantity = @ManagerQuantity, ManagerValue = @ManagerValue, SubscriptionRedemptionValue = @SubscriptionRedemptionValue, TodayRedemptionPnl = @TodayRedemptionPnl, OpeningValueAfterTodaysTrades = @OpeningValueAfterTodaysTrades, TodayPnl = @TodayPnl, ClientPortfolioByClientShareClassId = @ClientPortfolioByClientShareClassId, TodayReturn = @TodayReturn, ITDReturn = @ITDReturn,  StartDt = @StartDt
+	SET		ClientAccountId = @ClientAccountId, FundId = @FundId, ReferenceDate = @ReferenceDate, Quantity = @Quantity, ChangeInQuantity = @ChangeInQuantity, MarketValue = @MarketValue, PriceId = @PriceId, Price = @Price, Cost = @Cost, UpdateUserID = @UpdateUserID, TodayRealisedPnl = @TodayRealisedPnl, OpeningValue = @OpeningValue, TodayUnRealisedPnl = @TodayUnRealisedPnl, ChangeInCost = @ChangeInCost, EqualisationFactor = @EqualisationFactor, FirstTradeDate = @FirstTradeDate, IsLast = @IsLast, ManagerQuantity = @ManagerQuantity, ManagerValue = @ManagerValue, SubscriptionRedemptionValue = @SubscriptionRedemptionValue, TodayRedemptionPnl = @TodayRedemptionPnl, OpeningValueAfterTodaysTrades = @OpeningValueAfterTodaysTrades, TodayPnl = @TodayPnl, ClientPortfolioByClientShareClassId = @ClientPortfolioByClientShareClassId, TodayReturn = @TodayReturn, ITDReturn = @ITDReturn, TodayRedemptionValue = @TodayRedemptionValue, TodayRedemptionQuantity = @TodayRedemptionQuantity, TodaySubscriptionValue = @TodaySubscriptionValue, TodaySubscriptionQuantity = @TodaySubscriptionQuantity, ValueOfTodaysSubscriptionRedeemed = @ValueOfTodaysSubscriptionRedeemed,  StartDt = @StartDt
 	WHERE	ClientPortfolioId = @ClientPortfolioId
 	AND		DataVersion = @DataVersion
 

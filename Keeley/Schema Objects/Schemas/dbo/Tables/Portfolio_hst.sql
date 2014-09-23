@@ -60,6 +60,6 @@ create table DBO.Portfolio_hst(
 	TodayCapitalChange numeric(27,8),
 	IndexRatio numeric(27,8),
 	IndexRatioID int,
-	DisclosedNetPosition numeric(27,8),
+	DisclosedNetPosition numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

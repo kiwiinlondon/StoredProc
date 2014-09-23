@@ -68,7 +68,7 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@TodayCapitalChange numeric(27,8), 
 		@IndexRatio numeric(27,8), 
 		@IndexRatioID int, 
-		@DisclosedNetPosition numeric(27,8)=0
+		@DisclosedNetPosition numeric(27,8)
 AS
 	SET NOCOUNT ON
 

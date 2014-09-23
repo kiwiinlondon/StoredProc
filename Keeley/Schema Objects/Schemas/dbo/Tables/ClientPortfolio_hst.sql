@@ -30,5 +30,10 @@ create table DBO.ClientPortfolio_hst(
 	ClientPortfolioByClientShareClassId int not null,
 	TodayReturn numeric(27,8) not null,
 	ITDReturn numeric(27,8) not null,
+	TodayRedemptionValue numeric(27,8),
+	TodayRedemptionQuantity numeric(27,8),
+	TodaySubscriptionValue numeric(27,8),
+	TodaySubscriptionQuantity numeric(27,8),
+	ValueOfTodaysSubscriptionRedeemed numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
