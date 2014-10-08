@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -12,10 +12,9 @@ DROP PROCEDURE DBO.[AssetManagementCompany_Update]
 GO
 
 CREATE PROCEDURE DBO.[AssetManagementCompany_Update]
-		@AssetManagementCompanyId int, 
-		@Name varchar(100), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@LegalEntityID int
 AS
 	SET NOCOUNT ON
 
@@ -23,19 +22,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AssetManagementCompany_hst (
-			AssetManagementCompanyId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AssetManagementCompanyId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			StartDt, UpdateUserID, DataVersion, LegalEntityID, EndDt, LastActionUserID)
+	SELECT	StartDt, UpdateUserID, DataVersion, LegalEntityID, @StartDt, @UpdateUserID
 	FROM	AssetManagementCompany
-	WHERE	AssetManagementCompanyId = @AssetManagementCompanyId
+	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	AssetManagementCompany
-	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	AssetManagementCompanyId = @AssetManagementCompanyId
+	SET		UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	AssetManagementCompany
-	WHERE	AssetManagementCompanyId = @AssetManagementCompanyId
+	WHERE	LegalEntityID = @LegalEntityID
 	AND		@@ROWCOUNT > 0
 
 GO

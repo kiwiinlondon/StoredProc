@@ -35,5 +35,6 @@ create table DBO.ClientPortfolio_hst(
 	TodaySubscriptionValue numeric(27,8),
 	TodaySubscriptionQuantity numeric(27,8),
 	ValueOfTodaysSubscriptionRedeemed numeric(27,8),
+	FirstNavDate datetime not null,
 	EndDt datetime,
 	LastActionUserID int)

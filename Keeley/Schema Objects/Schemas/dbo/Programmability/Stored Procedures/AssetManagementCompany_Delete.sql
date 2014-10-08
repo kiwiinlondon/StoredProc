@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[AssetManagementCompany_Delete]
 GO
 
 CREATE PROCEDURE DBO.[AssetManagementCompany_Delete]
-		@AssetManagementCompanyId int,
+		@LegalEntityID int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AssetManagementCompany_hst (
-			AssetManagementCompanyId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AssetManagementCompanyId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			StartDt, UpdateUserID, DataVersion, LegalEntityID, EndDt, LastActionUserID)
+	SELECT	StartDt, UpdateUserID, DataVersion, LegalEntityID, @EndDt, @UpdateUserID
 	FROM	AssetManagementCompany
-	WHERE	AssetManagementCompanyId = @AssetManagementCompanyId
+	WHERE	LegalEntityID = @LegalEntityID
 
 	DELETE	AssetManagementCompany
-	WHERE	AssetManagementCompanyId = @AssetManagementCompanyId
+	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 GO
