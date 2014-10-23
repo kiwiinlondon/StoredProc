@@ -47,7 +47,9 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Insert]
 		@ITDRedemptionValue numeric(27,8), 
 		@ITDRedemptionCost numeric(27,8), 
 		@ITDSubscriptionCost numeric(27,8), 
-		@TodayRedemptionCost numeric(27,8)
+		@TodayRedemptionCost numeric(27,8), 
+		@SumITDSubscriptionCost numeric(27,8) = null, 
+		@DaysSinceInception int = null
 AS
 	SET NOCOUNT ON
 
@@ -55,9 +57,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPortfolio
-			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, TodayRedemptionValue, TodayRedemptionQuantity, TodaySubscriptionValue, TodaySubscriptionQuantity, ValueOfTodaysSubscriptionRedeemed, FirstNavDate, ITDRedemptionValue, ITDRedemptionCost, ITDSubscriptionCost, TodayRedemptionCost, StartDt)
+			(ClientAccountId, FundId, ReferenceDate, Quantity, ChangeInQuantity, MarketValue, PriceId, Price, Cost, UpdateUserID, TodayRealisedPnl, OpeningValue, TodayUnRealisedPnl, ChangeInCost, EqualisationFactor, FirstTradeDate, IsLast, ManagerQuantity, ManagerValue, SubscriptionRedemptionValue, TodayRedemptionPnl, OpeningValueAfterTodaysTrades, TodayPnl, ClientPortfolioByClientShareClassId, TodayReturn, ITDReturn, TodayRedemptionValue, TodayRedemptionQuantity, TodaySubscriptionValue, TodaySubscriptionQuantity, ValueOfTodaysSubscriptionRedeemed, FirstNavDate, ITDRedemptionValue, ITDRedemptionCost, ITDSubscriptionCost, TodayRedemptionCost, SumITDSubscriptionCost, DaysSinceInception, StartDt)
 	VALUES
-			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @FirstTradeDate, @IsLast, @ManagerQuantity, @ManagerValue, @SubscriptionRedemptionValue, @TodayRedemptionPnl, @OpeningValueAfterTodaysTrades, @TodayPnl, @ClientPortfolioByClientShareClassId, @TodayReturn, @ITDReturn, @TodayRedemptionValue, @TodayRedemptionQuantity, @TodaySubscriptionValue, @TodaySubscriptionQuantity, @ValueOfTodaysSubscriptionRedeemed, @FirstNavDate, @ITDRedemptionValue, @ITDRedemptionCost, @ITDSubscriptionCost, @TodayRedemptionCost, @StartDt)
+			(@ClientAccountId, @FundId, @ReferenceDate, @Quantity, @ChangeInQuantity, @MarketValue, @PriceId, @Price, @Cost, @UpdateUserID, @TodayRealisedPnl, @OpeningValue, @TodayUnRealisedPnl, @ChangeInCost, @EqualisationFactor, @FirstTradeDate, @IsLast, @ManagerQuantity, @ManagerValue, @SubscriptionRedemptionValue, @TodayRedemptionPnl, @OpeningValueAfterTodaysTrades, @TodayPnl, @ClientPortfolioByClientShareClassId, @TodayReturn, @ITDReturn, @TodayRedemptionValue, @TodayRedemptionQuantity, @TodaySubscriptionValue, @TodaySubscriptionQuantity, @ValueOfTodaysSubscriptionRedeemed, @FirstNavDate, @ITDRedemptionValue, @ITDRedemptionCost, @ITDSubscriptionCost, @TodayRedemptionCost, @SumITDSubscriptionCost, @DaysSinceInception, @StartDt)
 
 	SELECT	ClientPortfolioId, StartDt, DataVersion
 	FROM	ClientPortfolio
