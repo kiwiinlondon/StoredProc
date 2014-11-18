@@ -27,5 +27,6 @@ create table DBO.ClientTrade_hst(
 	Cost numeric(27,8) not null,
 	RelatedTradeId int,
 	TransferPriceOverride numeric(27,8),
+	BalanceEndOfDay numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

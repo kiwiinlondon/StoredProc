@@ -40,7 +40,9 @@ create table DBO.ClientPortfolio_hst(
 	ITDRedemptionCost numeric(27,8) not null,
 	ITDSubscriptionCost numeric(27,8) not null,
 	TodayRedemptionCost numeric(27,8),
-	SumITDSubscriptionCost numeric(27,8),
-	DaysSinceInception int,
+	SumITDSubscriptionCost numeric(27,8) not null,
+	DaysSinceInception int not null,
+	isFlat bit not null,
+	FirstNavDateCurrent datetime,
 	EndDt datetime,
 	LastActionUserID int)

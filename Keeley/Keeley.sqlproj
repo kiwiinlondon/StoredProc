@@ -1762,10 +1762,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioByClientShareClass_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioByClientShareClass_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolioByClientShareClass_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioByClient_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioByClient_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioByClient_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\ClientPortfolioByClient_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
