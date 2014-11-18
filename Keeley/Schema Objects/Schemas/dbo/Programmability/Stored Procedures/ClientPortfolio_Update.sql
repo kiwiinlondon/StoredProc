@@ -53,7 +53,7 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@SumITDSubscriptionCost numeric(27,8), 
 		@DaysSinceInception int, 
 		@isFlat bit, 
-		@FirstNavDateCurrent datetime 
+		@FirstNavDateCurrent datetime
 AS
 	SET NOCOUNT ON
 

@@ -43,6 +43,6 @@ create table DBO.ClientPortfolio_hst(
 	SumITDSubscriptionCost numeric(27,8) not null,
 	DaysSinceInception int not null,
 	isFlat bit not null,
-	FirstNavDateCurrent datetime,
+	FirstNavDateCurrent datetime not null,
 	EndDt datetime,
 	LastActionUserID int)
