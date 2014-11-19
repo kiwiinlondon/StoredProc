@@ -12,21 +12,26 @@ DROP PROCEDURE DBO.[PADealing_Insert]
 GO
 
 CREATE PROCEDURE DBO.[PADealing_Insert]
-		@RequestingUserID int, 
+		@RequestUserID int, 
 		@InstrumentMarketID int, 
-		@IsBuy bit, 
-		@Quantity numeric(27,8), 
+		@PADealingAccountID int, 
+		@RequestQuantity numeric(27,8), 
+		@RequestValue numeric(27,8), 
 		@RequestTimeStamp datetime, 
-		@RequestNote varchar(150), 
+		@RequestNotes varchar(150), 
+		@ActualQuantity numeric(27,8), 
 		@IsAutomaticRejection bit, 
 		@IsComplianceApproved bit, 
+		@IsContractRecieved bit, 
+		@ComplianceUserID int, 
 		@ComplianceTimeStamp datetime, 
 		@ComplianceRejectionReasonID int, 
-		@ComplianceNote varchar(150), 
+		@ComplianceNotes varchar(150), 
 		@IsTraderApproved bit, 
+		@TraderID int, 
 		@TraderTimeStamp datetime, 
 		@TraderRejectionReasonID int, 
-		@TraderNote varchar(150), 
+		@TraderNotes varchar(150), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -35,9 +40,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PADealing
-			(RequestingUserID, InstrumentMarketID, IsBuy, Quantity, RequestTimeStamp, RequestNote, IsAutomaticRejection, IsComplianceApproved, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNote, IsTraderApproved, TraderTimeStamp, TraderRejectionReasonID, TraderNote, UpdateUserID, StartDt)
+			(RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, UpdateUserID, StartDt)
 	VALUES
-			(@RequestingUserID, @InstrumentMarketID, @IsBuy, @Quantity, @RequestTimeStamp, @RequestNote, @IsAutomaticRejection, @IsComplianceApproved, @ComplianceTimeStamp, @ComplianceRejectionReasonID, @ComplianceNote, @IsTraderApproved, @TraderTimeStamp, @TraderRejectionReasonID, @TraderNote, @UpdateUserID, @StartDt)
+			(@RequestUserID, @InstrumentMarketID, @PADealingAccountID, @RequestQuantity, @RequestValue, @RequestTimeStamp, @RequestNotes, @ActualQuantity, @IsAutomaticRejection, @IsComplianceApproved, @IsContractRecieved, @ComplianceUserID, @ComplianceTimeStamp, @ComplianceRejectionReasonID, @ComplianceNotes, @IsTraderApproved, @TraderID, @TraderTimeStamp, @TraderRejectionReasonID, @TraderNotes, @UpdateUserID, @StartDt)
 
 	SELECT	PADealingID, StartDt, DataVersion
 	FROM	PADealing

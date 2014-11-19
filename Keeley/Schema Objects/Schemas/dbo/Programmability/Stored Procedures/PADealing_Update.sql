@@ -13,21 +13,26 @@ GO
 
 CREATE PROCEDURE DBO.[PADealing_Update]
 		@PADealingID int, 
-		@RequestingUserID int, 
+		@RequestUserID int, 
 		@InstrumentMarketID int, 
-		@IsBuy bit, 
-		@Quantity numeric(27,8), 
+		@PADealingAccountID int, 
+		@RequestQuantity numeric(27,8), 
+		@RequestValue numeric(27,8), 
 		@RequestTimeStamp datetime, 
-		@RequestNote varchar(150), 
+		@RequestNotes varchar(150), 
+		@ActualQuantity numeric(27,8), 
 		@IsAutomaticRejection bit, 
 		@IsComplianceApproved bit, 
+		@IsContractRecieved bit, 
+		@ComplianceUserID int, 
 		@ComplianceTimeStamp datetime, 
 		@ComplianceRejectionReasonID int, 
-		@ComplianceNote varchar(150), 
+		@ComplianceNotes varchar(150), 
 		@IsTraderApproved bit, 
+		@TraderID int, 
 		@TraderTimeStamp datetime, 
 		@TraderRejectionReasonID int, 
-		@TraderNote varchar(150), 
+		@TraderNotes varchar(150), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -37,13 +42,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealing_hst (
-			PADealingID, RequestingUserID, InstrumentMarketID, IsBuy, Quantity, RequestTimeStamp, RequestNote, IsAutomaticRejection, IsComplianceApproved, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNote, IsTraderApproved, TraderTimeStamp, TraderRejectionReasonID, TraderNote, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingID, RequestingUserID, InstrumentMarketID, IsBuy, Quantity, RequestTimeStamp, RequestNote, IsAutomaticRejection, IsComplianceApproved, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNote, IsTraderApproved, TraderTimeStamp, TraderRejectionReasonID, TraderNote, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	PADealing
 	WHERE	PADealingID = @PADealingID
 
 	UPDATE	PADealing
-	SET		RequestingUserID = @RequestingUserID, InstrumentMarketID = @InstrumentMarketID, IsBuy = @IsBuy, Quantity = @Quantity, RequestTimeStamp = @RequestTimeStamp, RequestNote = @RequestNote, IsAutomaticRejection = @IsAutomaticRejection, IsComplianceApproved = @IsComplianceApproved, ComplianceTimeStamp = @ComplianceTimeStamp, ComplianceRejectionReasonID = @ComplianceRejectionReasonID, ComplianceNote = @ComplianceNote, IsTraderApproved = @IsTraderApproved, TraderTimeStamp = @TraderTimeStamp, TraderRejectionReasonID = @TraderRejectionReasonID, TraderNote = @TraderNote, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		RequestUserID = @RequestUserID, InstrumentMarketID = @InstrumentMarketID, PADealingAccountID = @PADealingAccountID, RequestQuantity = @RequestQuantity, RequestValue = @RequestValue, RequestTimeStamp = @RequestTimeStamp, RequestNotes = @RequestNotes, ActualQuantity = @ActualQuantity, IsAutomaticRejection = @IsAutomaticRejection, IsComplianceApproved = @IsComplianceApproved, IsContractRecieved = @IsContractRecieved, ComplianceUserID = @ComplianceUserID, ComplianceTimeStamp = @ComplianceTimeStamp, ComplianceRejectionReasonID = @ComplianceRejectionReasonID, ComplianceNotes = @ComplianceNotes, IsTraderApproved = @IsTraderApproved, TraderID = @TraderID, TraderTimeStamp = @TraderTimeStamp, TraderRejectionReasonID = @TraderRejectionReasonID, TraderNotes = @TraderNotes, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	PADealingID = @PADealingID
 	AND		DataVersion = @DataVersion
 
