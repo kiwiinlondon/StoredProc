@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PADealingAccount_hst (
-			PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, PADealingAccountUserID, EndDt, LastActionUserID)
+	SELECT	PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, PADealingAccountUserID, @EndDt, @UpdateUserID
 	FROM	PADealingAccount
 	WHERE	PADealingAccountID = @PADealingAccountID
 

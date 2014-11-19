@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[PADealingAccount_Update]
 		@Name varchar(100), 
 		@Identifier varchar(100), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@PADealingAccountUserID int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealingAccount_hst (
-			PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, PADealingAccountUserID, EndDt, LastActionUserID)
+	SELECT	PADealingAccountID, Name, Identifier, StartDt, UpdateUserID, DataVersion, PADealingAccountUserID, @StartDt, @UpdateUserID
 	FROM	PADealingAccount
 	WHERE	PADealingAccountID = @PADealingAccountID
 
 	UPDATE	PADealingAccount
-	SET		Name = @Name, Identifier = @Identifier, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, Identifier = @Identifier, UpdateUserID = @UpdateUserID, PADealingAccountUserID = @PADealingAccountUserID,  StartDt = @StartDt
 	WHERE	PADealingAccountID = @PADealingAccountID
 	AND		DataVersion = @DataVersion
 

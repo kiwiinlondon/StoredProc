@@ -29,7 +29,7 @@ CREATE PROCEDURE DBO.[PADealing_Update]
 		@ComplianceRejectionReasonID int, 
 		@ComplianceNotes varchar(150), 
 		@IsTraderApproved bit, 
-		@TraderID int, 
+		@TraderUserId int, 
 		@TraderTimeStamp datetime, 
 		@TraderRejectionReasonID int, 
 		@TraderNotes varchar(150), 
@@ -42,13 +42,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealing_hst (
-			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderUserId, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderUserId, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	PADealing
 	WHERE	PADealingID = @PADealingID
 
 	UPDATE	PADealing
-	SET		RequestUserID = @RequestUserID, InstrumentMarketID = @InstrumentMarketID, PADealingAccountID = @PADealingAccountID, RequestQuantity = @RequestQuantity, RequestValue = @RequestValue, RequestTimeStamp = @RequestTimeStamp, RequestNotes = @RequestNotes, ActualQuantity = @ActualQuantity, IsAutomaticRejection = @IsAutomaticRejection, IsComplianceApproved = @IsComplianceApproved, IsContractRecieved = @IsContractRecieved, ComplianceUserID = @ComplianceUserID, ComplianceTimeStamp = @ComplianceTimeStamp, ComplianceRejectionReasonID = @ComplianceRejectionReasonID, ComplianceNotes = @ComplianceNotes, IsTraderApproved = @IsTraderApproved, TraderID = @TraderID, TraderTimeStamp = @TraderTimeStamp, TraderRejectionReasonID = @TraderRejectionReasonID, TraderNotes = @TraderNotes, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		RequestUserID = @RequestUserID, InstrumentMarketID = @InstrumentMarketID, PADealingAccountID = @PADealingAccountID, RequestQuantity = @RequestQuantity, RequestValue = @RequestValue, RequestTimeStamp = @RequestTimeStamp, RequestNotes = @RequestNotes, ActualQuantity = @ActualQuantity, IsAutomaticRejection = @IsAutomaticRejection, IsComplianceApproved = @IsComplianceApproved, IsContractRecieved = @IsContractRecieved, ComplianceUserID = @ComplianceUserID, ComplianceTimeStamp = @ComplianceTimeStamp, ComplianceRejectionReasonID = @ComplianceRejectionReasonID, ComplianceNotes = @ComplianceNotes, IsTraderApproved = @IsTraderApproved, TraderUserId = @TraderUserId, TraderTimeStamp = @TraderTimeStamp, TraderRejectionReasonID = @TraderRejectionReasonID, TraderNotes = @TraderNotes, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	PADealingID = @PADealingID
 	AND		DataVersion = @DataVersion
 

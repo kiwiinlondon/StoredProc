@@ -18,7 +18,7 @@ create table DBO.PADealing_hst(
 	ComplianceRejectionReasonID int,
 	ComplianceNotes varchar(150),
 	IsTraderApproved bit,
-	TraderID int not null,
+	TraderUserId int not null,
 	TraderTimeStamp datetime,
 	TraderRejectionReasonID int,
 	TraderNotes varchar(150),

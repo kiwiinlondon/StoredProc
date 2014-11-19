@@ -28,7 +28,7 @@ CREATE PROCEDURE DBO.[PADealing_Insert]
 		@ComplianceRejectionReasonID int, 
 		@ComplianceNotes varchar(150), 
 		@IsTraderApproved bit, 
-		@TraderID int, 
+		@TraderUserId int, 
 		@TraderTimeStamp datetime, 
 		@TraderRejectionReasonID int, 
 		@TraderNotes varchar(150), 
@@ -40,9 +40,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PADealing
-			(RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, UpdateUserID, StartDt)
+			(RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderUserId, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, UpdateUserID, StartDt)
 	VALUES
-			(@RequestUserID, @InstrumentMarketID, @PADealingAccountID, @RequestQuantity, @RequestValue, @RequestTimeStamp, @RequestNotes, @ActualQuantity, @IsAutomaticRejection, @IsComplianceApproved, @IsContractRecieved, @ComplianceUserID, @ComplianceTimeStamp, @ComplianceRejectionReasonID, @ComplianceNotes, @IsTraderApproved, @TraderID, @TraderTimeStamp, @TraderRejectionReasonID, @TraderNotes, @UpdateUserID, @StartDt)
+			(@RequestUserID, @InstrumentMarketID, @PADealingAccountID, @RequestQuantity, @RequestValue, @RequestTimeStamp, @RequestNotes, @ActualQuantity, @IsAutomaticRejection, @IsComplianceApproved, @IsContractRecieved, @ComplianceUserID, @ComplianceTimeStamp, @ComplianceRejectionReasonID, @ComplianceNotes, @IsTraderApproved, @TraderUserId, @TraderTimeStamp, @TraderRejectionReasonID, @TraderNotes, @UpdateUserID, @StartDt)
 
 	SELECT	PADealingID, StartDt, DataVersion
 	FROM	PADealing

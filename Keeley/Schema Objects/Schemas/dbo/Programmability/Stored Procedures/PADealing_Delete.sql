@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PADealing_hst (
-			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderID, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderUserId, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestTimeStamp, RequestNotes, ActualQuantity, IsAutomaticRejection, IsComplianceApproved, IsContractRecieved, ComplianceUserID, ComplianceTimeStamp, ComplianceRejectionReasonID, ComplianceNotes, IsTraderApproved, TraderUserId, TraderTimeStamp, TraderRejectionReasonID, TraderNotes, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	PADealing
 	WHERE	PADealingID = @PADealingID
 
