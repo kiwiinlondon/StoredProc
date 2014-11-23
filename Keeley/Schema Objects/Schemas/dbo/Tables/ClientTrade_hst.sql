@@ -28,5 +28,9 @@ create table DBO.ClientTrade_hst(
 	RelatedTradeId int,
 	TransferPriceOverride numeric(27,8),
 	BalanceEndOfDay numeric(27,8) not null,
+	NavDate datetime not null,
+	NetConsiderationEuro numeric(27,8) not null,
+	IndexUnits numeric(27,8) not null,
+	EqFactorEuro numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

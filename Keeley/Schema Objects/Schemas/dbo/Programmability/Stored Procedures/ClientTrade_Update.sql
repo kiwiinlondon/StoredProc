@@ -37,7 +37,11 @@ CREATE PROCEDURE DBO.[ClientTrade_Update]
 		@Cost numeric(27,8), 
 		@RelatedTradeId int, 
 		@TransferPriceOverride numeric(27,8), 
-		@BalanceEndOfDay numeric(27,8)
+		@BalanceEndOfDay numeric(27,8), 
+		@NavDate datetime, 
+		@NetConsiderationEuro numeric(27,8), 
+		@IndexUnits numeric(27,8), 
+		@EqFactorEuro numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -45,13 +49,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientTrade_hst (
-			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, EndDt, LastActionUserID)
-	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, @StartDt, @UpdateUserID
+			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, EndDt, LastActionUserID)
+	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, @StartDt, @UpdateUserID
 	FROM	ClientTrade
 	WHERE	ClientTradeId = @ClientTradeId
 
 	UPDATE	ClientTrade
-	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost, RelatedTradeId = @RelatedTradeId, TransferPriceOverride = @TransferPriceOverride, BalanceEndOfDay = @BalanceEndOfDay,  StartDt = @StartDt
+	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost, RelatedTradeId = @RelatedTradeId, TransferPriceOverride = @TransferPriceOverride, BalanceEndOfDay = @BalanceEndOfDay, NavDate = @NavDate, NetConsiderationEuro = @NetConsiderationEuro, IndexUnits = @IndexUnits, EqFactorEuro = @EqFactorEuro,  StartDt = @StartDt
 	WHERE	ClientTradeId = @ClientTradeId
 	AND		DataVersion = @DataVersion
 

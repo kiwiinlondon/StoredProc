@@ -35,7 +35,11 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@Cost numeric(27,8), 
 		@RelatedTradeId int, 
 		@TransferPriceOverride numeric(27,8), 
-		@BalanceEndOfDay numeric(27,8)
+		@BalanceEndOfDay numeric(27,8), 
+		@NavDate datetime, 
+		@NetConsiderationEuro numeric(27,8), 
+		@IndexUnits numeric(27,8), 
+		@EqFactorEuro numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +47,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientTrade
-			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, StartDt)
+			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, StartDt)
 	VALUES
-			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @RelatedTradeId, @TransferPriceOverride, @BalanceEndOfDay, @StartDt)
+			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @RelatedTradeId, @TransferPriceOverride, @BalanceEndOfDay, @NavDate, @NetConsiderationEuro, @IndexUnits, @EqFactorEuro, @StartDt)
 
 	SELECT	ClientTradeId, StartDt, DataVersion
 	FROM	ClientTrade
