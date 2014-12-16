@@ -32,5 +32,12 @@ create table DBO.ClientTrade_hst(
 	NetConsiderationEuro numeric(27,8) not null,
 	IndexUnits numeric(27,8) not null,
 	EqFactorEuro numeric(27,8) not null,
+	NetConsiderationGBP numeric(27,8),
+	EqFactorGBP numeric(27,8),
+	NetConsiderationUSD numeric(27,8),
+	EqFactorUSD numeric(27,8),
+	CostEuro numeric(27,8),
+	CostUSD numeric(27,8),
+	CostGBP numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

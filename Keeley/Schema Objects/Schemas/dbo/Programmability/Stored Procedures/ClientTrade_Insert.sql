@@ -39,7 +39,14 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@NavDate datetime, 
 		@NetConsiderationEuro numeric(27,8), 
 		@IndexUnits numeric(27,8), 
-		@EqFactorEuro numeric(27,8)
+		@EqFactorEuro numeric(27,8), 
+		@NetConsiderationGBP numeric(27,8)=null, 
+		@EqFactorGBP numeric(27,8)=null, 
+		@NetConsiderationUSD numeric(27,8)=null, 
+		@EqFactorUSD numeric(27,8)=null, 
+		@CostEuro numeric(27,8)=null, 
+		@CostUSD numeric(27,8)=null, 
+		@CostGBP numeric(27,8)=null
 AS
 	SET NOCOUNT ON
 
@@ -47,9 +54,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientTrade
-			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, StartDt)
+			(SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, UpdateUserID, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, NetConsiderationGBP, EqFactorGBP, NetConsiderationUSD, EqFactorUSD, CostEuro, CostUSD, CostGBP, StartDt)
 	VALUES
-			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @RelatedTradeId, @TransferPriceOverride, @BalanceEndOfDay, @NavDate, @NetConsiderationEuro, @IndexUnits, @EqFactorEuro, @StartDt)
+			(@SettlementDate, @TradeDate, @ClientTradeTypeId, @FundId, @TradeReference, @Quantity, @Price, @CurrencyId, @Discount, @NetConsideration, @Commission, @DilutionLevy, @ClientAccountId, @UpdateUserID, @HWMPrice, @CurrentQuantity, @EqFactor, @Balance, @TotalCost, @AdministratorCurrentQuantity, @Cost, @RelatedTradeId, @TransferPriceOverride, @BalanceEndOfDay, @NavDate, @NetConsiderationEuro, @IndexUnits, @EqFactorEuro, @NetConsiderationGBP, @EqFactorGBP, @NetConsiderationUSD, @EqFactorUSD, @CostEuro, @CostUSD, @CostGBP, @StartDt)
 
 	SELECT	ClientTradeId, StartDt, DataVersion
 	FROM	ClientTrade
