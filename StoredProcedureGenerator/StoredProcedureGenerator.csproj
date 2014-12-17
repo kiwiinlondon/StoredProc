@@ -433,9 +433,15 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Update.sql
@@ -618,7 +624,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealing_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingAccount_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingBalance_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingReason_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingRejectionReason_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PerformanceFeeType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Periodicity_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PeriodicityInterval_hst.sql
