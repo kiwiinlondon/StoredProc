@@ -40,13 +40,13 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@NetConsiderationEuro numeric(27,8), 
 		@IndexUnits numeric(27,8), 
 		@EqFactorEuro numeric(27,8), 
-		@NetConsiderationGBP numeric(27,8)=null, 
-		@EqFactorGBP numeric(27,8)=null, 
-		@NetConsiderationUSD numeric(27,8)=null, 
-		@EqFactorUSD numeric(27,8)=null, 
-		@CostEuro numeric(27,8)=null, 
-		@CostUSD numeric(27,8)=null, 
-		@CostGBP numeric(27,8)=null
+		@NetConsiderationGBP numeric(27,8), 
+		@EqFactorGBP numeric(27,8), 
+		@NetConsiderationUSD numeric(27,8), 
+		@EqFactorUSD numeric(27,8), 
+		@CostEuro numeric(27,8), 
+		@CostUSD numeric(27,8), 
+		@CostGBP numeric(27,8)
 AS
 	SET NOCOUNT ON
 

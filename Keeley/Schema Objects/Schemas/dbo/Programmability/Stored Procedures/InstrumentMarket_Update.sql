@@ -29,7 +29,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Update]
 		@PriceQuoteMultiplier decimal, 
 		@BloombergGlobalId varchar(25), 
 		@LastRepulledFromSourceDate datetime, 
-		@FactsetId varchar(150)
+		@FactsetId varchar(150), 
+		@UltimateUnderlyerPerOverlyer numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -37,13 +38,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentMarket_hst (
-			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, @StartDt, @UpdateUserID
+			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, @StartDt, @UpdateUserID
 	FROM	InstrumentMarket
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	UPDATE	InstrumentMarket
-	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID, PriceCurrencyId = @PriceCurrencyId, ListingStatusId = @ListingStatusId, UnderlyingInstrumentMarketId = @UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId = @UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier = @PriceQuoteMultiplier, BloombergGlobalId = @BloombergGlobalId, LastRepulledFromSourceDate = @LastRepulledFromSourceDate, FactsetId = @FactsetId,  StartDt = @StartDt
+	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID, PriceCurrencyId = @PriceCurrencyId, ListingStatusId = @ListingStatusId, UnderlyingInstrumentMarketId = @UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId = @UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier = @PriceQuoteMultiplier, BloombergGlobalId = @BloombergGlobalId, LastRepulledFromSourceDate = @LastRepulledFromSourceDate, FactsetId = @FactsetId, UltimateUnderlyerPerOverlyer = @UltimateUnderlyerPerOverlyer,  StartDt = @StartDt
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 	AND		DataVersion = @DataVersion
 

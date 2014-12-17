@@ -56,8 +56,8 @@ CREATE PROCEDURE DBO.[ClientPortfolio_Update]
 		@FirstNavDateCurrent datetime, 
 		@IndexUnits numeric(27,8), 
 		@CostEuro numeric(27,8), 
-		@CostUSD numeric(27,8) = null, 
-		@CostGBP numeric(27,8) = null
+		@CostUSD numeric(27,8), 
+		@CostGBP numeric(27,8)
 AS
 	SET NOCOUNT ON
 

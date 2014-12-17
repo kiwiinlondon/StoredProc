@@ -27,7 +27,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@PriceQuoteMultiplier decimal, 
 		@BloombergGlobalId varchar(25), 
 		@LastRepulledFromSourceDate datetime, 
-		@FactsetId varchar(150)
+		@FactsetId varchar(150), 
+		@UltimateUnderlyerPerOverlyer numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -35,9 +36,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentMarket
-			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, StartDt)
+			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, StartDt)
 	VALUES
-			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @StartDt)
+			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @StartDt)
 
 	SELECT	InstrumentMarketID, StartDt, DataVersion
 	FROM	InstrumentMarket

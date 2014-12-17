@@ -20,5 +20,6 @@ create table DBO.InstrumentMarket_hst(
 	BloombergGlobalId varchar(25),
 	LastRepulledFromSourceDate datetime,
 	FactsetId varchar(150),
+	UltimateUnderlyerPerOverlyer numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
