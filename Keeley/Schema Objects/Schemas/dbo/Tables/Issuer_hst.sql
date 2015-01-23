@@ -6,5 +6,6 @@ create table DBO.Issuer_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	FactsetId varchar(150),
+	GicsLevel3IndustryID int,
 	EndDt datetime,
 	LastActionUserID int)

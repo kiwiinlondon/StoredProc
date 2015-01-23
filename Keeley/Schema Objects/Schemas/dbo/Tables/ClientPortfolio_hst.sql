@@ -46,7 +46,7 @@ create table DBO.ClientPortfolio_hst(
 	FirstNavDateCurrent datetime not null,
 	IndexUnits numeric(27,8) not null,
 	CostEuro numeric(27,8) not null,
-	CostUSD numeric(27,8),
-	CostGBP numeric(27,8),
+	CostUSD numeric(27,8) not null,
+	CostGBP numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)
