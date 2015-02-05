@@ -21,5 +21,6 @@ create table DBO.InstrumentMarket_hst(
 	LastRepulledFromSourceDate datetime,
 	FactsetId varchar(150),
 	UltimateUnderlyerPerOverlyer numeric(27,8) not null,
+	ResolveFromExternalSource bit,
 	EndDt datetime,
 	LastActionUserID int)

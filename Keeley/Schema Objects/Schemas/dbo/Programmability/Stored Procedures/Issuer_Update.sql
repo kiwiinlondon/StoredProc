@@ -16,7 +16,7 @@ CREATE PROCEDURE DBO.[Issuer_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@FactsetId varchar(150), 
-		@GicsLevel3IndustryID int = null
+		@GicsLevel3IndustryID int
 AS
 	SET NOCOUNT ON
 
