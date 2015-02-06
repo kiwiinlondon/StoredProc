@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -20,17 +20,23 @@ CREATE PROCEDURE DBO.[CapitalEvent_Insert]
 		@IsCancelled bit, 
 		@CurrencyId int, 
 		@UpdateUserID int, 
-		@InputDate datetime
+		@InputDate datetime, 
+		@AdministratorTradeDate datetime=null
 AS
 	SET NOCOUNT ON
 
 	DECLARE @StartDt DateTime
 	Set @StartDt = GetDate()
 
+	if @AdministratorTradeDate is null
+	begin
+		set @AdministratorTradeDate = @TradeDate
+	end
+
 	INSERT into CapitalEvent
-			(EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, StartDt)
+			(EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, AdministratorTradeDate, StartDt)
 	VALUES
-			(@EventID, @TradeDate, @SettlementDate, @Quantity, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @StartDt)
+			(@EventID, @TradeDate, @SettlementDate, @Quantity, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @AdministratorTradeDate, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	CapitalEvent

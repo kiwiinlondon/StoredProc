@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -21,21 +21,27 @@ CREATE PROCEDURE DBO.[CapitalEvent_Update]
 		@CurrencyId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@InputDate datetime
+		@InputDate datetime, 
+		@AdministratorTradeDate datetime=null
 AS
 	SET NOCOUNT ON
+
+	if @AdministratorTradeDate is null
+	begin
+		set @AdministratorTradeDate = @TradeDate
+	end
 
 	DECLARE @StartDt DateTime
 	Set @StartDt = GetDate()
 
 	INSERT INTO CapitalEvent_hst (
-			EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, EndDt, LastActionUserID)
-	SELECT	EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, @StartDt, @UpdateUserID
+			EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, AdministratorTradeDate, EndDt, LastActionUserID)
+	SELECT	EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, AdministratorTradeDate, @StartDt, @UpdateUserID
 	FROM	CapitalEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	CapitalEvent
-	SET		TradeDate = @TradeDate, SettlementDate = @SettlementDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate,  StartDt = @StartDt
+	SET		TradeDate = @TradeDate, SettlementDate = @SettlementDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, AdministratorTradeDate = @AdministratorTradeDate,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

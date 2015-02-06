@@ -29,7 +29,7 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@LastRepulledFromSourceDate datetime, 
 		@FactsetId varchar(150), 
 		@UltimateUnderlyerPerOverlyer numeric(27,8), 
-		@ResolveFromExternalSource bit = null
+		@ResolveFromExternalSource bit
 AS
 	SET NOCOUNT ON
 

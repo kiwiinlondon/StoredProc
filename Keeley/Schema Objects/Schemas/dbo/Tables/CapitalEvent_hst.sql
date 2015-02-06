@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.CapitalEvent_hst(
 	EventID int not null,
@@ -12,5 +12,6 @@ create table DBO.CapitalEvent_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
+	AdministratorTradeDate datetime,
 	EndDt datetime,
 	LastActionUserID int)
