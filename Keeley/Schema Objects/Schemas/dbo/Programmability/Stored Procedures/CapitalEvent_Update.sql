@@ -22,14 +22,9 @@ CREATE PROCEDURE DBO.[CapitalEvent_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@InputDate datetime, 
-		@AdministratorTradeDate datetime=null
+		@AdministratorTradeDate datetime
 AS
 	SET NOCOUNT ON
-
-	if @AdministratorTradeDate is null
-	begin
-		set @AdministratorTradeDate = @TradeDate
-	end
 
 	DECLARE @StartDt DateTime
 	Set @StartDt = GetDate()

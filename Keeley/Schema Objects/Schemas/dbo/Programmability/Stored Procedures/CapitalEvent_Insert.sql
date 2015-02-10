@@ -21,17 +21,12 @@ CREATE PROCEDURE DBO.[CapitalEvent_Insert]
 		@CurrencyId int, 
 		@UpdateUserID int, 
 		@InputDate datetime, 
-		@AdministratorTradeDate datetime=null
+		@AdministratorTradeDate datetime
 AS
 	SET NOCOUNT ON
 
 	DECLARE @StartDt DateTime
 	Set @StartDt = GetDate()
-
-	if @AdministratorTradeDate is null
-	begin
-		set @AdministratorTradeDate = @TradeDate
-	end
 
 	INSERT into CapitalEvent
 			(EventID, TradeDate, SettlementDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, AdministratorTradeDate, StartDt)

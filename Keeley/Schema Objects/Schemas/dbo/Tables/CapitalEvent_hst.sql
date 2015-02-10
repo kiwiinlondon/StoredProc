@@ -12,6 +12,6 @@ create table DBO.CapitalEvent_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
-	AdministratorTradeDate datetime,
+	AdministratorTradeDate datetime not null,
 	EndDt datetime,
 	LastActionUserID int)

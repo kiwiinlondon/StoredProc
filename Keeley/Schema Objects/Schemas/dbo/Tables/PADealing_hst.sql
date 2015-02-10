@@ -24,5 +24,7 @@ create table DBO.PADealing_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	IsExistingHolding bit not null,
+	IsPending bit not null,
 	EndDt datetime,
 	LastActionUserID int)

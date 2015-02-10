@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[PADealingBalance_Update]
 		@UserAccountID int, 
 		@Quantity numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@LastPADealDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealingBalance_hst (
-			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, EndDt, LastActionUserID)
+	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, @StartDt, @UpdateUserID
 	FROM	PADealingBalance
 	WHERE	PADealingBalanceID = @PADealingBalanceID
 
 	UPDATE	PADealingBalance
-	SET		UserID = @UserID, InstrumentMarketID = @InstrumentMarketID, UserAccountID = @UserAccountID, Quantity = @Quantity, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		UserID = @UserID, InstrumentMarketID = @InstrumentMarketID, UserAccountID = @UserAccountID, Quantity = @Quantity, UpdateUserID = @UpdateUserID, LastPADealDate = @LastPADealDate,  StartDt = @StartDt
 	WHERE	PADealingBalanceID = @PADealingBalanceID
 	AND		DataVersion = @DataVersion
 
