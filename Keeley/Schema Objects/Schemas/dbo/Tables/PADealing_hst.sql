@@ -26,5 +26,7 @@ create table DBO.PADealing_hst(
 	DataVersion binary(8) not null,
 	IsExistingHolding bit not null,
 	IsPending bit not null,
+	ContractNoteFile varbinary,
+	ContractNoteTimeStamp datetime,
 	EndDt datetime,
 	LastActionUserID int)
