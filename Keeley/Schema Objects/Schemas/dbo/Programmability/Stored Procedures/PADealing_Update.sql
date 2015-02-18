@@ -37,7 +37,8 @@ CREATE PROCEDURE DBO.[PADealing_Update]
 		@IsExistingHolding bit, 
 		@IsPending bit, 
 		@ContractNoteFile varbinary, 
-		@ContractNoteTimeStamp datetime
+		@ContractNoteTimeStamp datetime, 
+		@IsCancelled bit
 AS
 	SET NOCOUNT ON
 
@@ -45,13 +46,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealing_hst (
-			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractRecieved, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, StartDt, UpdateUserID, DataVersion, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, EndDt, LastActionUserID)
-	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractRecieved, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, StartDt, UpdateUserID, DataVersion, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, @StartDt, @UpdateUserID
+			PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractRecieved, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, StartDt, UpdateUserID, DataVersion, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, IsCancelled, EndDt, LastActionUserID)
+	SELECT	PADealingID, RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractRecieved, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, StartDt, UpdateUserID, DataVersion, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, IsCancelled, @StartDt, @UpdateUserID
 	FROM	PADealing
 	WHERE	PADealingID = @PADealingID
 
 	UPDATE	PADealing
-	SET		RequestUserID = @RequestUserID, InstrumentMarketID = @InstrumentMarketID, PADealingAccountID = @PADealingAccountID, RequestQuantity = @RequestQuantity, RequestValue = @RequestValue, RequestNotes = @RequestNotes, RequestTimeStamp = @RequestTimeStamp, IsAutomaticRejection = @IsAutomaticRejection, RejectionReasonID = @RejectionReasonID, ActualQuantity = @ActualQuantity, IsContractRecieved = @IsContractRecieved, IsComplianceApproved = @IsComplianceApproved, ComplianceUserID = @ComplianceUserID, ComplianceNotes = @ComplianceNotes, ComplianceTimeStamp = @ComplianceTimeStamp, IsTraderApproved = @IsTraderApproved, TraderUserID = @TraderUserID, TraderNotes = @TraderNotes, TraderTimeStamp = @TraderTimeStamp, UpdateUserID = @UpdateUserID, IsExistingHolding = @IsExistingHolding, IsPending = @IsPending, ContractNoteFile = @ContractNoteFile, ContractNoteTimeStamp = @ContractNoteTimeStamp,  StartDt = @StartDt
+	SET		RequestUserID = @RequestUserID, InstrumentMarketID = @InstrumentMarketID, PADealingAccountID = @PADealingAccountID, RequestQuantity = @RequestQuantity, RequestValue = @RequestValue, RequestNotes = @RequestNotes, RequestTimeStamp = @RequestTimeStamp, IsAutomaticRejection = @IsAutomaticRejection, RejectionReasonID = @RejectionReasonID, ActualQuantity = @ActualQuantity, IsContractRecieved = @IsContractRecieved, IsComplianceApproved = @IsComplianceApproved, ComplianceUserID = @ComplianceUserID, ComplianceNotes = @ComplianceNotes, ComplianceTimeStamp = @ComplianceTimeStamp, IsTraderApproved = @IsTraderApproved, TraderUserID = @TraderUserID, TraderNotes = @TraderNotes, TraderTimeStamp = @TraderTimeStamp, UpdateUserID = @UpdateUserID, IsExistingHolding = @IsExistingHolding, IsPending = @IsPending, ContractNoteFile = @ContractNoteFile, ContractNoteTimeStamp = @ContractNoteTimeStamp, IsCancelled = @IsCancelled,  StartDt = @StartDt
 	WHERE	PADealingID = @PADealingID
 	AND		DataVersion = @DataVersion
 
