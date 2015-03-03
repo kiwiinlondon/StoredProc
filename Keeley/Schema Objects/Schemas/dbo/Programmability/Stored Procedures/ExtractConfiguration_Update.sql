@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,7 @@ CREATE PROCEDURE DBO.[ExtractConfiguration_Update]
 		@ExtractConfigurationId int, 
 		@ExtractId int, 
 		@ConfigurationKey varchar(100), 
-		@ConfigurationValue varchar(100), 
+		@ConfigurationValue varchar(200), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
