@@ -34,7 +34,7 @@ CREATE PROCEDURE DBO.[PADealing_Insert]
 		@UpdateUserID int, 
 		@IsExistingHolding bit, 
 		@IsPending bit, 
-		@ContractNoteFile varbinary, 
+		@ContractNoteFile varbinary(MAX), 
 		@ContractNoteTimeStamp datetime, 
 		@IsCancelled bit, 
 		@ContractNoteFileName varchar(150)

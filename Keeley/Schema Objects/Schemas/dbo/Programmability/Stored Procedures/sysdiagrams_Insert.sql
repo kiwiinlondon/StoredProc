@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,7 @@ CREATE PROCEDURE DBO.[sysdiagrams_Insert]
 		@name sysname, 
 		@principal_id int, 
 		@version int, 
-		@definition varbinary
+		@definition varbinary(MAX)
 AS
 	SET NOCOUNT ON
 

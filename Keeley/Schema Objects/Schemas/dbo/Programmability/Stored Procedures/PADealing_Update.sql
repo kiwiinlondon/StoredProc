@@ -36,7 +36,7 @@ CREATE PROCEDURE DBO.[PADealing_Update]
 		@DataVersion rowversion, 
 		@IsExistingHolding bit, 
 		@IsPending bit, 
-		@ContractNoteFile varbinary, 
+		@ContractNoteFile varbinary(MAX), 
 		@ContractNoteTimeStamp datetime, 
 		@IsCancelled bit, 
 		@ContractNoteFileName varchar(150)

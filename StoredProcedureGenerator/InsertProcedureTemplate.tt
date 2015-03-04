@@ -61,6 +61,11 @@ public class InsertProcedureTemplate : Template
 				{
 					this.Write("(" + column.DataType.NumericPrecision.ToString() + "," + column.DataType.NumericScale.ToString() + ")");
 				}
+				else if (column.DataType.Name == "varbinary")
+				{
+					this.Write("(MAX)");
+				}
+				
 				insertColumnList = String.Format("{0}{1}",insertColumnList,column.Name);			
 				insertParameterList = String.Format("{0}@{1}",insertParameterList,column.Name);							
 			}				

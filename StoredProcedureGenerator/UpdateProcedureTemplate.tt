@@ -67,6 +67,10 @@ public class UpdateProcedureTemplate : Template
 				{
 					this.Write("(" + column.DataType.NumericPrecision.ToString() + "," + column.DataType.NumericScale.ToString() + ")");
 				}
+				else if (column.DataType.Name == "varbinary")
+				{
+					this.Write("(MAX)");
+				}
 				isFirst = false;
 			}
 			columnString = String.Format("{0}{1}, ", columnString, column.Name);
