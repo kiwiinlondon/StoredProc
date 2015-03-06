@@ -12,7 +12,7 @@ create table DBO.PADealing_hst(
 	IsAutomaticRejection bit not null,
 	RejectionReasonID int,
 	ActualQuantity numeric(27,8),
-	IsContractRecieved bit not null,
+	IsContractReceived bit not null,
 	IsComplianceApproved bit,
 	ComplianceUserID int,
 	ComplianceNotes varchar(150),
