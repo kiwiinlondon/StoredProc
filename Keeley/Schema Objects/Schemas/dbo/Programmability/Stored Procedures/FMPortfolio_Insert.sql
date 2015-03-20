@@ -17,12 +17,12 @@ CREATE PROCEDURE DBO.[FMPortfolio_Insert]
 		@BookId int, 
 		@Currency varchar(3), 
 		@MaturityDate datetime, 
-		@NetPosition decimal, 
-		@Price decimal, 
-		@FXRate decimal, 
-		@MarketValue decimal, 
-		@DeltaMarketValue decimal, 
-		@TotalAccrual decimal, 
+		@NetPosition numeric(27,8), 
+		@Price numeric(27,8), 
+		@FXRate numeric(27,8), 
+		@MarketValue numeric(27,8), 
+		@DeltaMarketValue numeric(27,8), 
+		@TotalAccrual numeric(27,8), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
