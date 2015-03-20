@@ -295,6 +295,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Update.sql
@@ -575,6 +578,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollected_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollectedGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FMPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2014_hst.sql
