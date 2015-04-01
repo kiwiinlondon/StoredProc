@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[ApplicationUser_Insert]
 		@Email varchar(100), 
 		@WindowsLogin varchar(100), 
 		@UpdateUserID int, 
-		@Initials varchar(10)
+		@Initials varchar(10), 
+		@IsActive bit
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ApplicationUser
-			(FMPersID, Name, Email, WindowsLogin, UpdateUserID, Initials, StartDt)
+			(FMPersID, Name, Email, WindowsLogin, UpdateUserID, Initials, IsActive, StartDt)
 	VALUES
-			(@FMPersID, @Name, @Email, @WindowsLogin, @UpdateUserID, @Initials, @StartDt)
+			(@FMPersID, @Name, @Email, @WindowsLogin, @UpdateUserID, @Initials, @IsActive, @StartDt)
 
 	SELECT	UserID, StartDt, DataVersion
 	FROM	ApplicationUser

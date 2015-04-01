@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ApplicationUser_hst(
 	UserID int not null,
@@ -10,5 +10,6 @@ create table DBO.ApplicationUser_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	Initials varchar(10),
+	IsActive bit not null,
 	EndDt datetime,
 	LastActionUserID int)

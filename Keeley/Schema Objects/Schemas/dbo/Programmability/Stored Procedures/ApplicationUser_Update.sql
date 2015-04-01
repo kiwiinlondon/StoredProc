@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[ApplicationUser_Update]
 		@WindowsLogin varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@Initials varchar(10)
+		@Initials varchar(10), 
+		@IsActive bit
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ApplicationUser_hst (
-			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, EndDt, LastActionUserID)
-	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, @StartDt, @UpdateUserID
+			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, EndDt, LastActionUserID)
+	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, @StartDt, @UpdateUserID
 	FROM	ApplicationUser
 	WHERE	UserID = @UserID
 
 	UPDATE	ApplicationUser
-	SET		FMPersID = @FMPersID, Name = @Name, Email = @Email, WindowsLogin = @WindowsLogin, UpdateUserID = @UpdateUserID, Initials = @Initials,  StartDt = @StartDt
+	SET		FMPersID = @FMPersID, Name = @Name, Email = @Email, WindowsLogin = @WindowsLogin, UpdateUserID = @UpdateUserID, Initials = @Initials, IsActive = @IsActive,  StartDt = @StartDt
 	WHERE	UserID = @UserID
 	AND		DataVersion = @DataVersion
 

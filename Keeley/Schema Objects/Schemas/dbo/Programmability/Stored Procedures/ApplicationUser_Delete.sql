@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ApplicationUser_hst (
-			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, EndDt, LastActionUserID)
-	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, @EndDt, @UpdateUserID
+			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, EndDt, LastActionUserID)
+	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, @EndDt, @UpdateUserID
 	FROM	ApplicationUser
 	WHERE	UserID = @UserID
 
