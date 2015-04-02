@@ -1762,10 +1762,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\PADealingAccount_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingReason_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\PADealingReason_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Update.sql" />
