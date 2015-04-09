@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PADealingBalance_hst (
-			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, EndDt, LastActionUserID)
-	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, @EndDt, @UpdateUserID
+			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, BookCost, RealisedPNL, EndDt, LastActionUserID)
+	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, BookCost, RealisedPNL, @EndDt, @UpdateUserID
 	FROM	PADealingBalance
 	WHERE	PADealingBalanceID = @PADealingBalanceID
 

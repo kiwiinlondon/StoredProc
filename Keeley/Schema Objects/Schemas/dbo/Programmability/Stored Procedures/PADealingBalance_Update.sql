@@ -21,7 +21,9 @@ CREATE PROCEDURE DBO.[PADealingBalance_Update]
 		@DataVersion rowversion, 
 		@LastPADealDate datetime, 
 		@CurrentPrice numeric(27,8), 
-		@CurrentPriceId int
+		@CurrentPriceId int, 
+		@BookCost numeric(27,8), 
+		@RealisedPNL numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealingBalance_hst (
-			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, EndDt, LastActionUserID)
-	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, @StartDt, @UpdateUserID
+			PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, BookCost, RealisedPNL, EndDt, LastActionUserID)
+	SELECT	PADealingBalanceID, UserID, InstrumentMarketID, UserAccountID, Quantity, StartDt, UpdateUserID, DataVersion, LastPADealDate, CurrentPrice, CurrentPriceId, BookCost, RealisedPNL, @StartDt, @UpdateUserID
 	FROM	PADealingBalance
 	WHERE	PADealingBalanceID = @PADealingBalanceID
 
 	UPDATE	PADealingBalance
-	SET		UserID = @UserID, InstrumentMarketID = @InstrumentMarketID, UserAccountID = @UserAccountID, Quantity = @Quantity, UpdateUserID = @UpdateUserID, LastPADealDate = @LastPADealDate, CurrentPrice = @CurrentPrice, CurrentPriceId = @CurrentPriceId,  StartDt = @StartDt
+	SET		UserID = @UserID, InstrumentMarketID = @InstrumentMarketID, UserAccountID = @UserAccountID, Quantity = @Quantity, UpdateUserID = @UpdateUserID, LastPADealDate = @LastPADealDate, CurrentPrice = @CurrentPrice, CurrentPriceId = @CurrentPriceId, BookCost = @BookCost, RealisedPNL = @RealisedPNL,  StartDt = @StartDt
 	WHERE	PADealingBalanceID = @PADealingBalanceID
 	AND		DataVersion = @DataVersion
 

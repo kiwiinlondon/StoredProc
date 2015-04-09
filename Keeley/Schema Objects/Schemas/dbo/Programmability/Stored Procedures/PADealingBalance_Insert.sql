@@ -19,7 +19,9 @@ CREATE PROCEDURE DBO.[PADealingBalance_Insert]
 		@UpdateUserID int, 
 		@LastPADealDate datetime, 
 		@CurrentPrice numeric(27,8), 
-		@CurrentPriceId int
+		@CurrentPriceId int, 
+		@BookCost numeric(27,8), 
+		@RealisedPNL numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PADealingBalance
-			(UserID, InstrumentMarketID, UserAccountID, Quantity, UpdateUserID, LastPADealDate, CurrentPrice, CurrentPriceId, StartDt)
+			(UserID, InstrumentMarketID, UserAccountID, Quantity, UpdateUserID, LastPADealDate, CurrentPrice, CurrentPriceId, BookCost, RealisedPNL, StartDt)
 	VALUES
-			(@UserID, @InstrumentMarketID, @UserAccountID, @Quantity, @UpdateUserID, @LastPADealDate, @CurrentPrice, @CurrentPriceId, @StartDt)
+			(@UserID, @InstrumentMarketID, @UserAccountID, @Quantity, @UpdateUserID, @LastPADealDate, @CurrentPrice, @CurrentPriceId, @BookCost, @RealisedPNL, @StartDt)
 
 	SELECT	PADealingBalanceID, StartDt, DataVersion
 	FROM	PADealingBalance

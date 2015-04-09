@@ -12,5 +12,7 @@ create table DBO.PADealingBalance_hst(
 	LastPADealDate datetime not null,
 	CurrentPrice numeric(27,8) not null,
 	CurrentPriceId int not null,
+	BookCost numeric(27,8) not null,
+	RealisedPNL numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)
