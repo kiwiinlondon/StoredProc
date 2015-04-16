@@ -32,5 +32,6 @@ create table DBO.PADealing_hst(
 	ContractNoteFileName varchar(150),
 	ActualValue numeric(27,8),
 	InputUserId int not null,
+	Cost numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

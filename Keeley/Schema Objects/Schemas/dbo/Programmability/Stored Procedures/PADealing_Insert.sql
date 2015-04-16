@@ -39,7 +39,8 @@ CREATE PROCEDURE DBO.[PADealing_Insert]
 		@IsCancelled bit, 
 		@ContractNoteFileName varchar(150), 
 		@ActualValue numeric(27,8), 
-		@InputUserId int
+		@InputUserId int, 
+		@Cost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -47,9 +48,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PADealing
-			(RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractReceived, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, UpdateUserID, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, IsCancelled, ContractNoteFileName, ActualValue, InputUserId, StartDt)
+			(RequestUserID, InstrumentMarketID, PADealingAccountID, RequestQuantity, RequestValue, RequestNotes, RequestTimeStamp, IsAutomaticRejection, RejectionReasonID, ActualQuantity, IsContractReceived, IsComplianceApproved, ComplianceUserID, ComplianceNotes, ComplianceTimeStamp, IsTraderApproved, TraderUserID, TraderNotes, TraderTimeStamp, UpdateUserID, IsExistingHolding, IsPending, ContractNoteFile, ContractNoteTimeStamp, IsCancelled, ContractNoteFileName, ActualValue, InputUserId, Cost, StartDt)
 	VALUES
-			(@RequestUserID, @InstrumentMarketID, @PADealingAccountID, @RequestQuantity, @RequestValue, @RequestNotes, @RequestTimeStamp, @IsAutomaticRejection, @RejectionReasonID, @ActualQuantity, @IsContractReceived, @IsComplianceApproved, @ComplianceUserID, @ComplianceNotes, @ComplianceTimeStamp, @IsTraderApproved, @TraderUserID, @TraderNotes, @TraderTimeStamp, @UpdateUserID, @IsExistingHolding, @IsPending, @ContractNoteFile, @ContractNoteTimeStamp, @IsCancelled, @ContractNoteFileName, @ActualValue, @InputUserId, @StartDt)
+			(@RequestUserID, @InstrumentMarketID, @PADealingAccountID, @RequestQuantity, @RequestValue, @RequestNotes, @RequestTimeStamp, @IsAutomaticRejection, @RejectionReasonID, @ActualQuantity, @IsContractReceived, @IsComplianceApproved, @ComplianceUserID, @ComplianceNotes, @ComplianceTimeStamp, @IsTraderApproved, @TraderUserID, @TraderNotes, @TraderTimeStamp, @UpdateUserID, @IsExistingHolding, @IsPending, @ContractNoteFile, @ContractNoteTimeStamp, @IsCancelled, @ContractNoteFileName, @ActualValue, @InputUserId, @Cost, @StartDt)
 
 	SELECT	PADealingID, StartDt, DataVersion
 	FROM	PADealing
