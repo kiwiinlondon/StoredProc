@@ -31,6 +31,6 @@ create table DBO.Fund_hst(
 	AdministratorId int not null,
 	AdministratorIdentifier varchar(100),
 	IsVoting bit not null,
-	ClientLoadDate datetime,
+	ClientLoadDate datetime not null,
 	EndDt datetime,
 	LastActionUserID int)
