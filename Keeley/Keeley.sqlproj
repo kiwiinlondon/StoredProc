@@ -1786,6 +1786,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\AnalystIdea_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

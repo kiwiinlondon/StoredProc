@@ -502,6 +502,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Account_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Administrator_hst.sql
@@ -647,6 +650,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql
 </LastOutputs>
     </None>
     <None Include="DeleteProcedureTemplate.tt">
