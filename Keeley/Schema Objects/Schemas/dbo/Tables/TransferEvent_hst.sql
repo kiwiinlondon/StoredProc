@@ -14,5 +14,7 @@ create table DBO.TransferEvent_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	Notes varchar(150),
+	ApprovedByUserId int,
 	EndDt datetime,
 	LastActionUserID int)

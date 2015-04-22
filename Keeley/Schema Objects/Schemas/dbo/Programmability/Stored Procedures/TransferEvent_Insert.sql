@@ -22,7 +22,9 @@ CREATE PROCEDURE DBO.[TransferEvent_Insert]
 		@TradeDate datetime, 
 		@SettlementDate datetime, 
 		@InputDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@Notes varchar(150), 
+		@ApprovedByUserId int
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into TransferEvent
-			(EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, UpdateUserID, StartDt)
+			(EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, UpdateUserID, Notes, ApprovedByUserId, StartDt)
 	VALUES
-			(@EventID, @FromAccountId, @ToAccountId, @Quantity, @InstrumentMarketID, @AmendmentNumber, @IsCancelled, @TradeDate, @SettlementDate, @InputDate, @UpdateUserID, @StartDt)
+			(@EventID, @FromAccountId, @ToAccountId, @Quantity, @InstrumentMarketID, @AmendmentNumber, @IsCancelled, @TradeDate, @SettlementDate, @InputDate, @UpdateUserID, @Notes, @ApprovedByUserId, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	TransferEvent
