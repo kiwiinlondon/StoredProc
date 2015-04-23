@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Event_hst(
 	EventID int not null,
@@ -7,7 +7,7 @@ create table DBO.Event_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	IdentifierTypeId int not null,
-	Identifier varchar(100) not null,
+	Identifier varchar(128) not null,
 	IsTopLevel bit not null,
 	EndDt datetime,
 	LastActionUserID int)

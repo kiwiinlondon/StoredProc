@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,7 @@ CREATE PROCEDURE DBO.[Event_Insert]
 		@EventTypeID int, 
 		@UpdateUserID int, 
 		@IdentifierTypeId int, 
-		@Identifier varchar(100), 
+		@Identifier varchar(128), 
 		@IsTopLevel bit
 AS
 	SET NOCOUNT ON
