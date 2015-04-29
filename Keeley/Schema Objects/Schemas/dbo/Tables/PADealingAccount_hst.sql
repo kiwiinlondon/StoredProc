@@ -9,5 +9,6 @@ create table DBO.PADealingAccount_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	IsOdeyWealthAccount bit not null,
+	PADealingBrokerId int not null,
 	EndDt datetime,
 	LastActionUserID int)
