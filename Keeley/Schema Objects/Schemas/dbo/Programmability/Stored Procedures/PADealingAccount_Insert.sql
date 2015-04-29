@@ -16,7 +16,6 @@ CREATE PROCEDURE DBO.[PADealingAccount_Insert]
 		@Name varchar(100), 
 		@Number varchar(100), 
 		@UpdateUserID int, 
-		@IsOdeyWealthAccount bit, 
 		@PADealingBrokerId int
 AS
 	SET NOCOUNT ON
@@ -25,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PADealingAccount
-			(UserID, Name, Number, UpdateUserID, IsOdeyWealthAccount, PADealingBrokerId, StartDt)
+			(UserID, Name, Number, UpdateUserID, PADealingBrokerId, StartDt)
 	VALUES
-			(@UserID, @Name, @Number, @UpdateUserID, @IsOdeyWealthAccount, @PADealingBrokerId, @StartDt)
+			(@UserID, @Name, @Number, @UpdateUserID, @PADealingBrokerId, @StartDt)
 
 	SELECT	PADealingAccountID, StartDt, DataVersion
 	FROM	PADealingAccount

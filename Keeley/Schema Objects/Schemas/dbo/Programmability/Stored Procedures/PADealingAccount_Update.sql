@@ -18,7 +18,6 @@ CREATE PROCEDURE DBO.[PADealingAccount_Update]
 		@Number varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@IsOdeyWealthAccount bit, 
 		@PADealingBrokerId int
 AS
 	SET NOCOUNT ON
@@ -27,13 +26,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PADealingAccount_hst (
-			PADealingAccountID, UserID, Name, Number, StartDt, UpdateUserID, DataVersion, IsOdeyWealthAccount, PADealingBrokerId, EndDt, LastActionUserID)
-	SELECT	PADealingAccountID, UserID, Name, Number, StartDt, UpdateUserID, DataVersion, IsOdeyWealthAccount, PADealingBrokerId, @StartDt, @UpdateUserID
+			PADealingAccountID, UserID, Name, Number, StartDt, UpdateUserID, DataVersion, PADealingBrokerId, EndDt, LastActionUserID)
+	SELECT	PADealingAccountID, UserID, Name, Number, StartDt, UpdateUserID, DataVersion, PADealingBrokerId, @StartDt, @UpdateUserID
 	FROM	PADealingAccount
 	WHERE	PADealingAccountID = @PADealingAccountID
 
 	UPDATE	PADealingAccount
-	SET		UserID = @UserID, Name = @Name, Number = @Number, UpdateUserID = @UpdateUserID, IsOdeyWealthAccount = @IsOdeyWealthAccount, PADealingBrokerId = @PADealingBrokerId,  StartDt = @StartDt
+	SET		UserID = @UserID, Name = @Name, Number = @Number, UpdateUserID = @UpdateUserID, PADealingBrokerId = @PADealingBrokerId,  StartDt = @StartDt
 	WHERE	PADealingAccountID = @PADealingAccountID
 	AND		DataVersion = @DataVersion
 
