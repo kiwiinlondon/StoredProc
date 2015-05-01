@@ -421,6 +421,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Update.sql
@@ -626,6 +629,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ListingStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ManagerPriceTarget_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Market_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql
