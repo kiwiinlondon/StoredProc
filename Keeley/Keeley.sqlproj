@@ -1798,6 +1798,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ManagerPriceTarget_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ManagerPriceTargetIssuer_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
