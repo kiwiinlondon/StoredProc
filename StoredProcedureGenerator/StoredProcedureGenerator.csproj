@@ -73,6 +73,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Update.sql
@@ -516,6 +519,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Account_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Administrator_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalystIdea_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Analytic_hst.sql

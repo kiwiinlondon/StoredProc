@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Account_hst (
-			AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, EndDt, LastActionUserID)
-	SELECT	AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, @EndDt, @UpdateUserID
+			AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, AccountTypeId, EndDt, LastActionUserID)
+	SELECT	AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, AccountTypeId, @EndDt, @UpdateUserID
 	FROM	Account
 	WHERE	AccountID = @AccountID
 

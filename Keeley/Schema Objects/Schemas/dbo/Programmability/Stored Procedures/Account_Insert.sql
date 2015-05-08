@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Account_Insert]
 		@ExternalId varchar(30), 
 		@CustodianId int, 
 		@UpdateUserID int, 
-		@FundId int
+		@FundId int, 
+		@AccountTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Account
-			(Name, ExternalId, CustodianId, UpdateUserID, FundId, StartDt)
+			(Name, ExternalId, CustodianId, UpdateUserID, FundId, AccountTypeId, StartDt)
 	VALUES
-			(@Name, @ExternalId, @CustodianId, @UpdateUserID, @FundId, @StartDt)
+			(@Name, @ExternalId, @CustodianId, @UpdateUserID, @FundId, @AccountTypeId, @StartDt)
 
 	SELECT	AccountID, StartDt, DataVersion
 	FROM	Account

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Account_Update]
 		@CustodianId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@FundId int
+		@FundId int, 
+		@AccountTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Account_hst (
-			AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, EndDt, LastActionUserID)
-	SELECT	AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, @StartDt, @UpdateUserID
+			AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, AccountTypeId, EndDt, LastActionUserID)
+	SELECT	AccountID, Name, ExternalId, CustodianId, StartDt, UpdateUserID, DataVersion, FundId, AccountTypeId, @StartDt, @UpdateUserID
 	FROM	Account
 	WHERE	AccountID = @AccountID
 
 	UPDATE	Account
-	SET		Name = @Name, ExternalId = @ExternalId, CustodianId = @CustodianId, UpdateUserID = @UpdateUserID, FundId = @FundId,  StartDt = @StartDt
+	SET		Name = @Name, ExternalId = @ExternalId, CustodianId = @CustodianId, UpdateUserID = @UpdateUserID, FundId = @FundId, AccountTypeId = @AccountTypeId,  StartDt = @StartDt
 	WHERE	AccountID = @AccountID
 	AND		DataVersion = @DataVersion
 

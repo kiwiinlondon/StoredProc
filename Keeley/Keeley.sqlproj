@@ -1802,6 +1802,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ManagerPriceTargetIssuer_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AccountType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
