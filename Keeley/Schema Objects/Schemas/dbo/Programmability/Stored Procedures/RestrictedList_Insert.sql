@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,9 +16,9 @@ CREATE PROCEDURE DBO.[RestrictedList_Insert]
 		@EffvFromDt datetime, 
 		@EffvToDt datetime, 
 		@UpdateUserID int, 
-		@OpeningComment varchar(500), 
-		@ClosingComment varchar(500), 
-		@RestrictedPerson varchar(200)
+		@OpeningComment varchar(4000), 
+		@ClosingComment varchar(4000), 
+		@RestrictedPerson varchar(4000)
 AS
 	SET NOCOUNT ON
 
