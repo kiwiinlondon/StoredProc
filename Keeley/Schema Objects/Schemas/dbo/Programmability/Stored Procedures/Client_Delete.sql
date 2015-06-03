@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Client_hst (
-			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, EndDt, LastActionUserID)
-	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, @EndDt, @UpdateUserID
+			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, CountryId, EndDt, LastActionUserID)
+	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, CountryId, @EndDt, @UpdateUserID
 	FROM	Client
 	WHERE	ClientId = @ClientId
 

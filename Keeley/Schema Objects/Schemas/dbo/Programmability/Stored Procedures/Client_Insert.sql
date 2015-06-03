@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Client_Insert]
 		@Name varchar(150), 
 		@UpdateUserID int, 
 		@Unconfirmed bit, 
-		@SalesPersonId int
+		@SalesPersonId int, 
+		@CountryId int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Client
-			(ExternalReference, ClientSubTypeId, Name, UpdateUserID, Unconfirmed, SalesPersonId, StartDt)
+			(ExternalReference, ClientSubTypeId, Name, UpdateUserID, Unconfirmed, SalesPersonId, CountryId, StartDt)
 	VALUES
-			(@ExternalReference, @ClientSubTypeId, @Name, @UpdateUserID, @Unconfirmed, @SalesPersonId, @StartDt)
+			(@ExternalReference, @ClientSubTypeId, @Name, @UpdateUserID, @Unconfirmed, @SalesPersonId, @CountryId, @StartDt)
 
 	SELECT	ClientId, StartDt, DataVersion
 	FROM	Client

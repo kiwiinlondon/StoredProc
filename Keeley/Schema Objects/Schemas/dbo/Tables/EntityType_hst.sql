@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.EntityType_hst(
 	EntityTypeID int not null,
@@ -6,5 +6,6 @@ create table DBO.EntityType_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	FullyQualifiedName varchar(500) not null,
 	EndDt datetime,
 	LastActionUserID int)

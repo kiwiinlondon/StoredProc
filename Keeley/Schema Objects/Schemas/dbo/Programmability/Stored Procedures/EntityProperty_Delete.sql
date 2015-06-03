@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO EntityProperty_hst (
-			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, EndDt, LastActionUserID)
-	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, @EndDt, @UpdateUserID
+			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, EndDt, LastActionUserID)
+	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, @EndDt, @UpdateUserID
 	FROM	EntityProperty
 	WHERE	EntityPropertyID = @EntityPropertyID
 

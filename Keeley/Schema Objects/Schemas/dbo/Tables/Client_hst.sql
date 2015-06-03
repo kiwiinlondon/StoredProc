@@ -10,5 +10,6 @@ create table DBO.Client_hst(
 	DataVersion binary(8) not null,
 	Unconfirmed bit not null,
 	SalesPersonId int,
+	CountryId int not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO EntityType_hst (
-			EntityTypeID, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityTypeID, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			EntityTypeID, Name, StartDt, UpdateUserID, DataVersion, FullyQualifiedName, EndDt, LastActionUserID)
+	SELECT	EntityTypeID, Name, StartDt, UpdateUserID, DataVersion, FullyQualifiedName, @EndDt, @UpdateUserID
 	FROM	EntityType
 	WHERE	EntityTypeID = @EntityTypeID
 

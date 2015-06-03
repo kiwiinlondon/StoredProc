@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[Client_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@Unconfirmed bit, 
-		@SalesPersonId int
+		@SalesPersonId int, 
+		@CountryId int
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Client_hst (
-			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, EndDt, LastActionUserID)
-	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, @StartDt, @UpdateUserID
+			ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, CountryId, EndDt, LastActionUserID)
+	SELECT	ClientId, ExternalReference, ClientSubTypeId, Name, StartDt, UpdateUserID, DataVersion, Unconfirmed, SalesPersonId, CountryId, @StartDt, @UpdateUserID
 	FROM	Client
 	WHERE	ClientId = @ClientId
 
 	UPDATE	Client
-	SET		ExternalReference = @ExternalReference, ClientSubTypeId = @ClientSubTypeId, Name = @Name, UpdateUserID = @UpdateUserID, Unconfirmed = @Unconfirmed, SalesPersonId = @SalesPersonId,  StartDt = @StartDt
+	SET		ExternalReference = @ExternalReference, ClientSubTypeId = @ClientSubTypeId, Name = @Name, UpdateUserID = @UpdateUserID, Unconfirmed = @Unconfirmed, SalesPersonId = @SalesPersonId, CountryId = @CountryId,  StartDt = @StartDt
 	WHERE	ClientId = @ClientId
 	AND		DataVersion = @DataVersion
 

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[EntityProperty_Update]
 		@DataVersion rowversion, 
 		@PropertyOnChildEntity bit, 
 		@TypeCode int, 
-		@IdentifierTypeId int
+		@IdentifierTypeId int, 
+		@IsPrimaryKey bit
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO EntityProperty_hst (
-			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, EndDt, LastActionUserID)
-	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, @StartDt, @UpdateUserID
+			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, EndDt, LastActionUserID)
+	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, @StartDt, @UpdateUserID
 	FROM	EntityProperty
 	WHERE	EntityPropertyID = @EntityPropertyID
 
 	UPDATE	EntityProperty
-	SET		EntityTypeId = @EntityTypeId, NeedsToBeCalculated = @NeedsToBeCalculated, Name = @Name, UpdateUserID = @UpdateUserID, PropertyOnChildEntity = @PropertyOnChildEntity, TypeCode = @TypeCode, IdentifierTypeId = @IdentifierTypeId,  StartDt = @StartDt
+	SET		EntityTypeId = @EntityTypeId, NeedsToBeCalculated = @NeedsToBeCalculated, Name = @Name, UpdateUserID = @UpdateUserID, PropertyOnChildEntity = @PropertyOnChildEntity, TypeCode = @TypeCode, IdentifierTypeId = @IdentifierTypeId, IsPrimaryKey = @IsPrimaryKey,  StartDt = @StartDt
 	WHERE	EntityPropertyID = @EntityPropertyID
 	AND		DataVersion = @DataVersion
 

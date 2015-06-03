@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[EntityProperty_Insert]
 		@UpdateUserID int, 
 		@PropertyOnChildEntity bit, 
 		@TypeCode int, 
-		@IdentifierTypeId int
+		@IdentifierTypeId int, 
+		@IsPrimaryKey bit
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityProperty
-			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, IdentifierTypeId, StartDt)
+			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, StartDt)
 	VALUES
-			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @IdentifierTypeId, @StartDt)
+			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @IdentifierTypeId, @IsPrimaryKey, @StartDt)
 
 	SELECT	EntityPropertyID, StartDt, DataVersion
 	FROM	EntityProperty

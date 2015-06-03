@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[EntityType_Insert]
 		@Name varchar(100), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FullyQualifiedName varchar(500)
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityType
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, FullyQualifiedName, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @FullyQualifiedName, @StartDt)
 
 	SELECT	EntityTypeID, StartDt, DataVersion
 	FROM	EntityType

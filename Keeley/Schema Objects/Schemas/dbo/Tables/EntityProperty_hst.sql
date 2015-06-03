@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.EntityProperty_hst(
 	EntityPropertyID int not null,
@@ -11,5 +11,6 @@ create table DBO.EntityProperty_hst(
 	PropertyOnChildEntity bit not null,
 	TypeCode int not null,
 	IdentifierTypeId int,
+	IsPrimaryKey bit not null,
 	EndDt datetime,
 	LastActionUserID int)
