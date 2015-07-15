@@ -151,6 +151,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql
@@ -545,6 +548,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTradeType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClosedPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Counterparty_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Country_hst.sql

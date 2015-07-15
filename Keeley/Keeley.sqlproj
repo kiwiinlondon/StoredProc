@@ -1810,6 +1810,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ClosedPosition_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

@@ -52,5 +52,11 @@ create table DBO.PortfolioEvent_hst(
 	TodayCapitalChange numeric(27,8),
 	FXRateId int,
 	UseFXRateForDay bit not null,
+	ValuationDeltaNetCostBookCurrency numeric(27,8),
+	ValuationTodayDeltaNetCostChangeBookCurrency numeric(27,8),
+	ValuationTodayDeltaNetCostChangeInstrumentCurrency numeric(27,8),
+	ValuationTodayRealisedFxPnl numeric(27,8),
+	ValuationTodayRealisedPricePnl numeric(27,8),
+	ValuationTodayRealisedPricePnlBookCurrency numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
