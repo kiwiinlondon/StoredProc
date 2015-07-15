@@ -62,12 +62,12 @@ CREATE PROCEDURE DBO.[PortfolioEvent_Update]
 		@TodayCapitalChange numeric(27,8), 
 		@FXRateId int, 
 		@UseFXRateForDay bit, 
-		@ValuationDeltaNetCostBookCurrency numeric(27,8) = null, 
-		@ValuationTodayDeltaNetCostChangeBookCurrency numeric(27,8) = null, 
-		@ValuationTodayDeltaNetCostChangeInstrumentCurrency numeric(27,8) = null, 
-		@ValuationTodayRealisedFxPnl numeric(27,8) = null, 
-		@ValuationTodayRealisedPricePnl numeric(27,8) = null, 
-		@ValuationTodayRealisedPricePnlBookCurrency numeric(27,8) = null
+		@ValuationDeltaNetCostBookCurrency numeric(27,8), 
+		@ValuationTodayDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@ValuationTodayDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@ValuationTodayRealisedFxPnl numeric(27,8), 
+		@ValuationTodayRealisedPricePnl numeric(27,8), 
+		@ValuationTodayRealisedPricePnlBookCurrency numeric(27,8)
 AS
 	SET NOCOUNT ON
 
