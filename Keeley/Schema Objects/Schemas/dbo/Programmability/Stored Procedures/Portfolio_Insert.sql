@@ -69,18 +69,18 @@ CREATE PROCEDURE DBO.[Portfolio_Insert]
 		@IndexRatio numeric(27,8), 
 		@IndexRatioID int, 
 		@DisclosedNetPosition numeric(27,8), 
-		@ValuationDeltaNetCostBookCurrency numeric(27,8) =null, 
-		@ValuationTodayDeltaNetCostChangeBookCurrency numeric(27,8) =null, 
-		@ValuationTodayDeltaNetCostChangeInstrumentCurrency numeric(27,8) =null, 
-		@ValuationTodayRealisedFxPnl numeric(27,8) =null, 
-		@ValuationTodayRealisedPricePnl numeric(27,8) =null, 
-		@ValuationTomorrowDeltaNetCostChangeBookCurrency numeric(27,8) =null, 
-		@ValuationTomorrowDeltaNetCostChangeInstrumentCurrency numeric(27,8) =null, 
-		@ValuationTomorrowRealisedFxPnl numeric(27,8) =null, 
-		@ValuationTomorrowRealisedPricePnl numeric(27,8) =null, 
-		@ValuationDeltaMarketValue numeric(27,8) =null, 
-		@ValuationTodayUnrealisedFxPnl numeric(27,8) =null, 
-		@ValuationTodayUnrealisedPricePnl numeric(27,8) =null
+		@ValuationDeltaNetCostBookCurrency numeric(27,8), 
+		@ValuationTodayDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@ValuationTodayDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@ValuationTodayRealisedFxPnl numeric(27,8), 
+		@ValuationTodayRealisedPricePnl numeric(27,8), 
+		@ValuationTomorrowDeltaNetCostChangeBookCurrency numeric(27,8), 
+		@ValuationTomorrowDeltaNetCostChangeInstrumentCurrency numeric(27,8), 
+		@ValuationTomorrowRealisedFxPnl numeric(27,8), 
+		@ValuationTomorrowRealisedPricePnl numeric(27,8), 
+		@ValuationDeltaMarketValue numeric(27,8), 
+		@ValuationTodayUnrealisedFxPnl numeric(27,8), 
+		@ValuationTodayUnrealisedPricePnl numeric(27,8)
 AS
 	SET NOCOUNT ON
 

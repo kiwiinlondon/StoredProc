@@ -319,6 +319,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Update.sql
@@ -508,6 +511,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Update.sql
@@ -604,6 +613,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2014_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Fund_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundCountryHoliday_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroup_hst.sql
@@ -667,6 +677,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Region_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql
