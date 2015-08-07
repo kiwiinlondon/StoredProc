@@ -35,5 +35,6 @@ create table DBO.TradeEvent_hst(
 	ContraEventId int,
 	OriginalInputDate datetime not null,
 	IndexRatio numeric(27,8),
+	TradeDateAsDate date,
 	EndDt datetime,
 	LastActionUserID int)
