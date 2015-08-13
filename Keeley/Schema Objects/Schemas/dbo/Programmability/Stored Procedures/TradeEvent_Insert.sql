@@ -44,7 +44,7 @@ CREATE PROCEDURE DBO.[TradeEvent_Insert]
 		@ContraEventId int, 
 		@OriginalInputDate datetime, 
 		@IndexRatio numeric(27,8), 
-		@TradeDateAsDate date = null
+		@TradeDateAsDate date
 AS
 	SET NOCOUNT ON
 

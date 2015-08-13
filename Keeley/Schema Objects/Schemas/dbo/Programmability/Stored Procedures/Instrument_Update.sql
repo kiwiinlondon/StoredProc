@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -28,7 +28,8 @@ CREATE PROCEDURE DBO.[Instrument_Update]
 		@BloombergTicker varchar(25), 
 		@BloombergYellowKeyId int, 
 		@Is13F bit, 
-		@Cusip varchar(10)
+		@Cusip varchar(10), 
+		@ExposureCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -36,13 +37,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Instrument_hst (
-			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, Cusip, EndDt, LastActionUserID)
-	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, Cusip, @StartDt, @UpdateUserID
+			InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, Cusip, ExposureCurrencyId, EndDt, LastActionUserID)
+	SELECT	InstrumentID, IssuerID, InstrumentClassID, IssueCurrencyID, FMInstId, Name, LongName, Isin, StartDt, UpdateUserID, DataVersion, UnderlyingIssuerId, DerivedAssetClassId, BloombergGlobalId, BloombergTicker, BloombergYellowKeyId, Is13F, Cusip, ExposureCurrencyId, @StartDt, @UpdateUserID
 	FROM	Instrument
 	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Instrument
-	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID, UnderlyingIssuerId = @UnderlyingIssuerId, DerivedAssetClassId = @DerivedAssetClassId, BloombergGlobalId = @BloombergGlobalId, BloombergTicker = @BloombergTicker, BloombergYellowKeyId = @BloombergYellowKeyId, Is13F = @Is13F, Cusip = @Cusip,  StartDt = @StartDt
+	SET		IssuerID = @IssuerID, InstrumentClassID = @InstrumentClassID, IssueCurrencyID = @IssueCurrencyID, FMInstId = @FMInstId, Name = @Name, LongName = @LongName, Isin = @Isin, UpdateUserID = @UpdateUserID, UnderlyingIssuerId = @UnderlyingIssuerId, DerivedAssetClassId = @DerivedAssetClassId, BloombergGlobalId = @BloombergGlobalId, BloombergTicker = @BloombergTicker, BloombergYellowKeyId = @BloombergYellowKeyId, Is13F = @Is13F, Cusip = @Cusip, ExposureCurrencyId = @ExposureCurrencyId,  StartDt = @StartDt
 	WHERE	InstrumentID = @InstrumentID
 	AND		DataVersion = @DataVersion
 
