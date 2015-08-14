@@ -19,6 +19,5 @@ create table DBO.Instrument_hst(
 	BloombergYellowKeyId int,
 	Is13F bit not null,
 	Cusip varchar(10),
-	ExposureCurrencyId int,
 	EndDt datetime,
 	LastActionUserID int)
