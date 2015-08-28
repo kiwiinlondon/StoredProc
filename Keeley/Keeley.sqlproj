@@ -1826,6 +1826,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AdministratorPortfolio_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AdministratorOpeningNAV_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

@@ -1,0 +1,25 @@
+﻿USE Keeley
+
+create table DBO.AdministratorPortfolio_hst(
+	AdministratorPortfolioID int not null,
+	FundId int,
+	ReferenceDate datetime not null,
+	InstrumentMarketId int,
+	MaturityDate datetime,
+	InstrumentName varchar(100),
+	IsAccrual bit not null,
+	NetPosition numeric(27,8) not null,
+	MarketValue numeric(27,8) not null,
+	Price numeric(27,8) not null,
+	FXRate numeric(27,8) not null,
+	RealisedPricePNL numeric(27,8) not null,
+	RealisedFXPNL numeric(27,8) not null,
+	UnRealisedPricePNL numeric(27,8) not null,
+	UnRealisedFXPNL numeric(27,8) not null,
+	CarryPNL numeric(27,8) not null,
+	StartDt datetime not null,
+	UpdateUserID int not null,
+	DataVersion binary(8) not null,
+	ManagementPerformanceFee numeric(27,8),
+	EndDt datetime,
+	LastActionUserID int)
