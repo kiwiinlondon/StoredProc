@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO RestrictedList_hst (
-			RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, EndDt, LastActionUserID)
-	SELECT	RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, @EndDt, @UpdateUserID
+			RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, EndDt, LastActionUserID)
+	SELECT	RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, @EndDt, @UpdateUserID
 	FROM	RestrictedList
 	WHERE	RestrictedListId = @RestrictedListId
 

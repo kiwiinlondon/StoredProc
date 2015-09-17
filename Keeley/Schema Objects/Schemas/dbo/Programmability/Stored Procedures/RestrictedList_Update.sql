@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[RestrictedList_Update]
 		@DataVersion rowversion, 
 		@OpeningComment varchar(4000), 
 		@ClosingComment varchar(4000), 
-		@RestrictedPerson varchar(4000)
+		@RestrictedPerson varchar(4000), 
+		@WatchListOnly bit
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO RestrictedList_hst (
-			RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, EndDt, LastActionUserID)
-	SELECT	RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, @StartDt, @UpdateUserID
+			RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, EndDt, LastActionUserID)
+	SELECT	RestrictedListId, InstrumentId, EffvFromDt, EffvToDt, StartDt, UpdateUserID, DataVersion, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, @StartDt, @UpdateUserID
 	FROM	RestrictedList
 	WHERE	RestrictedListId = @RestrictedListId
 
 	UPDATE	RestrictedList
-	SET		InstrumentId = @InstrumentId, EffvFromDt = @EffvFromDt, EffvToDt = @EffvToDt, UpdateUserID = @UpdateUserID, OpeningComment = @OpeningComment, ClosingComment = @ClosingComment, RestrictedPerson = @RestrictedPerson,  StartDt = @StartDt
+	SET		InstrumentId = @InstrumentId, EffvFromDt = @EffvFromDt, EffvToDt = @EffvToDt, UpdateUserID = @UpdateUserID, OpeningComment = @OpeningComment, ClosingComment = @ClosingComment, RestrictedPerson = @RestrictedPerson, WatchListOnly = @WatchListOnly,  StartDt = @StartDt
 	WHERE	RestrictedListId = @RestrictedListId
 	AND		DataVersion = @DataVersion
 

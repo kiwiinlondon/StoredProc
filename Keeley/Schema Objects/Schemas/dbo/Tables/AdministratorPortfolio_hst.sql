@@ -2,10 +2,9 @@
 
 create table DBO.AdministratorPortfolio_hst(
 	AdministratorPortfolioID int not null,
-	FundId int,
+	FundId int not null,
 	ReferenceDate datetime not null,
 	InstrumentMarketId int,
-	MaturityDate datetime,
 	InstrumentName varchar(100),
 	IsAccrual bit not null,
 	NetPosition numeric(27,8) not null,
@@ -20,6 +19,8 @@ create table DBO.AdministratorPortfolio_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	ManagementPerformanceFee numeric(27,8),
+	ManagementPerformanceFee numeric(27,8) not null,
+	CurrencyId int not null,
+	Cost numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -15,7 +15,6 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Insert]
 		@FundId int, 
 		@ReferenceDate datetime, 
 		@InstrumentMarketId int, 
-		@MaturityDate datetime, 
 		@InstrumentName varchar(100), 
 		@IsAccrual bit, 
 		@NetPosition numeric(27,8), 
@@ -28,7 +27,9 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Insert]
 		@UnRealisedFXPNL numeric(27,8), 
 		@CarryPNL numeric(27,8), 
 		@UpdateUserID int, 
-		@ManagementPerformanceFee numeric(27,8)=null
+		@ManagementPerformanceFee numeric(27,8), 
+		@CurrencyId int, 
+		@Cost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -36,9 +37,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AdministratorPortfolio
-			(FundId, ReferenceDate, InstrumentMarketId, MaturityDate, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, StartDt)
+			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @InstrumentMarketId, @MaturityDate, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @StartDt)
+			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @StartDt)
 
 	SELECT	AdministratorPortfolioID, StartDt, DataVersion
 	FROM	AdministratorPortfolio
