@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -13,10 +13,10 @@ GO
 
 CREATE PROCEDURE DBO.[FundCountryHoliday_Update]
 		@FundCountryHoldayId int, 
-		@FundId int, 
 		@CountryId int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@AdministratorId int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundCountryHoliday_hst (
-			FundCountryHoldayId, FundId, CountryId, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundCountryHoldayId, FundId, CountryId, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FundCountryHoldayId, CountryId, StartDt, UpdateUserID, DataVersion, AdministratorId, EndDt, LastActionUserID)
+	SELECT	FundCountryHoldayId, CountryId, StartDt, UpdateUserID, DataVersion, AdministratorId, @StartDt, @UpdateUserID
 	FROM	FundCountryHoliday
 	WHERE	FundCountryHoldayId = @FundCountryHoldayId
 
 	UPDATE	FundCountryHoliday
-	SET		FundId = @FundId, CountryId = @CountryId, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		CountryId = @CountryId, UpdateUserID = @UpdateUserID, AdministratorId = @AdministratorId,  StartDt = @StartDt
 	WHERE	FundCountryHoldayId = @FundCountryHoldayId
 	AND		DataVersion = @DataVersion
 

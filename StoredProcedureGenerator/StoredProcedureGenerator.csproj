@@ -79,9 +79,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorOpeningNAV_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Update.sql
@@ -539,7 +536,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Administrator_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\AdministratorOpeningNAV_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AdministratorPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalystIdea_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Analytic_hst.sql

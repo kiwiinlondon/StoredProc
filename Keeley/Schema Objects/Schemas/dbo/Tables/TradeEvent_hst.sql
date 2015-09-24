@@ -36,5 +36,7 @@ create table DBO.TradeEvent_hst(
 	OriginalInputDate datetime not null,
 	IndexRatio numeric(27,8),
 	TradeDateAsDate date not null,
+	RealisedPnlBookCurrency numeric(27,8),
+	RealisedPnlInstrumentCurrency numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
