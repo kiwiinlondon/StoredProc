@@ -45,8 +45,8 @@ CREATE PROCEDURE DBO.[TradeEvent_Insert]
 		@OriginalInputDate datetime, 
 		@IndexRatio numeric(27,8), 
 		@TradeDateAsDate date, 
-		@RealisedPnlBookCurrency numeric(27,8) = null, 
-		@RealisedPnlInstrumentCurrency numeric(27,8)= null
+		@RealisedPnlBookCurrency numeric(27,8), 
+		@RealisedPnlInstrumentCurrency numeric(27,8)
 AS
 	SET NOCOUNT ON
 
