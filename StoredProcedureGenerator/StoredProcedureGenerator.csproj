@@ -160,6 +160,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Update.sql
@@ -563,6 +569,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClosedPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateAction_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateActionType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Counterparty_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Country_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CountryHoliday_hst.sql
