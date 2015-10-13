@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AnalystIdea_hst (
-			AnalystIdeaId, InstrumentMarketId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AnalystIdeaId, InstrumentMarketId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			AnalystIdeaId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, IssuerId, EndDt, LastActionUserID)
+	SELECT	AnalystIdeaId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, IssuerId, @EndDt, @UpdateUserID
 	FROM	AnalystIdea
 	WHERE	AnalystIdeaId = @AnalystIdeaId
 

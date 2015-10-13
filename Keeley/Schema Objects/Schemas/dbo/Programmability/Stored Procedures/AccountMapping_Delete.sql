@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AccountMapping_hst (
-			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, EndDt, LastActionUserID)
-	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, @EndDt, @UpdateUserID
+			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, EndDt, LastActionUserID)
+	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, @EndDt, @UpdateUserID
 	FROM	AccountMapping
 	WHERE	AccountMappingId = @AccountMappingId
 

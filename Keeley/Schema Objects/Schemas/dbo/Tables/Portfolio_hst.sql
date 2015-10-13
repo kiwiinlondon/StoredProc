@@ -73,5 +73,9 @@ create table DBO.Portfolio_hst(
 	ValuationDeltaMarketValue numeric(27,8),
 	ValuationTodayUnrealisedFxPnl numeric(27,8),
 	ValuationTodayUnrealisedPricePnl numeric(27,8),
+	ITDRealisedPricePnl numeric(27,8) not null,
+	ITDRealisedFXPnl numeric(27,8) not null,
+	OriginalDeltaNetCostBookCurrency numeric(27,8),
+	OriginalDeltaNetCostInstrumentCurrency numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

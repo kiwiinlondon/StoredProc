@@ -1830,6 +1830,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\AdministratorPortfolio_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Update.sql" />

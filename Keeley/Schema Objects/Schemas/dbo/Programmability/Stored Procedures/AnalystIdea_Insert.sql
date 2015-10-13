@@ -12,10 +12,10 @@ DROP PROCEDURE DBO.[AnalystIdea_Insert]
 GO
 
 CREATE PROCEDURE DBO.[AnalystIdea_Insert]
-		@InstrumentMarketId int, 
 		@AnalystId int, 
 		@ResearchNoteLastReceived datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@IssuerId int
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AnalystIdea
-			(InstrumentMarketId, AnalystId, ResearchNoteLastReceived, UpdateUserID, StartDt)
+			(AnalystId, ResearchNoteLastReceived, UpdateUserID, IssuerId, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @ResearchNoteLastReceived, @UpdateUserID, @StartDt)
+			(@AnalystId, @ResearchNoteLastReceived, @UpdateUserID, @IssuerId, @StartDt)
 
 	SELECT	AnalystIdeaId, StartDt, DataVersion
 	FROM	AnalystIdea

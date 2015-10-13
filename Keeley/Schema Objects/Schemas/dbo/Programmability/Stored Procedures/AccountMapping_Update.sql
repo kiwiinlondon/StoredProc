@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -21,7 +21,9 @@ CREATE PROCEDURE DBO.[AccountMapping_Update]
 		@AccountId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@ApplyToInstrumentOnly bit
+		@ApplyToInstrumentOnly bit, 
+		@CountryId int, 
+		@MarketId int
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AccountMapping_hst (
-			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, EndDt, LastActionUserID)
-	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, @StartDt, @UpdateUserID
+			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, EndDt, LastActionUserID)
+	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, @StartDt, @UpdateUserID
 	FROM	AccountMapping
 	WHERE	AccountMappingId = @AccountMappingId
 
 	UPDATE	AccountMapping
-	SET		Name = @Name, FundId = @FundId, CounterpartyId = @CounterpartyId, InstrumentClassId = @InstrumentClassId, AccountIdToMap = @AccountIdToMap, AccountId = @AccountId, UpdateUserID = @UpdateUserID, ApplyToInstrumentOnly = @ApplyToInstrumentOnly,  StartDt = @StartDt
+	SET		Name = @Name, FundId = @FundId, CounterpartyId = @CounterpartyId, InstrumentClassId = @InstrumentClassId, AccountIdToMap = @AccountIdToMap, AccountId = @AccountId, UpdateUserID = @UpdateUserID, ApplyToInstrumentOnly = @ApplyToInstrumentOnly, CountryId = @CountryId, MarketId = @MarketId,  StartDt = @StartDt
 	WHERE	AccountMappingId = @AccountMappingId
 	AND		DataVersion = @DataVersion
 

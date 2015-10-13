@@ -13,11 +13,11 @@ GO
 
 CREATE PROCEDURE DBO.[AnalystIdea_Update]
 		@AnalystIdeaId int, 
-		@InstrumentMarketId int, 
 		@AnalystId int, 
 		@ResearchNoteLastReceived datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IssuerId int
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AnalystIdea_hst (
-			AnalystIdeaId, InstrumentMarketId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AnalystIdeaId, InstrumentMarketId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			AnalystIdeaId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, IssuerId, EndDt, LastActionUserID)
+	SELECT	AnalystIdeaId, AnalystId, ResearchNoteLastReceived, StartDt, UpdateUserID, DataVersion, IssuerId, @StartDt, @UpdateUserID
 	FROM	AnalystIdea
 	WHERE	AnalystIdeaId = @AnalystIdeaId
 
 	UPDATE	AnalystIdea
-	SET		InstrumentMarketId = @InstrumentMarketId, AnalystId = @AnalystId, ResearchNoteLastReceived = @ResearchNoteLastReceived, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		AnalystId = @AnalystId, ResearchNoteLastReceived = @ResearchNoteLastReceived, UpdateUserID = @UpdateUserID, IssuerId = @IssuerId,  StartDt = @StartDt
 	WHERE	AnalystIdeaId = @AnalystIdeaId
 	AND		DataVersion = @DataVersion
 

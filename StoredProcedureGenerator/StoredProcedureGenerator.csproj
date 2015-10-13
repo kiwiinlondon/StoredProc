@@ -97,6 +97,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
@@ -548,6 +551,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql

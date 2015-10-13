@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,9 @@ CREATE PROCEDURE DBO.[AccountMapping_Insert]
 		@AccountIdToMap int, 
 		@AccountId int, 
 		@UpdateUserID int, 
-		@ApplyToInstrumentOnly bit
+		@ApplyToInstrumentOnly bit, 
+		@CountryId int, 
+		@MarketId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AccountMapping
-			(Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, ApplyToInstrumentOnly, StartDt)
+			(Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, ApplyToInstrumentOnly, CountryId, MarketId, StartDt)
 	VALUES
-			(@Name, @FundId, @CounterpartyId, @InstrumentClassId, @AccountIdToMap, @AccountId, @UpdateUserID, @ApplyToInstrumentOnly, @StartDt)
+			(@Name, @FundId, @CounterpartyId, @InstrumentClassId, @AccountIdToMap, @AccountId, @UpdateUserID, @ApplyToInstrumentOnly, @CountryId, @MarketId, @StartDt)
 
 	SELECT	AccountMappingId, StartDt, DataVersion
 	FROM	AccountMapping

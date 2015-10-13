@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.AccountMapping_hst(
 	AccountMappingId int not null,
@@ -11,5 +11,7 @@ create table DBO.AccountMapping_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	ApplyToInstrumentOnly bit not null,
+	CountryId int,
+	MarketId int,
 	EndDt datetime,
 	LastActionUserID int)
