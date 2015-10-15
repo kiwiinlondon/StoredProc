@@ -523,6 +523,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Update.sql
@@ -693,6 +699,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Region_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql

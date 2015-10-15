@@ -1842,6 +1842,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\CorporateActionType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RiskAnalytic_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
