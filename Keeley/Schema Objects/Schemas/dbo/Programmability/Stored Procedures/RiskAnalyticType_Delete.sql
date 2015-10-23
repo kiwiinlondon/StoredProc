@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO RiskAnalyticType_hst (
-			RiskAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	RiskAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			RiskAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FileColumnName, EndDt, LastActionUserID)
+	SELECT	RiskAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FileColumnName, @EndDt, @UpdateUserID
 	FROM	RiskAnalyticType
 	WHERE	RiskAnalyticTypeId = @RiskAnalyticTypeId
 

@@ -64,7 +64,15 @@ CREATE PROCEDURE DBO.[Attribution_Insert]
 		@TodayBookPrice numeric(27,8), 
 		@TodayBookFX numeric(27,8), 
 		@TodayBookCarry numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@PortfolioId int, 
+		@OpeningBookNav numeric(27,8), 
+		@OpeningFundNav numeric(27,8), 
+		@CapitalChangeBook numeric(27,8), 
+		@CapitalChangeFund numeric(27,8), 
+		@AdministratorOpeningNav numeric(27,8), 
+		@OpeningValuationNav numeric(27,8), 
+		@TotalContributionSinceLastValuation numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -72,9 +80,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Attribution
-			(PositionId, ReferenceDate, ITDFundAdministratorPrice, ITDFundAdministratorFX, ITDFundAdministratorCarry, ITDFundAdministratorOther, ITDFundKeeleyPrice, ITDFundKeeleyFX, ITDFundKeeleyCarry, ITDBookKeeleyPrice, ITDBookKeeleyFX, ITDBookKeeleyCarry, ITDFundValuationPrice, ITDFundValuationFX, ITDFundValuationCarry, ITDFundFactsetPrice, ITDFundFactsetFX, ITDFundFactsetCarry, ITDBookFactsetPrice, ITDBookFactsetFX, ITDBookFactsetCarry, ITDFundPrice, ITDFundFX, ITDFundCarry, ITDBookPrice, ITDBookFX, ITDBookCarry, TodayFundAdministratorPrice, TodayFundAdministratorFX, TodayFundAdministratorCarry, TodayFundAdministratorOther, TodayFundKeeleyPrice, TodayFundKeeleyFX, TodayFundKeeleyCarry, TodayBookKeeleyPrice, TodayBookKeeleyFX, TodayBookKeeleyCarry, TodayFundValuationPrice, TodayFundValuationFX, TodayFundValuationCarry, TodayFundFactsetPrice, TodayFundFactsetFX, TodayFundFactsetCarry, TodayBookFactsetPrice, TodayBookFactsetFX, TodayBookFactsetCarry, TodayFundPrice, TodayFundFX, TodayFundCarry, TodayBookPrice, TodayBookFX, TodayBookCarry, UpdateUserID, StartDt)
+			(PositionId, ReferenceDate, ITDFundAdministratorPrice, ITDFundAdministratorFX, ITDFundAdministratorCarry, ITDFundAdministratorOther, ITDFundKeeleyPrice, ITDFundKeeleyFX, ITDFundKeeleyCarry, ITDBookKeeleyPrice, ITDBookKeeleyFX, ITDBookKeeleyCarry, ITDFundValuationPrice, ITDFundValuationFX, ITDFundValuationCarry, ITDFundFactsetPrice, ITDFundFactsetFX, ITDFundFactsetCarry, ITDBookFactsetPrice, ITDBookFactsetFX, ITDBookFactsetCarry, ITDFundPrice, ITDFundFX, ITDFundCarry, ITDBookPrice, ITDBookFX, ITDBookCarry, TodayFundAdministratorPrice, TodayFundAdministratorFX, TodayFundAdministratorCarry, TodayFundAdministratorOther, TodayFundKeeleyPrice, TodayFundKeeleyFX, TodayFundKeeleyCarry, TodayBookKeeleyPrice, TodayBookKeeleyFX, TodayBookKeeleyCarry, TodayFundValuationPrice, TodayFundValuationFX, TodayFundValuationCarry, TodayFundFactsetPrice, TodayFundFactsetFX, TodayFundFactsetCarry, TodayBookFactsetPrice, TodayBookFactsetFX, TodayBookFactsetCarry, TodayFundPrice, TodayFundFX, TodayFundCarry, TodayBookPrice, TodayBookFX, TodayBookCarry, UpdateUserID, PortfolioId, OpeningBookNav, OpeningFundNav, CapitalChangeBook, CapitalChangeFund, AdministratorOpeningNav, OpeningValuationNav, TotalContributionSinceLastValuation, StartDt)
 	VALUES
-			(@PositionId, @ReferenceDate, @ITDFundAdministratorPrice, @ITDFundAdministratorFX, @ITDFundAdministratorCarry, @ITDFundAdministratorOther, @ITDFundKeeleyPrice, @ITDFundKeeleyFX, @ITDFundKeeleyCarry, @ITDBookKeeleyPrice, @ITDBookKeeleyFX, @ITDBookKeeleyCarry, @ITDFundValuationPrice, @ITDFundValuationFX, @ITDFundValuationCarry, @ITDFundFactsetPrice, @ITDFundFactsetFX, @ITDFundFactsetCarry, @ITDBookFactsetPrice, @ITDBookFactsetFX, @ITDBookFactsetCarry, @ITDFundPrice, @ITDFundFX, @ITDFundCarry, @ITDBookPrice, @ITDBookFX, @ITDBookCarry, @TodayFundAdministratorPrice, @TodayFundAdministratorFX, @TodayFundAdministratorCarry, @TodayFundAdministratorOther, @TodayFundKeeleyPrice, @TodayFundKeeleyFX, @TodayFundKeeleyCarry, @TodayBookKeeleyPrice, @TodayBookKeeleyFX, @TodayBookKeeleyCarry, @TodayFundValuationPrice, @TodayFundValuationFX, @TodayFundValuationCarry, @TodayFundFactsetPrice, @TodayFundFactsetFX, @TodayFundFactsetCarry, @TodayBookFactsetPrice, @TodayBookFactsetFX, @TodayBookFactsetCarry, @TodayFundPrice, @TodayFundFX, @TodayFundCarry, @TodayBookPrice, @TodayBookFX, @TodayBookCarry, @UpdateUserID, @StartDt)
+			(@PositionId, @ReferenceDate, @ITDFundAdministratorPrice, @ITDFundAdministratorFX, @ITDFundAdministratorCarry, @ITDFundAdministratorOther, @ITDFundKeeleyPrice, @ITDFundKeeleyFX, @ITDFundKeeleyCarry, @ITDBookKeeleyPrice, @ITDBookKeeleyFX, @ITDBookKeeleyCarry, @ITDFundValuationPrice, @ITDFundValuationFX, @ITDFundValuationCarry, @ITDFundFactsetPrice, @ITDFundFactsetFX, @ITDFundFactsetCarry, @ITDBookFactsetPrice, @ITDBookFactsetFX, @ITDBookFactsetCarry, @ITDFundPrice, @ITDFundFX, @ITDFundCarry, @ITDBookPrice, @ITDBookFX, @ITDBookCarry, @TodayFundAdministratorPrice, @TodayFundAdministratorFX, @TodayFundAdministratorCarry, @TodayFundAdministratorOther, @TodayFundKeeleyPrice, @TodayFundKeeleyFX, @TodayFundKeeleyCarry, @TodayBookKeeleyPrice, @TodayBookKeeleyFX, @TodayBookKeeleyCarry, @TodayFundValuationPrice, @TodayFundValuationFX, @TodayFundValuationCarry, @TodayFundFactsetPrice, @TodayFundFactsetFX, @TodayFundFactsetCarry, @TodayBookFactsetPrice, @TodayBookFactsetFX, @TodayBookFactsetCarry, @TodayFundPrice, @TodayFundFX, @TodayFundCarry, @TodayBookPrice, @TodayBookFX, @TodayBookCarry, @UpdateUserID, @PortfolioId, @OpeningBookNav, @OpeningFundNav, @CapitalChangeBook, @CapitalChangeFund, @AdministratorOpeningNav, @OpeningValuationNav, @TotalContributionSinceLastValuation, @StartDt)
 
 	SELECT	AttributionID, StartDt, DataVersion
 	FROM	Attribution

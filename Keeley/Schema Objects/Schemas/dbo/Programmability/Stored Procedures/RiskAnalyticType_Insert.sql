@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[RiskAnalyticType_Insert]
 		@Name varchar(160), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FileColumnName varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into RiskAnalyticType
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, FileColumnName, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @FileColumnName, @StartDt)
 
 	SELECT	RiskAnalyticTypeId, StartDt, DataVersion
 	FROM	RiskAnalyticType

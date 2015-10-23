@@ -6,5 +6,6 @@ create table DBO.RiskAnalyticType_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	FileColumnName varchar(100),
 	EndDt datetime,
 	LastActionUserID int)
