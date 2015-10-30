@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[AccountMapping_Update]
 		@DataVersion rowversion, 
 		@ApplyToInstrumentOnly bit, 
 		@CountryId int, 
-		@MarketId int
+		@MarketId int, 
+		@SendAlertOnly bit
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AccountMapping_hst (
-			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, EndDt, LastActionUserID)
-	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, @StartDt, @UpdateUserID
+			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, SendAlertOnly, EndDt, LastActionUserID)
+	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, SendAlertOnly, @StartDt, @UpdateUserID
 	FROM	AccountMapping
 	WHERE	AccountMappingId = @AccountMappingId
 
 	UPDATE	AccountMapping
-	SET		Name = @Name, FundId = @FundId, CounterpartyId = @CounterpartyId, InstrumentClassId = @InstrumentClassId, AccountIdToMap = @AccountIdToMap, AccountId = @AccountId, UpdateUserID = @UpdateUserID, ApplyToInstrumentOnly = @ApplyToInstrumentOnly, CountryId = @CountryId, MarketId = @MarketId,  StartDt = @StartDt
+	SET		Name = @Name, FundId = @FundId, CounterpartyId = @CounterpartyId, InstrumentClassId = @InstrumentClassId, AccountIdToMap = @AccountIdToMap, AccountId = @AccountId, UpdateUserID = @UpdateUserID, ApplyToInstrumentOnly = @ApplyToInstrumentOnly, CountryId = @CountryId, MarketId = @MarketId, SendAlertOnly = @SendAlertOnly,  StartDt = @StartDt
 	WHERE	AccountMappingId = @AccountMappingId
 	AND		DataVersion = @DataVersion
 

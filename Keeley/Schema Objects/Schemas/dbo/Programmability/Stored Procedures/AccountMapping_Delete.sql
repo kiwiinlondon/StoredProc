@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AccountMapping_hst (
-			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, EndDt, LastActionUserID)
-	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, @EndDt, @UpdateUserID
+			AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, SendAlertOnly, EndDt, LastActionUserID)
+	SELECT	AccountMappingId, Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, DataVersion, ApplyToInstrumentOnly, CountryId, MarketId, SendAlertOnly, @EndDt, @UpdateUserID
 	FROM	AccountMapping
 	WHERE	AccountMappingId = @AccountMappingId
 

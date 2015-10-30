@@ -1850,6 +1850,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FundPortfolioChange_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeMonitorType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

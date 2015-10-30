@@ -13,5 +13,6 @@ create table DBO.AccountMapping_hst(
 	ApplyToInstrumentOnly bit not null,
 	CountryId int,
 	MarketId int,
+	SendAlertOnly bit not null,
 	EndDt datetime,
 	LastActionUserID int)

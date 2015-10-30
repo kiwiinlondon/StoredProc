@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[AccountMapping_Insert]
 		@UpdateUserID int, 
 		@ApplyToInstrumentOnly bit, 
 		@CountryId int, 
-		@MarketId int
+		@MarketId int, 
+		@SendAlertOnly bit
 AS
 	SET NOCOUNT ON
 
@@ -29,9 +30,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AccountMapping
-			(Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, ApplyToInstrumentOnly, CountryId, MarketId, StartDt)
+			(Name, FundId, CounterpartyId, InstrumentClassId, AccountIdToMap, AccountId, UpdateUserID, ApplyToInstrumentOnly, CountryId, MarketId, SendAlertOnly, StartDt)
 	VALUES
-			(@Name, @FundId, @CounterpartyId, @InstrumentClassId, @AccountIdToMap, @AccountId, @UpdateUserID, @ApplyToInstrumentOnly, @CountryId, @MarketId, @StartDt)
+			(@Name, @FundId, @CounterpartyId, @InstrumentClassId, @AccountIdToMap, @AccountId, @UpdateUserID, @ApplyToInstrumentOnly, @CountryId, @MarketId, @SendAlertOnly, @StartDt)
 
 	SELECT	AccountMappingId, StartDt, DataVersion
 	FROM	AccountMapping
