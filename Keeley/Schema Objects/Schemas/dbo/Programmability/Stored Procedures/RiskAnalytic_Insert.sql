@@ -19,7 +19,9 @@ CREATE PROCEDURE DBO.[RiskAnalytic_Insert]
 		@Value1Day numeric(27,8), 
 		@Value20Day numeric(27,8), 
 		@Value1DayMixedModel numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@Value20DaysMixedModel numeric(27,8), 
+		@IsRollValue bit
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into RiskAnalytic
-			(InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, UpdateUserID, StartDt)
+			(InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, UpdateUserID, Value20DaysMixedModel, IsRollValue, StartDt)
 	VALUES
-			(@InstrumentMarketId, @RiskAnalyticTypeId, @ReferenceDate, @CurrencyId, @Value1Day, @Value20Day, @Value1DayMixedModel, @UpdateUserID, @StartDt)
+			(@InstrumentMarketId, @RiskAnalyticTypeId, @ReferenceDate, @CurrencyId, @Value1Day, @Value20Day, @Value1DayMixedModel, @UpdateUserID, @Value20DaysMixedModel, @IsRollValue, @StartDt)
 
 	SELECT	RiskAnalyticId, StartDt, DataVersion
 	FROM	RiskAnalytic

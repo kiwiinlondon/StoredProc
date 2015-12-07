@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO RiskAnalytic_hst (
-			RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, Value20DaysMixedModel, IsRollValue, EndDt, LastActionUserID)
+	SELECT	RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, Value20DaysMixedModel, IsRollValue, @EndDt, @UpdateUserID
 	FROM	RiskAnalytic
 	WHERE	RiskAnalyticId = @RiskAnalyticId
 

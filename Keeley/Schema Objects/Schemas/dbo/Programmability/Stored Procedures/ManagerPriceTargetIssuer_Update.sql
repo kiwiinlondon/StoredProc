@@ -18,7 +18,11 @@ CREATE PROCEDURE DBO.[ManagerPriceTargetIssuer_Update]
 		@StopLossPrice numeric(27,8), 
 		@TargetPrice numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@StopLossContraToEurRate numeric(27,8), 
+		@StopLossBaseToEurRate numeric(27,8), 
+		@TargetContraToEurRate numeric(27,8), 
+		@TargetBaseToEurRate numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ManagerPriceTargetIssuer_hst (
-			ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, StopLossContraToEurRate, StopLossBaseToEurRate, TargetContraToEurRate, TargetBaseToEurRate, EndDt, LastActionUserID)
+	SELECT	ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, StopLossContraToEurRate, StopLossBaseToEurRate, TargetContraToEurRate, TargetBaseToEurRate, @StartDt, @UpdateUserID
 	FROM	ManagerPriceTargetIssuer
 	WHERE	ManagerPriceTargetIssuerId = @ManagerPriceTargetIssuerId
 
 	UPDATE	ManagerPriceTargetIssuer
-	SET		ManagerId = @ManagerId, IssuerId = @IssuerId, StopLossPrice = @StopLossPrice, TargetPrice = @TargetPrice, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ManagerId = @ManagerId, IssuerId = @IssuerId, StopLossPrice = @StopLossPrice, TargetPrice = @TargetPrice, UpdateUserID = @UpdateUserID, StopLossContraToEurRate = @StopLossContraToEurRate, StopLossBaseToEurRate = @StopLossBaseToEurRate, TargetContraToEurRate = @TargetContraToEurRate, TargetBaseToEurRate = @TargetBaseToEurRate,  StartDt = @StartDt
 	WHERE	ManagerPriceTargetIssuerId = @ManagerPriceTargetIssuerId
 	AND		DataVersion = @DataVersion
 

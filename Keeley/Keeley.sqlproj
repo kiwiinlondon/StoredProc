@@ -1810,10 +1810,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\ClosedPosition_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Update.sql" />
@@ -1858,6 +1854,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeMonitorType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AttributionSource_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OpenedClosedPosition_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

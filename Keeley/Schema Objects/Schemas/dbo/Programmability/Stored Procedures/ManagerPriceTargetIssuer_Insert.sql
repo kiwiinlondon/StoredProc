@@ -16,7 +16,11 @@ CREATE PROCEDURE DBO.[ManagerPriceTargetIssuer_Insert]
 		@IssuerId int, 
 		@StopLossPrice numeric(27,8), 
 		@TargetPrice numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@StopLossContraToEurRate numeric(27,8), 
+		@StopLossBaseToEurRate numeric(27,8), 
+		@TargetContraToEurRate numeric(27,8), 
+		@TargetBaseToEurRate numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ManagerPriceTargetIssuer
-			(ManagerId, IssuerId, StopLossPrice, TargetPrice, UpdateUserID, StartDt)
+			(ManagerId, IssuerId, StopLossPrice, TargetPrice, UpdateUserID, StopLossContraToEurRate, StopLossBaseToEurRate, TargetContraToEurRate, TargetBaseToEurRate, StartDt)
 	VALUES
-			(@ManagerId, @IssuerId, @StopLossPrice, @TargetPrice, @UpdateUserID, @StartDt)
+			(@ManagerId, @IssuerId, @StopLossPrice, @TargetPrice, @UpdateUserID, @StopLossContraToEurRate, @StopLossBaseToEurRate, @TargetContraToEurRate, @TargetBaseToEurRate, @StartDt)
 
 	SELECT	ManagerPriceTargetIssuerId, StartDt, DataVersion
 	FROM	ManagerPriceTargetIssuer

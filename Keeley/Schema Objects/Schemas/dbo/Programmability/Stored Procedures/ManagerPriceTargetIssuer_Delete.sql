@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ManagerPriceTargetIssuer_hst (
-			ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, StopLossContraToEurRate, StopLossBaseToEurRate, TargetContraToEurRate, TargetBaseToEurRate, EndDt, LastActionUserID)
+	SELECT	ManagerPriceTargetIssuerId, ManagerId, IssuerId, StopLossPrice, TargetPrice, StartDt, UpdateUserID, DataVersion, StopLossContraToEurRate, StopLossBaseToEurRate, TargetContraToEurRate, TargetBaseToEurRate, @EndDt, @UpdateUserID
 	FROM	ManagerPriceTargetIssuer
 	WHERE	ManagerPriceTargetIssuerId = @ManagerPriceTargetIssuerId
 

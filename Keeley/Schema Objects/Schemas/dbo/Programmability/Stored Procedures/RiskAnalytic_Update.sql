@@ -21,7 +21,9 @@ CREATE PROCEDURE DBO.[RiskAnalytic_Update]
 		@Value20Day numeric(27,8), 
 		@Value1DayMixedModel numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@Value20DaysMixedModel numeric(27,8), 
+		@IsRollValue bit
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO RiskAnalytic_hst (
-			RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, Value20DaysMixedModel, IsRollValue, EndDt, LastActionUserID)
+	SELECT	RiskAnalyticId, InstrumentMarketId, RiskAnalyticTypeId, ReferenceDate, CurrencyId, Value1Day, Value20Day, Value1DayMixedModel, StartDt, UpdateUserID, DataVersion, Value20DaysMixedModel, IsRollValue, @StartDt, @UpdateUserID
 	FROM	RiskAnalytic
 	WHERE	RiskAnalyticId = @RiskAnalyticId
 
 	UPDATE	RiskAnalytic
-	SET		InstrumentMarketId = @InstrumentMarketId, RiskAnalyticTypeId = @RiskAnalyticTypeId, ReferenceDate = @ReferenceDate, CurrencyId = @CurrencyId, Value1Day = @Value1Day, Value20Day = @Value20Day, Value1DayMixedModel = @Value1DayMixedModel, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentMarketId = @InstrumentMarketId, RiskAnalyticTypeId = @RiskAnalyticTypeId, ReferenceDate = @ReferenceDate, CurrencyId = @CurrencyId, Value1Day = @Value1Day, Value20Day = @Value20Day, Value1DayMixedModel = @Value1DayMixedModel, UpdateUserID = @UpdateUserID, Value20DaysMixedModel = @Value20DaysMixedModel, IsRollValue = @IsRollValue,  StartDt = @StartDt
 	WHERE	RiskAnalyticId = @RiskAnalyticId
 	AND		DataVersion = @DataVersion
 

@@ -38,5 +38,6 @@ create table DBO.TradeEvent_hst(
 	TradeDateAsDate date not null,
 	RealisedPnlBookCurrency numeric(27,8),
 	RealisedPnlInstrumentCurrency numeric(27,8),
+	CostPriceOverride numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

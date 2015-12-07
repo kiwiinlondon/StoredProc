@@ -100,6 +100,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
@@ -157,9 +160,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClosedPosition_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql
@@ -463,6 +463,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Update.sql
@@ -564,6 +567,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionSource_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
@@ -583,7 +587,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTradeType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\ClosedPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateAction_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateActionType_hst.sql
@@ -685,6 +688,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Market_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\OpenedClosedPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealing_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingAccount_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingBalance_hst.sql
