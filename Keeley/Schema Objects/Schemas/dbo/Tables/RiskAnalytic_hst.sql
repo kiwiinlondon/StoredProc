@@ -13,6 +13,6 @@ create table DBO.RiskAnalytic_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	Value20DaysMixedModel numeric(27,8),
-	IsRollValue bit,
+	IsRollValue bit not null,
 	EndDt datetime,
 	LastActionUserID int)
