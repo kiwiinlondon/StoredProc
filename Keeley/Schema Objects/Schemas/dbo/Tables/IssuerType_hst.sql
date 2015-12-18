@@ -1,12 +1,10 @@
 ﻿USE Keeley
 
-create table DBO.Issuer_hst(
-	LegalEntityID int not null,
+create table DBO.IssuerType_hst(
+	IssuerTypeId int not null,
+	Name varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
-	FactsetId varchar(150),
-	GicsLevel3IndustryID int not null,
-	IssuerTypeId int,
 	EndDt datetime,
 	LastActionUserID int)

@@ -1862,6 +1862,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\OpenedClosedPosition_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

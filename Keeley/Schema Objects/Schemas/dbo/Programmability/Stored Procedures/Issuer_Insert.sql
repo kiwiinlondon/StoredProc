@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Issuer_Insert]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
 		@FactsetId varchar(150), 
-		@GicsLevel3IndustryID int
+		@GicsLevel3IndustryID int, 
+		@IssuerTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Issuer
-			(LegalEntityID, UpdateUserID, FactsetId, GicsLevel3IndustryID, StartDt)
+			(LegalEntityID, UpdateUserID, FactsetId, GicsLevel3IndustryID, IssuerTypeId, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @FactsetId, @GicsLevel3IndustryID, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @FactsetId, @GicsLevel3IndustryID, @IssuerTypeId, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Issuer

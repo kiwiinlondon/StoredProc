@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[Issuer_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@FactsetId varchar(150), 
-		@GicsLevel3IndustryID int
+		@GicsLevel3IndustryID int, 
+		@IssuerTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Issuer_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, GicsLevel3IndustryID, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, GicsLevel3IndustryID, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, GicsLevel3IndustryID, IssuerTypeId, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, FactsetId, GicsLevel3IndustryID, IssuerTypeId, @StartDt, @UpdateUserID
 	FROM	Issuer
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Issuer
-	SET		UpdateUserID = @UpdateUserID, FactsetId = @FactsetId, GicsLevel3IndustryID = @GicsLevel3IndustryID,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, FactsetId = @FactsetId, GicsLevel3IndustryID = @GicsLevel3IndustryID, IssuerTypeId = @IssuerTypeId,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

@@ -439,6 +439,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Update.sql
@@ -680,6 +683,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\InternalAllocation_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Issuer_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerIndustry_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ListingStatus_hst.sql
