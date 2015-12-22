@@ -436,6 +436,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Update.sql
@@ -526,6 +529,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Update.sql
@@ -682,6 +688,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\InternalAccountingEventType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\InternalAllocation_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Issuer_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerIndustry_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql
@@ -712,6 +719,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Price_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawFXRate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Region_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql

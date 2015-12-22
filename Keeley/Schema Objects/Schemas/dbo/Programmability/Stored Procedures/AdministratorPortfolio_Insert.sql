@@ -29,7 +29,8 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Insert]
 		@UpdateUserID int, 
 		@ManagementPerformanceFee numeric(27,8), 
 		@CurrencyId int, 
-		@Cost numeric(27,8)
+		@Cost numeric(27,8), 
+		@IsShareClassSpecific bit
 AS
 	SET NOCOUNT ON
 
@@ -37,9 +38,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AdministratorPortfolio
-			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, StartDt)
+			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @StartDt)
+			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @IsShareClassSpecific, @StartDt)
 
 	SELECT	AdministratorPortfolioID, StartDt, DataVersion
 	FROM	AdministratorPortfolio

@@ -22,5 +22,6 @@ create table DBO.AdministratorPortfolio_hst(
 	ManagementPerformanceFee numeric(27,8) not null,
 	CurrencyId int not null,
 	Cost numeric(27,8) not null,
+	IsShareClassSpecific bit not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -31,7 +31,8 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Update]
 		@DataVersion rowversion, 
 		@ManagementPerformanceFee numeric(27,8), 
 		@CurrencyId int, 
-		@Cost numeric(27,8)
+		@Cost numeric(27,8), 
+		@IsShareClassSpecific bit
 AS
 	SET NOCOUNT ON
 
@@ -39,13 +40,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AdministratorPortfolio_hst (
-			AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, EndDt, LastActionUserID)
-	SELECT	AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, @StartDt, @UpdateUserID
+			AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, EndDt, LastActionUserID)
+	SELECT	AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, @StartDt, @UpdateUserID
 	FROM	AdministratorPortfolio
 	WHERE	AdministratorPortfolioID = @AdministratorPortfolioID
 
 	UPDATE	AdministratorPortfolio
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, InstrumentMarketId = @InstrumentMarketId, InstrumentName = @InstrumentName, IsAccrual = @IsAccrual, NetPosition = @NetPosition, MarketValue = @MarketValue, Price = @Price, FXRate = @FXRate, RealisedPricePNL = @RealisedPricePNL, RealisedFXPNL = @RealisedFXPNL, UnRealisedPricePNL = @UnRealisedPricePNL, UnRealisedFXPNL = @UnRealisedFXPNL, CarryPNL = @CarryPNL, UpdateUserID = @UpdateUserID, ManagementPerformanceFee = @ManagementPerformanceFee, CurrencyId = @CurrencyId, Cost = @Cost,  StartDt = @StartDt
+	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, InstrumentMarketId = @InstrumentMarketId, InstrumentName = @InstrumentName, IsAccrual = @IsAccrual, NetPosition = @NetPosition, MarketValue = @MarketValue, Price = @Price, FXRate = @FXRate, RealisedPricePNL = @RealisedPricePNL, RealisedFXPNL = @RealisedFXPNL, UnRealisedPricePNL = @UnRealisedPricePNL, UnRealisedFXPNL = @UnRealisedFXPNL, CarryPNL = @CarryPNL, UpdateUserID = @UpdateUserID, ManagementPerformanceFee = @ManagementPerformanceFee, CurrencyId = @CurrencyId, Cost = @Cost, IsShareClassSpecific = @IsShareClassSpecific,  StartDt = @StartDt
 	WHERE	AdministratorPortfolioID = @AdministratorPortfolioID
 	AND		DataVersion = @DataVersion
 

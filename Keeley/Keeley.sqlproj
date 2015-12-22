@@ -1866,6 +1866,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IssuerAnalytic_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
