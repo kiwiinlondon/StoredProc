@@ -32,7 +32,7 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Update]
 		@ManagementPerformanceFee numeric(27,8), 
 		@CurrencyId int, 
 		@Cost numeric(27,8), 
-		@IsShareClassSpecific bit
+		@IsShareClassSpecific bit=0
 AS
 	SET NOCOUNT ON
 
