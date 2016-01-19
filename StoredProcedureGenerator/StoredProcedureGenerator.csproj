@@ -100,9 +100,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attribution_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
@@ -157,6 +157,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Update.sql
@@ -328,6 +331,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Update.sql
@@ -576,7 +585,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionSource_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionFund_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
@@ -595,6 +604,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTradeType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateAction_hst.sql
@@ -652,6 +662,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2014_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2015_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2016NewYearBackup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Fund_hst.sql

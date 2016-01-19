@@ -1846,10 +1846,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\AttributionSource_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Update.sql" />
@@ -1866,6 +1862,30 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AttributionFund_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList2015_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList2016NewYearBackup_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IssuerAnalytic_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
