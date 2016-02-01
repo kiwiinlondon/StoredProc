@@ -77,5 +77,6 @@ create table DBO.Portfolio_hst(
 	ITDRealisedFXPnl numeric(27,8) not null,
 	OriginalDeltaNetCostBookCurrency numeric(27,8),
 	OriginalDeltaNetCostInstrumentCurrency numeric(27,8),
+	FundId int not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Counterparty_Update]
 		@DataVersion rowversion, 
 		@IsElectronic bit, 
 		@UbsCsaName varchar(50), 
-		@UbsCsaRateOverride numeric(27,8)
+		@UbsCsaRateOverride numeric(27,8), 
+		@CsaIdentifier varchar(50)
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +26,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Counterparty_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, @StartDt, @UpdateUserID
 	FROM	Counterparty
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Counterparty
-	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic, UbsCsaName = @UbsCsaName, UbsCsaRateOverride = @UbsCsaRateOverride,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, IsElectronic = @IsElectronic, UbsCsaName = @UbsCsaName, UbsCsaRateOverride = @UbsCsaRateOverride, CsaIdentifier = @CsaIdentifier,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

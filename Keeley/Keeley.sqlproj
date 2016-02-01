@@ -1866,10 +1866,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionFund_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\AttributionFund_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql" />
@@ -1886,6 +1882,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

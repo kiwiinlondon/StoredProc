@@ -8,5 +8,6 @@ create table DBO.Counterparty_hst(
 	IsElectronic bit,
 	UbsCsaName varchar(50),
 	UbsCsaRateOverride numeric(27,8),
+	CsaIdentifier varchar(50),
 	EndDt datetime,
 	LastActionUserID int)

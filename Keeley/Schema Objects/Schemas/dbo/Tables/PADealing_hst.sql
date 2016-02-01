@@ -33,5 +33,6 @@ create table DBO.PADealing_hst(
 	ActualValue numeric(27,8),
 	InputUserId int not null,
 	Cost numeric(27,8),
+	NextTraderToSendEmail varchar(50),
 	EndDt datetime,
 	LastActionUserID int)
