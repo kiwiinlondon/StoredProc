@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[Position_Update]
 		@InstrumentMarketID int, 
 		@CurrencyID int, 
 		@EntityRankingSchemeId int, 
-		@IsAccrual bit
+		@IsAccrual bit, 
+		@StrategyId int =1
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Position_hst (
-			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, EndDt, LastActionUserID)
-	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, @StartDt, @UpdateUserID
+			PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, StrategyId, EndDt, LastActionUserID)
+	SELECT	PositionId, AccountID, StartDt, UpdateUserID, DataVersion, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, StrategyId, @StartDt, @UpdateUserID
 	FROM	Position
 	WHERE	PositionId = @PositionId
 
 	UPDATE	Position
-	SET		AccountID = @AccountID, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, EntityRankingSchemeId = @EntityRankingSchemeId, IsAccrual = @IsAccrual,  StartDt = @StartDt
+	SET		AccountID = @AccountID, UpdateUserID = @UpdateUserID, BookID = @BookID, InstrumentMarketID = @InstrumentMarketID, CurrencyID = @CurrencyID, EntityRankingSchemeId = @EntityRankingSchemeId, IsAccrual = @IsAccrual, StrategyId = @StrategyId,  StartDt = @StartDt
 	WHERE	PositionId = @PositionId
 	AND		DataVersion = @DataVersion
 

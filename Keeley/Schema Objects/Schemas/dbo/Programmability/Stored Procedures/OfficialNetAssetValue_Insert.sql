@@ -41,7 +41,9 @@ CREATE PROCEDURE DBO.[OfficialNetAssetValue_Insert]
 		@RedemptionsFundCurrency numeric(27,8), 
 		@OpeningGAVFundCurrency numeric(27,8), 
 		@OpeningNAVFundCurrency numeric(27,8), 
-		@OpeningNAV numeric(27,8)
+		@OpeningNAV numeric(27,8), 
+		@BifurcatedCurrencyGainLoss numeric(27,8), 
+		@FXRateToBase numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -49,9 +51,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into OfficialNetAssetValue
-			(FundId, ReferenceDate, Value, UpdateUserID, InSpecieTransfer, UnitsInIssue, GrossAssetValue, TodayManagementFee, ValueIsForReferenceDate, OpeningGAV, PercentageOfFund, TodayOfficialManagementFee, TodayOfficialPerformanceFee, TotalOfficialPerformanceFee, TodayOfficialPNL, TodayOfficialShareClassHedgingPNL, NetAssetValueFundCurrency, GrossAssetValueFundCurrency, TodayOfficialManagementFeeFundCurrency, TodayOfficialPerformanceFeeFundCurrency, TotalOfficialPerformanceFeeFundCurrency, TodayOfficialPNLFundCurrency, TodayOfficialShareClassHedgingPNLFundCurrency, Subscriptions, Redemptions, SubscriptionsFundCurrency, RedemptionsFundCurrency, OpeningGAVFundCurrency, OpeningNAVFundCurrency, OpeningNAV, StartDt)
+			(FundId, ReferenceDate, Value, UpdateUserID, InSpecieTransfer, UnitsInIssue, GrossAssetValue, TodayManagementFee, ValueIsForReferenceDate, OpeningGAV, PercentageOfFund, TodayOfficialManagementFee, TodayOfficialPerformanceFee, TotalOfficialPerformanceFee, TodayOfficialPNL, TodayOfficialShareClassHedgingPNL, NetAssetValueFundCurrency, GrossAssetValueFundCurrency, TodayOfficialManagementFeeFundCurrency, TodayOfficialPerformanceFeeFundCurrency, TotalOfficialPerformanceFeeFundCurrency, TodayOfficialPNLFundCurrency, TodayOfficialShareClassHedgingPNLFundCurrency, Subscriptions, Redemptions, SubscriptionsFundCurrency, RedemptionsFundCurrency, OpeningGAVFundCurrency, OpeningNAVFundCurrency, OpeningNAV, BifurcatedCurrencyGainLoss, FXRateToBase, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @InSpecieTransfer, @UnitsInIssue, @GrossAssetValue, @TodayManagementFee, @ValueIsForReferenceDate, @OpeningGAV, @PercentageOfFund, @TodayOfficialManagementFee, @TodayOfficialPerformanceFee, @TotalOfficialPerformanceFee, @TodayOfficialPNL, @TodayOfficialShareClassHedgingPNL, @NetAssetValueFundCurrency, @GrossAssetValueFundCurrency, @TodayOfficialManagementFeeFundCurrency, @TodayOfficialPerformanceFeeFundCurrency, @TotalOfficialPerformanceFeeFundCurrency, @TodayOfficialPNLFundCurrency, @TodayOfficialShareClassHedgingPNLFundCurrency, @Subscriptions, @Redemptions, @SubscriptionsFundCurrency, @RedemptionsFundCurrency, @OpeningGAVFundCurrency, @OpeningNAVFundCurrency, @OpeningNAV, @StartDt)
+			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @InSpecieTransfer, @UnitsInIssue, @GrossAssetValue, @TodayManagementFee, @ValueIsForReferenceDate, @OpeningGAV, @PercentageOfFund, @TodayOfficialManagementFee, @TodayOfficialPerformanceFee, @TotalOfficialPerformanceFee, @TodayOfficialPNL, @TodayOfficialShareClassHedgingPNL, @NetAssetValueFundCurrency, @GrossAssetValueFundCurrency, @TodayOfficialManagementFeeFundCurrency, @TodayOfficialPerformanceFeeFundCurrency, @TotalOfficialPerformanceFeeFundCurrency, @TodayOfficialPNLFundCurrency, @TodayOfficialShareClassHedgingPNLFundCurrency, @Subscriptions, @Redemptions, @SubscriptionsFundCurrency, @RedemptionsFundCurrency, @OpeningGAVFundCurrency, @OpeningNAVFundCurrency, @OpeningNAV, @BifurcatedCurrencyGainLoss, @FXRateToBase, @StartDt)
 
 	SELECT	OfficialNetAssetValueId, StartDt, DataVersion
 	FROM	OfficialNetAssetValue

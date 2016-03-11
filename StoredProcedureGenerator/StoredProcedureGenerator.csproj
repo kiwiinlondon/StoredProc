@@ -562,6 +562,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Update.sql
@@ -739,6 +742,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Strategy_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql

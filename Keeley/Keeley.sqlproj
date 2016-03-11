@@ -1886,6 +1886,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Strategy_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

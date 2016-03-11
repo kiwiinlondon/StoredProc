@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[Position_Insert]
 		@InstrumentMarketID int, 
 		@CurrencyID int, 
 		@EntityRankingSchemeId int, 
-		@IsAccrual bit
+		@IsAccrual bit, 
+		@StrategyId int =1
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Position
-			(AccountID, UpdateUserID, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, StartDt)
+			(AccountID, UpdateUserID, BookID, InstrumentMarketID, CurrencyID, EntityRankingSchemeId, IsAccrual, StrategyId, StartDt)
 	VALUES
-			(@AccountID, @UpdateUserID, @BookID, @InstrumentMarketID, @CurrencyID, @EntityRankingSchemeId, @IsAccrual, @StartDt)
+			(@AccountID, @UpdateUserID, @BookID, @InstrumentMarketID, @CurrencyID, @EntityRankingSchemeId, @IsAccrual, @StrategyId, @StartDt)
 
 	SELECT	PositionId, StartDt, DataVersion
 	FROM	Position

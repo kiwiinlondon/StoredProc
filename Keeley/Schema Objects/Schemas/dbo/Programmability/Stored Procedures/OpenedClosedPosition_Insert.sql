@@ -16,7 +16,12 @@ CREATE PROCEDURE DBO.[OpenedClosedPosition_Insert]
 		@ReferenceDate datetime, 
 		@UpdateUserID int, 
 		@IsOpened bit, 
-		@PortfolioId int
+		@PortfolioId int, 
+		@IsNetPositionLong bit, 
+		@IsExposureLong bit, 
+		@IsNetPositionLongChanged bit, 
+		@IsExposureLongChanged bit, 
+		@IsClosed bit
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into OpenedClosedPosition
-			(PositionId, ReferenceDate, UpdateUserID, IsOpened, PortfolioId, StartDt)
+			(PositionId, ReferenceDate, UpdateUserID, IsOpened, PortfolioId, IsNetPositionLong, IsExposureLong, IsNetPositionLongChanged, IsExposureLongChanged, IsClosed, StartDt)
 	VALUES
-			(@PositionId, @ReferenceDate, @UpdateUserID, @IsOpened, @PortfolioId, @StartDt)
+			(@PositionId, @ReferenceDate, @UpdateUserID, @IsOpened, @PortfolioId, @IsNetPositionLong, @IsExposureLong, @IsNetPositionLongChanged, @IsExposureLongChanged, @IsClosed, @StartDt)
 
 	SELECT	PortfolioId, StartDt, DataVersion
 	FROM	OpenedClosedPosition

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.InternalAllocation_hst(
 	EventID int not null,
@@ -15,5 +15,6 @@ create table DBO.InternalAllocation_hst(
 	DataVersion binary(8) not null,
 	ParentEventId int not null,
 	EventToBookFXRate numeric(35,16) not null,
+	StrategyId int not null,
 	EndDt datetime,
 	LastActionUserID int)

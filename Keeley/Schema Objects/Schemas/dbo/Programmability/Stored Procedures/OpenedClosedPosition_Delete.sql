@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO OpenedClosedPosition_hst (
-			PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, EndDt, LastActionUserID)
-	SELECT	PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, @EndDt, @UpdateUserID
+			PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, IsNetPositionLong, IsExposureLong, IsNetPositionLongChanged, IsExposureLongChanged, IsClosed, EndDt, LastActionUserID)
+	SELECT	PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, IsNetPositionLong, IsExposureLong, IsNetPositionLongChanged, IsExposureLongChanged, IsClosed, @EndDt, @UpdateUserID
 	FROM	OpenedClosedPosition
 	WHERE	PortfolioId = @PortfolioId
 

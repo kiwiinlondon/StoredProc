@@ -41,7 +41,7 @@ CREATE PROCEDURE DBO.[PADealing_Insert]
 		@ActualValue numeric(27,8), 
 		@InputUserId int, 
 		@Cost numeric(27,8), 
-		@NextTraderToSendEmail varchar(50) = null
+		@NextTraderToSendEmail varchar(50)
 AS
 	SET NOCOUNT ON
 

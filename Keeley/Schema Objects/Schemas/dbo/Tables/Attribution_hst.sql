@@ -92,5 +92,6 @@ create table DBO.Attribution_hst(
 	ValuationAdjustmentFactor numeric(27,8),
 	PercentageOfFund numeric(27,8) not null,
 	KeeleyIsMaster bit not null,
+	PreviousAttributionId int,
 	EndDt datetime,
 	LastActionUserID int)

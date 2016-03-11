@@ -78,5 +78,9 @@ create table DBO.Portfolio_hst(
 	OriginalDeltaNetCostBookCurrency numeric(27,8),
 	OriginalDeltaNetCostInstrumentCurrency numeric(27,8),
 	FundId int not null,
+	IsNetPositionLong bit not null,
+	IsExposureLong bit not null,
+	IsFlat bit not null,
+	ValuesExistToRollForward bit not null,
 	EndDt datetime,
 	LastActionUserID int)

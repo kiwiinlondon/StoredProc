@@ -17,7 +17,12 @@ CREATE PROCEDURE DBO.[OpenedClosedPosition_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@IsOpened bit, 
-		@PortfolioId int
+		@PortfolioId int, 
+		@IsNetPositionLong bit, 
+		@IsExposureLong bit, 
+		@IsNetPositionLongChanged bit, 
+		@IsExposureLongChanged bit, 
+		@IsClosed bit
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO OpenedClosedPosition_hst (
-			PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, EndDt, LastActionUserID)
-	SELECT	PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, @StartDt, @UpdateUserID
+			PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, IsNetPositionLong, IsExposureLong, IsNetPositionLongChanged, IsExposureLongChanged, IsClosed, EndDt, LastActionUserID)
+	SELECT	PositionId, ReferenceDate, StartDt, UpdateUserID, DataVersion, IsOpened, PortfolioId, IsNetPositionLong, IsExposureLong, IsNetPositionLongChanged, IsExposureLongChanged, IsClosed, @StartDt, @UpdateUserID
 	FROM	OpenedClosedPosition
 	WHERE	PortfolioId = @PortfolioId
 
 	UPDATE	OpenedClosedPosition
-	SET		PositionId = @PositionId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, IsOpened = @IsOpened,  StartDt = @StartDt
+	SET		PositionId = @PositionId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID, IsOpened = @IsOpened, IsNetPositionLong = @IsNetPositionLong, IsExposureLong = @IsExposureLong, IsNetPositionLongChanged = @IsNetPositionLongChanged, IsExposureLongChanged = @IsExposureLongChanged, IsClosed = @IsClosed,  StartDt = @StartDt
 	WHERE	PortfolioId = @PortfolioId
 	AND		DataVersion = @DataVersion
 

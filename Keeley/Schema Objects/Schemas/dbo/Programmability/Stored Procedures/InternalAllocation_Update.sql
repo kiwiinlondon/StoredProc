@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -24,7 +24,8 @@ CREATE PROCEDURE DBO.[InternalAllocation_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@ParentEventId int, 
-		@EventToBookFXRate numeric(35,16)
+		@EventToBookFXRate numeric(35,16), 
+		@StrategyId int =1
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +33,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, EndDt, LastActionUserID)
-	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, @StartDt, @UpdateUserID
+			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, EndDt, LastActionUserID)
+	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, @StartDt, @UpdateUserID
 	FROM	InternalAllocation
 	WHERE	EventID = @EventID
 
 	UPDATE	InternalAllocation
-	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId, EventToBookFXRate = @EventToBookFXRate,  StartDt = @StartDt
+	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId, EventToBookFXRate = @EventToBookFXRate, StrategyId = @StrategyId,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

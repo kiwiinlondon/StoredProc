@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@IsCancelled bit, 
 		@UpdateUserID int, 
 		@ParentEventId int, 
-		@EventToBookFXRate numeric(35,16)
+		@EventToBookFXRate numeric(35,16), 
+		@StrategyId int = 1
 AS
 	SET NOCOUNT ON
 
@@ -31,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAllocation
-			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StartDt)
+			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StrategyId, StartDt)
 	VALUES
-			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StartDt)
+			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StrategyId, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InternalAllocation

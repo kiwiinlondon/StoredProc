@@ -34,5 +34,7 @@ create table DBO.OfficialNetAssetValue_hst(
 	OpeningGAVFundCurrency numeric(27,8),
 	OpeningNAVFundCurrency numeric(27,8),
 	OpeningNAV numeric(27,8),
+	BifurcatedCurrencyGainLoss numeric(27,8),
+	FXRateToBase numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

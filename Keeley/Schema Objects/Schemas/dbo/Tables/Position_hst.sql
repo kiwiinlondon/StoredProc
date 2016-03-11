@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Position_hst(
 	PositionId int not null,
@@ -11,5 +11,6 @@ create table DBO.Position_hst(
 	CurrencyID int not null,
 	EntityRankingSchemeId int not null,
 	IsAccrual bit not null,
+	StrategyId int,
 	EndDt datetime,
 	LastActionUserID int)
