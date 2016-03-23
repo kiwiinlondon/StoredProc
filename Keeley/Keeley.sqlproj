@@ -1890,6 +1890,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\Strategy_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusListPrices_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

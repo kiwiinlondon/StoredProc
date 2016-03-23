@@ -19,7 +19,7 @@ CREATE PROCEDURE DBO.[Position_Insert]
 		@CurrencyID int, 
 		@EntityRankingSchemeId int, 
 		@IsAccrual bit, 
-		@StrategyId int =1
+		@StrategyId int
 AS
 	SET NOCOUNT ON
 

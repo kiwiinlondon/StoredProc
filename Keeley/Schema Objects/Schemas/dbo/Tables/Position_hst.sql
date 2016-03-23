@@ -11,6 +11,6 @@ create table DBO.Position_hst(
 	CurrencyID int not null,
 	EntityRankingSchemeId int not null,
 	IsAccrual bit not null,
-	StrategyId int,
+	StrategyId int not null,
 	EndDt datetime,
 	LastActionUserID int)

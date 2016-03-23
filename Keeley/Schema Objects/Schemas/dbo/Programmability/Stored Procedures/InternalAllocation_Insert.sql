@@ -24,7 +24,7 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@UpdateUserID int, 
 		@ParentEventId int, 
 		@EventToBookFXRate numeric(35,16), 
-		@StrategyId int = 1
+		@StrategyId int
 AS
 	SET NOCOUNT ON
 

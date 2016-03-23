@@ -23,5 +23,6 @@ create table DBO.AttributionFund_hst(
 	ValuationAdjustmentFactor numeric(27,8),
 	ValuationAdjustedNav numeric(27,8),
 	ValuationUnadjustedNav numeric(27,8),
+	UseKeeleyAdjustmentFactor bit not null,
 	EndDt datetime,
 	LastActionUserID int)
