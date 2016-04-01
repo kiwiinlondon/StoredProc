@@ -25,7 +25,8 @@ CREATE PROCEDURE DBO.[FMPortfolio_Update]
 		@DeltaMarketValue numeric(27,8), 
 		@TotalAccrual numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@StrategyFMCode varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -33,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FMPortfolio_hst (
-			FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, StrategyFMCode, EndDt, LastActionUserID)
+	SELECT	FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, StrategyFMCode, @StartDt, @UpdateUserID
 	FROM	FMPortfolio
 	WHERE	FMPortfolioID = @FMPortfolioID
 
 	UPDATE	FMPortfolio
-	SET		ReferenceDate = @ReferenceDate, ISecID = @ISecID, BookId = @BookId, Currency = @Currency, MaturityDate = @MaturityDate, NetPosition = @NetPosition, Price = @Price, FXRate = @FXRate, MarketValue = @MarketValue, DeltaMarketValue = @DeltaMarketValue, TotalAccrual = @TotalAccrual, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ReferenceDate = @ReferenceDate, ISecID = @ISecID, BookId = @BookId, Currency = @Currency, MaturityDate = @MaturityDate, NetPosition = @NetPosition, Price = @Price, FXRate = @FXRate, MarketValue = @MarketValue, DeltaMarketValue = @DeltaMarketValue, TotalAccrual = @TotalAccrual, UpdateUserID = @UpdateUserID, StrategyFMCode = @StrategyFMCode,  StartDt = @StartDt
 	WHERE	FMPortfolioID = @FMPortfolioID
 	AND		DataVersion = @DataVersion
 

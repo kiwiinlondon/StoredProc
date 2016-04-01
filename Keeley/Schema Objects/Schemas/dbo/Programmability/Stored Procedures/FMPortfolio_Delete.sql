@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FMPortfolio_hst (
-			FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, StrategyFMCode, EndDt, LastActionUserID)
+	SELECT	FMPortfolioID, ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, StartDt, UpdateUserID, DataVersion, StrategyFMCode, @EndDt, @UpdateUserID
 	FROM	FMPortfolio
 	WHERE	FMPortfolioID = @FMPortfolioID
 

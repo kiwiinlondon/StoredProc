@@ -33,7 +33,7 @@ CREATE PROCEDURE DBO.[AttributionFund_Update]
 		@ValuationAdjustmentFactor numeric(27,8), 
 		@ValuationAdjustedNav numeric(27,8), 
 		@ValuationUnadjustedNav numeric(27,8), 
-		@UseKeeleyAdjustmentFactor bit = 1
+		@UseKeeleyAdjustmentFactor bit
 AS
 	SET NOCOUNT ON
 

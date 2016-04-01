@@ -23,7 +23,8 @@ CREATE PROCEDURE DBO.[FMPortfolio_Insert]
 		@MarketValue numeric(27,8), 
 		@DeltaMarketValue numeric(27,8), 
 		@TotalAccrual numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@StrategyFMCode varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -31,9 +32,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FMPortfolio
-			(ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, UpdateUserID, StartDt)
+			(ReferenceDate, ISecID, BookId, Currency, MaturityDate, NetPosition, Price, FXRate, MarketValue, DeltaMarketValue, TotalAccrual, UpdateUserID, StrategyFMCode, StartDt)
 	VALUES
-			(@ReferenceDate, @ISecID, @BookId, @Currency, @MaturityDate, @NetPosition, @Price, @FXRate, @MarketValue, @DeltaMarketValue, @TotalAccrual, @UpdateUserID, @StartDt)
+			(@ReferenceDate, @ISecID, @BookId, @Currency, @MaturityDate, @NetPosition, @Price, @FXRate, @MarketValue, @DeltaMarketValue, @TotalAccrual, @UpdateUserID, @StrategyFMCode, @StartDt)
 
 	SELECT	FMPortfolioID, StartDt, DataVersion
 	FROM	FMPortfolio
