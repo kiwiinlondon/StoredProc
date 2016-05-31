@@ -32,7 +32,8 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@RelativeCurrentPriceId int, 
 		@AdjustmentFactorITD numeric(27,8), 
 		@AdjustmentFactorYTD numeric(27,8), 
-		@RelativeCurrentPriceDate datetime
+		@RelativeCurrentPriceDate datetime, 
+		@IssuerId int
 AS
 	SET NOCOUNT ON
 
@@ -40,9 +41,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FocusList
-			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, StartDt)
+			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, IssuerId, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @StartDt)
+			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @IssuerId, @StartDt)
 
 	SELECT	FocusListId, StartDt, DataVersion
 	FROM	FocusList
