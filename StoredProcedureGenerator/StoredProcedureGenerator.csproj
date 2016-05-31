@@ -349,6 +349,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Update.sql
@@ -361,6 +367,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Update.sql
@@ -674,10 +683,13 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Fund_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundAnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundCountryHoliday_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroupMember_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundHighWaterMark_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundManagerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPerformance_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChange_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeMonitorType_hst.sql
