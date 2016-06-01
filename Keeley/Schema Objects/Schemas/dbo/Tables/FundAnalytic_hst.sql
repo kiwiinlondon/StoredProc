@@ -6,6 +6,7 @@ create table DBO.FundAnalytic_hst(
 	FundId int not null,
 	ReferenceDate datetime not null,
 	Value numeric(27,8) not null,
+	CurrencyId int,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,

@@ -16,6 +16,7 @@ CREATE PROCEDURE DBO.[FundAnalytic_Insert]
 		@FundId int, 
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
+		@CurrencyId int, 
 		@UpdateUserID int, 
 		@IsLast bit
 AS
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundAnalytic
-			(FundAnalyticTypeId, FundId, ReferenceDate, Value, UpdateUserID, IsLast, StartDt)
+			(FundAnalyticTypeId, FundId, ReferenceDate, Value, CurrencyId, UpdateUserID, IsLast, StartDt)
 	VALUES
-			(@FundAnalyticTypeId, @FundId, @ReferenceDate, @Value, @UpdateUserID, @IsLast, @StartDt)
+			(@FundAnalyticTypeId, @FundId, @ReferenceDate, @Value, @CurrencyId, @UpdateUserID, @IsLast, @StartDt)
 
 	SELECT	FundAnalyticId, StartDt, DataVersion
 	FROM	FundAnalytic

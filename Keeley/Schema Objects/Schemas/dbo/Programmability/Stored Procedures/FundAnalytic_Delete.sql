@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundAnalytic_hst (
-			FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, IsLast, EndDt, LastActionUserID)
-	SELECT	FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, IsLast, @EndDt, @UpdateUserID
+			FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, CurrencyId, StartDt, UpdateUserID, DataVersion, IsLast, EndDt, LastActionUserID)
+	SELECT	FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, CurrencyId, StartDt, UpdateUserID, DataVersion, IsLast, @EndDt, @UpdateUserID
 	FROM	FundAnalytic
 	WHERE	FundAnalyticId = @FundAnalyticId
 

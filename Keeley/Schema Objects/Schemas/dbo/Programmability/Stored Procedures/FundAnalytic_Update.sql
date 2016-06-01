@@ -17,6 +17,7 @@ CREATE PROCEDURE DBO.[FundAnalytic_Update]
 		@FundId int, 
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
+		@CurrencyId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@IsLast bit
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundAnalytic_hst (
-			FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, IsLast, EndDt, LastActionUserID)
-	SELECT	FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, IsLast, @StartDt, @UpdateUserID
+			FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, CurrencyId, StartDt, UpdateUserID, DataVersion, IsLast, EndDt, LastActionUserID)
+	SELECT	FundAnalyticId, FundAnalyticTypeId, FundId, ReferenceDate, Value, CurrencyId, StartDt, UpdateUserID, DataVersion, IsLast, @StartDt, @UpdateUserID
 	FROM	FundAnalytic
 	WHERE	FundAnalyticId = @FundAnalyticId
 
 	UPDATE	FundAnalytic
-	SET		FundAnalyticTypeId = @FundAnalyticTypeId, FundId = @FundId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, IsLast = @IsLast,  StartDt = @StartDt
+	SET		FundAnalyticTypeId = @FundAnalyticTypeId, FundId = @FundId, ReferenceDate = @ReferenceDate, Value = @Value, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, IsLast = @IsLast,  StartDt = @StartDt
 	WHERE	FundAnalyticId = @FundAnalyticId
 	AND		DataVersion = @DataVersion
 
