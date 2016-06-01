@@ -367,9 +367,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundManagerAnalytic_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Update.sql
@@ -689,7 +686,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroupMember_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundHighWaterMark_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\FundManagerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPerformance_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChange_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeMonitorType_hst.sql
