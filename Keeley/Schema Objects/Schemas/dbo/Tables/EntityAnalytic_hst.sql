@@ -1,12 +1,14 @@
 ﻿USE Keeley
 
-create table DBO.FundAnalytic_hst(
-	FundAnalyticId int not null,
-	FundAnalyticTypeId int not null,
-	FundId int not null,
+create table DBO.EntityAnalytic_hst(
+	EntityAnalyticId int not null,
+	EntityAnalyticTypeId int not null,
+	EntityTypeId int not null,
+	EntityId int not null,
+	SubEntityTypeId int,
+	SubEntityId int,
 	ReferenceDate datetime not null,
 	Value numeric(27,8) not null,
-	CurrencyId int,
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,

@@ -1894,14 +1894,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FocusListPrices_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalytic_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\FundAnalytic_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundAnalyticType_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\FundAnalyticType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\EntityAnalytic_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\EntityAnalyticType_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

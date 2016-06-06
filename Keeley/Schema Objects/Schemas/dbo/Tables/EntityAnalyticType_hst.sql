@@ -1,7 +1,7 @@
 ﻿USE Keeley
 
-create table DBO.FundAnalyticType_hst(
-	FundAnalyticTypeId int not null,
+create table DBO.EntityAnalyticType_hst(
+	EntityAnalyticTypeId int not null,
 	Name varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,
