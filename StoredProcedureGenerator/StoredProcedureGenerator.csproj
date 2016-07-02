@@ -295,6 +295,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Update.sql
@@ -662,6 +665,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactsetPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollected_hst.sql

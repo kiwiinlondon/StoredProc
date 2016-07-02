@@ -1902,6 +1902,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\EntityAnalyticType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FactsetPortfolio_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
