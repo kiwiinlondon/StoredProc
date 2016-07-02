@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO EntityAnalyticType_hst (
-			EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, InputMonthCount, EndDt, LastActionUserID)
+	SELECT	EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, InputMonthCount, @EndDt, @UpdateUserID
 	FROM	EntityAnalyticType
 	WHERE	EntityAnalyticTypeId = @EntityAnalyticTypeId
 

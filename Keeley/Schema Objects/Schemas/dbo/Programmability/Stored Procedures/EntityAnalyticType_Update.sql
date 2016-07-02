@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[EntityAnalyticType_Update]
 		@EntityAnalyticTypeId int, 
 		@Name varchar(100), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@InputMonthCount int
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO EntityAnalyticType_hst (
-			EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, InputMonthCount, EndDt, LastActionUserID)
+	SELECT	EntityAnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, InputMonthCount, @StartDt, @UpdateUserID
 	FROM	EntityAnalyticType
 	WHERE	EntityAnalyticTypeId = @EntityAnalyticTypeId
 
 	UPDATE	EntityAnalyticType
-	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, InputMonthCount = @InputMonthCount,  StartDt = @StartDt
 	WHERE	EntityAnalyticTypeId = @EntityAnalyticTypeId
 	AND		DataVersion = @DataVersion
 

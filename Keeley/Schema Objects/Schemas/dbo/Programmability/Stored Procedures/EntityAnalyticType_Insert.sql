@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[EntityAnalyticType_Insert]
 		@Name varchar(100), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@InputMonthCount int
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityAnalyticType
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, InputMonthCount, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @InputMonthCount, @StartDt)
 
 	SELECT	EntityAnalyticTypeId, StartDt, DataVersion
 	FROM	EntityAnalyticType

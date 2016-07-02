@@ -38,5 +38,8 @@ create table DBO.OfficialNetAssetValue_hst(
 	FXRateToBase numeric(27,8),
 	TotalOfficialManagementFee numeric(27,8),
 	TotalOfficialManagementFeeFundCurrency numeric(27,8),
+	ShareClassSpecificPNL numeric(27,8),
+	ToBeLoaded bit,
+	ShareClassSpecificPNLFundCurrency numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

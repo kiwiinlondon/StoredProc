@@ -24,7 +24,7 @@ CREATE PROCEDURE DBO.[FMPortfolio_Insert]
 		@DeltaMarketValue numeric(27,8), 
 		@TotalAccrual numeric(27,8), 
 		@UpdateUserID int, 
-		@StrategyFMCode varchar(10)
+		@StrategyFMCode varchar(50)
 AS
 	SET NOCOUNT ON
 

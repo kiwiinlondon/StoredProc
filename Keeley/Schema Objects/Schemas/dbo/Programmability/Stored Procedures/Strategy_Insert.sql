@@ -13,7 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[Strategy_Insert]
 		@Name varchar(100), 
-		@FMCode varchar(5), 
+		@FMCode varchar(50), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON

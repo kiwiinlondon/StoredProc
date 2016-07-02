@@ -26,7 +26,7 @@ CREATE PROCEDURE DBO.[FMPortfolio_Update]
 		@TotalAccrual numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@StrategyFMCode varchar(10)
+		@StrategyFMCode varchar(50)
 AS
 	SET NOCOUNT ON
 
