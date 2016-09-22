@@ -190,6 +190,15 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Update.sql
@@ -630,6 +639,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Currency_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Custodian_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DayCountConvention_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragExclusion_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragLog_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragStatus_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DealingDateDefinition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DerivedAssetClass_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DisclosureRule_hst.sql

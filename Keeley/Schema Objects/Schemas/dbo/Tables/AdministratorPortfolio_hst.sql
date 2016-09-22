@@ -23,5 +23,6 @@ create table DBO.AdministratorPortfolio_hst(
 	CurrencyId int not null,
 	Cost numeric(27,8) not null,
 	IsShareClassSpecific bit not null,
+	IsFeeder bit not null,
 	EndDt datetime,
 	LastActionUserID int)

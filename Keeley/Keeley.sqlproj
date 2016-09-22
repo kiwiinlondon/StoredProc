@@ -1906,6 +1906,18 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FactsetPortfolio_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dba_indexDefragExclusion_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dba_indexDefragLog_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dba_indexDefragStatus_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

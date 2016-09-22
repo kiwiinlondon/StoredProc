@@ -41,5 +41,11 @@ create table DBO.OfficialNetAssetValue_hst(
 	ShareClassSpecificPNL numeric(27,8),
 	ToBeLoaded bit,
 	ShareClassSpecificPNLFundCurrency numeric(27,8),
+	UncrystallisedPerformanceFeeChange numeric(27,8),
+	UncrystallisedPerformanceFeeChangeFundCurrency numeric(27,8),
+	GrossPNL numeric(27,8),
+	GrossPNLFundCurrency numeric(27,8),
+	MasterNav numeric(27,8),
+	FeederNav numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

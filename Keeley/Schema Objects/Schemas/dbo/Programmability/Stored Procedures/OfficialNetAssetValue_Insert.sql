@@ -48,7 +48,13 @@ CREATE PROCEDURE DBO.[OfficialNetAssetValue_Insert]
 		@TotalOfficialManagementFeeFundCurrency numeric(27,8), 
 		@ShareClassSpecificPNL numeric(27,8), 
 		@ToBeLoaded bit, 
-		@ShareClassSpecificPNLFundCurrency numeric(27,8)
+		@ShareClassSpecificPNLFundCurrency numeric(27,8), 
+		@UncrystallisedPerformanceFeeChange numeric(27,8), 
+		@UncrystallisedPerformanceFeeChangeFundCurrency numeric(27,8), 
+		@GrossPNL numeric(27,8), 
+		@GrossPNLFundCurrency numeric(27,8), 
+		@MasterNav numeric(27,8), 
+		@FeederNav numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -56,9 +62,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into OfficialNetAssetValue
-			(FundId, ReferenceDate, Value, UpdateUserID, InSpecieTransfer, UnitsInIssue, GrossAssetValue, TodayManagementFee, ValueIsForReferenceDate, OpeningGAV, PercentageOfFund, TodayOfficialManagementFee, TodayOfficialPerformanceFee, TotalOfficialPerformanceFee, TodayOfficialPNL, TodayOfficialShareClassHedgingPNL, NetAssetValueFundCurrency, GrossAssetValueFundCurrency, TodayOfficialManagementFeeFundCurrency, TodayOfficialPerformanceFeeFundCurrency, TotalOfficialPerformanceFeeFundCurrency, TodayOfficialPNLFundCurrency, TodayOfficialShareClassHedgingPNLFundCurrency, Subscriptions, Redemptions, SubscriptionsFundCurrency, RedemptionsFundCurrency, OpeningGAVFundCurrency, OpeningNAVFundCurrency, OpeningNAV, BifurcatedCurrencyGainLoss, FXRateToBase, TotalOfficialManagementFee, TotalOfficialManagementFeeFundCurrency, ShareClassSpecificPNL, ToBeLoaded, ShareClassSpecificPNLFundCurrency, StartDt)
+			(FundId, ReferenceDate, Value, UpdateUserID, InSpecieTransfer, UnitsInIssue, GrossAssetValue, TodayManagementFee, ValueIsForReferenceDate, OpeningGAV, PercentageOfFund, TodayOfficialManagementFee, TodayOfficialPerformanceFee, TotalOfficialPerformanceFee, TodayOfficialPNL, TodayOfficialShareClassHedgingPNL, NetAssetValueFundCurrency, GrossAssetValueFundCurrency, TodayOfficialManagementFeeFundCurrency, TodayOfficialPerformanceFeeFundCurrency, TotalOfficialPerformanceFeeFundCurrency, TodayOfficialPNLFundCurrency, TodayOfficialShareClassHedgingPNLFundCurrency, Subscriptions, Redemptions, SubscriptionsFundCurrency, RedemptionsFundCurrency, OpeningGAVFundCurrency, OpeningNAVFundCurrency, OpeningNAV, BifurcatedCurrencyGainLoss, FXRateToBase, TotalOfficialManagementFee, TotalOfficialManagementFeeFundCurrency, ShareClassSpecificPNL, ToBeLoaded, ShareClassSpecificPNLFundCurrency, UncrystallisedPerformanceFeeChange, UncrystallisedPerformanceFeeChangeFundCurrency, GrossPNL, GrossPNLFundCurrency, MasterNav, FeederNav, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @InSpecieTransfer, @UnitsInIssue, @GrossAssetValue, @TodayManagementFee, @ValueIsForReferenceDate, @OpeningGAV, @PercentageOfFund, @TodayOfficialManagementFee, @TodayOfficialPerformanceFee, @TotalOfficialPerformanceFee, @TodayOfficialPNL, @TodayOfficialShareClassHedgingPNL, @NetAssetValueFundCurrency, @GrossAssetValueFundCurrency, @TodayOfficialManagementFeeFundCurrency, @TodayOfficialPerformanceFeeFundCurrency, @TotalOfficialPerformanceFeeFundCurrency, @TodayOfficialPNLFundCurrency, @TodayOfficialShareClassHedgingPNLFundCurrency, @Subscriptions, @Redemptions, @SubscriptionsFundCurrency, @RedemptionsFundCurrency, @OpeningGAVFundCurrency, @OpeningNAVFundCurrency, @OpeningNAV, @BifurcatedCurrencyGainLoss, @FXRateToBase, @TotalOfficialManagementFee, @TotalOfficialManagementFeeFundCurrency, @ShareClassSpecificPNL, @ToBeLoaded, @ShareClassSpecificPNLFundCurrency, @StartDt)
+			(@FundId, @ReferenceDate, @Value, @UpdateUserID, @InSpecieTransfer, @UnitsInIssue, @GrossAssetValue, @TodayManagementFee, @ValueIsForReferenceDate, @OpeningGAV, @PercentageOfFund, @TodayOfficialManagementFee, @TodayOfficialPerformanceFee, @TotalOfficialPerformanceFee, @TodayOfficialPNL, @TodayOfficialShareClassHedgingPNL, @NetAssetValueFundCurrency, @GrossAssetValueFundCurrency, @TodayOfficialManagementFeeFundCurrency, @TodayOfficialPerformanceFeeFundCurrency, @TotalOfficialPerformanceFeeFundCurrency, @TodayOfficialPNLFundCurrency, @TodayOfficialShareClassHedgingPNLFundCurrency, @Subscriptions, @Redemptions, @SubscriptionsFundCurrency, @RedemptionsFundCurrency, @OpeningGAVFundCurrency, @OpeningNAVFundCurrency, @OpeningNAV, @BifurcatedCurrencyGainLoss, @FXRateToBase, @TotalOfficialManagementFee, @TotalOfficialManagementFeeFundCurrency, @ShareClassSpecificPNL, @ToBeLoaded, @ShareClassSpecificPNLFundCurrency, @UncrystallisedPerformanceFeeChange, @UncrystallisedPerformanceFeeChangeFundCurrency, @GrossPNL, @GrossPNLFundCurrency, @MasterNav, @FeederNav, @StartDt)
 
 	SELECT	OfficialNetAssetValueId, StartDt, DataVersion
 	FROM	OfficialNetAssetValue
