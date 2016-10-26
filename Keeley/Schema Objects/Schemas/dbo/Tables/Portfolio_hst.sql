@@ -82,5 +82,13 @@ create table DBO.Portfolio_hst(
 	IsExposureLong bit not null,
 	IsFlat bit not null,
 	ValuesExistToRollForward bit not null,
+	TodayAmortisation numeric(27,8),
+	TotalAmortisation numeric(27,8),
+	TotalUnrealisedPNLInstrumentCurrency numeric(27,8),
+	TotalUnrealisedPNLBookCurrency numeric(27,8),
+	ValuationTotalUnrealisedPNLInstrumentCurrency numeric(27,8),
+	ValuationTotalUnrealisedPNLBookCurrency numeric(27,8),
+	Yield numeric(27,8),
+	TodayCarryPNL numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

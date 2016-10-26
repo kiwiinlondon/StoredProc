@@ -56,5 +56,9 @@ create table DBO.PortfolioEvent_hst(
 	OriginalDeltaNetCostInstrumentCurrency numeric(27,8),
 	ITDRealisedPricePnl numeric(27,8) not null,
 	ITDRealisedFXPnl numeric(27,8) not null,
+	ResetCost bit not null,
+	Yield numeric(27,8),
+	BlendedYield numeric(27,8),
+	ChangeToTotalAmortization numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

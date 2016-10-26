@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,9 @@ CREATE PROCEDURE DBO.[Bond_Insert]
 		@CouponFrequency int, 
 		@Coupon numeric(27,8), 
 		@UpdateUserID int, 
-		@InDefault bit
+		@InDefault bit, 
+		@MaturityDate datetime, 
+		@ParAmount numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Bond
-			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, InDefault, StartDt)
+			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, InDefault, MaturityDate, ParAmount, StartDt)
 	VALUES
-			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @InDefault, @StartDt)
+			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @InDefault, @MaturityDate, @ParAmount, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	Bond

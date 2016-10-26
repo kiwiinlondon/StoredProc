@@ -28,5 +28,6 @@ create table DBO.Exposure_hst(
 	ChangeInterestRateExposure numeric(27,8),
 	BetaLongTerm numeric(27,8) not null,
 	BetaShortTerm numeric(27,8) not null,
+	HedgeRatio numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

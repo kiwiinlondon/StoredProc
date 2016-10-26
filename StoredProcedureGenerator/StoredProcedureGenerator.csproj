@@ -106,6 +106,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Update.sql
@@ -611,6 +614,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionFund_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergIdentifier_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Book_hst.sql

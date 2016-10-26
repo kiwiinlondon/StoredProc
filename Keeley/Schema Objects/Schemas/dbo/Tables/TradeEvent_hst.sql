@@ -39,5 +39,10 @@ create table DBO.TradeEvent_hst(
 	RealisedPnlBookCurrency numeric(27,8),
 	RealisedPnlInstrumentCurrency numeric(27,8),
 	CostPriceOverride numeric(27,8),
+	Yield numeric(27,8),
+	MarkitParentOrderId varchar(100),
+	ArrivalPrice numeric(27,8),
+	IntervalVolumePercent numeric(27,8),
+	IntervalVWAP numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

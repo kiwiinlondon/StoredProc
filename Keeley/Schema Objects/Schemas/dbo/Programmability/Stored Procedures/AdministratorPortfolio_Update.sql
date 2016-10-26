@@ -33,7 +33,10 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Update]
 		@CurrencyId int, 
 		@Cost numeric(27,8), 
 		@IsShareClassSpecific bit, 
-		@IsFeeder bit
+		@IsFeeder bit, 
+		@TotalAmortisationBook numeric(27,8), 
+		@TotalAmortisationLocal numeric(27,8), 
+		@TodayAmortisationBook numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -41,13 +44,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AdministratorPortfolio_hst (
-			AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, EndDt, LastActionUserID)
-	SELECT	AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, @StartDt, @UpdateUserID
+			AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, TotalAmortisationBook, TotalAmortisationLocal, TodayAmortisationBook, EndDt, LastActionUserID)
+	SELECT	AdministratorPortfolioID, FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, StartDt, UpdateUserID, DataVersion, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, TotalAmortisationBook, TotalAmortisationLocal, TodayAmortisationBook, @StartDt, @UpdateUserID
 	FROM	AdministratorPortfolio
 	WHERE	AdministratorPortfolioID = @AdministratorPortfolioID
 
 	UPDATE	AdministratorPortfolio
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, InstrumentMarketId = @InstrumentMarketId, InstrumentName = @InstrumentName, IsAccrual = @IsAccrual, NetPosition = @NetPosition, MarketValue = @MarketValue, Price = @Price, FXRate = @FXRate, RealisedPricePNL = @RealisedPricePNL, RealisedFXPNL = @RealisedFXPNL, UnRealisedPricePNL = @UnRealisedPricePNL, UnRealisedFXPNL = @UnRealisedFXPNL, CarryPNL = @CarryPNL, UpdateUserID = @UpdateUserID, ManagementPerformanceFee = @ManagementPerformanceFee, CurrencyId = @CurrencyId, Cost = @Cost, IsShareClassSpecific = @IsShareClassSpecific, IsFeeder = @IsFeeder,  StartDt = @StartDt
+	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, InstrumentMarketId = @InstrumentMarketId, InstrumentName = @InstrumentName, IsAccrual = @IsAccrual, NetPosition = @NetPosition, MarketValue = @MarketValue, Price = @Price, FXRate = @FXRate, RealisedPricePNL = @RealisedPricePNL, RealisedFXPNL = @RealisedFXPNL, UnRealisedPricePNL = @UnRealisedPricePNL, UnRealisedFXPNL = @UnRealisedFXPNL, CarryPNL = @CarryPNL, UpdateUserID = @UpdateUserID, ManagementPerformanceFee = @ManagementPerformanceFee, CurrencyId = @CurrencyId, Cost = @Cost, IsShareClassSpecific = @IsShareClassSpecific, IsFeeder = @IsFeeder, TotalAmortisationBook = @TotalAmortisationBook, TotalAmortisationLocal = @TotalAmortisationLocal, TodayAmortisationBook = @TodayAmortisationBook,  StartDt = @StartDt
 	WHERE	AdministratorPortfolioID = @AdministratorPortfolioID
 	AND		DataVersion = @DataVersion
 

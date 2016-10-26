@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FXTradeEvent_hst(
 	EventID int not null,
@@ -28,5 +28,7 @@ create table DBO.FXTradeEvent_hst(
 	ContraEventId int,
 	InstrumentMarketId int not null,
 	OriginalInputDate datetime not null,
+	ReceiveToBookFXRateOverride numeric(35,16),
+	PayToBookFXRateOverride numeric(36,12),
 	EndDt datetime,
 	LastActionUserID int)

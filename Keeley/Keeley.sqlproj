@@ -1918,6 +1918,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\dba_indexDefragStatus_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BloombergIdentifier_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

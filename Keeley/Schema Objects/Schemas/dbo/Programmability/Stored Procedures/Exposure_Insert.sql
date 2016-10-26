@@ -35,7 +35,8 @@ CREATE PROCEDURE DBO.[Exposure_Insert]
 		@InterestRateExposure numeric(27,8), 
 		@ChangeInterestRateExposure numeric(27,8), 
 		@BetaLongTerm numeric(27,8), 
-		@BetaShortTerm numeric(27,8)
+		@BetaShortTerm numeric(27,8), 
+		@HedgeRatio numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +44,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Exposure
-			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, InterestRateExposure, ChangeInterestRateExposure, BetaLongTerm, BetaShortTerm, StartDt)
+			(PositionId, InstrumentMarketId, PortfolioId, ReferenceDate, EquityExposure, CurrencyExposure, CommodityExposure, FixedIncomeExposure, OtherExposure, UpdateUserID, GovernmentBondExposure, ChangeEquityExposure, ChangeCurrencyExposure, ChangeCommodityExposure, ChangeFixedIncomeExposure, ChangeOtherExposure, ChangeGovernmentBondExposure, MaturityDate, IsPrimaryExposure, IsLong, InterestRateExposure, ChangeInterestRateExposure, BetaLongTerm, BetaShortTerm, HedgeRatio, StartDt)
 	VALUES
-			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @IsLong, @InterestRateExposure, @ChangeInterestRateExposure, @BetaLongTerm, @BetaShortTerm, @StartDt)
+			(@PositionId, @InstrumentMarketId, @PortfolioId, @ReferenceDate, @EquityExposure, @CurrencyExposure, @CommodityExposure, @FixedIncomeExposure, @OtherExposure, @UpdateUserID, @GovernmentBondExposure, @ChangeEquityExposure, @ChangeCurrencyExposure, @ChangeCommodityExposure, @ChangeFixedIncomeExposure, @ChangeOtherExposure, @ChangeGovernmentBondExposure, @MaturityDate, @IsPrimaryExposure, @IsLong, @InterestRateExposure, @ChangeInterestRateExposure, @BetaLongTerm, @BetaShortTerm, @HedgeRatio, @StartDt)
 
 	SELECT	ExposureId, StartDt, DataVersion
 	FROM	Exposure
