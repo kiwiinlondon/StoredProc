@@ -307,6 +307,15 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Update.sql
@@ -681,6 +690,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorExposure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorHierarchy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorRelationship_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FactsetPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql

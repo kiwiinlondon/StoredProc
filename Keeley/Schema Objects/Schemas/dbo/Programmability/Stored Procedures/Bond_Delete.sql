@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Bond_hst (
-			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, EndDt, LastActionUserID)
-	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, @EndDt, @UpdateUserID
+			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, EndDt, LastActionUserID)
+	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, @EndDt, @UpdateUserID
 	FROM	Bond
 	WHERE	InstrumentId = @InstrumentId
 

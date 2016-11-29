@@ -59,6 +59,10 @@ create table DBO.PortfolioEvent_hst(
 	ResetCost bit not null,
 	Yield numeric(27,8),
 	BlendedYield numeric(27,8),
-	ChangeToTotalAmortization numeric(27,8),
+	AmortisationCost numeric(27,8),
+	AmortisationQuantity numeric(27,8),
+	TotalAmortisationQuantity numeric(27,8),
+	InflationAssumption numeric(27,8),
+	BlendedInflationAssumption numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

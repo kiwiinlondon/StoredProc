@@ -1922,6 +1922,18 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\BloombergIdentifier_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FactorExposure_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FactorHierarchy_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FactorRelationship_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

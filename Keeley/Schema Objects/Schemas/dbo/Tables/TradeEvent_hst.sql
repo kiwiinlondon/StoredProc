@@ -44,5 +44,6 @@ create table DBO.TradeEvent_hst(
 	ArrivalPrice numeric(27,8),
 	IntervalVolumePercent numeric(27,8),
 	IntervalVWAP numeric(27,8),
+	InflationAssumption numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
