@@ -39,7 +39,8 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Update]
 		@InstrumentMarketId int, 
 		@OriginalInputDate datetime, 
 		@ReceiveToBookFXRateOverride numeric(35,16), 
-		@PayToBookFXRateOverride numeric(36,12)
+		@PayToBookFXRateOverride numeric(36,12), 
+		@PNLInstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -47,13 +48,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FXTradeEvent_hst (
-			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, EndDt, LastActionUserID)
-	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, @StartDt, @UpdateUserID
+			EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, PNLInstrumentMarketId, EndDt, LastActionUserID)
+	SELECT	EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, StartDt, UpdateUserID, DataVersion, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, PNLInstrumentMarketId, @StartDt, @UpdateUserID
 	FROM	FXTradeEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	FXTradeEvent
-	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, InputDate = @InputDate, SettlementCurrencyId = @SettlementCurrencyId, SupressFromExtracts = @SupressFromExtracts, NonEuroPairReceiveToEuroFXRate = @NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId = @NonEuroPairReceiveToEuroFXRateId, IsRoll = @IsRoll, ContraEventId = @ContraEventId, InstrumentMarketId = @InstrumentMarketId, OriginalInputDate = @OriginalInputDate, ReceiveToBookFXRateOverride = @ReceiveToBookFXRateOverride, PayToBookFXRateOverride = @PayToBookFXRateOverride,  StartDt = @StartDt
+	SET		ReceiveCurrencyId = @ReceiveCurrencyId, PayCurrencyId = @PayCurrencyId, ReceiveAmount = @ReceiveAmount, PayAmount = @PayAmount, IsProp = @IsProp, EnteredMultiply = @EnteredMultiply, Ticket = @Ticket, IsCancelled = @IsCancelled, CounterpartyId = @CounterpartyId, AmendmentNumber = @AmendmentNumber, MaturityDate = @MaturityDate, TraderId = @TraderId, UpdateUserID = @UpdateUserID, TradeDate = @TradeDate, IsForward = @IsForward, InputDate = @InputDate, SettlementCurrencyId = @SettlementCurrencyId, SupressFromExtracts = @SupressFromExtracts, NonEuroPairReceiveToEuroFXRate = @NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId = @NonEuroPairReceiveToEuroFXRateId, IsRoll = @IsRoll, ContraEventId = @ContraEventId, InstrumentMarketId = @InstrumentMarketId, OriginalInputDate = @OriginalInputDate, ReceiveToBookFXRateOverride = @ReceiveToBookFXRateOverride, PayToBookFXRateOverride = @PayToBookFXRateOverride, PNLInstrumentMarketId = @PNLInstrumentMarketId,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

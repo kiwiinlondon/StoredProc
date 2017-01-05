@@ -27,5 +27,7 @@ create table DBO.AttributionFund_hst(
 	AdministratorUnadjustedNav numeric(27,8),
 	AdministratorTodayCapitalChange numeric(27,8),
 	ITDOpeningAttributionFundId int,
+	SumNetAssetValue numeric(27,0) not null,
+	NumberOfDays int not null,
 	EndDt datetime,
 	LastActionUserID int)

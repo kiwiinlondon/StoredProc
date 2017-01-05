@@ -9,5 +9,6 @@ create table DBO.Counterparty_hst(
 	UbsCsaName varchar(50),
 	UbsCsaRateOverride numeric(27,8),
 	CsaIdentifier varchar(50),
+	CsaRateOverrideSwaps numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

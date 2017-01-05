@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Counterparty_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, @EndDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, CsaRateOverrideSwaps, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, CsaRateOverrideSwaps, @EndDt, @UpdateUserID
 	FROM	Counterparty
 	WHERE	LegalEntityID = @LegalEntityID
 

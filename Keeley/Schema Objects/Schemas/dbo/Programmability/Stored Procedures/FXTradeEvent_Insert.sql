@@ -38,7 +38,8 @@ CREATE PROCEDURE DBO.[FXTradeEvent_Insert]
 		@InstrumentMarketId int, 
 		@OriginalInputDate datetime, 
 		@ReceiveToBookFXRateOverride numeric(35,16), 
-		@PayToBookFXRateOverride numeric(36,12)
+		@PayToBookFXRateOverride numeric(36,12), 
+		@PNLInstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -46,9 +47,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FXTradeEvent
-			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, StartDt)
+			(EventID, ReceiveCurrencyId, PayCurrencyId, ReceiveAmount, PayAmount, IsProp, EnteredMultiply, Ticket, IsCancelled, CounterpartyId, AmendmentNumber, MaturityDate, TraderId, UpdateUserID, TradeDate, IsForward, InputDate, SettlementCurrencyId, SupressFromExtracts, NonEuroPairReceiveToEuroFXRate, NonEuroPairReceiveToEuroFXRateId, IsRoll, ContraEventId, InstrumentMarketId, OriginalInputDate, ReceiveToBookFXRateOverride, PayToBookFXRateOverride, PNLInstrumentMarketId, StartDt)
 	VALUES
-			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @InputDate, @SettlementCurrencyId, @SupressFromExtracts, @NonEuroPairReceiveToEuroFXRate, @NonEuroPairReceiveToEuroFXRateId, @IsRoll, @ContraEventId, @InstrumentMarketId, @OriginalInputDate, @ReceiveToBookFXRateOverride, @PayToBookFXRateOverride, @StartDt)
+			(@EventID, @ReceiveCurrencyId, @PayCurrencyId, @ReceiveAmount, @PayAmount, @IsProp, @EnteredMultiply, @Ticket, @IsCancelled, @CounterpartyId, @AmendmentNumber, @MaturityDate, @TraderId, @UpdateUserID, @TradeDate, @IsForward, @InputDate, @SettlementCurrencyId, @SupressFromExtracts, @NonEuroPairReceiveToEuroFXRate, @NonEuroPairReceiveToEuroFXRateId, @IsRoll, @ContraEventId, @InstrumentMarketId, @OriginalInputDate, @ReceiveToBookFXRateOverride, @PayToBookFXRateOverride, @PNLInstrumentMarketId, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	FXTradeEvent

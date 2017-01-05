@@ -64,5 +64,6 @@ create table DBO.PortfolioEvent_hst(
 	TotalAmortisationQuantity numeric(27,8),
 	InflationAssumption numeric(27,8),
 	BlendedInflationAssumption numeric(27,8),
+	AssociatedPositionId int,
 	EndDt datetime,
 	LastActionUserID int)

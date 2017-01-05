@@ -1870,10 +1870,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList2015_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList2016NewYearBackup_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Update.sql" />
@@ -1934,6 +1930,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FactorRelationship_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusList2016_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

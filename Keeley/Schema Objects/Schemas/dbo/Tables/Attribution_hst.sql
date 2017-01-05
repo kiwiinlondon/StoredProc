@@ -123,5 +123,9 @@ create table DBO.Attribution_hst(
 	ITDFXPNLGBP numeric(27,8),
 	ITDFXPNLEUR numeric(27,8),
 	ITDFXPNLUSD numeric(27,8),
+	SumExposure numeric(27,0) not null,
+	SumMarketValue numeric(27,0) not null,
+	Exposure numeric(27,8) not null,
+	MarketValue numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)
