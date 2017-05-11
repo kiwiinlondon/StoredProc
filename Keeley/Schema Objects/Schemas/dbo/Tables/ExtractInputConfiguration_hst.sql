@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ExtractInputConfiguration_hst(
 	ExtractFieldConfigurationID int not null,
@@ -12,5 +12,6 @@ create table DBO.ExtractInputConfiguration_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	IsNotEqual bit not null,
 	EndDt datetime,
 	LastActionUserID int)

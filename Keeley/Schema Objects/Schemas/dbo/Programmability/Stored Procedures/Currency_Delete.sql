@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Currency_hst (
-			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, EndDt, LastActionUserID)
-	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, @EndDt, @UpdateUserID
+			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, IsDeliverable, EndDt, LastActionUserID)
+	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, IsDeliverable, @EndDt, @UpdateUserID
 	FROM	Currency
 	WHERE	InstrumentID = @InstrumentID
 

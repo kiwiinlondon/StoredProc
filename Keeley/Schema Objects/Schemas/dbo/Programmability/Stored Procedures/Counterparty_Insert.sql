@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Counterparty_Insert]
 		@IsElectronic bit, 
 		@UbsCsaName varchar(50), 
 		@UbsCsaRateOverride numeric(27,8), 
-		@CsaIdentifier varchar(50)
+		@CsaIdentifier varchar(50), 
+		@CsaRateOverrideSwaps numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Counterparty
-			(LegalEntityID, UpdateUserID, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, StartDt)
+			(LegalEntityID, UpdateUserID, IsElectronic, UbsCsaName, UbsCsaRateOverride, CsaIdentifier, CsaRateOverrideSwaps, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @IsElectronic, @UbsCsaName, @UbsCsaRateOverride, @CsaIdentifier, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @IsElectronic, @UbsCsaName, @UbsCsaRateOverride, @CsaIdentifier, @CsaRateOverrideSwaps, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Counterparty

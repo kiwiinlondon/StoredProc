@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[ExtractInputConfiguration_Update]
 		@DateTimeValue datetime, 
 		@BitValue bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IsNotEqual bit
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractInputConfiguration_hst (
-			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, EndDt, LastActionUserID)
+	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, @StartDt, @UpdateUserID
 	FROM	ExtractInputConfiguration
 	WHERE	ExtractFieldConfigurationID = @ExtractFieldConfigurationID
 
 	UPDATE	ExtractInputConfiguration
-	SET		ExtractId = @ExtractId, EntityPropertyId = @EntityPropertyId, IntValue = @IntValue, StringValue = @StringValue, DecimalValue = @DecimalValue, DateTimeValue = @DateTimeValue, BitValue = @BitValue, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, EntityPropertyId = @EntityPropertyId, IntValue = @IntValue, StringValue = @StringValue, DecimalValue = @DecimalValue, DateTimeValue = @DateTimeValue, BitValue = @BitValue, UpdateUserID = @UpdateUserID, IsNotEqual = @IsNotEqual,  StartDt = @StartDt
 	WHERE	ExtractFieldConfigurationID = @ExtractFieldConfigurationID
 	AND		DataVersion = @DataVersion
 

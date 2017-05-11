@@ -12,8 +12,9 @@ DROP PROCEDURE DBO.[FundPortfolioChange_Update]
 GO
 
 CREATE PROCEDURE DBO.[FundPortfolioChange_Update]
-		@FundPortfolioChangeID int, 
+		@FundPortfolioChangeId int, 
 		@FundId int, 
+		@FundPortfolioChangeTypeId int, 
 		@ReferenceDate datetime, 
 		@UpdateUserID int, 
 		@DataVersion rowversion
@@ -24,19 +25,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundPortfolioChange_hst (
-			FundPortfolioChangeID, StartDt, FundId, ReferenceDate, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundPortfolioChangeID, StartDt, FundId, ReferenceDate, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FundPortfolioChangeId, FundId, FundPortfolioChangeTypeId, ReferenceDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	FundPortfolioChangeId, FundId, FundPortfolioChangeTypeId, ReferenceDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	FundPortfolioChange
-	WHERE	FundPortfolioChangeID = @FundPortfolioChangeID
+	WHERE	FundPortfolioChangeId = @FundPortfolioChangeId
 
 	UPDATE	FundPortfolioChange
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	FundPortfolioChangeID = @FundPortfolioChangeID
+	SET		FundId = @FundId, FundPortfolioChangeTypeId = @FundPortfolioChangeTypeId, ReferenceDate = @ReferenceDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	WHERE	FundPortfolioChangeId = @FundPortfolioChangeId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	FundPortfolioChange
-	WHERE	FundPortfolioChangeID = @FundPortfolioChangeID
+	WHERE	FundPortfolioChangeId = @FundPortfolioChangeId
 	AND		@@ROWCOUNT > 0
 
 GO

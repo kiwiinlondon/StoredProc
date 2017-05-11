@@ -106,6 +106,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Update.sql
@@ -166,6 +169,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Update.sql
@@ -187,9 +193,21 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Update.sql
@@ -199,6 +217,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Update.sql
@@ -241,6 +265,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Update.sql
@@ -289,6 +316,21 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactsetPortfolio_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Update.sql
@@ -334,9 +376,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016NewYearBackup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Update.sql
@@ -367,15 +409,18 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChange_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeMonitorType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Update.sql
@@ -484,6 +529,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OpenedClosedPosition_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Update.sql
@@ -550,12 +598,18 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql
@@ -593,6 +647,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Attribution_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionFund_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergIdentifier_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Book_hst.sql
@@ -613,6 +668,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CompanySize_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateAction_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateActionType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Counterparty_hst.sql
@@ -620,10 +676,16 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\CountryHoliday_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Currency_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Custodian_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DataSource_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DayCountConvention_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragExclusion_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragLog_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragStatus_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DealingDateDefinition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DerivedAssetClass_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\DisclosureRule_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityAnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMapping_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMappingProxy_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMappingSet_hst.sql
@@ -638,6 +700,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\eventinstrumentmap_tmp_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\EventType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Exposure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExternalPerson_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Extract_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractConfiguration_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractDeliveryType_hst.sql
@@ -654,6 +717,11 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorBenchmark_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorExposure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorHierarchy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorRelationship_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactsetPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTrade_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollected_hst.sql
@@ -669,7 +737,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2014_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2015_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2016NewYearBackup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2016_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusListPrices_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql
@@ -680,9 +748,10 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundHighWaterMark_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPerformance_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChange_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeMonitorType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FundWebsiteCacheTime_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Future_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FXRate_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FXTradeEvent_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\HealthCheck_hst.sql
@@ -719,6 +788,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\OpenedClosedPosition_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Options_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealing_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingAccount_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingBalance_hst.sql
@@ -741,8 +811,10 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Region_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchBroker_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql

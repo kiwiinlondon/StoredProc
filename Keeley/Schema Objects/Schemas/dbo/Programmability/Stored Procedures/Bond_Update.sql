@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,11 @@ CREATE PROCEDURE DBO.[Bond_Update]
 		@Coupon numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@InDefault bit
+		@InDefault bit, 
+		@MaturityDate datetime, 
+		@ParAmount numeric(27,8), 
+		@IssueDate datetime, 
+		@IssuePrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Bond_hst (
-			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, EndDt, LastActionUserID)
-	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, @StartDt, @UpdateUserID
+			InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, EndDt, LastActionUserID)
+	SELECT	InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, StartDt, UpdateUserID, DataVersion, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, @StartDt, @UpdateUserID
 	FROM	Bond
 	WHERE	InstrumentId = @InstrumentId
 
 	UPDATE	Bond
-	SET		DayCountConventionID = @DayCountConventionID, FirstCouponDate = @FirstCouponDate, CouponFrequency = @CouponFrequency, Coupon = @Coupon, UpdateUserID = @UpdateUserID, InDefault = @InDefault,  StartDt = @StartDt
+	SET		DayCountConventionID = @DayCountConventionID, FirstCouponDate = @FirstCouponDate, CouponFrequency = @CouponFrequency, Coupon = @Coupon, UpdateUserID = @UpdateUserID, InDefault = @InDefault, MaturityDate = @MaturityDate, ParAmount = @ParAmount, IssueDate = @IssueDate, IssuePrice = @IssuePrice,  StartDt = @StartDt
 	WHERE	InstrumentId = @InstrumentId
 	AND		DataVersion = @DataVersion
 

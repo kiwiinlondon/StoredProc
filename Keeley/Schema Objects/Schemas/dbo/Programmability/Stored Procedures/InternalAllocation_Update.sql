@@ -25,7 +25,8 @@ CREATE PROCEDURE DBO.[InternalAllocation_Update]
 		@DataVersion rowversion, 
 		@ParentEventId int, 
 		@EventToBookFXRate numeric(35,16), 
-		@StrategyId int
+		@StrategyId int, 
+		@EventToBookFXRateOverride numeric(35,16)
 AS
 	SET NOCOUNT ON
 
@@ -33,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InternalAllocation_hst (
-			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, EndDt, LastActionUserID)
-	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, @StartDt, @UpdateUserID
+			EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, EventToBookFXRateOverride, EndDt, LastActionUserID)
+	SELECT	EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, StartDt, UpdateUserID, DataVersion, ParentEventId, EventToBookFXRate, StrategyId, EventToBookFXRateOverride, @StartDt, @UpdateUserID
 	FROM	InternalAllocation
 	WHERE	EventID = @EventID
 
 	UPDATE	InternalAllocation
-	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId, EventToBookFXRate = @EventToBookFXRate, StrategyId = @StrategyId,  StartDt = @StartDt
+	SET		FMContEventInd = @FMContEventInd, FMContEventId = @FMContEventId, FMOriginalContEventId = @FMOriginalContEventId, MatchedStatusId = @MatchedStatusId, AccountID = @AccountID, BookID = @BookID, Quantity = @Quantity, IsCancelled = @IsCancelled, UpdateUserID = @UpdateUserID, ParentEventId = @ParentEventId, EventToBookFXRate = @EventToBookFXRate, StrategyId = @StrategyId, EventToBookFXRateOverride = @EventToBookFXRateOverride,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

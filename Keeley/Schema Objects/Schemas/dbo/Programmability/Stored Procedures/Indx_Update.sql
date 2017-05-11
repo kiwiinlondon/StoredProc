@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Indx_Update]
 		@InstrumentMarketId int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@IndexTypeId int
+		@IndexTypeId int, 
+		@CollectWeights bit
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Indx_hst (
-			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, @StartDt, @UpdateUserID
+			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, CollectWeights, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, CollectWeights, @StartDt, @UpdateUserID
 	FROM	Indx
 	WHERE	InstrumentMarketId = @InstrumentMarketId
 
 	UPDATE	Indx
-	SET		UpdateUserID = @UpdateUserID, IndexTypeId = @IndexTypeId,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, IndexTypeId = @IndexTypeId, CollectWeights = @CollectWeights,  StartDt = @StartDt
 	WHERE	InstrumentMarketId = @InstrumentMarketId
 	AND		DataVersion = @DataVersion
 

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[ExtractInputConfiguration_Insert]
 		@DecimalValue numeric(27,8), 
 		@DateTimeValue datetime, 
 		@BitValue bit, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@IsNotEqual bit
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractInputConfiguration
-			(ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, UpdateUserID, StartDt)
+			(ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, UpdateUserID, IsNotEqual, StartDt)
 	VALUES
-			(@ExtractId, @EntityPropertyId, @IntValue, @StringValue, @DecimalValue, @DateTimeValue, @BitValue, @UpdateUserID, @StartDt)
+			(@ExtractId, @EntityPropertyId, @IntValue, @StringValue, @DecimalValue, @DateTimeValue, @BitValue, @UpdateUserID, @IsNotEqual, @StartDt)
 
 	SELECT	ExtractFieldConfigurationID, StartDt, DataVersion
 	FROM	ExtractInputConfiguration

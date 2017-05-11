@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Currency_Update]
 		@InstrumentID int, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@Ordering int
+		@Ordering int, 
+		@IsDeliverable bit
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Currency_hst (
-			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, EndDt, LastActionUserID)
-	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, @StartDt, @UpdateUserID
+			InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, IsDeliverable, EndDt, LastActionUserID)
+	SELECT	InstrumentID, StartDt, UpdateUserID, DataVersion, Ordering, IsDeliverable, @StartDt, @UpdateUserID
 	FROM	Currency
 	WHERE	InstrumentID = @InstrumentID
 
 	UPDATE	Currency
-	SET		UpdateUserID = @UpdateUserID, Ordering = @Ordering,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, Ordering = @Ordering, IsDeliverable = @IsDeliverable,  StartDt = @StartDt
 	WHERE	InstrumentID = @InstrumentID
 	AND		DataVersion = @DataVersion
 

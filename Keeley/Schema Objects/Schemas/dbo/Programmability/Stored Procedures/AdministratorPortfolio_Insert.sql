@@ -30,7 +30,12 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Insert]
 		@ManagementPerformanceFee numeric(27,8), 
 		@CurrencyId int, 
 		@Cost numeric(27,8), 
-		@IsShareClassSpecific bit
+		@IsShareClassSpecific bit, 
+		@IsFeeder bit, 
+		@TotalAmortisationBook numeric(27,8), 
+		@TotalAmortisationLocal numeric(27,8), 
+		@TodayAmortisationBook numeric(27,8), 
+		@MaturityDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -38,9 +43,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AdministratorPortfolio
-			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, StartDt)
+			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, TotalAmortisationBook, TotalAmortisationLocal, TodayAmortisationBook, MaturityDate, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @IsShareClassSpecific, @StartDt)
+			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @IsShareClassSpecific, @IsFeeder, @TotalAmortisationBook, @TotalAmortisationLocal, @TodayAmortisationBook, @MaturityDate, @StartDt)
 
 	SELECT	AdministratorPortfolioID, StartDt, DataVersion
 	FROM	AdministratorPortfolio

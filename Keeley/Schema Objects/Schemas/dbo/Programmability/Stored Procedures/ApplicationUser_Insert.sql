@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[ApplicationUser_Insert]
 		@WindowsLogin varchar(100), 
 		@UpdateUserID int, 
 		@Initials varchar(10), 
-		@IsActive bit
+		@IsActive bit, 
+		@UserTypeFlags int
 AS
 	SET NOCOUNT ON
 
@@ -26,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ApplicationUser
-			(FMPersID, Name, Email, WindowsLogin, UpdateUserID, Initials, IsActive, StartDt)
+			(FMPersID, Name, Email, WindowsLogin, UpdateUserID, Initials, IsActive, UserTypeFlags, StartDt)
 	VALUES
-			(@FMPersID, @Name, @Email, @WindowsLogin, @UpdateUserID, @Initials, @IsActive, @StartDt)
+			(@FMPersID, @Name, @Email, @WindowsLogin, @UpdateUserID, @Initials, @IsActive, @UserTypeFlags, @StartDt)
 
 	SELECT	UserID, StartDt, DataVersion
 	FROM	ApplicationUser

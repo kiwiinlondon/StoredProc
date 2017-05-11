@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE DBO.[Strategy_Update]
 		@StrategyId int, 
 		@Name varchar(100), 
-		@FMCode varchar(5), 
+		@FMCode varchar(50), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS

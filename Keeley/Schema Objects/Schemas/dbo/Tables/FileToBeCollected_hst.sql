@@ -15,5 +15,6 @@ create table DBO.FileToBeCollected_hst(
 	EmailWhenReceived varchar(1000),
 	FileToBeCollectedGroupId int,
 	FundId int,
+	DeleteFromServer bit not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundGroupMember_hst (
-			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, EndDt, LastActionUserID)
-	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, @EndDt, @UpdateUserID
+			FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, UseBookNav, EndDt, LastActionUserID)
+	SELECT	FundGroupMemberId, FundGroupId, FundId, StartDt, UpdateUserID, DataVersion, BookId, IncludeOnlyLongs, UseBookNav, @EndDt, @UpdateUserID
 	FROM	FundGroupMember
 	WHERE	FundGroupMemberId = @FundGroupMemberId
 

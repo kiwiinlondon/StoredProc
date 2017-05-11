@@ -14,5 +14,6 @@ create table DBO.LegalEntity_hst(
 	CountryOfDomicileId int not null,
 	ParentLegalEntityId int,
 	PulseIdentifier varchar(100),
+	CompanySizeId int not null,
 	EndDt datetime,
 	LastActionUserID int)

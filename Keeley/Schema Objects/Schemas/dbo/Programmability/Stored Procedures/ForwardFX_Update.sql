@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[ForwardFX_Update]
 		@IsProp bit, 
 		@MaturityDate datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IsDeliverable bit
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ForwardFX_hst (
-			InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, IsDeliverable, EndDt, LastActionUserID)
+	SELECT	InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, IsDeliverable, @StartDt, @UpdateUserID
 	FROM	ForwardFX
 	WHERE	InstrumentId = @InstrumentId
 
 	UPDATE	ForwardFX
-	SET		BaseCurrencyId = @BaseCurrencyId, ContraCurrencyId = @ContraCurrencyId, IsProp = @IsProp, MaturityDate = @MaturityDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		BaseCurrencyId = @BaseCurrencyId, ContraCurrencyId = @ContraCurrencyId, IsProp = @IsProp, MaturityDate = @MaturityDate, UpdateUserID = @UpdateUserID, IsDeliverable = @IsDeliverable,  StartDt = @StartDt
 	WHERE	InstrumentId = @InstrumentId
 	AND		DataVersion = @DataVersion
 

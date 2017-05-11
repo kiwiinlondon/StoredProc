@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[ForwardFX_Insert]
 		@ContraCurrencyId int, 
 		@IsProp bit, 
 		@MaturityDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@IsDeliverable bit
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ForwardFX
-			(InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, UpdateUserID, StartDt)
+			(InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, UpdateUserID, IsDeliverable, StartDt)
 	VALUES
-			(@InstrumentId, @BaseCurrencyId, @ContraCurrencyId, @IsProp, @MaturityDate, @UpdateUserID, @StartDt)
+			(@InstrumentId, @BaseCurrencyId, @ContraCurrencyId, @IsProp, @MaturityDate, @UpdateUserID, @IsDeliverable, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	ForwardFX

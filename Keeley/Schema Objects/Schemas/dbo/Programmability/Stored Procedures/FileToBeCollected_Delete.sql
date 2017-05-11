@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FileToBeCollected_hst (
-			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, EndDt, LastActionUserID)
-	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, @EndDt, @UpdateUserID
+			FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, DeleteFromServer, EndDt, LastActionUserID)
+	SELECT	FileToBeCollectedId, Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, StartDt, UpdateUserID, DataVersion, EmailWhenReceived, FileToBeCollectedGroupId, FundId, DeleteFromServer, @EndDt, @UpdateUserID
 	FROM	FileToBeCollected
 	WHERE	FileToBeCollectedId = @FileToBeCollectedId
 

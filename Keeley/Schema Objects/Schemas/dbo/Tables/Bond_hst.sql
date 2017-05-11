@@ -10,5 +10,9 @@ create table DBO.Bond_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	InDefault bit not null,
+	MaturityDate datetime not null,
+	ParAmount numeric(27,8) not null,
+	IssueDate datetime,
+	IssuePrice numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

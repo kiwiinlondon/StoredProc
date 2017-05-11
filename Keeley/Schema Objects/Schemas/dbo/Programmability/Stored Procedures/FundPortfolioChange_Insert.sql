@@ -13,6 +13,7 @@ GO
 
 CREATE PROCEDURE DBO.[FundPortfolioChange_Insert]
 		@FundId int, 
+		@FundPortfolioChangeTypeId int, 
 		@ReferenceDate datetime, 
 		@UpdateUserID int
 AS
@@ -22,13 +23,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundPortfolioChange
-			(FundId, ReferenceDate, UpdateUserID, StartDt)
+			(FundId, FundPortfolioChangeTypeId, ReferenceDate, UpdateUserID, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @UpdateUserID, @StartDt)
+			(@FundId, @FundPortfolioChangeTypeId, @ReferenceDate, @UpdateUserID, @StartDt)
 
-	SELECT	FundPortfolioChangeID, StartDt, DataVersion
+	SELECT	FundPortfolioChangeId, StartDt, DataVersion
 	FROM	FundPortfolioChange
-	WHERE	FundPortfolioChangeID = SCOPE_IDENTITY()
+	WHERE	FundPortfolioChangeId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO

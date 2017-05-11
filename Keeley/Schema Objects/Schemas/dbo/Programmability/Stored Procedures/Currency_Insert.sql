@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Currency_Insert]
 		@InstrumentID int, 
 		@UpdateUserID int, 
-		@Ordering int
+		@Ordering int, 
+		@IsDeliverable bit
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Currency
-			(InstrumentID, UpdateUserID, Ordering, StartDt)
+			(InstrumentID, UpdateUserID, Ordering, IsDeliverable, StartDt)
 	VALUES
-			(@InstrumentID, @UpdateUserID, @Ordering, @StartDt)
+			(@InstrumentID, @UpdateUserID, @Ordering, @IsDeliverable, @StartDt)
 
 	SELECT	InstrumentID, StartDt, DataVersion
 	FROM	Currency

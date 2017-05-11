@@ -22,7 +22,8 @@ CREATE PROCEDURE DBO.[FileToBeCollected_Insert]
 		@UpdateUserID int, 
 		@EmailWhenReceived varchar(1000), 
 		@FileToBeCollectedGroupId int, 
-		@FundId int
+		@FundId int, 
+		@DeleteFromServer bit
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +31,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FileToBeCollected
-			(Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, UpdateUserID, EmailWhenReceived, FileToBeCollectedGroupId, FundId, StartDt)
+			(Name, FileCollectionTypeId, FileCollectionTypeProfileName, FileDestinationPath, FileNameTemplate, FileNameResolutionTypeId, FileTypeId, UpdateUserID, EmailWhenReceived, FileToBeCollectedGroupId, FundId, DeleteFromServer, StartDt)
 	VALUES
-			(@Name, @FileCollectionTypeId, @FileCollectionTypeProfileName, @FileDestinationPath, @FileNameTemplate, @FileNameResolutionTypeId, @FileTypeId, @UpdateUserID, @EmailWhenReceived, @FileToBeCollectedGroupId, @FundId, @StartDt)
+			(@Name, @FileCollectionTypeId, @FileCollectionTypeProfileName, @FileDestinationPath, @FileNameTemplate, @FileNameResolutionTypeId, @FileTypeId, @UpdateUserID, @EmailWhenReceived, @FileToBeCollectedGroupId, @FundId, @DeleteFromServer, @StartDt)
 
 	SELECT	FileToBeCollectedId, StartDt, DataVersion
 	FROM	FileToBeCollected

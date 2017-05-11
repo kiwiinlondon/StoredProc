@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[FundPortfolioChange_Delete]
 GO
 
 CREATE PROCEDURE DBO.[FundPortfolioChange_Delete]
-		@FundPortfolioChangeID int,
+		@FundPortfolioChangeId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundPortfolioChange_hst (
-			FundPortfolioChangeID, StartDt, FundId, ReferenceDate, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundPortfolioChangeID, StartDt, FundId, ReferenceDate, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FundPortfolioChangeId, FundId, FundPortfolioChangeTypeId, ReferenceDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	FundPortfolioChangeId, FundId, FundPortfolioChangeTypeId, ReferenceDate, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	FundPortfolioChange
-	WHERE	FundPortfolioChangeID = @FundPortfolioChangeID
+	WHERE	FundPortfolioChangeId = @FundPortfolioChangeId
 
 	DELETE	FundPortfolioChange
-	WHERE	FundPortfolioChangeID = @FundPortfolioChangeID
+	WHERE	FundPortfolioChangeId = @FundPortfolioChangeId
 	AND		DataVersion = @DataVersion
 GO

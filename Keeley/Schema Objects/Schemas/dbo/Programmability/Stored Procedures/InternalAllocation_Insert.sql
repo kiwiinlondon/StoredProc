@@ -24,7 +24,8 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@UpdateUserID int, 
 		@ParentEventId int, 
 		@EventToBookFXRate numeric(35,16), 
-		@StrategyId int
+		@StrategyId int, 
+		@EventToBookFXRateOverride numeric(35,16)
 AS
 	SET NOCOUNT ON
 
@@ -32,9 +33,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAllocation
-			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StrategyId, StartDt)
+			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StrategyId, EventToBookFXRateOverride, StartDt)
 	VALUES
-			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StrategyId, @StartDt)
+			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StrategyId, @EventToBookFXRateOverride, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InternalAllocation

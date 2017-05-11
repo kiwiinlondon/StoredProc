@@ -20,7 +20,8 @@ CREATE PROCEDURE DBO.[ApplicationUser_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@Initials varchar(10), 
-		@IsActive bit
+		@IsActive bit, 
+		@UserTypeFlags int
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ApplicationUser_hst (
-			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, EndDt, LastActionUserID)
-	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, @StartDt, @UpdateUserID
+			UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, UserTypeFlags, EndDt, LastActionUserID)
+	SELECT	UserID, FMPersID, Name, Email, WindowsLogin, StartDt, UpdateUserID, DataVersion, Initials, IsActive, UserTypeFlags, @StartDt, @UpdateUserID
 	FROM	ApplicationUser
 	WHERE	UserID = @UserID
 
 	UPDATE	ApplicationUser
-	SET		FMPersID = @FMPersID, Name = @Name, Email = @Email, WindowsLogin = @WindowsLogin, UpdateUserID = @UpdateUserID, Initials = @Initials, IsActive = @IsActive,  StartDt = @StartDt
+	SET		FMPersID = @FMPersID, Name = @Name, Email = @Email, WindowsLogin = @WindowsLogin, UpdateUserID = @UpdateUserID, Initials = @Initials, IsActive = @IsActive, UserTypeFlags = @UserTypeFlags,  StartDt = @StartDt
 	WHERE	UserID = @UserID
 	AND		DataVersion = @DataVersion
 

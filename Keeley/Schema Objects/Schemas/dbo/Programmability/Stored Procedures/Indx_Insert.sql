@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Indx_Insert]
 		@InstrumentMarketId int, 
 		@UpdateUserID int, 
-		@IndexTypeId int
+		@IndexTypeId int, 
+		@CollectWeights bit
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Indx
-			(InstrumentMarketId, UpdateUserID, IndexTypeId, StartDt)
+			(InstrumentMarketId, UpdateUserID, IndexTypeId, CollectWeights, StartDt)
 	VALUES
-			(@InstrumentMarketId, @UpdateUserID, @IndexTypeId, @StartDt)
+			(@InstrumentMarketId, @UpdateUserID, @IndexTypeId, @CollectWeights, @StartDt)
 
 	SELECT	InstrumentMarketId, StartDt, DataVersion
 	FROM	Indx

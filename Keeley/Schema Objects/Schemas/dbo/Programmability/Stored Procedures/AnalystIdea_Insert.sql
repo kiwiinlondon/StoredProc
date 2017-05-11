@@ -15,7 +15,12 @@ CREATE PROCEDURE DBO.[AnalystIdea_Insert]
 		@AnalystId int, 
 		@ResearchNoteLastReceived datetime, 
 		@UpdateUserID int, 
-		@IssuerId int
+		@IssuerId int, 
+		@ExternalOriginatorId int, 
+		@InternalOriginatorId int, 
+		@InternalOriginatorId2 int, 
+		@OriginatingDate datetime, 
+		@IsOriginatedLong bit
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AnalystIdea
-			(AnalystId, ResearchNoteLastReceived, UpdateUserID, IssuerId, StartDt)
+			(AnalystId, ResearchNoteLastReceived, UpdateUserID, IssuerId, ExternalOriginatorId, InternalOriginatorId, InternalOriginatorId2, OriginatingDate, IsOriginatedLong, StartDt)
 	VALUES
-			(@AnalystId, @ResearchNoteLastReceived, @UpdateUserID, @IssuerId, @StartDt)
+			(@AnalystId, @ResearchNoteLastReceived, @UpdateUserID, @IssuerId, @ExternalOriginatorId, @InternalOriginatorId, @InternalOriginatorId2, @OriginatingDate, @IsOriginatedLong, @StartDt)
 
 	SELECT	AnalystIdeaId, StartDt, DataVersion
 	FROM	AnalystIdea

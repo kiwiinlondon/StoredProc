@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Indx_hst (
-			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, @EndDt, @UpdateUserID
+			InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, CollectWeights, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketId, StartDt, UpdateUserID, DataVersion, IndexTypeId, CollectWeights, @EndDt, @UpdateUserID
 	FROM	Indx
 	WHERE	InstrumentMarketId = @InstrumentMarketId
 

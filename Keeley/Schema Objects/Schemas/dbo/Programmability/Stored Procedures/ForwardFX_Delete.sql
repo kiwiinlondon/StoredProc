@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ForwardFX_hst (
-			InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, IsDeliverable, EndDt, LastActionUserID)
+	SELECT	InstrumentId, BaseCurrencyId, ContraCurrencyId, IsProp, MaturityDate, StartDt, UpdateUserID, DataVersion, IsDeliverable, @EndDt, @UpdateUserID
 	FROM	ForwardFX
 	WHERE	InstrumentId = @InstrumentId
 

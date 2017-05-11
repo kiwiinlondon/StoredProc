@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ForwardFX_hst(
 	InstrumentId int not null,
@@ -9,5 +9,6 @@ create table DBO.ForwardFX_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	IsDeliverable bit not null,
 	EndDt datetime,
 	LastActionUserID int)

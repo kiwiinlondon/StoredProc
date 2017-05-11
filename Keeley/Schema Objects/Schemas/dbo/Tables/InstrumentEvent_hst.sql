@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.InstrumentEvent_hst(
 	EventID int not null,
@@ -15,5 +15,6 @@ create table DBO.InstrumentEvent_hst(
 	DataVersion binary(8) not null,
 	InputDate datetime not null,
 	ExDate datetime not null,
+	Price numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

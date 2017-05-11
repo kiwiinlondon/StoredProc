@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -13,10 +13,19 @@ GO
 
 CREATE PROCEDURE DBO.[IndexConstituent_Insert]
 		@InstrumentId int, 
-		@ConstituentInstrumentId int, 
+		@ConstituentInstrumentMarketId int, 
 		@ReferenceDate datetime, 
-		@Weighting numeric(27,8), 
-		@UpdateUserID int
+		@OpenWeight numeric(19,16), 
+		@CumulativeOpenWeight numeric(19,16), 
+		@UpdateUserID int, 
+		@TotalReturn numeric(28,8), 
+		@RebasedTotalReturn numeric(28,16), 
+		@RebasedFxReturnEUR numeric(28,16), 
+		@RebasedFxReturnGBP numeric(28,16), 
+		@RebasedFxReturnUSD numeric(28,16), 
+		@FxReturnEUR numeric(28,16), 
+		@FxReturnGBP numeric(28,16), 
+		@FxReturnUSD numeric(18,16)
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +33,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into IndexConstituent
-			(InstrumentId, ConstituentInstrumentId, ReferenceDate, Weighting, UpdateUserID, StartDt)
+			(InstrumentId, ConstituentInstrumentMarketId, ReferenceDate, OpenWeight, CumulativeOpenWeight, UpdateUserID, TotalReturn, RebasedTotalReturn, RebasedFxReturnEUR, RebasedFxReturnGBP, RebasedFxReturnUSD, FxReturnEUR, FxReturnGBP, FxReturnUSD, StartDt)
 	VALUES
-			(@InstrumentId, @ConstituentInstrumentId, @ReferenceDate, @Weighting, @UpdateUserID, @StartDt)
+			(@InstrumentId, @ConstituentInstrumentMarketId, @ReferenceDate, @OpenWeight, @CumulativeOpenWeight, @UpdateUserID, @TotalReturn, @RebasedTotalReturn, @RebasedFxReturnEUR, @RebasedFxReturnGBP, @RebasedFxReturnUSD, @FxReturnEUR, @FxReturnGBP, @FxReturnUSD, @StartDt)
 
 	SELECT	IndexConstituentId, StartDt, DataVersion
 	FROM	IndexConstituent

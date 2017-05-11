@@ -9,5 +9,6 @@ create table DBO.FundGroupMember_hst(
 	DataVersion binary(8) not null,
 	BookId int,
 	IncludeOnlyLongs bit not null,
+	UseBookNav bit not null,
 	EndDt datetime,
 	LastActionUserID int)

@@ -11,5 +11,6 @@ create table DBO.ApplicationUser_hst(
 	DataVersion binary(8) not null,
 	Initials varchar(10),
 	IsActive bit not null,
+	UserTypeFlags int,
 	EndDt datetime,
 	LastActionUserID int)
