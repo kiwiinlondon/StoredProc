@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.Country_hst(
 	CountryID int not null,
@@ -8,5 +8,7 @@ create table DBO.Country_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	IsEEA bit,
+	IsOECD bit,
 	EndDt datetime,
 	LastActionUserID int)

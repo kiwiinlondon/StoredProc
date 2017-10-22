@@ -12,13 +12,8 @@ DROP PROCEDURE DBO.[AttributionSource_Update]
 GO
 
 CREATE PROCEDURE DBO.[AttributionSource_Update]
-		@AttributionSourceID int, 
-		@FundId int, 
-		@ReferenceDate datetime, 
-		@AdministratorSourced bit, 
-		@AdministratorPrevious datetime, 
-		@FactsetSourced bit, 
-		@FactsetPrevious datetime, 
+		@AttributionSourceId int, 
+		@Name varchar(50), 
 		@UpdateUserID int, 
 		@DataVersion rowversion
 AS
@@ -28,19 +23,19 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AttributionSource_hst (
-			AttributionSourceID, FundId, ReferenceDate, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AttributionSourceID, FundId, ReferenceDate, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			AttributionSourceId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	AttributionSourceId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	AttributionSource
-	WHERE	AttributionSourceID = @AttributionSourceID
+	WHERE	AttributionSourceId = @AttributionSourceId
 
 	UPDATE	AttributionSource
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, AdministratorSourced = @AdministratorSourced, AdministratorPrevious = @AdministratorPrevious, FactsetSourced = @FactsetSourced, FactsetPrevious = @FactsetPrevious, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
-	WHERE	AttributionSourceID = @AttributionSourceID
+	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	WHERE	AttributionSourceId = @AttributionSourceId
 	AND		DataVersion = @DataVersion
 
 	SELECT	StartDt, DataVersion
 	FROM	AttributionSource
-	WHERE	AttributionSourceID = @AttributionSourceID
+	WHERE	AttributionSourceId = @AttributionSourceId
 	AND		@@ROWCOUNT > 0
 
 GO

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO IndexConstituent_hst (
-			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, ReferenceDate, OpenWeight, CumulativeOpenWeight, StartDt, UpdateUserID, DataVersion, TotalReturn, RebasedTotalReturn, RebasedFxReturnEUR, RebasedFxReturnGBP, RebasedFxReturnUSD, FxReturnEUR, FxReturnGBP, FxReturnUSD, EndDt, LastActionUserID)
-	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, ReferenceDate, OpenWeight, CumulativeOpenWeight, StartDt, UpdateUserID, DataVersion, TotalReturn, RebasedTotalReturn, RebasedFxReturnEUR, RebasedFxReturnGBP, RebasedFxReturnUSD, FxReturnEUR, FxReturnGBP, FxReturnUSD, @EndDt, @UpdateUserID
+			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	IndexConstituent
 	WHERE	IndexConstituentId = @IndexConstituentId
 

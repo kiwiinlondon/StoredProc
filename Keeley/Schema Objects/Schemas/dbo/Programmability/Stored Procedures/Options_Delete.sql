@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Options_hst (
-			InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, ContractSize, OptionExerciseTypeId, EndDt, LastActionUserID)
+	SELECT	InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, ContractSize, OptionExerciseTypeId, @EndDt, @UpdateUserID
 	FROM	Options
 	WHERE	InstrumentId = @InstrumentId
 

@@ -26,5 +26,7 @@ create table DBO.InstrumentMarket_hst(
 	AdministratorId varchar(150),
 	IsReverse bit,
 	RiskCurrencyId int not null,
+	ValuationMethodologyId int not null,
+	CICCode varchar(4),
 	EndDt datetime,
 	LastActionUserID int)

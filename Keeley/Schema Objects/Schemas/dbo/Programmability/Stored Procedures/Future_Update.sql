@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[Future_Update]
 		@InstrumentId int, 
 		@MaturityDate datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@ContractSize decimal
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Future_hst (
-			InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, ContractSize, EndDt, LastActionUserID)
+	SELECT	InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, ContractSize, @StartDt, @UpdateUserID
 	FROM	Future
 	WHERE	InstrumentId = @InstrumentId
 
 	UPDATE	Future
-	SET		MaturityDate = @MaturityDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		MaturityDate = @MaturityDate, UpdateUserID = @UpdateUserID, ContractSize = @ContractSize,  StartDt = @StartDt
 	WHERE	InstrumentId = @InstrumentId
 	AND		DataVersion = @DataVersion
 

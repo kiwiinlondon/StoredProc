@@ -22,7 +22,12 @@ CREATE PROCEDURE DBO.[Bond_Insert]
 		@MaturityDate datetime, 
 		@ParAmount numeric(27,8), 
 		@IssueDate datetime, 
-		@IssuePrice numeric(27,8)
+		@IssuePrice numeric(27,8), 
+		@IsFixed bit, 
+		@BondMaturityTypeId int, 
+		@ConversionPrice numeric(27,8), 
+		@MaturityValue numeric(27,8), 
+		@IsCovered bit
 AS
 	SET NOCOUNT ON
 
@@ -30,9 +35,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Bond
-			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, StartDt)
+			(InstrumentId, DayCountConventionID, FirstCouponDate, CouponFrequency, Coupon, UpdateUserID, InDefault, MaturityDate, ParAmount, IssueDate, IssuePrice, IsFixed, BondMaturityTypeId, ConversionPrice, MaturityValue, IsCovered, StartDt)
 	VALUES
-			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @InDefault, @MaturityDate, @ParAmount, @IssueDate, @IssuePrice, @StartDt)
+			(@InstrumentId, @DayCountConventionID, @FirstCouponDate, @CouponFrequency, @Coupon, @UpdateUserID, @InDefault, @MaturityDate, @ParAmount, @IssueDate, @IssuePrice, @IsFixed, @BondMaturityTypeId, @ConversionPrice, @MaturityValue, @IsCovered, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	Bond

@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[Book_Insert]
 		@ManagerId int, 
 		@EZEIdentifier varchar(100), 
 		@IsPrimary bit, 
-		@IsActive bit
+		@IsActive bit, 
+		@NavIsNotUsable bit
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Book
-			(FMOrgId, Name, FundID, UpdateUserID, ManagerId, EZEIdentifier, IsPrimary, IsActive, StartDt)
+			(FMOrgId, Name, FundID, UpdateUserID, ManagerId, EZEIdentifier, IsPrimary, IsActive, NavIsNotUsable, StartDt)
 	VALUES
-			(@FMOrgId, @Name, @FundID, @UpdateUserID, @ManagerId, @EZEIdentifier, @IsPrimary, @IsActive, @StartDt)
+			(@FMOrgId, @Name, @FundID, @UpdateUserID, @ManagerId, @EZEIdentifier, @IsPrimary, @IsActive, @NavIsNotUsable, @StartDt)
 
 	SELECT	BookID, StartDt, DataVersion
 	FROM	Book

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -17,7 +17,9 @@ CREATE PROCEDURE DBO.[Country_Update]
 		@IsoCode varchar(5), 
 		@RegionID int, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@IsEEA bit, 
+		@IsOECD bit
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Country_hst (
-			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, EndDt, LastActionUserID)
+	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, @StartDt, @UpdateUserID
 	FROM	Country
 	WHERE	CountryID = @CountryID
 
 	UPDATE	Country
-	SET		Name = @Name, IsoCode = @IsoCode, RegionID = @RegionID, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, IsoCode = @IsoCode, RegionID = @RegionID, UpdateUserID = @UpdateUserID, IsEEA = @IsEEA, IsOECD = @IsOECD,  StartDt = @StartDt
 	WHERE	CountryID = @CountryID
 	AND		DataVersion = @DataVersion
 

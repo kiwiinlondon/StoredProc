@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[AnalyticType_Update]
 		@Name varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@FMValueSpecId int
+		@FMValueSpecId int, 
+		@BloombergMnemonic varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AnalyticType_hst (
-			AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, EndDt, LastActionUserID)
-	SELECT	AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, @StartDt, @UpdateUserID
+			AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, BloombergMnemonic, EndDt, LastActionUserID)
+	SELECT	AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, BloombergMnemonic, @StartDt, @UpdateUserID
 	FROM	AnalyticType
 	WHERE	AnalyticTypeId = @AnalyticTypeId
 
 	UPDATE	AnalyticType
-	SET		Name = @Name, UpdateUserID = @UpdateUserID, FMValueSpecId = @FMValueSpecId,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, FMValueSpecId = @FMValueSpecId, BloombergMnemonic = @BloombergMnemonic,  StartDt = @StartDt
 	WHERE	AnalyticTypeId = @AnalyticTypeId
 	AND		DataVersion = @DataVersion
 

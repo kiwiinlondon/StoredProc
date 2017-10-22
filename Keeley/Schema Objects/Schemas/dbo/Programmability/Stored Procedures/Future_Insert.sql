@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[Future_Insert]
 		@InstrumentId int, 
 		@MaturityDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@ContractSize decimal
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Future
-			(InstrumentId, MaturityDate, UpdateUserID, StartDt)
+			(InstrumentId, MaturityDate, UpdateUserID, ContractSize, StartDt)
 	VALUES
-			(@InstrumentId, @MaturityDate, @UpdateUserID, @StartDt)
+			(@InstrumentId, @MaturityDate, @UpdateUserID, @ContractSize, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	Future

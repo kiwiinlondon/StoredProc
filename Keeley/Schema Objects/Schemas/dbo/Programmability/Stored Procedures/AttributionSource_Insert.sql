@@ -12,12 +12,7 @@ DROP PROCEDURE DBO.[AttributionSource_Insert]
 GO
 
 CREATE PROCEDURE DBO.[AttributionSource_Insert]
-		@FundId int, 
-		@ReferenceDate datetime, 
-		@AdministratorSourced bit, 
-		@AdministratorPrevious datetime, 
-		@FactsetSourced bit, 
-		@FactsetPrevious datetime, 
+		@Name varchar(50), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -26,13 +21,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AttributionSource
-			(FundId, ReferenceDate, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, UpdateUserID, StartDt)
+			(Name, UpdateUserID, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @AdministratorSourced, @AdministratorPrevious, @FactsetSourced, @FactsetPrevious, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @StartDt)
 
-	SELECT	AttributionSourceID, StartDt, DataVersion
+	SELECT	AttributionSourceId, StartDt, DataVersion
 	FROM	AttributionSource
-	WHERE	AttributionSourceID = SCOPE_IDENTITY()
+	WHERE	AttributionSourceId = SCOPE_IDENTITY()
 	AND		@@ROWCOUNT > 0
 
 GO

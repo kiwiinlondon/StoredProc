@@ -40,7 +40,11 @@ CREATE PROCEDURE DBO.[AttributionFund_Insert]
 		@OpeningAdjustedNav numeric(27,8), 
 		@OpeningKeeleyAdjustedNav numeric(27,8), 
 		@OpeningAdministratorAdjustedNav numeric(27,8), 
-		@OpeningValuationAdjustedNav numeric(27,8)
+		@OpeningValuationAdjustedNav numeric(27,8), 
+		@OpeningNav numeric(27,8), 
+		@OpeningKeeleyNav numeric(27,8), 
+		@OpeningAdministratorNav numeric(27,8), 
+		@OpeningValuationNav numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -48,9 +52,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AttributionFund
-			(FundId, ReferenceDate, AdjustmentFactor, AdjustedNav, KeeleyAdjustmentFactor, KeeleyAdjustedNav, AdministratorAdjustmentFactor, AdministratorAdjustedNav, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, KeeleyUnadjustedNav, KeeleyTodayCapitalChange, UpdateUserID, PercentageOfFund, ValuationAdjustmentFactor, ValuationAdjustedNav, ValuationUnadjustedNav, UseKeeleyAdjustmentFactor, AdministratorUnadjustedNav, AdministratorTodayCapitalChange, ITDOpeningAttributionFundId, SumNetAssetValue, NumberOfDays, OpeningAdjustedNav, OpeningKeeleyAdjustedNav, OpeningAdministratorAdjustedNav, OpeningValuationAdjustedNav, StartDt)
+			(FundId, ReferenceDate, AdjustmentFactor, AdjustedNav, KeeleyAdjustmentFactor, KeeleyAdjustedNav, AdministratorAdjustmentFactor, AdministratorAdjustedNav, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, KeeleyUnadjustedNav, KeeleyTodayCapitalChange, UpdateUserID, PercentageOfFund, ValuationAdjustmentFactor, ValuationAdjustedNav, ValuationUnadjustedNav, UseKeeleyAdjustmentFactor, AdministratorUnadjustedNav, AdministratorTodayCapitalChange, ITDOpeningAttributionFundId, SumNetAssetValue, NumberOfDays, OpeningAdjustedNav, OpeningKeeleyAdjustedNav, OpeningAdministratorAdjustedNav, OpeningValuationAdjustedNav, OpeningNav, OpeningKeeleyNav, OpeningAdministratorNav, OpeningValuationNav, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @AdjustmentFactor, @AdjustedNav, @KeeleyAdjustmentFactor, @KeeleyAdjustedNav, @AdministratorAdjustmentFactor, @AdministratorAdjustedNav, @AdministratorSourced, @AdministratorPrevious, @FactsetSourced, @FactsetPrevious, @KeeleyUnadjustedNav, @KeeleyTodayCapitalChange, @UpdateUserID, @PercentageOfFund, @ValuationAdjustmentFactor, @ValuationAdjustedNav, @ValuationUnadjustedNav, @UseKeeleyAdjustmentFactor, @AdministratorUnadjustedNav, @AdministratorTodayCapitalChange, @ITDOpeningAttributionFundId, @SumNetAssetValue, @NumberOfDays, @OpeningAdjustedNav, @OpeningKeeleyAdjustedNav, @OpeningAdministratorAdjustedNav, @OpeningValuationAdjustedNav, @StartDt)
+			(@FundId, @ReferenceDate, @AdjustmentFactor, @AdjustedNav, @KeeleyAdjustmentFactor, @KeeleyAdjustedNav, @AdministratorAdjustmentFactor, @AdministratorAdjustedNav, @AdministratorSourced, @AdministratorPrevious, @FactsetSourced, @FactsetPrevious, @KeeleyUnadjustedNav, @KeeleyTodayCapitalChange, @UpdateUserID, @PercentageOfFund, @ValuationAdjustmentFactor, @ValuationAdjustedNav, @ValuationUnadjustedNav, @UseKeeleyAdjustmentFactor, @AdministratorUnadjustedNav, @AdministratorTodayCapitalChange, @ITDOpeningAttributionFundId, @SumNetAssetValue, @NumberOfDays, @OpeningAdjustedNav, @OpeningKeeleyAdjustedNav, @OpeningAdministratorAdjustedNav, @OpeningValuationAdjustedNav, @OpeningNav, @OpeningKeeleyNav, @OpeningAdministratorNav, @OpeningValuationNav, @StartDt)
 
 	SELECT	AttributionFundId, StartDt, DataVersion
 	FROM	AttributionFund

@@ -12,7 +12,7 @@ DROP PROCEDURE DBO.[AttributionSource_Delete]
 GO
 
 CREATE PROCEDURE DBO.[AttributionSource_Delete]
-		@AttributionSourceID int,
+		@AttributionSourceId int,
 		@DataVersion RowVersion,
 		@UpdateUserID int
 AS
@@ -22,12 +22,12 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AttributionSource_hst (
-			AttributionSourceID, FundId, ReferenceDate, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	AttributionSourceID, FundId, ReferenceDate, AdministratorSourced, AdministratorPrevious, FactsetSourced, FactsetPrevious, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			AttributionSourceId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	AttributionSourceId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	AttributionSource
-	WHERE	AttributionSourceID = @AttributionSourceID
+	WHERE	AttributionSourceId = @AttributionSourceId
 
 	DELETE	AttributionSource
-	WHERE	AttributionSourceID = @AttributionSourceID
+	WHERE	AttributionSourceId = @AttributionSourceId
 	AND		DataVersion = @DataVersion
 GO

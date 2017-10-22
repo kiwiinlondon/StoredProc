@@ -33,7 +33,9 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@ExposureCurrencyId int, 
 		@AdministratorId varchar(150), 
 		@IsReverse bit, 
-		@RiskCurrencyId int
+		@RiskCurrencyId int, 
+		@ValuationMethodologyId int, 
+		@CICCode varchar(4)
 AS
 	SET NOCOUNT ON
 
@@ -41,9 +43,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentMarket
-			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, StartDt)
+			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, StartDt)
 	VALUES
-			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @StartDt)
+			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @ValuationMethodologyId, @CICCode, @StartDt)
 
 	SELECT	InstrumentMarketID, StartDt, DataVersion
 	FROM	InstrumentMarket

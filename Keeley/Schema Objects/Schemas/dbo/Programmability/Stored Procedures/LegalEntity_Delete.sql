@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO LegalEntity_hst (
-			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, @EndDt, @UpdateUserID
+			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, MarketCapUSD, UltimateParentName, UltimateParentLEI, LEI, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, MarketCapUSD, UltimateParentName, UltimateParentLEI, LEI, @EndDt, @UpdateUserID
 	FROM	LegalEntity
 	WHERE	LegalEntityID = @LegalEntityID
 

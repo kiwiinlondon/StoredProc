@@ -33,5 +33,9 @@ create table DBO.AttributionFund_hst(
 	OpeningKeeleyAdjustedNav numeric(27,8) not null,
 	OpeningAdministratorAdjustedNav numeric(27,8),
 	OpeningValuationAdjustedNav numeric(27,8),
+	OpeningNav numeric(27,8) not null,
+	OpeningKeeleyNav numeric(27,8) not null,
+	OpeningAdministratorNav numeric(27,8),
+	OpeningValuationNav numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

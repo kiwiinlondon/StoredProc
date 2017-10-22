@@ -17,7 +17,9 @@ CREATE PROCEDURE DBO.[Options_Update]
 		@StrikePrice numeric(27,8), 
 		@ExpiryDate datetime, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@ContractSize decimal, 
+		@OptionExerciseTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Options_hst (
-			InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, ContractSize, OptionExerciseTypeId, EndDt, LastActionUserID)
+	SELECT	InstrumentId, IsPut, StrikePrice, ExpiryDate, StartDt, UpdateUserID, DataVersion, ContractSize, OptionExerciseTypeId, @StartDt, @UpdateUserID
 	FROM	Options
 	WHERE	InstrumentId = @InstrumentId
 
 	UPDATE	Options
-	SET		IsPut = @IsPut, StrikePrice = @StrikePrice, ExpiryDate = @ExpiryDate, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		IsPut = @IsPut, StrikePrice = @StrikePrice, ExpiryDate = @ExpiryDate, UpdateUserID = @UpdateUserID, ContractSize = @ContractSize, OptionExerciseTypeId = @OptionExerciseTypeId,  StartDt = @StartDt
 	WHERE	InstrumentId = @InstrumentId
 	AND		DataVersion = @DataVersion
 

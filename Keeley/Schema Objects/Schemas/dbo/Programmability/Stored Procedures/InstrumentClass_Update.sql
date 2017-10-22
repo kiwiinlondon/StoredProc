@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[InstrumentClass_Update]
 		@FMInstClass varchar(100), 
 		@Name varchar(100), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@CICSuffix varchar(2)
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentClass_hst (
-			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, CICSuffix, EndDt, LastActionUserID)
+	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, CICSuffix, @StartDt, @UpdateUserID
 	FROM	InstrumentClass
 	WHERE	InstrumentClassID = @InstrumentClassID
 
 	UPDATE	InstrumentClass
-	SET		FMInstClass = @FMInstClass, Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FMInstClass = @FMInstClass, Name = @Name, UpdateUserID = @UpdateUserID, CICSuffix = @CICSuffix,  StartDt = @StartDt
 	WHERE	InstrumentClassID = @InstrumentClassID
 	AND		DataVersion = @DataVersion
 

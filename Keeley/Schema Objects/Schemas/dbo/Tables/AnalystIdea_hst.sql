@@ -13,5 +13,6 @@ create table DBO.AnalystIdea_hst(
 	InternalOriginatorId2 int,
 	OriginatingDate datetime,
 	IsOriginatedLong bit,
+	ExternalBrokerId int,
 	EndDt datetime,
 	LastActionUserID int)

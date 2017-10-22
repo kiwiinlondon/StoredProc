@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -27,7 +27,8 @@ CREATE PROCEDURE DBO.[FundPerformance_Insert]
 		@BenchmarkFundFXRateId int, 
 		@UpdateUserID int, 
 		@BenchmarkPriceExistsOnDay bit, 
-		@BenchmarkPriceValidUntil datetime
+		@BenchmarkPriceValidUntil datetime, 
+		@MaxFundPrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -35,9 +36,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundPerformance
-			(FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, UpdateUserID, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, StartDt)
+			(FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, UpdateUserID, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, MaxFundPrice, StartDt)
 	VALUES
-			(@FundId, @ValuationBusinessDate, @ValuationCalandarDate, @ValidUntil, @IsInception, @FundPrice, @FundPriceId, @RiskFreeRate, @RiskFreeRatePriceId, @BenchmarkPrice, @BenchmarkPriceId, @BenchmarkFundFXRate, @BenchmarkFundFXRateId, @UpdateUserID, @BenchmarkPriceExistsOnDay, @BenchmarkPriceValidUntil, @StartDt)
+			(@FundId, @ValuationBusinessDate, @ValuationCalandarDate, @ValidUntil, @IsInception, @FundPrice, @FundPriceId, @RiskFreeRate, @RiskFreeRatePriceId, @BenchmarkPrice, @BenchmarkPriceId, @BenchmarkFundFXRate, @BenchmarkFundFXRateId, @UpdateUserID, @BenchmarkPriceExistsOnDay, @BenchmarkPriceValidUntil, @MaxFundPrice, @StartDt)
 
 	SELECT	FundPerformanceId, StartDt, DataVersion
 	FROM	FundPerformance

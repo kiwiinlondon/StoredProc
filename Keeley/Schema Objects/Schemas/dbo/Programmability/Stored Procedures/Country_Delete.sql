@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Country_hst (
-			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, EndDt, LastActionUserID)
+	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, @EndDt, @UpdateUserID
 	FROM	Country
 	WHERE	CountryID = @CountryID
 

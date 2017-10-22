@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO AnalyticType_hst (
-			AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, EndDt, LastActionUserID)
-	SELECT	AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, @EndDt, @UpdateUserID
+			AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, BloombergMnemonic, EndDt, LastActionUserID)
+	SELECT	AnalyticTypeId, Name, StartDt, UpdateUserID, DataVersion, FMValueSpecId, BloombergMnemonic, @EndDt, @UpdateUserID
 	FROM	AnalyticType
 	WHERE	AnalyticTypeId = @AnalyticTypeId
 

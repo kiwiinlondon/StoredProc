@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FundPerformance_hst(
 	FundPerformanceId int not null,
@@ -20,5 +20,6 @@ create table DBO.FundPerformance_hst(
 	DataVersion binary(8) not null,
 	BenchmarkPriceExistsOnDay bit not null,
 	BenchmarkPriceValidUntil datetime,
+	MaxFundPrice numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

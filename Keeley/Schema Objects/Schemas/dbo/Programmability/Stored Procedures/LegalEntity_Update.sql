@@ -24,7 +24,11 @@ CREATE PROCEDURE DBO.[LegalEntity_Update]
 		@CountryOfDomicileId int, 
 		@ParentLegalEntityId int, 
 		@PulseIdentifier varchar(100), 
-		@CompanySizeId int
+		@CompanySizeId int, 
+		@MarketCapUSD numeric(15,0), 
+		@UltimateParentName varchar(100), 
+		@UltimateParentLEI varchar(100), 
+		@LEI varchar(100)
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +36,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO LegalEntity_hst (
-			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, @StartDt, @UpdateUserID
+			LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, MarketCapUSD, UltimateParentName, UltimateParentLEI, LEI, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, FMOrgId, Name, LongName, CountryID, StartDt, UpdateUserID, DataVersion, BBCompany, CountryOfIncorporationId, CountryOfDomicileId, ParentLegalEntityId, PulseIdentifier, CompanySizeId, MarketCapUSD, UltimateParentName, UltimateParentLEI, LEI, @StartDt, @UpdateUserID
 	FROM	LegalEntity
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	LegalEntity
-	SET		FMOrgId = @FMOrgId, Name = @Name, LongName = @LongName, CountryID = @CountryID, UpdateUserID = @UpdateUserID, BBCompany = @BBCompany, CountryOfIncorporationId = @CountryOfIncorporationId, CountryOfDomicileId = @CountryOfDomicileId, ParentLegalEntityId = @ParentLegalEntityId, PulseIdentifier = @PulseIdentifier, CompanySizeId = @CompanySizeId,  StartDt = @StartDt
+	SET		FMOrgId = @FMOrgId, Name = @Name, LongName = @LongName, CountryID = @CountryID, UpdateUserID = @UpdateUserID, BBCompany = @BBCompany, CountryOfIncorporationId = @CountryOfIncorporationId, CountryOfDomicileId = @CountryOfDomicileId, ParentLegalEntityId = @ParentLegalEntityId, PulseIdentifier = @PulseIdentifier, CompanySizeId = @CompanySizeId, MarketCapUSD = @MarketCapUSD, UltimateParentName = @UltimateParentName, UltimateParentLEI = @UltimateParentLEI, LEI = @LEI,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

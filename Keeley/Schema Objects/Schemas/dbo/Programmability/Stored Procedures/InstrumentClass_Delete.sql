@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO InstrumentClass_hst (
-			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, CICSuffix, EndDt, LastActionUserID)
+	SELECT	InstrumentClassID, FMInstClass, Name, StartDt, UpdateUserID, DataVersion, CICSuffix, @EndDt, @UpdateUserID
 	FROM	InstrumentClass
 	WHERE	InstrumentClassID = @InstrumentClassID
 

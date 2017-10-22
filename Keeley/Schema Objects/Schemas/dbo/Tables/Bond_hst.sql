@@ -14,5 +14,10 @@ create table DBO.Bond_hst(
 	ParAmount numeric(27,8) not null,
 	IssueDate datetime,
 	IssuePrice numeric(27,8),
+	IsFixed bit,
+	BondMaturityTypeId int,
+	ConversionPrice numeric(27,8),
+	MaturityValue numeric(27,8),
+	IsCovered bit,
 	EndDt datetime,
 	LastActionUserID int)

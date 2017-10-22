@@ -15,19 +15,14 @@ CREATE PROCEDURE DBO.[IndexConstituent_Update]
 		@IndexConstituentId int, 
 		@InstrumentId int, 
 		@ConstituentInstrumentMarketId int, 
+		@CurrencyId int, 
 		@ReferenceDate datetime, 
 		@OpenWeight numeric(19,16), 
-		@CumulativeOpenWeight numeric(19,16), 
+		@PriceReturn numeric(19,16), 
+		@TotalReturn numeric(19,16), 
+		@FxReturn numeric(19,16), 
 		@UpdateUserID int, 
-		@DataVersion rowversion, 
-		@TotalReturn numeric(28,8), 
-		@RebasedTotalReturn numeric(28,16), 
-		@RebasedFxReturnEUR numeric(28,16), 
-		@RebasedFxReturnGBP numeric(28,16), 
-		@RebasedFxReturnUSD numeric(28,16), 
-		@FxReturnEUR numeric(28,16), 
-		@FxReturnGBP numeric(28,16), 
-		@FxReturnUSD numeric(18,16)
+		@DataVersion rowversion
 AS
 	SET NOCOUNT ON
 
@@ -35,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO IndexConstituent_hst (
-			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, ReferenceDate, OpenWeight, CumulativeOpenWeight, StartDt, UpdateUserID, DataVersion, TotalReturn, RebasedTotalReturn, RebasedFxReturnEUR, RebasedFxReturnGBP, RebasedFxReturnUSD, FxReturnEUR, FxReturnGBP, FxReturnUSD, EndDt, LastActionUserID)
-	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, ReferenceDate, OpenWeight, CumulativeOpenWeight, StartDt, UpdateUserID, DataVersion, TotalReturn, RebasedTotalReturn, RebasedFxReturnEUR, RebasedFxReturnGBP, RebasedFxReturnUSD, FxReturnEUR, FxReturnGBP, FxReturnUSD, @StartDt, @UpdateUserID
+			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
 	FROM	IndexConstituent
 	WHERE	IndexConstituentId = @IndexConstituentId
 
 	UPDATE	IndexConstituent
-	SET		InstrumentId = @InstrumentId, ConstituentInstrumentMarketId = @ConstituentInstrumentMarketId, ReferenceDate = @ReferenceDate, OpenWeight = @OpenWeight, CumulativeOpenWeight = @CumulativeOpenWeight, UpdateUserID = @UpdateUserID, TotalReturn = @TotalReturn, RebasedTotalReturn = @RebasedTotalReturn, RebasedFxReturnEUR = @RebasedFxReturnEUR, RebasedFxReturnGBP = @RebasedFxReturnGBP, RebasedFxReturnUSD = @RebasedFxReturnUSD, FxReturnEUR = @FxReturnEUR, FxReturnGBP = @FxReturnGBP, FxReturnUSD = @FxReturnUSD,  StartDt = @StartDt
+	SET		InstrumentId = @InstrumentId, ConstituentInstrumentMarketId = @ConstituentInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, OpenWeight = @OpenWeight, PriceReturn = @PriceReturn, TotalReturn = @TotalReturn, FxReturn = @FxReturn, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
 	WHERE	IndexConstituentId = @IndexConstituentId
 	AND		DataVersion = @DataVersion
 

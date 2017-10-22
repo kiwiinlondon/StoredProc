@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -29,7 +29,8 @@ CREATE PROCEDURE DBO.[FundPerformance_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@BenchmarkPriceExistsOnDay bit, 
-		@BenchmarkPriceValidUntil datetime
+		@BenchmarkPriceValidUntil datetime, 
+		@MaxFundPrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -37,13 +38,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundPerformance_hst (
-			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, EndDt, LastActionUserID)
-	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, @StartDt, @UpdateUserID
+			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, MaxFundPrice, EndDt, LastActionUserID)
+	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, MaxFundPrice, @StartDt, @UpdateUserID
 	FROM	FundPerformance
 	WHERE	FundPerformanceId = @FundPerformanceId
 
 	UPDATE	FundPerformance
-	SET		FundId = @FundId, ValuationBusinessDate = @ValuationBusinessDate, ValuationCalandarDate = @ValuationCalandarDate, ValidUntil = @ValidUntil, IsInception = @IsInception, FundPrice = @FundPrice, FundPriceId = @FundPriceId, RiskFreeRate = @RiskFreeRate, RiskFreeRatePriceId = @RiskFreeRatePriceId, BenchmarkPrice = @BenchmarkPrice, BenchmarkPriceId = @BenchmarkPriceId, BenchmarkFundFXRate = @BenchmarkFundFXRate, BenchmarkFundFXRateId = @BenchmarkFundFXRateId, UpdateUserID = @UpdateUserID, BenchmarkPriceExistsOnDay = @BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil = @BenchmarkPriceValidUntil,  StartDt = @StartDt
+	SET		FundId = @FundId, ValuationBusinessDate = @ValuationBusinessDate, ValuationCalandarDate = @ValuationCalandarDate, ValidUntil = @ValidUntil, IsInception = @IsInception, FundPrice = @FundPrice, FundPriceId = @FundPriceId, RiskFreeRate = @RiskFreeRate, RiskFreeRatePriceId = @RiskFreeRatePriceId, BenchmarkPrice = @BenchmarkPrice, BenchmarkPriceId = @BenchmarkPriceId, BenchmarkFundFXRate = @BenchmarkFundFXRate, BenchmarkFundFXRateId = @BenchmarkFundFXRateId, UpdateUserID = @UpdateUserID, BenchmarkPriceExistsOnDay = @BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil = @BenchmarkPriceValidUntil, MaxFundPrice = @MaxFundPrice,  StartDt = @StartDt
 	WHERE	FundPerformanceId = @FundPerformanceId
 	AND		DataVersion = @DataVersion
 

@@ -127,7 +127,11 @@ create table DBO.Attribution_hst(
 	SumMarketValue numeric(27,0) not null,
 	Exposure numeric(27,8) not null,
 	MarketValue numeric(27,8) not null,
-	TodayWeight numeric(27,8),
-	SumWeight numeric(27,8),
+	TodayWeight numeric(27,8) not null,
+	SumWeight numeric(27,8) not null,
+	CumulativePriceLogReturn numeric(27,8),
+	CumulativeFXLogReturn numeric(27,8),
+	CumulativeCarryLogReturn numeric(27,8),
+	CumulativeOtherLogReturn numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

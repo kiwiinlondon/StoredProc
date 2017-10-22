@@ -16,7 +16,9 @@ CREATE PROCEDURE DBO.[Options_Insert]
 		@IsPut bit, 
 		@StrikePrice numeric(27,8), 
 		@ExpiryDate datetime, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@ContractSize decimal, 
+		@OptionExerciseTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Options
-			(InstrumentId, IsPut, StrikePrice, ExpiryDate, UpdateUserID, StartDt)
+			(InstrumentId, IsPut, StrikePrice, ExpiryDate, UpdateUserID, ContractSize, OptionExerciseTypeId, StartDt)
 	VALUES
-			(@InstrumentId, @IsPut, @StrikePrice, @ExpiryDate, @UpdateUserID, @StartDt)
+			(@InstrumentId, @IsPut, @StrikePrice, @ExpiryDate, @UpdateUserID, @ContractSize, @OptionExerciseTypeId, @StartDt)
 
 	SELECT	InstrumentId, StartDt, DataVersion
 	FROM	Options

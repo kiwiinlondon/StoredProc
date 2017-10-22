@@ -97,5 +97,9 @@ create table DBO.Portfolio_hst(
 	AdministratorPrice numeric(27,8),
 	AdministratorMarketValue numeric(27,8),
 	AdministratorFXRate numeric(27,8),
+	DeltaMarketValueInstrument numeric(27,8) not null,
+	MarketValueInstrument numeric(27,8) not null,
+	TodayUnrealisedPricePNLInstrument numeric(27,8) not null,
+	ValuationMarketValueInstrument numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

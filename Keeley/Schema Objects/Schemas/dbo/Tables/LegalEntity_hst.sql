@@ -15,5 +15,9 @@ create table DBO.LegalEntity_hst(
 	ParentLegalEntityId int,
 	PulseIdentifier varchar(100),
 	CompanySizeId int not null,
+	MarketCapUSD numeric(15,0),
+	UltimateParentName varchar(100),
+	UltimateParentLEI varchar(100),
+	LEI varchar(100),
 	EndDt datetime,
 	LastActionUserID int)

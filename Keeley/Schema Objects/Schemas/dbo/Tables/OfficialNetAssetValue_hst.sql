@@ -47,5 +47,6 @@ create table DBO.OfficialNetAssetValue_hst(
 	GrossPNLFundCurrency numeric(27,8),
 	MasterNav numeric(27,8),
 	FeederNav numeric(27,8),
+	CalculateAttributionPNL bit,
 	EndDt datetime,
 	LastActionUserID int)

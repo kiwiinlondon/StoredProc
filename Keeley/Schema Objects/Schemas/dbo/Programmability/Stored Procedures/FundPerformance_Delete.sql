@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundPerformance_hst (
-			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, EndDt, LastActionUserID)
-	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, @EndDt, @UpdateUserID
+			FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, MaxFundPrice, EndDt, LastActionUserID)
+	SELECT	FundPerformanceId, FundId, ValuationBusinessDate, ValuationCalandarDate, ValidUntil, IsInception, FundPrice, FundPriceId, RiskFreeRate, RiskFreeRatePriceId, BenchmarkPrice, BenchmarkPriceId, BenchmarkFundFXRate, BenchmarkFundFXRateId, StartDt, UpdateUserID, DataVersion, BenchmarkPriceExistsOnDay, BenchmarkPriceValidUntil, MaxFundPrice, @EndDt, @UpdateUserID
 	FROM	FundPerformance
 	WHERE	FundPerformanceId = @FundPerformanceId
 

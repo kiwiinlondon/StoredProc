@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,7 +14,8 @@ GO
 CREATE PROCEDURE DBO.[InstrumentClass_Insert]
 		@FMInstClass varchar(100), 
 		@Name varchar(100), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@CICSuffix varchar(2)
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +23,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentClass
-			(FMInstClass, Name, UpdateUserID, StartDt)
+			(FMInstClass, Name, UpdateUserID, CICSuffix, StartDt)
 	VALUES
-			(@FMInstClass, @Name, @UpdateUserID, @StartDt)
+			(@FMInstClass, @Name, @UpdateUserID, @CICSuffix, @StartDt)
 
 	SELECT	InstrumentClassID, StartDt, DataVersion
 	FROM	InstrumentClass

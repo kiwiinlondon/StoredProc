@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Future_hst (
-			InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, ContractSize, EndDt, LastActionUserID)
+	SELECT	InstrumentId, MaturityDate, StartDt, UpdateUserID, DataVersion, ContractSize, @EndDt, @UpdateUserID
 	FROM	Future
 	WHERE	InstrumentId = @InstrumentId
 
