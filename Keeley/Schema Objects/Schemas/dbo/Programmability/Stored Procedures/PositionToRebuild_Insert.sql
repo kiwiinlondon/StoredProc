@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[PositionToRebuild_Insert]
 		@PositionId int, 
 		@FundId int, 
 		@Ordering int, 
-		@IsErrored bit
+		@IsErrored bit, 
+		@RebuildFromDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PositionToRebuild
-			(PositionId, FundId, Ordering, IsErrored, StartDt)
+			(PositionId, FundId, Ordering, IsErrored, RebuildFromDate, StartDt)
 	VALUES
-			(@PositionId, @FundId, @Ordering, @IsErrored, @StartDt)
+			(@PositionId, @FundId, @Ordering, @IsErrored, @RebuildFromDate, @StartDt)
 
 	SELECT	PositionId, StartDt, DataVersion
 	FROM	PositionToRebuild

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Country_hst (
-			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, EndDt, LastActionUserID)
-	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, @EndDt, @UpdateUserID
+			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, IsDevelopedMarket, EndDt, LastActionUserID)
+	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, IsDevelopedMarket, @EndDt, @UpdateUserID
 	FROM	Country
 	WHERE	CountryID = @CountryID
 

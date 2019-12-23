@@ -24,7 +24,9 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Insert]
 		@UpdateUserID int, 
 		@InputDate datetime, 
 		@ExDate datetime, 
-		@Price numeric(27,8)
+		@Price numeric(27,8), 
+		@EventDateOverride datetime, 
+		@IsPNLOnly bit
 AS
 	SET NOCOUNT ON
 
@@ -32,9 +34,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentEvent
-			(EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, ExDate, Price, StartDt)
+			(EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, UpdateUserID, InputDate, ExDate, Price, EventDateOverride, IsPNLOnly, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @InstrumentEventTypeID, @EventDate, @ValueDate, @Quantity, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @ExDate, @Price, @StartDt)
+			(@EventID, @InstrumentMarketID, @InstrumentEventTypeID, @EventDate, @ValueDate, @Quantity, @AmendmentNumber, @IsCancelled, @CurrencyId, @UpdateUserID, @InputDate, @ExDate, @Price, @EventDateOverride, @IsPNLOnly, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InstrumentEvent

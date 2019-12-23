@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FundCountryStatus_hst (
-			FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, RegistrationRestrictionId, EndDt, LastActionUserID)
+	SELECT	FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, RegistrationRestrictionId, @EndDt, @UpdateUserID
 	FROM	FundCountryStatus
 	WHERE	FundCountryStatusId = @FundCountryStatusId
 

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.RawFXRate_hst(
 	RawFXRateId int not null,

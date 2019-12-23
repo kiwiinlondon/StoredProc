@@ -1,0 +1,25 @@
+﻿USE Keeley
+
+create table DBO.ReportExecution_hst(
+	ReportExecutionId int not null,
+	ClientGuid varchar(256) not null,
+	FundIds varchar(256) not null,
+	BenchmarkInstrumentIds varchar(256) not null,
+	StartDate datetime,
+	EndDate datetime not null,
+	ReportDefinitionId int not null,
+	ExecutionStartDt datetime not null,
+	ExecutionEndDt datetime,
+	ExecutionElapsedTime datetime,
+	TableCount int,
+	TablesLoadedFromDiskCount int,
+	RowsApplied int,
+	Notifications varchar(-1),
+	HasErrors bit not null,
+	IsContinuous bit not null,
+	ReportStatusId int not null,
+	StartDt datetime,
+	DataVersion binary(8) not null,
+	UpdateUserID int not null,
+	EndDt datetime,
+	LastActionUserID int)

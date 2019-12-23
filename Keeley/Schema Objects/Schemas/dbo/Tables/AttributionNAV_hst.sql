@@ -14,5 +14,12 @@ create table DBO.AttributionNav_hst(
 	KeeleyIsMaster bit not null,
 	CurrencyId int not null,
 	TodayPNL numeric(15,2) not null,
+	KeeleyNav numeric(15,2) not null,
+	EURFXRateId int,
+	EURFXRate numeric(27,8) not null,
+	USDFXRateId int,
+	USDFXRate numeric(27,8) not null,
+	GBPFXRateId int,
+	GBPFXRate numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

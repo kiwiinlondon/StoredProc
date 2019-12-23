@@ -53,7 +53,14 @@ CREATE PROCEDURE DBO.[TradeEvent_Insert]
 		@ArrivalPrice numeric(27,8), 
 		@IntervalVolumePercent numeric(27,8), 
 		@IntervalVWAP numeric(27,8), 
-		@InflationAssumption numeric(27,8)
+		@InflationAssumption numeric(27,8), 
+		@EzeParentTradeId varchar(15), 
+		@AdjustQuantityOnly bit, 
+		@TradeDateOverride datetime, 
+		@OrderSentToBrokerDate datetime, 
+		@NetAmount numeric(27,8), 
+		@RebuildTrade bit, 
+		@MICCode varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -61,9 +68,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into TradeEvent
-			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, Ticket, IsCancelled, AmendmentNumber, UpdateUserID, InputDate, SupressFromExtracts, TradeEuroFXRate, TradeEuroFXRateId, IsRoll, ContraEventId, OriginalInputDate, IndexRatio, TradeDateAsDate, RealisedPnlBookCurrency, RealisedPnlInstrumentCurrency, CostPriceOverride, Yield, MarkitParentOrderId, ArrivalPrice, IntervalVolumePercent, IntervalVWAP, InflationAssumption, StartDt)
+			(EventID, InstrumentMarketID, TradeDate, SettlementDate, TraderId, GrossPrice, NetPrice, Quantity, BuySellReasonId, TradedNet, PriceIsClean, TradeCurrencyId, SettlementCurrencyId, NetConsideration, GrossConsideration, CounterpartyId, TradeSettlementFXRate, TradeSettlementFXRateMultiply, TradeInstrumentFXRate, TradeInstrumentFXRateMultiply, Ticket, IsCancelled, AmendmentNumber, UpdateUserID, InputDate, SupressFromExtracts, TradeEuroFXRate, TradeEuroFXRateId, IsRoll, ContraEventId, OriginalInputDate, IndexRatio, TradeDateAsDate, RealisedPnlBookCurrency, RealisedPnlInstrumentCurrency, CostPriceOverride, Yield, MarkitParentOrderId, ArrivalPrice, IntervalVolumePercent, IntervalVWAP, InflationAssumption, EzeParentTradeId, AdjustQuantityOnly, TradeDateOverride, OrderSentToBrokerDate, NetAmount, RebuildTrade, MICCode, StartDt)
 	VALUES
-			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @GrossPrice, @NetPrice, @Quantity, @BuySellReasonId, @TradedNet, @PriceIsClean, @TradeCurrencyId, @SettlementCurrencyId, @NetConsideration, @GrossConsideration, @CounterpartyId, @TradeSettlementFXRate, @TradeSettlementFXRateMultiply, @TradeInstrumentFXRate, @TradeInstrumentFXRateMultiply, @Ticket, @IsCancelled, @AmendmentNumber, @UpdateUserID, @InputDate, @SupressFromExtracts, @TradeEuroFXRate, @TradeEuroFXRateId, @IsRoll, @ContraEventId, @OriginalInputDate, @IndexRatio, @TradeDateAsDate, @RealisedPnlBookCurrency, @RealisedPnlInstrumentCurrency, @CostPriceOverride, @Yield, @MarkitParentOrderId, @ArrivalPrice, @IntervalVolumePercent, @IntervalVWAP, @InflationAssumption, @StartDt)
+			(@EventID, @InstrumentMarketID, @TradeDate, @SettlementDate, @TraderId, @GrossPrice, @NetPrice, @Quantity, @BuySellReasonId, @TradedNet, @PriceIsClean, @TradeCurrencyId, @SettlementCurrencyId, @NetConsideration, @GrossConsideration, @CounterpartyId, @TradeSettlementFXRate, @TradeSettlementFXRateMultiply, @TradeInstrumentFXRate, @TradeInstrumentFXRateMultiply, @Ticket, @IsCancelled, @AmendmentNumber, @UpdateUserID, @InputDate, @SupressFromExtracts, @TradeEuroFXRate, @TradeEuroFXRateId, @IsRoll, @ContraEventId, @OriginalInputDate, @IndexRatio, @TradeDateAsDate, @RealisedPnlBookCurrency, @RealisedPnlInstrumentCurrency, @CostPriceOverride, @Yield, @MarkitParentOrderId, @ArrivalPrice, @IntervalVolumePercent, @IntervalVWAP, @InflationAssumption, @EzeParentTradeId, @AdjustQuantityOnly, @TradeDateOverride, @OrderSentToBrokerDate, @NetAmount, @RebuildTrade, @MICCode, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	TradeEvent

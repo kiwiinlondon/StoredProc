@@ -18,7 +18,8 @@ CREATE PROCEDURE DBO.[FundCountryStatus_Update]
 		@HasReportingStatus bit, 
 		@IsRegistered bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@RegistrationRestrictionId int
 AS
 	SET NOCOUNT ON
 
@@ -26,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FundCountryStatus_hst (
-			FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, RegistrationRestrictionId, EndDt, LastActionUserID)
+	SELECT	FundCountryStatusId, FundId, CountryId, HasReportingStatus, IsRegistered, StartDt, UpdateUserID, DataVersion, RegistrationRestrictionId, @StartDt, @UpdateUserID
 	FROM	FundCountryStatus
 	WHERE	FundCountryStatusId = @FundCountryStatusId
 
 	UPDATE	FundCountryStatus
-	SET		FundId = @FundId, CountryId = @CountryId, HasReportingStatus = @HasReportingStatus, IsRegistered = @IsRegistered, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FundId = @FundId, CountryId = @CountryId, HasReportingStatus = @HasReportingStatus, IsRegistered = @IsRegistered, UpdateUserID = @UpdateUserID, RegistrationRestrictionId = @RegistrationRestrictionId,  StartDt = @StartDt
 	WHERE	FundCountryStatusId = @FundCountryStatusId
 	AND		DataVersion = @DataVersion
 

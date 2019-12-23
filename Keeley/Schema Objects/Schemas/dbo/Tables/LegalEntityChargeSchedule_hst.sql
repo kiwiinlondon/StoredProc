@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.LegalEntityChargeSchedule_hst(
 	LegalEntityChargeScheduleId int not null,

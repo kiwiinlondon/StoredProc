@@ -25,7 +25,11 @@ CREATE PROCEDURE DBO.[InternalAllocation_Insert]
 		@ParentEventId int, 
 		@EventToBookFXRate numeric(35,16), 
 		@StrategyId int, 
-		@EventToBookFXRateOverride numeric(35,16)
+		@EventToBookFXRateOverride numeric(35,16), 
+		@EzeTradeId varchar(15), 
+		@EzeTicket varchar(15), 
+		@NetConsideration numeric(27,8), 
+		@GrossConsideration numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -33,9 +37,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InternalAllocation
-			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StrategyId, EventToBookFXRateOverride, StartDt)
+			(EventID, FMContEventInd, FMContEventId, FMOriginalContEventId, MatchedStatusId, AccountID, BookID, Quantity, IsCancelled, UpdateUserID, ParentEventId, EventToBookFXRate, StrategyId, EventToBookFXRateOverride, EzeTradeId, EzeTicket, NetConsideration, GrossConsideration, StartDt)
 	VALUES
-			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StrategyId, @EventToBookFXRateOverride, @StartDt)
+			(@EventID, @FMContEventInd, @FMContEventId, @FMOriginalContEventId, @MatchedStatusId, @AccountID, @BookID, @Quantity, @IsCancelled, @UpdateUserID, @ParentEventId, @EventToBookFXRate, @StrategyId, @EventToBookFXRateOverride, @EzeTradeId, @EzeTicket, @NetConsideration, @GrossConsideration, @StartDt)
 
 	SELECT	EventID, StartDt, DataVersion
 	FROM	InternalAllocation

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PositionToRebuild_hst (
-			PositionId, FundId, Ordering, IsErrored, EndDt, LastActionUserID)
-	SELECT	PositionId, FundId, Ordering, IsErrored, @EndDt, @UpdateUserID
+			PositionId, FundId, Ordering, IsErrored, RebuildFromDate, EndDt, LastActionUserID)
+	SELECT	PositionId, FundId, Ordering, IsErrored, RebuildFromDate, @EndDt, @UpdateUserID
 	FROM	PositionToRebuild
 	WHERE	PositionId = @PositionId
 

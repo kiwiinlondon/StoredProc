@@ -17,12 +17,13 @@ CREATE PROCEDURE DBO.[IndexConstituent_Update]
 		@ConstituentInstrumentMarketId int, 
 		@CurrencyId int, 
 		@ReferenceDate datetime, 
-		@OpenWeight numeric(19,16), 
-		@PriceReturn numeric(19,16), 
-		@TotalReturn numeric(19,16), 
-		@FxReturn numeric(19,16), 
+		@OpenWeight numeric(25,19), 
+		@PriceReturn numeric(25,19), 
+		@TotalReturn numeric(25,19), 
+		@FxReturn numeric(25,19), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@ConstituentCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO IndexConstituent_hst (
-			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, ConstituentCurrencyId, EndDt, LastActionUserID)
+	SELECT	IndexConstituentId, InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, StartDt, UpdateUserID, DataVersion, ConstituentCurrencyId, @StartDt, @UpdateUserID
 	FROM	IndexConstituent
 	WHERE	IndexConstituentId = @IndexConstituentId
 
 	UPDATE	IndexConstituent
-	SET		InstrumentId = @InstrumentId, ConstituentInstrumentMarketId = @ConstituentInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, OpenWeight = @OpenWeight, PriceReturn = @PriceReturn, TotalReturn = @TotalReturn, FxReturn = @FxReturn, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		InstrumentId = @InstrumentId, ConstituentInstrumentMarketId = @ConstituentInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, OpenWeight = @OpenWeight, PriceReturn = @PriceReturn, TotalReturn = @TotalReturn, FxReturn = @FxReturn, UpdateUserID = @UpdateUserID, ConstituentCurrencyId = @ConstituentCurrencyId,  StartDt = @StartDt
 	WHERE	IndexConstituentId = @IndexConstituentId
 	AND		DataVersion = @DataVersion
 

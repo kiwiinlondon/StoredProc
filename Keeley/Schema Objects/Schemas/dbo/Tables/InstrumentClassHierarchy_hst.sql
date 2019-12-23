@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.InstrumentClassHierarchy_hst(
 	InstrumentClassHierarchyId int not null,

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -19,7 +19,13 @@ CREATE PROCEDURE DBO.[ExtractOutputConfiguration_Insert]
 		@UpdateUserID int, 
 		@EntityPropertyId int, 
 		@EntityPropertyToWriteId int, 
-		@Format varchar(1000)
+		@Format varchar(1000), 
+		@FXRateEntityPropertyToApply int, 
+		@Absolute bit, 
+		@IncludeForInstrumentClassId bit, 
+		@InstrumentClassIds varchar(50), 
+		@IncludeForEntityStatusId bit, 
+		@EntityStatusIds varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +33,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractOutputConfiguration
-			(ExtractId, Label, ChangesCanBeIgnored, OrderBy, UpdateUserID, EntityPropertyId, EntityPropertyToWriteId, Format, StartDt)
+			(ExtractId, Label, ChangesCanBeIgnored, OrderBy, UpdateUserID, EntityPropertyId, EntityPropertyToWriteId, Format, FXRateEntityPropertyToApply, Absolute, IncludeForInstrumentClassId, InstrumentClassIds, IncludeForEntityStatusId, EntityStatusIds, StartDt)
 	VALUES
-			(@ExtractId, @Label, @ChangesCanBeIgnored, @OrderBy, @UpdateUserID, @EntityPropertyId, @EntityPropertyToWriteId, @Format, @StartDt)
+			(@ExtractId, @Label, @ChangesCanBeIgnored, @OrderBy, @UpdateUserID, @EntityPropertyId, @EntityPropertyToWriteId, @Format, @FXRateEntityPropertyToApply, @Absolute, @IncludeForInstrumentClassId, @InstrumentClassIds, @IncludeForEntityStatusId, @EntityStatusIds, @StartDt)
 
 	SELECT	ExtractOutputConfigurationID, StartDt, DataVersion
 	FROM	ExtractOutputConfiguration

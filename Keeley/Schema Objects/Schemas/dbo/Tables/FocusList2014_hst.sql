@@ -25,5 +25,7 @@ create table DBO.FocusList2014_hst(
 	AdjustmentFactorITD numeric(27,8),
 	AdjustmentFactorYTD numeric(27,8),
 	RelativeCurrentPriceDate datetime not null,
+	IssuerId int,
+	ExternalBrokerId int,
 	EndDt datetime,
 	LastActionUserID int)

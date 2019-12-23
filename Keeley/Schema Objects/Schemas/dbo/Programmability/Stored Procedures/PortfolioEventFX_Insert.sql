@@ -20,7 +20,9 @@ CREATE PROCEDURE DBO.[PortfolioEventFX_Insert]
 		@TodayRealisedFXPNL numeric(27,8), 
 		@TodayRealisedPricePNL numeric(27,8), 
 		@TodayCashBenefit numeric(27,8), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FXRateId int, 
+		@OriginalNotionalCost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +30,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PortfolioEventFX
-			(PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, UpdateUserID, StartDt)
+			(PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, UpdateUserID, FXRateId, OriginalNotionalCost, StartDt)
 	VALUES
-			(@PortfolioEventId, @CurrencyId, @FromBookFXRate, @NotionalCost, @RealisedFXPNL, @TodayRealisedFXPNL, @TodayRealisedPricePNL, @TodayCashBenefit, @UpdateUserID, @StartDt)
+			(@PortfolioEventId, @CurrencyId, @FromBookFXRate, @NotionalCost, @RealisedFXPNL, @TodayRealisedFXPNL, @TodayRealisedPricePNL, @TodayCashBenefit, @UpdateUserID, @FXRateId, @OriginalNotionalCost, @StartDt)
 
 	SELECT	PortfolioEventFXId, StartDt, DataVersion
 	FROM	PortfolioEventFX

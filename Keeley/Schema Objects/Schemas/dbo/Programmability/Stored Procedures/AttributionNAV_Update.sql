@@ -23,7 +23,14 @@ CREATE PROCEDURE DBO.[AttributionNav_Update]
 		@PercentageOfFund numeric(9,8), 
 		@KeeleyIsMaster bit, 
 		@CurrencyId int, 
-		@TodayPNL numeric(15,2)
+		@TodayPNL numeric(15,2), 
+		@KeeleyNav numeric(15,2), 
+		@EURFXRateId int, 
+		@EURFXRate numeric(27,8), 
+		@USDFXRateId int, 
+		@USDFXRate numeric(27,8), 
+		@GBPFXRateId int, 
+		@GBPFXRate numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -31,13 +38,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AttributionNav_hst (
-			AttributionNavId, FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, StartDt, UpdateUserID, DataVersion, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, EndDt, LastActionUserID)
-	SELECT	AttributionNavId, FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, StartDt, UpdateUserID, DataVersion, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, @StartDt, @UpdateUserID
+			AttributionNavId, FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, StartDt, UpdateUserID, DataVersion, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, KeeleyNav, EURFXRateId, EURFXRate, USDFXRateId, USDFXRate, GBPFXRateId, GBPFXRate, EndDt, LastActionUserID)
+	SELECT	AttributionNavId, FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, StartDt, UpdateUserID, DataVersion, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, KeeleyNav, EURFXRateId, EURFXRate, USDFXRateId, USDFXRate, GBPFXRateId, GBPFXRate, @StartDt, @UpdateUserID
 	FROM	AttributionNav
 	WHERE	AttributionNavId = @AttributionNavId
 
 	UPDATE	AttributionNav
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, AttributionSourceId = @AttributionSourceId, OpeningNAV = @OpeningNAV, NAV = @NAV, UpdateUserID = @UpdateUserID, PercentageOfFund = @PercentageOfFund, KeeleyIsMaster = @KeeleyIsMaster, CurrencyId = @CurrencyId, TodayPNL = @TodayPNL,  StartDt = @StartDt
+	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, AttributionSourceId = @AttributionSourceId, OpeningNAV = @OpeningNAV, NAV = @NAV, UpdateUserID = @UpdateUserID, PercentageOfFund = @PercentageOfFund, KeeleyIsMaster = @KeeleyIsMaster, CurrencyId = @CurrencyId, TodayPNL = @TodayPNL, KeeleyNav = @KeeleyNav, EURFXRateId = @EURFXRateId, EURFXRate = @EURFXRate, USDFXRateId = @USDFXRateId, USDFXRate = @USDFXRate, GBPFXRateId = @GBPFXRateId, GBPFXRate = @GBPFXRate,  StartDt = @StartDt
 	WHERE	AttributionNavId = @AttributionNavId
 	AND		DataVersion = @DataVersion
 

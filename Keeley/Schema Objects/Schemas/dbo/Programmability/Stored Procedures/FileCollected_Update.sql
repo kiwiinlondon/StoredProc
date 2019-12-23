@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,12 +14,12 @@ GO
 CREATE PROCEDURE DBO.[FileCollected_Update]
 		@FileCollectedId int, 
 		@FileToBeCollectedId int, 
-		@IsLast bit, 
 		@ResolvedFileName varchar(150), 
 		@FileCreatedDate datetime, 
 		@Processed bit, 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@FileHash varchar(64)
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FileCollected_hst (
-			FileCollectedId, FileToBeCollectedId, IsLast, ResolvedFileName, FileCreatedDate, Processed, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	FileCollectedId, FileToBeCollectedId, IsLast, ResolvedFileName, FileCreatedDate, Processed, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			FileCollectedId, FileToBeCollectedId, ResolvedFileName, FileCreatedDate, Processed, StartDt, UpdateUserID, DataVersion, FileHash, EndDt, LastActionUserID)
+	SELECT	FileCollectedId, FileToBeCollectedId, ResolvedFileName, FileCreatedDate, Processed, StartDt, UpdateUserID, DataVersion, FileHash, @StartDt, @UpdateUserID
 	FROM	FileCollected
 	WHERE	FileCollectedId = @FileCollectedId
 
 	UPDATE	FileCollected
-	SET		FileToBeCollectedId = @FileToBeCollectedId, IsLast = @IsLast, ResolvedFileName = @ResolvedFileName, FileCreatedDate = @FileCreatedDate, Processed = @Processed, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		FileToBeCollectedId = @FileToBeCollectedId, ResolvedFileName = @ResolvedFileName, FileCreatedDate = @FileCreatedDate, Processed = @Processed, UpdateUserID = @UpdateUserID, FileHash = @FileHash,  StartDt = @StartDt
 	WHERE	FileCollectedId = @FileCollectedId
 	AND		DataVersion = @DataVersion
 

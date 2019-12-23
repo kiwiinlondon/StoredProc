@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.FXRate_hst(
 	FXRateId int not null,

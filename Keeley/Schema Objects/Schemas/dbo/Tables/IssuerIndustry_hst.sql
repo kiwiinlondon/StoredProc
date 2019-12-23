@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.IssuerIndustry_hst(
 	IssuerIndustryID int not null,

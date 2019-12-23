@@ -25,7 +25,9 @@ CREATE PROCEDURE DBO.[InstrumentEvent_Update]
 		@DataVersion rowversion, 
 		@InputDate datetime, 
 		@ExDate datetime, 
-		@Price numeric(27,8)
+		@Price numeric(27,8), 
+		@EventDateOverride datetime, 
+		@IsPNLOnly bit
 AS
 	SET NOCOUNT ON
 
@@ -33,13 +35,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentEvent_hst (
-			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, Price, EndDt, LastActionUserID)
-	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, Price, @StartDt, @UpdateUserID
+			EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, Price, EventDateOverride, IsPNLOnly, EndDt, LastActionUserID)
+	SELECT	EventID, InstrumentMarketID, InstrumentEventTypeID, EventDate, ValueDate, Quantity, AmendmentNumber, IsCancelled, CurrencyId, StartDt, UpdateUserID, DataVersion, InputDate, ExDate, Price, EventDateOverride, IsPNLOnly, @StartDt, @UpdateUserID
 	FROM	InstrumentEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	InstrumentEvent
-	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, ExDate = @ExDate, Price = @Price,  StartDt = @StartDt
+	SET		InstrumentMarketID = @InstrumentMarketID, InstrumentEventTypeID = @InstrumentEventTypeID, EventDate = @EventDate, ValueDate = @ValueDate, Quantity = @Quantity, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, CurrencyId = @CurrencyId, UpdateUserID = @UpdateUserID, InputDate = @InputDate, ExDate = @ExDate, Price = @Price, EventDateOverride = @EventDateOverride, IsPNLOnly = @IsPNLOnly,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

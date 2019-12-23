@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.EntityRankingScheme_hst(
 	EntityRankingSchemeId int not null,

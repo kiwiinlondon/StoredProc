@@ -48,13 +48,23 @@ CREATE PROCEDURE DBO.[Fund_Insert]
 		@IsClosedToExistingInvestors bit, 
 		@IsStaffOnly bit, 
 		@IsIsaEligible bit, 
-		@OtherCostRatio decimal, 
-		@TotalCostRatio decimal, 
+		@OtherCostRatio numeric(27,8), 
+		@TotalCostRatio numeric(27,8), 
 		@IsSynthetic bit, 
 		@ClientMarketingTypeId int, 
 		@IsMainRetailShareClass bit, 
 		@PercentageHedged numeric(27,8), 
-		@LockInYears int
+		@LockInYears int, 
+		@IsLongOnly bit, 
+		@IsMainPerformanceShareClass bit, 
+		@IsSolvencyII bit, 
+		@IsVAG bit, 
+		@TakeOnDate datetime, 
+		@IsAnalystPnl bit, 
+		@CustodianId int, 
+		@ManagerId int, 
+		@ISCFDFullyFunded bit, 
+		@IsCRR bit
 AS
 	SET NOCOUNT ON
 
@@ -62,9 +72,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Fund
-			(LegalEntityID, CurrencyID, UpdateUserID, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, ClientLoadDate, IsDistributing, FundStructureId, HasUKReportingStatus, IsClosedToNewInvestors, IsClosedToExistingInvestors, IsStaffOnly, IsIsaEligible, OtherCostRatio, TotalCostRatio, IsSynthetic, ClientMarketingTypeId, IsMainRetailShareClass, PercentageHedged, LockInYears, StartDt)
+			(LegalEntityID, CurrencyID, UpdateUserID, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, ClientLoadDate, IsDistributing, FundStructureId, HasUKReportingStatus, IsClosedToNewInvestors, IsClosedToExistingInvestors, IsStaffOnly, IsIsaEligible, OtherCostRatio, TotalCostRatio, IsSynthetic, ClientMarketingTypeId, IsMainRetailShareClass, PercentageHedged, LockInYears, IsLongOnly, IsMainPerformanceShareClass, IsSolvencyII, IsVAG, TakeOnDate, IsAnalystPnl, CustodianId, ManagerId, ISCFDFullyFunded, IsCRR, StartDt)
 	VALUES
-			(@LegalEntityID, @CurrencyID, @UpdateUserID, @PositionsExist, @PerfFundName, @InstrumentMarketId, @BenchmarkInstrumentMarketId, @ParentFundId, @IsActive, @FundTypeId, @PriceIsExternallyVisible, @InceptionDate, @RiskFreeInstrumentMarketId, @DealingDateDefinitionId, @EZEIdentifier, @PortfolioIsExternallyVisible, @AssetManagementCompanyId, @IntranetOrdering, @ReferenceFundId, @PerformanceFeeTypeId, @LossWarning, @LossTrigger, @ShareClassDescriptor, @PerformanceFee, @ManagementFee, @AdministratorId, @AdministratorIdentifier, @IsVoting, @ClientLoadDate, @IsDistributing, @FundStructureId, @HasUKReportingStatus, @IsClosedToNewInvestors, @IsClosedToExistingInvestors, @IsStaffOnly, @IsIsaEligible, @OtherCostRatio, @TotalCostRatio, @IsSynthetic, @ClientMarketingTypeId, @IsMainRetailShareClass, @PercentageHedged, @LockInYears, @StartDt)
+			(@LegalEntityID, @CurrencyID, @UpdateUserID, @PositionsExist, @PerfFundName, @InstrumentMarketId, @BenchmarkInstrumentMarketId, @ParentFundId, @IsActive, @FundTypeId, @PriceIsExternallyVisible, @InceptionDate, @RiskFreeInstrumentMarketId, @DealingDateDefinitionId, @EZEIdentifier, @PortfolioIsExternallyVisible, @AssetManagementCompanyId, @IntranetOrdering, @ReferenceFundId, @PerformanceFeeTypeId, @LossWarning, @LossTrigger, @ShareClassDescriptor, @PerformanceFee, @ManagementFee, @AdministratorId, @AdministratorIdentifier, @IsVoting, @ClientLoadDate, @IsDistributing, @FundStructureId, @HasUKReportingStatus, @IsClosedToNewInvestors, @IsClosedToExistingInvestors, @IsStaffOnly, @IsIsaEligible, @OtherCostRatio, @TotalCostRatio, @IsSynthetic, @ClientMarketingTypeId, @IsMainRetailShareClass, @PercentageHedged, @LockInYears, @IsLongOnly, @IsMainPerformanceShareClass, @IsSolvencyII, @IsVAG, @TakeOnDate, @IsAnalystPnl, @CustodianId, @ManagerId, @ISCFDFullyFunded, @IsCRR, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Fund

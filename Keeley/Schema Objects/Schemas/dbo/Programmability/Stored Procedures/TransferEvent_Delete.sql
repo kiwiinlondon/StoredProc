@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO TransferEvent_hst (
-			EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, EndDt, LastActionUserID)
-	SELECT	EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, @EndDt, @UpdateUserID
+			EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, FromBookId, ToBookId, EndDt, LastActionUserID)
+	SELECT	EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, FromBookId, ToBookId, @EndDt, @UpdateUserID
 	FROM	TransferEvent
 	WHERE	EventID = @EventID
 

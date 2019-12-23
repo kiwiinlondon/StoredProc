@@ -32,7 +32,9 @@ CREATE PROCEDURE DBO.[FocusList2015_Insert]
 		@RelativeCurrentPriceId int, 
 		@AdjustmentFactorITD numeric(27,8), 
 		@AdjustmentFactorYTD numeric(27,8), 
-		@RelativeCurrentPriceDate datetime
+		@RelativeCurrentPriceDate datetime, 
+		@IssuerId int, 
+		@ExternalBrokerId int
 AS
 	SET NOCOUNT ON
 
@@ -40,9 +42,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FocusList2015
-			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, StartDt)
+			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, IssuerId, ExternalBrokerId, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @StartDt)
+			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @IssuerId, @ExternalBrokerId, @StartDt)
 
 	SELECT	, StartDt, DataVersion
 	FROM	FocusList2015

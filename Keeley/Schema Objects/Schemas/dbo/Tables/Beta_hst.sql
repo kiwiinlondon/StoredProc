@@ -13,5 +13,8 @@ create table DBO.Beta_hst(
 	DataVersion binary(8) not null,
 	UpdateDate datetime not null,
 	UpdatedOnReferenceDay bit not null,
+	IsDummy bit not null,
+	IsCalculated bit not null,
+	TryToResolve bit,
 	EndDt datetime,
 	LastActionUserID int)

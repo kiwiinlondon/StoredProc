@@ -16,11 +16,12 @@ CREATE PROCEDURE DBO.[IndexConstituent_Insert]
 		@ConstituentInstrumentMarketId int, 
 		@CurrencyId int, 
 		@ReferenceDate datetime, 
-		@OpenWeight numeric(19,16), 
-		@PriceReturn numeric(19,16), 
-		@TotalReturn numeric(19,16), 
-		@FxReturn numeric(19,16), 
-		@UpdateUserID int
+		@OpenWeight numeric(25,19), 
+		@PriceReturn numeric(25,19), 
+		@TotalReturn numeric(25,19), 
+		@FxReturn numeric(25,19), 
+		@UpdateUserID int, 
+		@ConstituentCurrencyId int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +29,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into IndexConstituent
-			(InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, UpdateUserID, StartDt)
+			(InstrumentId, ConstituentInstrumentMarketId, CurrencyId, ReferenceDate, OpenWeight, PriceReturn, TotalReturn, FxReturn, UpdateUserID, ConstituentCurrencyId, StartDt)
 	VALUES
-			(@InstrumentId, @ConstituentInstrumentMarketId, @CurrencyId, @ReferenceDate, @OpenWeight, @PriceReturn, @TotalReturn, @FxReturn, @UpdateUserID, @StartDt)
+			(@InstrumentId, @ConstituentInstrumentMarketId, @CurrencyId, @ReferenceDate, @OpenWeight, @PriceReturn, @TotalReturn, @FxReturn, @UpdateUserID, @ConstituentCurrencyId, @StartDt)
 
 	SELECT	IndexConstituentId, StartDt, DataVersion
 	FROM	IndexConstituent

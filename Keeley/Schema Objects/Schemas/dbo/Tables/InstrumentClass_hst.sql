@@ -2,7 +2,7 @@
 
 create table DBO.InstrumentClass_hst(
 	InstrumentClassID int not null,
-	FMInstClass varchar(100),
+	FMInstClass varchar(100) not null,
 	Name varchar(100) not null,
 	StartDt datetime not null,
 	UpdateUserID int not null,

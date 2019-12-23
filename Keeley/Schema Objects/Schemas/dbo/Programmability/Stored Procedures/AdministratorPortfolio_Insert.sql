@@ -35,7 +35,14 @@ CREATE PROCEDURE DBO.[AdministratorPortfolio_Insert]
 		@TotalAmortisationBook numeric(27,8), 
 		@TotalAmortisationLocal numeric(27,8), 
 		@TodayAmortisationBook numeric(27,8), 
-		@MaturityDate datetime
+		@MaturityDate datetime, 
+		@CostLocal numeric(27,8), 
+		@MarketValueLocal numeric(27,8), 
+		@PriceToPositionFXRate numeric(27,8), 
+		@PricePNLOffset numeric(27,8), 
+		@FXPNLOffset numeric(27,8), 
+		@TotalUnrealisedPricePNLBook numeric(27,8), 
+		@TotalUnrealisedFXPNLBook numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -43,9 +50,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AdministratorPortfolio
-			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, TotalAmortisationBook, TotalAmortisationLocal, TodayAmortisationBook, MaturityDate, StartDt)
+			(FundId, ReferenceDate, InstrumentMarketId, InstrumentName, IsAccrual, NetPosition, MarketValue, Price, FXRate, RealisedPricePNL, RealisedFXPNL, UnRealisedPricePNL, UnRealisedFXPNL, CarryPNL, UpdateUserID, ManagementPerformanceFee, CurrencyId, Cost, IsShareClassSpecific, IsFeeder, TotalAmortisationBook, TotalAmortisationLocal, TodayAmortisationBook, MaturityDate, CostLocal, MarketValueLocal, PriceToPositionFXRate, PricePNLOffset, FXPNLOffset, TotalUnrealisedPricePNLBook, TotalUnrealisedFXPNLBook, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @IsShareClassSpecific, @IsFeeder, @TotalAmortisationBook, @TotalAmortisationLocal, @TodayAmortisationBook, @MaturityDate, @StartDt)
+			(@FundId, @ReferenceDate, @InstrumentMarketId, @InstrumentName, @IsAccrual, @NetPosition, @MarketValue, @Price, @FXRate, @RealisedPricePNL, @RealisedFXPNL, @UnRealisedPricePNL, @UnRealisedFXPNL, @CarryPNL, @UpdateUserID, @ManagementPerformanceFee, @CurrencyId, @Cost, @IsShareClassSpecific, @IsFeeder, @TotalAmortisationBook, @TotalAmortisationLocal, @TodayAmortisationBook, @MaturityDate, @CostLocal, @MarketValueLocal, @PriceToPositionFXRate, @PricePNLOffset, @FXPNLOffset, @TotalUnrealisedPricePNLBook, @TotalUnrealisedFXPNLBook, @StartDt)
 
 	SELECT	AdministratorPortfolioID, StartDt, DataVersion
 	FROM	AdministratorPortfolio

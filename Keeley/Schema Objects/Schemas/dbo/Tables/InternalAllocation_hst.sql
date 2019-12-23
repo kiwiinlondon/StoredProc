@@ -17,5 +17,9 @@ create table DBO.InternalAllocation_hst(
 	EventToBookFXRate numeric(35,16) not null,
 	StrategyId int not null,
 	EventToBookFXRateOverride numeric(35,16),
+	EzeTradeId varchar(15),
+	EzeTicket varchar(15),
+	NetConsideration numeric(27,8),
+	GrossConsideration numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

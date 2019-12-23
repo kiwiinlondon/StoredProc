@@ -22,7 +22,8 @@ CREATE PROCEDURE DBO.[Book_Update]
 		@EZEIdentifier varchar(100), 
 		@IsPrimary bit, 
 		@IsActive bit, 
-		@NavIsNotUsable bit
+		@NavIsNotUsable bit, 
+		@SignOffManagerId int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +31,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Book_hst (
-			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, NavIsNotUsable, EndDt, LastActionUserID)
-	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, NavIsNotUsable, @StartDt, @UpdateUserID
+			BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, NavIsNotUsable, SignOffManagerId, EndDt, LastActionUserID)
+	SELECT	BookID, FMOrgId, Name, FundID, StartDt, UpdateUserID, DataVersion, ManagerId, EZEIdentifier, IsPrimary, IsActive, NavIsNotUsable, SignOffManagerId, @StartDt, @UpdateUserID
 	FROM	Book
 	WHERE	BookID = @BookID
 
 	UPDATE	Book
-	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId, EZEIdentifier = @EZEIdentifier, IsPrimary = @IsPrimary, IsActive = @IsActive, NavIsNotUsable = @NavIsNotUsable,  StartDt = @StartDt
+	SET		FMOrgId = @FMOrgId, Name = @Name, FundID = @FundID, UpdateUserID = @UpdateUserID, ManagerId = @ManagerId, EZEIdentifier = @EZEIdentifier, IsPrimary = @IsPrimary, IsActive = @IsActive, NavIsNotUsable = @NavIsNotUsable, SignOffManagerId = @SignOffManagerId,  StartDt = @StartDt
 	WHERE	BookID = @BookID
 	AND		DataVersion = @DataVersion
 

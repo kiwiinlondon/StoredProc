@@ -1,0 +1,25 @@
+﻿USE Keeley
+
+create table DBO.EzeTrade_hst(
+	ParentTradeID varchar(15),
+	TradeID varchar(15),
+	LotID varchar(7),
+	FMID varchar(10),
+	BrokerCode varchar(5),
+	OrderTimestamp datetime,
+	TradeTimestamp datetime,
+	Quantity numeric(27,8) not null,
+	ResearchCommission numeric(27,8) not null,
+	ExecutionCommission float,
+	CFD_GrossPrice float,
+	CFD_GrossMoney float,
+	CFD_ResearchCommission float,
+	CFDFlag int not null,
+	CashFlag int not null,
+	ImpliedCommsFlag int not null,
+	TradeEntrySource varchar(100),
+	EzeTradeId int not null,
+	BrokerSettlementCurrency varchar(20),
+	Exchange varchar(50),
+	EndDt datetime,
+	LastActionUserID int)

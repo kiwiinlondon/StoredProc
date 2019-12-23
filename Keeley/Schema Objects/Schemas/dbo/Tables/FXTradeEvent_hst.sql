@@ -31,5 +31,8 @@ create table DBO.FXTradeEvent_hst(
 	ReceiveToBookFXRateOverride numeric(35,16),
 	PayToBookFXRateOverride numeric(36,12),
 	PNLInstrumentMarketId int,
+	RebuildTrade bit,
+	OrderSentToBrokerDate datetime,
+	EzeParentTradeId varchar(15),
 	EndDt datetime,
 	LastActionUserID int)

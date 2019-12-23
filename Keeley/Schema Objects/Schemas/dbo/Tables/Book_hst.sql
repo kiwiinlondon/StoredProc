@@ -12,6 +12,7 @@ create table DBO.Book_hst(
 	EZEIdentifier varchar(100),
 	IsPrimary bit not null,
 	IsActive bit not null,
-	NavIsNotUsable bit,
+	NavIsNotUsable bit not null,
+	SignOffManagerId int not null,
 	EndDt datetime,
 	LastActionUserID int)

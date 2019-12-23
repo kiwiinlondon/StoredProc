@@ -13,5 +13,8 @@ create table DBO.ExtractInputConfiguration_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	IsNotEqual bit not null,
+	IntValues varchar(100),
+	SendCancel bit not null,
+	EntityPropertyIdToLookup int,
 	EndDt datetime,
 	LastActionUserID int)

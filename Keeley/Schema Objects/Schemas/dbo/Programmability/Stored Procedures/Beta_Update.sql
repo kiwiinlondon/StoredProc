@@ -22,7 +22,10 @@ CREATE PROCEDURE DBO.[Beta_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@UpdateDate datetime, 
-		@UpdatedOnReferenceDay bit
+		@UpdatedOnReferenceDay bit, 
+		@IsDummy bit, 
+		@IsCalculated bit, 
+		@TryToResolve bit
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +33,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Beta_hst (
-			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, EndDt, LastActionUserID)
-	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, @StartDt, @UpdateUserID
+			BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, IsDummy, IsCalculated, TryToResolve, EndDt, LastActionUserID)
+	SELECT	BetaId, AnalyticTypeId, InstrumentMarketId, RelativeIndexInstrumentMarketId, CurrencyId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, UpdateDate, UpdatedOnReferenceDay, IsDummy, IsCalculated, TryToResolve, @StartDt, @UpdateUserID
 	FROM	Beta
 	WHERE	BetaId = @BetaId
 
 	UPDATE	Beta
-	SET		AnalyticTypeId = @AnalyticTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, UpdateDate = @UpdateDate, UpdatedOnReferenceDay = @UpdatedOnReferenceDay,  StartDt = @StartDt
+	SET		AnalyticTypeId = @AnalyticTypeId, InstrumentMarketId = @InstrumentMarketId, RelativeIndexInstrumentMarketId = @RelativeIndexInstrumentMarketId, CurrencyId = @CurrencyId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, UpdateDate = @UpdateDate, UpdatedOnReferenceDay = @UpdatedOnReferenceDay, IsDummy = @IsDummy, IsCalculated = @IsCalculated, TryToResolve = @TryToResolve,  StartDt = @StartDt
 	WHERE	BetaId = @BetaId
 	AND		DataVersion = @DataVersion
 

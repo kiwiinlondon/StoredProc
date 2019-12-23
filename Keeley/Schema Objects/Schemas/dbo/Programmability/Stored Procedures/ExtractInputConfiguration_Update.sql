@@ -22,7 +22,10 @@ CREATE PROCEDURE DBO.[ExtractInputConfiguration_Update]
 		@BitValue bit, 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@IsNotEqual bit
+		@IsNotEqual bit, 
+		@IntValues varchar(100), 
+		@SendCancel bit, 
+		@EntityPropertyIdToLookup int
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +33,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractInputConfiguration_hst (
-			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, EndDt, LastActionUserID)
-	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, @StartDt, @UpdateUserID
+			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, IntValues, SendCancel, EntityPropertyIdToLookup, EndDt, LastActionUserID)
+	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, IntValues, SendCancel, EntityPropertyIdToLookup, @StartDt, @UpdateUserID
 	FROM	ExtractInputConfiguration
 	WHERE	ExtractFieldConfigurationID = @ExtractFieldConfigurationID
 
 	UPDATE	ExtractInputConfiguration
-	SET		ExtractId = @ExtractId, EntityPropertyId = @EntityPropertyId, IntValue = @IntValue, StringValue = @StringValue, DecimalValue = @DecimalValue, DateTimeValue = @DateTimeValue, BitValue = @BitValue, UpdateUserID = @UpdateUserID, IsNotEqual = @IsNotEqual,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, EntityPropertyId = @EntityPropertyId, IntValue = @IntValue, StringValue = @StringValue, DecimalValue = @DecimalValue, DateTimeValue = @DateTimeValue, BitValue = @BitValue, UpdateUserID = @UpdateUserID, IsNotEqual = @IsNotEqual, IntValues = @IntValues, SendCancel = @SendCancel, EntityPropertyIdToLookup = @EntityPropertyIdToLookup,  StartDt = @StartDt
 	WHERE	ExtractFieldConfigurationID = @ExtractFieldConfigurationID
 	AND		DataVersion = @DataVersion
 

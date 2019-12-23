@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[RestrictedList_Insert]
 		@OpeningComment varchar(4000), 
 		@ClosingComment varchar(4000), 
 		@RestrictedPerson varchar(4000), 
-		@WatchListOnly bit
+		@WatchListOnly bit, 
+		@InstrumentMarketId int
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into RestrictedList
-			(InstrumentId, EffvFromDt, EffvToDt, UpdateUserID, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, StartDt)
+			(InstrumentId, EffvFromDt, EffvToDt, UpdateUserID, OpeningComment, ClosingComment, RestrictedPerson, WatchListOnly, InstrumentMarketId, StartDt)
 	VALUES
-			(@InstrumentId, @EffvFromDt, @EffvToDt, @UpdateUserID, @OpeningComment, @ClosingComment, @RestrictedPerson, @WatchListOnly, @StartDt)
+			(@InstrumentId, @EffvFromDt, @EffvToDt, @UpdateUserID, @OpeningComment, @ClosingComment, @RestrictedPerson, @WatchListOnly, @InstrumentMarketId, @StartDt)
 
 	SELECT	RestrictedListId, StartDt, DataVersion
 	FROM	RestrictedList

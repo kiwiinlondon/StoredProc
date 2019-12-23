@@ -45,5 +45,12 @@ create table DBO.TradeEvent_hst(
 	IntervalVolumePercent numeric(27,8),
 	IntervalVWAP numeric(27,8),
 	InflationAssumption numeric(27,8),
+	EzeParentTradeId varchar(15),
+	AdjustQuantityOnly bit,
+	TradeDateOverride datetime,
+	OrderSentToBrokerDate datetime not null,
+	NetAmount numeric(27,8),
+	RebuildTrade bit,
+	MICCode varchar(10),
 	EndDt datetime,
 	LastActionUserID int)

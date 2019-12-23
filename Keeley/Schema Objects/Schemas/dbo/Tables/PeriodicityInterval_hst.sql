@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.PeriodicityInterval_hst(
 	PeriodicityIntervalId int not null,

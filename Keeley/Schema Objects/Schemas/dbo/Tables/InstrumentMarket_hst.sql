@@ -28,5 +28,9 @@ create table DBO.InstrumentMarket_hst(
 	RiskCurrencyId int not null,
 	ValuationMethodologyId int not null,
 	CICCode varchar(4),
+	BloombergCleanTicker varchar(50),
+	LocalExchangeSymbol varchar(50),
+	MicCode varchar(10),
+	AlwaysUseManualPrice bit not null,
 	EndDt datetime,
 	LastActionUserID int)

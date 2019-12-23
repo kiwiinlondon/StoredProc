@@ -22,7 +22,9 @@ CREATE PROCEDURE DBO.[PortfolioEventFX_Update]
 		@TodayRealisedPricePNL numeric(27,8), 
 		@TodayCashBenefit numeric(27,8), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@FXRateId int, 
+		@OriginalNotionalCost numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -30,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PortfolioEventFX_hst (
-			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, EndDt, LastActionUserID)
+	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, @StartDt, @UpdateUserID
 	FROM	PortfolioEventFX
 	WHERE	PortfolioEventFXId = @PortfolioEventFXId
 
 	UPDATE	PortfolioEventFX
-	SET		PortfolioEventId = @PortfolioEventId, CurrencyId = @CurrencyId, FromBookFXRate = @FromBookFXRate, NotionalCost = @NotionalCost, RealisedFXPNL = @RealisedFXPNL, TodayRealisedFXPNL = @TodayRealisedFXPNL, TodayRealisedPricePNL = @TodayRealisedPricePNL, TodayCashBenefit = @TodayCashBenefit, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		PortfolioEventId = @PortfolioEventId, CurrencyId = @CurrencyId, FromBookFXRate = @FromBookFXRate, NotionalCost = @NotionalCost, RealisedFXPNL = @RealisedFXPNL, TodayRealisedFXPNL = @TodayRealisedFXPNL, TodayRealisedPricePNL = @TodayRealisedPricePNL, TodayCashBenefit = @TodayCashBenefit, UpdateUserID = @UpdateUserID, FXRateId = @FXRateId, OriginalNotionalCost = @OriginalNotionalCost,  StartDt = @StartDt
 	WHERE	PortfolioEventFXId = @PortfolioEventFXId
 	AND		DataVersion = @DataVersion
 

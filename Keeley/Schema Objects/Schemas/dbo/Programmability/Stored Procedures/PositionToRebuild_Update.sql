@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[PositionToRebuild_Update]
 		@PositionId int, 
 		@FundId int, 
 		@Ordering int, 
-		@IsErrored bit
+		@IsErrored bit, 
+		@RebuildFromDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PositionToRebuild_hst (
-			PositionId, FundId, Ordering, IsErrored, EndDt, LastActionUserID)
-	SELECT	PositionId, FundId, Ordering, IsErrored, @StartDt, @UpdateUserID
+			PositionId, FundId, Ordering, IsErrored, RebuildFromDate, EndDt, LastActionUserID)
+	SELECT	PositionId, FundId, Ordering, IsErrored, RebuildFromDate, @StartDt, @UpdateUserID
 	FROM	PositionToRebuild
 	WHERE	PositionId = @PositionId
 
 	UPDATE	PositionToRebuild
-	SET		FundId = @FundId, Ordering = @Ordering, IsErrored = @IsErrored,  StartDt = @StartDt
+	SET		FundId = @FundId, Ordering = @Ordering, IsErrored = @IsErrored, RebuildFromDate = @RebuildFromDate,  StartDt = @StartDt
 	WHERE	PositionId = @PositionId
 	AND		DataVersion = @DataVersion
 

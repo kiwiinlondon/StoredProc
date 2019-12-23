@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -21,7 +21,13 @@ CREATE PROCEDURE DBO.[ExtractOutputConfiguration_Update]
 		@DataVersion rowversion, 
 		@EntityPropertyId int, 
 		@EntityPropertyToWriteId int, 
-		@Format varchar(1000)
+		@Format varchar(1000), 
+		@FXRateEntityPropertyToApply int, 
+		@Absolute bit, 
+		@IncludeForInstrumentClassId bit, 
+		@InstrumentClassIds varchar(50), 
+		@IncludeForEntityStatusId bit, 
+		@EntityStatusIds varchar(10)
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +35,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ExtractOutputConfiguration_hst (
-			ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyToWriteId, Format, EndDt, LastActionUserID)
-	SELECT	ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyToWriteId, Format, @StartDt, @UpdateUserID
+			ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyToWriteId, Format, FXRateEntityPropertyToApply, Absolute, IncludeForInstrumentClassId, InstrumentClassIds, IncludeForEntityStatusId, EntityStatusIds, EndDt, LastActionUserID)
+	SELECT	ExtractOutputConfigurationID, ExtractId, Label, ChangesCanBeIgnored, OrderBy, StartDt, UpdateUserID, DataVersion, EntityPropertyId, EntityPropertyToWriteId, Format, FXRateEntityPropertyToApply, Absolute, IncludeForInstrumentClassId, InstrumentClassIds, IncludeForEntityStatusId, EntityStatusIds, @StartDt, @UpdateUserID
 	FROM	ExtractOutputConfiguration
 	WHERE	ExtractOutputConfigurationID = @ExtractOutputConfigurationID
 
 	UPDATE	ExtractOutputConfiguration
-	SET		ExtractId = @ExtractId, Label = @Label, ChangesCanBeIgnored = @ChangesCanBeIgnored, OrderBy = @OrderBy, UpdateUserID = @UpdateUserID, EntityPropertyId = @EntityPropertyId, EntityPropertyToWriteId = @EntityPropertyToWriteId, Format = @Format,  StartDt = @StartDt
+	SET		ExtractId = @ExtractId, Label = @Label, ChangesCanBeIgnored = @ChangesCanBeIgnored, OrderBy = @OrderBy, UpdateUserID = @UpdateUserID, EntityPropertyId = @EntityPropertyId, EntityPropertyToWriteId = @EntityPropertyToWriteId, Format = @Format, FXRateEntityPropertyToApply = @FXRateEntityPropertyToApply, Absolute = @Absolute, IncludeForInstrumentClassId = @IncludeForInstrumentClassId, InstrumentClassIds = @InstrumentClassIds, IncludeForEntityStatusId = @IncludeForEntityStatusId, EntityStatusIds = @EntityStatusIds,  StartDt = @StartDt
 	WHERE	ExtractOutputConfigurationID = @ExtractOutputConfigurationID
 	AND		DataVersion = @DataVersion
 

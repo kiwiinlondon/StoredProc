@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Market_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, @EndDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, @EndDt, @UpdateUserID
 	FROM	Market
 	WHERE	LegalEntityID = @LegalEntityID
 

@@ -16,5 +16,7 @@ create table DBO.InstrumentEvent_hst(
 	InputDate datetime not null,
 	ExDate datetime not null,
 	Price numeric(27,8),
+	EventDateOverride datetime,
+	IsPNLOnly bit not null,
 	EndDt datetime,
 	LastActionUserID int)

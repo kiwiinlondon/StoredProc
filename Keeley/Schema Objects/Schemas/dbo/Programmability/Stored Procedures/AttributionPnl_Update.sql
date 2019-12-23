@@ -35,16 +35,54 @@ CREATE PROCEDURE DBO.[AttributionPnl_Update]
 		@PnlTypeId int, 
 		@Price numeric(27,8), 
 		@PriceId int, 
-		@PriceToPositionFXRate numeric(27,8), 
+		@PriceToPositionFXRate numeric(35,16), 
 		@PriceToPositionFXRateId int, 
-		@FXRate numeric(27,8), 
+		@FXRate numeric(35,16), 
 		@FXRateId int, 
 		@BetaShortTerm numeric(27,8), 
 		@BetaLongTerm numeric(27,8), 
 		@TodayRealisedFXPnl numeric(27,8), 
 		@TodayRealisedPricePnl numeric(27,8), 
 		@TodayCashBenefit numeric(27,8), 
-		@NotionalCost numeric(27,8)
+		@NotionalCost numeric(27,8), 
+		@MarketDataStatus int, 
+		@BetaShortTermId int, 
+		@BetaLongTermId int, 
+		@NavFXRate numeric(35,16), 
+		@PricePnl numeric(27,8), 
+		@FXPnl numeric(27,8), 
+		@MaxExposure numeric(27,8), 
+		@ForwardFXRate numeric(35,16), 
+		@ForwardFXRateId int, 
+		@OriginalNotionalCost numeric(27,8), 
+		@CostPrice numeric(27,8), 
+		@AllinAccrual numeric(27,8), 
+		@AllInRate numeric(27,8), 
+		@SettledNotionalCost numeric(27,8), 
+		@SettledNetPosition numeric(27,8), 
+		@SettledExposure numeric(27,8), 
+		@SettledMarketValue numeric(27,8), 
+		@FinancingAccrual numeric(27,8), 
+		@BorrowAccrual numeric(27,8), 
+		@OverborrowNotional numeric(27,8), 
+		@OverborrowAccrual numeric(27,8), 
+		@MarginInterest numeric(27,8), 
+		@CashInterest numeric(27,8), 
+		@FinancingRate numeric(27,8), 
+		@BorrowRate numeric(27,8), 
+		@OverborrowRate numeric(27,8), 
+		@OverborrowUnits numeric(27,8), 
+		@Commission numeric(27,8), 
+		@Redemptions numeric(27,8), 
+		@Subscriptions numeric(27,8), 
+		@FuturesClearing numeric(27,8), 
+		@OtherExpense numeric(27,8), 
+		@ConsiderationBuy numeric(27,8), 
+		@ConsiderationSell numeric(27,8), 
+		@TradeCount int, 
+		@CounterpartyId int, 
+		@BookNav numeric(27,8), 
+		@FundNav numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -52,13 +90,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO AttributionPnl_hst (
-			AttributionPnlId, PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, StartDt, UpdateUserID, DataVersion, AttributionNavId, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, EndDt, LastActionUserID)
-	SELECT	AttributionPnlId, PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, StartDt, UpdateUserID, DataVersion, AttributionNavId, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, @StartDt, @UpdateUserID
+			AttributionPnlId, PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, StartDt, UpdateUserID, DataVersion, AttributionNavId, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, MarketDataStatus, BetaShortTermId, BetaLongTermId, NavFXRate, PricePnl, FXPnl, MaxExposure, ForwardFXRate, ForwardFXRateId, OriginalNotionalCost, CostPrice, AllinAccrual, AllInRate, SettledNotionalCost, SettledNetPosition, SettledExposure, SettledMarketValue, FinancingAccrual, BorrowAccrual, OverborrowNotional, OverborrowAccrual, MarginInterest, CashInterest, FinancingRate, BorrowRate, OverborrowRate, OverborrowUnits, Commission, Redemptions, Subscriptions, FuturesClearing, OtherExpense, ConsiderationBuy, ConsiderationSell, TradeCount, CounterpartyId, BookNav, FundNav, EndDt, LastActionUserID)
+	SELECT	AttributionPnlId, PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, StartDt, UpdateUserID, DataVersion, AttributionNavId, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, MarketDataStatus, BetaShortTermId, BetaLongTermId, NavFXRate, PricePnl, FXPnl, MaxExposure, ForwardFXRate, ForwardFXRateId, OriginalNotionalCost, CostPrice, AllinAccrual, AllInRate, SettledNotionalCost, SettledNetPosition, SettledExposure, SettledMarketValue, FinancingAccrual, BorrowAccrual, OverborrowNotional, OverborrowAccrual, MarginInterest, CashInterest, FinancingRate, BorrowRate, OverborrowRate, OverborrowUnits, Commission, Redemptions, Subscriptions, FuturesClearing, OtherExpense, ConsiderationBuy, ConsiderationSell, TradeCount, CounterpartyId, BookNav, FundNav, @StartDt, @UpdateUserID
 	FROM	AttributionPnl
 	WHERE	AttributionPnlId = @AttributionPnlId
 
 	UPDATE	AttributionPnl
-	SET		PortfolioId = @PortfolioId, FundId = @FundId, PositionID = @PositionID, ReferenceDate = @ReferenceDate, AttributionSourceId = @AttributionSourceId, MarketValue = @MarketValue, NetPosition = @NetPosition, IsNetPositionLong = @IsNetPositionLong, IsExposureLong = @IsExposureLong, Exposure = @Exposure, ExposureDelta = @ExposureDelta, TodayPricePnl = @TodayPricePnl, TodayFxPnl = @TodayFxPnl, TodayCarryPnl = @TodayCarryPnl, UpdateUserID = @UpdateUserID, AttributionNavId = @AttributionNavId, CurrencyId = @CurrencyId, TodayOtherPnl = @TodayOtherPnl, PnlTypeId = @PnlTypeId, Price = @Price, PriceId = @PriceId, PriceToPositionFXRate = @PriceToPositionFXRate, PriceToPositionFXRateId = @PriceToPositionFXRateId, FXRate = @FXRate, FXRateId = @FXRateId, BetaShortTerm = @BetaShortTerm, BetaLongTerm = @BetaLongTerm, TodayRealisedFXPnl = @TodayRealisedFXPnl, TodayRealisedPricePnl = @TodayRealisedPricePnl, TodayCashBenefit = @TodayCashBenefit, NotionalCost = @NotionalCost,  StartDt = @StartDt
+	SET		PortfolioId = @PortfolioId, FundId = @FundId, PositionID = @PositionID, ReferenceDate = @ReferenceDate, AttributionSourceId = @AttributionSourceId, MarketValue = @MarketValue, NetPosition = @NetPosition, IsNetPositionLong = @IsNetPositionLong, IsExposureLong = @IsExposureLong, Exposure = @Exposure, ExposureDelta = @ExposureDelta, TodayPricePnl = @TodayPricePnl, TodayFxPnl = @TodayFxPnl, TodayCarryPnl = @TodayCarryPnl, UpdateUserID = @UpdateUserID, AttributionNavId = @AttributionNavId, CurrencyId = @CurrencyId, TodayOtherPnl = @TodayOtherPnl, PnlTypeId = @PnlTypeId, Price = @Price, PriceId = @PriceId, PriceToPositionFXRate = @PriceToPositionFXRate, PriceToPositionFXRateId = @PriceToPositionFXRateId, FXRate = @FXRate, FXRateId = @FXRateId, BetaShortTerm = @BetaShortTerm, BetaLongTerm = @BetaLongTerm, TodayRealisedFXPnl = @TodayRealisedFXPnl, TodayRealisedPricePnl = @TodayRealisedPricePnl, TodayCashBenefit = @TodayCashBenefit, NotionalCost = @NotionalCost, MarketDataStatus = @MarketDataStatus, BetaShortTermId = @BetaShortTermId, BetaLongTermId = @BetaLongTermId, NavFXRate = @NavFXRate, PricePnl = @PricePnl, FXPnl = @FXPnl, MaxExposure = @MaxExposure, ForwardFXRate = @ForwardFXRate, ForwardFXRateId = @ForwardFXRateId, OriginalNotionalCost = @OriginalNotionalCost, CostPrice = @CostPrice, AllinAccrual = @AllinAccrual, AllInRate = @AllInRate, SettledNotionalCost = @SettledNotionalCost, SettledNetPosition = @SettledNetPosition, SettledExposure = @SettledExposure, SettledMarketValue = @SettledMarketValue, FinancingAccrual = @FinancingAccrual, BorrowAccrual = @BorrowAccrual, OverborrowNotional = @OverborrowNotional, OverborrowAccrual = @OverborrowAccrual, MarginInterest = @MarginInterest, CashInterest = @CashInterest, FinancingRate = @FinancingRate, BorrowRate = @BorrowRate, OverborrowRate = @OverborrowRate, OverborrowUnits = @OverborrowUnits, Commission = @Commission, Redemptions = @Redemptions, Subscriptions = @Subscriptions, FuturesClearing = @FuturesClearing, OtherExpense = @OtherExpense, ConsiderationBuy = @ConsiderationBuy, ConsiderationSell = @ConsiderationSell, TradeCount = @TradeCount, CounterpartyId = @CounterpartyId, BookNav = @BookNav, FundNav = @FundNav,  StartDt = @StartDt
 	WHERE	AttributionPnlId = @AttributionPnlId
 	AND		DataVersion = @DataVersion
 

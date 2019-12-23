@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[FundCountryStatus_Insert]
 		@CountryId int, 
 		@HasReportingStatus bit, 
 		@IsRegistered bit, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@RegistrationRestrictionId int
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FundCountryStatus
-			(FundId, CountryId, HasReportingStatus, IsRegistered, UpdateUserID, StartDt)
+			(FundId, CountryId, HasReportingStatus, IsRegistered, UpdateUserID, RegistrationRestrictionId, StartDt)
 	VALUES
-			(@FundId, @CountryId, @HasReportingStatus, @IsRegistered, @UpdateUserID, @StartDt)
+			(@FundId, @CountryId, @HasReportingStatus, @IsRegistered, @UpdateUserID, @RegistrationRestrictionId, @StartDt)
 
 	SELECT	FundCountryStatusId, StartDt, DataVersion
 	FROM	FundCountryStatus

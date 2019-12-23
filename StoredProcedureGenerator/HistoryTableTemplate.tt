@@ -1,5 +1,5 @@
-﻿<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
-<#@ assembly name="Microsoft.SqlServer.Smo" #>
+﻿<#@ assembly name="$(SolutionDir)\packages\Microsoft.SqlServer.SqlManagementObjects.150.18208.0\lib\net45\Microsoft.SqlServer.ConnectionInfo.dll" #>
+<#@ assembly name="$(SolutionDir)\packages\Microsoft.SqlServer.SqlManagementObjects.150.18208.0\lib\net45\Microsoft.SqlServer.Smo.dll" #>
 <#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
 <#+
 public class HistoryTableTemplate : Template

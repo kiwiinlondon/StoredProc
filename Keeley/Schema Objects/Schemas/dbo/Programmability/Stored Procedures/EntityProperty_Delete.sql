@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO EntityProperty_hst (
-			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, EndDt, LastActionUserID)
-	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, @EndDt, @UpdateUserID
+			EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, LookupEntityTypeId, InputEntityPropertyIds, IsFXRate, CanHaveFXRateApplied, EndDt, LastActionUserID)
+	SELECT	EntityPropertyID, EntityTypeId, NeedsToBeCalculated, Name, StartDt, UpdateUserID, DataVersion, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, LookupEntityTypeId, InputEntityPropertyIds, IsFXRate, CanHaveFXRateApplied, @EndDt, @UpdateUserID
 	FROM	EntityProperty
 	WHERE	EntityPropertyID = @EntityPropertyID
 

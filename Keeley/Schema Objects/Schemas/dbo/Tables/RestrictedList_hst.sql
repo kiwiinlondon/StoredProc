@@ -12,5 +12,6 @@ create table DBO.RestrictedList_hst(
 	ClosingComment varchar(4000),
 	RestrictedPerson varchar(4000) not null,
 	WatchListOnly bit not null,
+	InstrumentMarketId int,
 	EndDt datetime,
 	LastActionUserID int)

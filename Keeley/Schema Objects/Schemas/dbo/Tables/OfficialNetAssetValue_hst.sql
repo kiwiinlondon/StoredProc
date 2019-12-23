@@ -48,5 +48,8 @@ create table DBO.OfficialNetAssetValue_hst(
 	MasterNav numeric(27,8),
 	FeederNav numeric(27,8),
 	CalculateAttributionPNL bit,
+	PreviousValuationDate datetime not null,
+	AdministratorPortfolioExists bit not null,
+	RecalculateUnits bit,
 	EndDt datetime,
 	LastActionUserID int)

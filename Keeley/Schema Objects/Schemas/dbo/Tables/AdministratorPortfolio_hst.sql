@@ -28,5 +28,12 @@ create table DBO.AdministratorPortfolio_hst(
 	TotalAmortisationLocal numeric(27,8),
 	TodayAmortisationBook numeric(27,8),
 	MaturityDate datetime,
+	CostLocal numeric(27,8),
+	MarketValueLocal numeric(27,8),
+	PriceToPositionFXRate numeric(27,8),
+	PricePNLOffset numeric(27,8),
+	FXPNLOffset numeric(27,8),
+	TotalUnrealisedPricePNLBook numeric(27,8),
+	TotalUnrealisedFXPNLBook numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

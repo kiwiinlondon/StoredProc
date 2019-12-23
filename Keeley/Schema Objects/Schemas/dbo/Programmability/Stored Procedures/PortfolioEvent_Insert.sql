@@ -72,7 +72,25 @@ CREATE PROCEDURE DBO.[PortfolioEvent_Insert]
 		@TotalAmortisationQuantity numeric(27,8), 
 		@InflationAssumption numeric(27,8), 
 		@BlendedInflationAssumption numeric(27,8), 
-		@AssociatedPositionId int
+		@AssociatedPositionId int, 
+		@AdjustQuantityOnly bit, 
+		@TodayMaxDeltaNetCostInstrumentCurrency numeric(27,8), 
+		@TodayMaxNetPosition numeric(27,8), 
+		@UnadjustedNetPosition numeric(27,8), 
+		@Revalue bit, 
+		@TradeDate datetime, 
+		@TodayZeroOutAccrual bit, 
+		@TodayFinancingMustExist bit, 
+		@FinancingMustExist bit, 
+		@CounterpartyId int, 
+		@Commission numeric(27,8), 
+		@OtherExpense numeric(27,8), 
+		@ConsiderationBuy numeric(27,8), 
+		@ConsiderationSell numeric(27,8), 
+		@IsTrade bit, 
+		@FuturesClearing numeric(27,8), 
+		@Consideration numeric(27,8), 
+		@IsInternal bit
 AS
 	SET NOCOUNT ON
 
@@ -80,9 +98,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into PortfolioEvent
-			(InternalAllocationId, PositionId, ReferenceDate, PortfolioAggregationLevelId, PortfolioEventTypeId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPositionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, NetPosition, UpdateUserID, InputDate, OrderingResolution, Accrual, TodayAccrual, CashBenefit, TodayCashBenefit, TodayCashBenefitBookCurrency, RealisedPricePnl, TodayRealisedPricePnl, RealisedFxPnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, RealisePnl, TradeInstrumentFXRate, ZeroOutAccrual, BondNominal, BondNominalChange, CapitalChange, TodayCapitalChange, FXRateId, UseFXRateForDay, RealisedCash, ExternalRealisedPnl, OriginalDeltaNetCostBookCurrency, OriginalDeltaNetCostInstrumentCurrency, ITDRealisedPricePnl, ITDRealisedFXPnl, ResetCost, Yield, BlendedYield, AmortisationCost, AmortisationQuantity, TotalAmortisationQuantity, InflationAssumption, BlendedInflationAssumption, AssociatedPositionId, StartDt)
+			(InternalAllocationId, PositionId, ReferenceDate, PortfolioAggregationLevelId, PortfolioEventTypeId, ChangeNumber, Quantity, FXRate, Price, NetCostChangeInstrumentCurrency, NetCostChangeBookCurrency, NetCostInstrumentCurrency, NetCostBookCurrency, DeltaNetCostChangeInstrumentCurrency, DeltaNetCostChangeBookCurrency, DeltaNetCostInstrumentCurrency, DeltaNetCostBookCurrency, TodayNetPositionChange, TodayDeltaNetCostChangeInstrumentCurrency, TodayDeltaNetCostChangeBookCurrency, TodayNetCostChangeInstrumentCurrency, TodayNetCostChangeBookCurrency, NetPosition, UpdateUserID, InputDate, OrderingResolution, Accrual, TodayAccrual, CashBenefit, TodayCashBenefit, TodayCashBenefitBookCurrency, RealisedPricePnl, TodayRealisedPricePnl, RealisedFxPnl, TodayRealisedFxPnl, TotalAccrual, TodayRealisedPricePnlBookCurrency, RealisePnl, TradeInstrumentFXRate, ZeroOutAccrual, BondNominal, BondNominalChange, CapitalChange, TodayCapitalChange, FXRateId, UseFXRateForDay, RealisedCash, ExternalRealisedPnl, OriginalDeltaNetCostBookCurrency, OriginalDeltaNetCostInstrumentCurrency, ITDRealisedPricePnl, ITDRealisedFXPnl, ResetCost, Yield, BlendedYield, AmortisationCost, AmortisationQuantity, TotalAmortisationQuantity, InflationAssumption, BlendedInflationAssumption, AssociatedPositionId, AdjustQuantityOnly, TodayMaxDeltaNetCostInstrumentCurrency, TodayMaxNetPosition, UnadjustedNetPosition, Revalue, TradeDate, TodayZeroOutAccrual, TodayFinancingMustExist, FinancingMustExist, CounterpartyId, Commission, OtherExpense, ConsiderationBuy, ConsiderationSell, IsTrade, FuturesClearing, Consideration, IsInternal, StartDt)
 	VALUES
-			(@InternalAllocationId, @PositionId, @ReferenceDate, @PortfolioAggregationLevelId, @PortfolioEventTypeId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPositionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @NetPosition, @UpdateUserID, @InputDate, @OrderingResolution, @Accrual, @TodayAccrual, @CashBenefit, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @RealisedPricePnl, @TodayRealisedPricePnl, @RealisedFxPnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @RealisePnl, @TradeInstrumentFXRate, @ZeroOutAccrual, @BondNominal, @BondNominalChange, @CapitalChange, @TodayCapitalChange, @FXRateId, @UseFXRateForDay, @RealisedCash, @ExternalRealisedPnl, @OriginalDeltaNetCostBookCurrency, @OriginalDeltaNetCostInstrumentCurrency, @ITDRealisedPricePnl, @ITDRealisedFXPnl, @ResetCost, @Yield, @BlendedYield, @AmortisationCost, @AmortisationQuantity, @TotalAmortisationQuantity, @InflationAssumption, @BlendedInflationAssumption, @AssociatedPositionId, @StartDt)
+			(@InternalAllocationId, @PositionId, @ReferenceDate, @PortfolioAggregationLevelId, @PortfolioEventTypeId, @ChangeNumber, @Quantity, @FXRate, @Price, @NetCostChangeInstrumentCurrency, @NetCostChangeBookCurrency, @NetCostInstrumentCurrency, @NetCostBookCurrency, @DeltaNetCostChangeInstrumentCurrency, @DeltaNetCostChangeBookCurrency, @DeltaNetCostInstrumentCurrency, @DeltaNetCostBookCurrency, @TodayNetPositionChange, @TodayDeltaNetCostChangeInstrumentCurrency, @TodayDeltaNetCostChangeBookCurrency, @TodayNetCostChangeInstrumentCurrency, @TodayNetCostChangeBookCurrency, @NetPosition, @UpdateUserID, @InputDate, @OrderingResolution, @Accrual, @TodayAccrual, @CashBenefit, @TodayCashBenefit, @TodayCashBenefitBookCurrency, @RealisedPricePnl, @TodayRealisedPricePnl, @RealisedFxPnl, @TodayRealisedFxPnl, @TotalAccrual, @TodayRealisedPricePnlBookCurrency, @RealisePnl, @TradeInstrumentFXRate, @ZeroOutAccrual, @BondNominal, @BondNominalChange, @CapitalChange, @TodayCapitalChange, @FXRateId, @UseFXRateForDay, @RealisedCash, @ExternalRealisedPnl, @OriginalDeltaNetCostBookCurrency, @OriginalDeltaNetCostInstrumentCurrency, @ITDRealisedPricePnl, @ITDRealisedFXPnl, @ResetCost, @Yield, @BlendedYield, @AmortisationCost, @AmortisationQuantity, @TotalAmortisationQuantity, @InflationAssumption, @BlendedInflationAssumption, @AssociatedPositionId, @AdjustQuantityOnly, @TodayMaxDeltaNetCostInstrumentCurrency, @TodayMaxNetPosition, @UnadjustedNetPosition, @Revalue, @TradeDate, @TodayZeroOutAccrual, @TodayFinancingMustExist, @FinancingMustExist, @CounterpartyId, @Commission, @OtherExpense, @ConsiderationBuy, @ConsiderationSell, @IsTrade, @FuturesClearing, @Consideration, @IsInternal, @StartDt)
 
 	SELECT	PortfolioEventID, StartDt, DataVersion
 	FROM	PortfolioEvent

@@ -10,5 +10,6 @@ create table DBO.Country_hst(
 	DataVersion binary(8) not null,
 	IsEEA bit,
 	IsOECD bit,
+	IsDevelopedMarket bit not null,
 	EndDt datetime,
 	LastActionUserID int)

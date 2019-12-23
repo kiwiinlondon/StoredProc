@@ -17,7 +17,8 @@ CREATE PROCEDURE DBO.[Country_Insert]
 		@RegionID int, 
 		@UpdateUserID int, 
 		@IsEEA bit, 
-		@IsOECD bit
+		@IsOECD bit, 
+		@IsDevelopedMarket bit
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Country
-			(Name, IsoCode, RegionID, UpdateUserID, IsEEA, IsOECD, StartDt)
+			(Name, IsoCode, RegionID, UpdateUserID, IsEEA, IsOECD, IsDevelopedMarket, StartDt)
 	VALUES
-			(@Name, @IsoCode, @RegionID, @UpdateUserID, @IsEEA, @IsOECD, @StartDt)
+			(@Name, @IsoCode, @RegionID, @UpdateUserID, @IsEEA, @IsOECD, @IsDevelopedMarket, @StartDt)
 
 	SELECT	CountryID, StartDt, DataVersion
 	FROM	Country

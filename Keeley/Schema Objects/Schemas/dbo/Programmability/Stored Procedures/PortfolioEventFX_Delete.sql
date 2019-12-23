@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PortfolioEventFX_hst (
-			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, EndDt, LastActionUserID)
+	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, @EndDt, @UpdateUserID
 	FROM	PortfolioEventFX
 	WHERE	PortfolioEventFXId = @PortfolioEventFXId
 

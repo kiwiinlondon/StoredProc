@@ -25,7 +25,8 @@ CREATE PROCEDURE DBO.[ClientAccount_Update]
 		@StaffId int, 
 		@FundId int, 
 		@ManualUpdate bit, 
-		@ClientHasChanged bit
+		@ClientHasChanged bit, 
+		@ClientPlatformId int
 AS
 	SET NOCOUNT ON
 
@@ -33,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientAccount_hst (
-			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, ClientHasChanged, EndDt, LastActionUserID)
-	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, ClientHasChanged, @StartDt, @UpdateUserID
+			ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, ClientHasChanged, ClientPlatformId, EndDt, LastActionUserID)
+	SELECT	ClientAccountId, ClientId, AccountReference, AdministratorId, Name, CountryId, StartDt, UpdateUserID, DataVersion, IsActive, ParentClientAccountId, StaffId, FundId, ManualUpdate, ClientHasChanged, ClientPlatformId, @StartDt, @UpdateUserID
 	FROM	ClientAccount
 	WHERE	ClientAccountId = @ClientAccountId
 
 	UPDATE	ClientAccount
-	SET		ClientId = @ClientId, AccountReference = @AccountReference, AdministratorId = @AdministratorId, Name = @Name, CountryId = @CountryId, UpdateUserID = @UpdateUserID, IsActive = @IsActive, ParentClientAccountId = @ParentClientAccountId, StaffId = @StaffId, FundId = @FundId, ManualUpdate = @ManualUpdate, ClientHasChanged = @ClientHasChanged,  StartDt = @StartDt
+	SET		ClientId = @ClientId, AccountReference = @AccountReference, AdministratorId = @AdministratorId, Name = @Name, CountryId = @CountryId, UpdateUserID = @UpdateUserID, IsActive = @IsActive, ParentClientAccountId = @ParentClientAccountId, StaffId = @StaffId, FundId = @FundId, ManualUpdate = @ManualUpdate, ClientHasChanged = @ClientHasChanged, ClientPlatformId = @ClientPlatformId,  StartDt = @StartDt
 	WHERE	ClientAccountId = @ClientAccountId
 	AND		DataVersion = @DataVersion
 

@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -14,7 +14,9 @@ GO
 CREATE PROCEDURE DBO.[Market_Insert]
 		@LegalEntityID int, 
 		@UpdateUserID int, 
-		@BBExchangeCode varchar(30)
+		@BBExchangeCode varchar(30), 
+		@MicCode varchar(10), 
+		@FixedIncomeMicCode varchar(20)
 AS
 	SET NOCOUNT ON
 
@@ -22,9 +24,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Market
-			(LegalEntityID, UpdateUserID, BBExchangeCode, StartDt)
+			(LegalEntityID, UpdateUserID, BBExchangeCode, MicCode, FixedIncomeMicCode, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @BBExchangeCode, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @BBExchangeCode, @MicCode, @FixedIncomeMicCode, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Market

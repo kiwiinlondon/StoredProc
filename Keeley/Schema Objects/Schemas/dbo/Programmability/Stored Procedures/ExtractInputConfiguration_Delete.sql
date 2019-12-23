@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ExtractInputConfiguration_hst (
-			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, EndDt, LastActionUserID)
-	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, @EndDt, @UpdateUserID
+			ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, IntValues, SendCancel, EntityPropertyIdToLookup, EndDt, LastActionUserID)
+	SELECT	ExtractFieldConfigurationID, ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, StartDt, UpdateUserID, DataVersion, IsNotEqual, IntValues, SendCancel, EntityPropertyIdToLookup, @EndDt, @UpdateUserID
 	FROM	ExtractInputConfiguration
 	WHERE	ExtractFieldConfigurationID = @ExtractFieldConfigurationID
 

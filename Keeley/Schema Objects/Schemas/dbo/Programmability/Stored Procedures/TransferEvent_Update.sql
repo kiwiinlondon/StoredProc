@@ -26,7 +26,9 @@ CREATE PROCEDURE DBO.[TransferEvent_Update]
 		@DataVersion rowversion, 
 		@Notes varchar(150), 
 		@ApprovedByUserId int, 
-		@InputUserId int
+		@InputUserId int, 
+		@FromBookId int, 
+		@ToBookId int
 AS
 	SET NOCOUNT ON
 
@@ -34,13 +36,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO TransferEvent_hst (
-			EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, EndDt, LastActionUserID)
-	SELECT	EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, @StartDt, @UpdateUserID
+			EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, FromBookId, ToBookId, EndDt, LastActionUserID)
+	SELECT	EventID, FromAccountId, ToAccountId, Quantity, InstrumentMarketID, AmendmentNumber, IsCancelled, TradeDate, SettlementDate, InputDate, StartDt, UpdateUserID, DataVersion, Notes, ApprovedByUserId, InputUserId, FromBookId, ToBookId, @StartDt, @UpdateUserID
 	FROM	TransferEvent
 	WHERE	EventID = @EventID
 
 	UPDATE	TransferEvent
-	SET		FromAccountId = @FromAccountId, ToAccountId = @ToAccountId, Quantity = @Quantity, InstrumentMarketID = @InstrumentMarketID, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, TradeDate = @TradeDate, SettlementDate = @SettlementDate, InputDate = @InputDate, UpdateUserID = @UpdateUserID, Notes = @Notes, ApprovedByUserId = @ApprovedByUserId, InputUserId = @InputUserId,  StartDt = @StartDt
+	SET		FromAccountId = @FromAccountId, ToAccountId = @ToAccountId, Quantity = @Quantity, InstrumentMarketID = @InstrumentMarketID, AmendmentNumber = @AmendmentNumber, IsCancelled = @IsCancelled, TradeDate = @TradeDate, SettlementDate = @SettlementDate, InputDate = @InputDate, UpdateUserID = @UpdateUserID, Notes = @Notes, ApprovedByUserId = @ApprovedByUserId, InputUserId = @InputUserId, FromBookId = @FromBookId, ToBookId = @ToBookId,  StartDt = @StartDt
 	WHERE	EventID = @EventID
 	AND		DataVersion = @DataVersion
 

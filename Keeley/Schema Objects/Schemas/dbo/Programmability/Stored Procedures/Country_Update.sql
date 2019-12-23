@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[Country_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@IsEEA bit, 
-		@IsOECD bit
+		@IsOECD bit, 
+		@IsDevelopedMarket bit
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Country_hst (
-			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, EndDt, LastActionUserID)
-	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, @StartDt, @UpdateUserID
+			CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, IsDevelopedMarket, EndDt, LastActionUserID)
+	SELECT	CountryID, Name, IsoCode, RegionID, StartDt, UpdateUserID, DataVersion, IsEEA, IsOECD, IsDevelopedMarket, @StartDt, @UpdateUserID
 	FROM	Country
 	WHERE	CountryID = @CountryID
 
 	UPDATE	Country
-	SET		Name = @Name, IsoCode = @IsoCode, RegionID = @RegionID, UpdateUserID = @UpdateUserID, IsEEA = @IsEEA, IsOECD = @IsOECD,  StartDt = @StartDt
+	SET		Name = @Name, IsoCode = @IsoCode, RegionID = @RegionID, UpdateUserID = @UpdateUserID, IsEEA = @IsEEA, IsOECD = @IsOECD, IsDevelopedMarket = @IsDevelopedMarket,  StartDt = @StartDt
 	WHERE	CountryID = @CountryID
 	AND		DataVersion = @DataVersion
 

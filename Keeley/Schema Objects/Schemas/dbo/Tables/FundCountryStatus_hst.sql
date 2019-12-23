@@ -9,5 +9,6 @@ create table DBO.FundCountryStatus_hst(
 	StartDt datetime not null,
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
+	RegistrationRestrictionId int,
 	EndDt datetime,
 	LastActionUserID int)

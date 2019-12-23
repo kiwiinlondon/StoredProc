@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 SET ANSI_NULLS ON
 GO
@@ -13,11 +13,11 @@ GO
 
 CREATE PROCEDURE DBO.[FileCollected_Insert]
 		@FileToBeCollectedId int, 
-		@IsLast bit, 
 		@ResolvedFileName varchar(150), 
 		@FileCreatedDate datetime, 
 		@Processed bit, 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@FileHash varchar(64)
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FileCollected
-			(FileToBeCollectedId, IsLast, ResolvedFileName, FileCreatedDate, Processed, UpdateUserID, StartDt)
+			(FileToBeCollectedId, ResolvedFileName, FileCreatedDate, Processed, UpdateUserID, FileHash, StartDt)
 	VALUES
-			(@FileToBeCollectedId, @IsLast, @ResolvedFileName, @FileCreatedDate, @Processed, @UpdateUserID, @StartDt)
+			(@FileToBeCollectedId, @ResolvedFileName, @FileCreatedDate, @Processed, @UpdateUserID, @FileHash, @StartDt)
 
 	SELECT	FileCollectedId, StartDt, DataVersion
 	FROM	FileCollected

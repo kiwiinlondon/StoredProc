@@ -1,4 +1,4 @@
-USE Keeley
+﻿USE Keeley
 
 create table DBO.ExtractOutputConfiguration_hst(
 	ExtractOutputConfigurationID int not null,
@@ -12,5 +12,11 @@ create table DBO.ExtractOutputConfiguration_hst(
 	EntityPropertyId int,
 	EntityPropertyToWriteId int,
 	Format varchar(1000),
+	FXRateEntityPropertyToApply int,
+	Absolute bit not null,
+	IncludeForInstrumentClassId bit,
+	InstrumentClassIds varchar(50),
+	IncludeForEntityStatusId bit,
+	EntityStatusIds varchar(10),
 	EndDt datetime,
 	LastActionUserID int)

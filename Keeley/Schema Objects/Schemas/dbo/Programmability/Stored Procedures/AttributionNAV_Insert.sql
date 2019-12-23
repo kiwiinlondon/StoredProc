@@ -21,7 +21,14 @@ CREATE PROCEDURE DBO.[AttributionNav_Insert]
 		@PercentageOfFund numeric(9,8), 
 		@KeeleyIsMaster bit, 
 		@CurrencyId int, 
-		@TodayPNL numeric(15,2)
+		@TodayPNL numeric(15,2), 
+		@KeeleyNav numeric(15,2), 
+		@EURFXRateId int, 
+		@EURFXRate numeric(27,8), 
+		@USDFXRateId int, 
+		@USDFXRate numeric(27,8), 
+		@GBPFXRateId int, 
+		@GBPFXRate numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -29,9 +36,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AttributionNav
-			(FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, UpdateUserID, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, StartDt)
+			(FundId, ReferenceDate, AttributionSourceId, OpeningNAV, NAV, UpdateUserID, PercentageOfFund, KeeleyIsMaster, CurrencyId, TodayPNL, KeeleyNav, EURFXRateId, EURFXRate, USDFXRateId, USDFXRate, GBPFXRateId, GBPFXRate, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @AttributionSourceId, @OpeningNAV, @NAV, @UpdateUserID, @PercentageOfFund, @KeeleyIsMaster, @CurrencyId, @TodayPNL, @StartDt)
+			(@FundId, @ReferenceDate, @AttributionSourceId, @OpeningNAV, @NAV, @UpdateUserID, @PercentageOfFund, @KeeleyIsMaster, @CurrencyId, @TodayPNL, @KeeleyNav, @EURFXRateId, @EURFXRate, @USDFXRateId, @USDFXRate, @GBPFXRateId, @GBPFXRate, @StartDt)
 
 	SELECT	AttributionNavId, StartDt, DataVersion
 	FROM	AttributionNav

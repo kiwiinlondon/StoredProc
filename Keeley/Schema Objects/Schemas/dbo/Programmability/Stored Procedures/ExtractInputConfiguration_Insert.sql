@@ -20,7 +20,10 @@ CREATE PROCEDURE DBO.[ExtractInputConfiguration_Insert]
 		@DateTimeValue datetime, 
 		@BitValue bit, 
 		@UpdateUserID int, 
-		@IsNotEqual bit
+		@IsNotEqual bit, 
+		@IntValues varchar(100), 
+		@SendCancel bit, 
+		@EntityPropertyIdToLookup int
 AS
 	SET NOCOUNT ON
 
@@ -28,9 +31,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ExtractInputConfiguration
-			(ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, UpdateUserID, IsNotEqual, StartDt)
+			(ExtractId, EntityPropertyId, IntValue, StringValue, DecimalValue, DateTimeValue, BitValue, UpdateUserID, IsNotEqual, IntValues, SendCancel, EntityPropertyIdToLookup, StartDt)
 	VALUES
-			(@ExtractId, @EntityPropertyId, @IntValue, @StringValue, @DecimalValue, @DateTimeValue, @BitValue, @UpdateUserID, @IsNotEqual, @StartDt)
+			(@ExtractId, @EntityPropertyId, @IntValue, @StringValue, @DecimalValue, @DateTimeValue, @BitValue, @UpdateUserID, @IsNotEqual, @IntValues, @SendCancel, @EntityPropertyIdToLookup, @StartDt)
 
 	SELECT	ExtractFieldConfigurationID, StartDt, DataVersion
 	FROM	ExtractInputConfiguration

@@ -14,12 +14,16 @@ GO
 CREATE PROCEDURE DBO.[EntityProperty_Insert]
 		@EntityTypeId int, 
 		@NeedsToBeCalculated bit, 
-		@Name varchar(70), 
+		@Name varchar(100), 
 		@UpdateUserID int, 
 		@PropertyOnChildEntity bit, 
 		@TypeCode int, 
 		@IdentifierTypeId int, 
-		@IsPrimaryKey bit
+		@IsPrimaryKey bit, 
+		@LookupEntityTypeId int, 
+		@InputEntityPropertyIds varchar(100), 
+		@IsFXRate bit, 
+		@CanHaveFXRateApplied bit
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +31,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into EntityProperty
-			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, StartDt)
+			(EntityTypeId, NeedsToBeCalculated, Name, UpdateUserID, PropertyOnChildEntity, TypeCode, IdentifierTypeId, IsPrimaryKey, LookupEntityTypeId, InputEntityPropertyIds, IsFXRate, CanHaveFXRateApplied, StartDt)
 	VALUES
-			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @IdentifierTypeId, @IsPrimaryKey, @StartDt)
+			(@EntityTypeId, @NeedsToBeCalculated, @Name, @UpdateUserID, @PropertyOnChildEntity, @TypeCode, @IdentifierTypeId, @IsPrimaryKey, @LookupEntityTypeId, @InputEntityPropertyIds, @IsFXRate, @CanHaveFXRateApplied, @StartDt)
 
 	SELECT	EntityPropertyID, StartDt, DataVersion
 	FROM	EntityProperty
