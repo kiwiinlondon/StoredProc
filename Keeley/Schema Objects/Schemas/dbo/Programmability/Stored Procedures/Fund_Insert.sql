@@ -64,7 +64,9 @@ CREATE PROCEDURE DBO.[Fund_Insert]
 		@CustodianId int, 
 		@ManagerId int, 
 		@ISCFDFullyFunded bit, 
-		@IsCRR bit
+		@IsCRR bit, 
+		@TaxReferenceNumber varchar(100), 
+		@FundFeederTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -72,9 +74,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Fund
-			(LegalEntityID, CurrencyID, UpdateUserID, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, ClientLoadDate, IsDistributing, FundStructureId, HasUKReportingStatus, IsClosedToNewInvestors, IsClosedToExistingInvestors, IsStaffOnly, IsIsaEligible, OtherCostRatio, TotalCostRatio, IsSynthetic, ClientMarketingTypeId, IsMainRetailShareClass, PercentageHedged, LockInYears, IsLongOnly, IsMainPerformanceShareClass, IsSolvencyII, IsVAG, TakeOnDate, IsAnalystPnl, CustodianId, ManagerId, ISCFDFullyFunded, IsCRR, StartDt)
+			(LegalEntityID, CurrencyID, UpdateUserID, PositionsExist, PerfFundName, InstrumentMarketId, BenchmarkInstrumentMarketId, ParentFundId, IsActive, FundTypeId, PriceIsExternallyVisible, InceptionDate, RiskFreeInstrumentMarketId, DealingDateDefinitionId, EZEIdentifier, PortfolioIsExternallyVisible, AssetManagementCompanyId, IntranetOrdering, ReferenceFundId, PerformanceFeeTypeId, LossWarning, LossTrigger, ShareClassDescriptor, PerformanceFee, ManagementFee, AdministratorId, AdministratorIdentifier, IsVoting, ClientLoadDate, IsDistributing, FundStructureId, HasUKReportingStatus, IsClosedToNewInvestors, IsClosedToExistingInvestors, IsStaffOnly, IsIsaEligible, OtherCostRatio, TotalCostRatio, IsSynthetic, ClientMarketingTypeId, IsMainRetailShareClass, PercentageHedged, LockInYears, IsLongOnly, IsMainPerformanceShareClass, IsSolvencyII, IsVAG, TakeOnDate, IsAnalystPnl, CustodianId, ManagerId, ISCFDFullyFunded, IsCRR, TaxReferenceNumber, FundFeederTypeId, StartDt)
 	VALUES
-			(@LegalEntityID, @CurrencyID, @UpdateUserID, @PositionsExist, @PerfFundName, @InstrumentMarketId, @BenchmarkInstrumentMarketId, @ParentFundId, @IsActive, @FundTypeId, @PriceIsExternallyVisible, @InceptionDate, @RiskFreeInstrumentMarketId, @DealingDateDefinitionId, @EZEIdentifier, @PortfolioIsExternallyVisible, @AssetManagementCompanyId, @IntranetOrdering, @ReferenceFundId, @PerformanceFeeTypeId, @LossWarning, @LossTrigger, @ShareClassDescriptor, @PerformanceFee, @ManagementFee, @AdministratorId, @AdministratorIdentifier, @IsVoting, @ClientLoadDate, @IsDistributing, @FundStructureId, @HasUKReportingStatus, @IsClosedToNewInvestors, @IsClosedToExistingInvestors, @IsStaffOnly, @IsIsaEligible, @OtherCostRatio, @TotalCostRatio, @IsSynthetic, @ClientMarketingTypeId, @IsMainRetailShareClass, @PercentageHedged, @LockInYears, @IsLongOnly, @IsMainPerformanceShareClass, @IsSolvencyII, @IsVAG, @TakeOnDate, @IsAnalystPnl, @CustodianId, @ManagerId, @ISCFDFullyFunded, @IsCRR, @StartDt)
+			(@LegalEntityID, @CurrencyID, @UpdateUserID, @PositionsExist, @PerfFundName, @InstrumentMarketId, @BenchmarkInstrumentMarketId, @ParentFundId, @IsActive, @FundTypeId, @PriceIsExternallyVisible, @InceptionDate, @RiskFreeInstrumentMarketId, @DealingDateDefinitionId, @EZEIdentifier, @PortfolioIsExternallyVisible, @AssetManagementCompanyId, @IntranetOrdering, @ReferenceFundId, @PerformanceFeeTypeId, @LossWarning, @LossTrigger, @ShareClassDescriptor, @PerformanceFee, @ManagementFee, @AdministratorId, @AdministratorIdentifier, @IsVoting, @ClientLoadDate, @IsDistributing, @FundStructureId, @HasUKReportingStatus, @IsClosedToNewInvestors, @IsClosedToExistingInvestors, @IsStaffOnly, @IsIsaEligible, @OtherCostRatio, @TotalCostRatio, @IsSynthetic, @ClientMarketingTypeId, @IsMainRetailShareClass, @PercentageHedged, @LockInYears, @IsLongOnly, @IsMainPerformanceShareClass, @IsSolvencyII, @IsVAG, @TakeOnDate, @IsAnalystPnl, @CustodianId, @ManagerId, @ISCFDFullyFunded, @IsCRR, @TaxReferenceNumber, @FundFeederTypeId, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Fund

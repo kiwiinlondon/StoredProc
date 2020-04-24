@@ -41,7 +41,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Update]
 		@BloombergCleanTicker varchar(50), 
 		@LocalExchangeSymbol varchar(50), 
 		@MicCode varchar(10), 
-		@AlwaysUseManualPrice bit
+		@AlwaysUseManualPrice bit, 
+		@IsExposureLong bit
 AS
 	SET NOCOUNT ON
 
@@ -49,13 +50,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO InstrumentMarket_hst (
-			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, EndDt, LastActionUserID)
-	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, @StartDt, @UpdateUserID
+			InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, IsExposureLong, EndDt, LastActionUserID)
+	SELECT	InstrumentMarketID, InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, StartDt, UpdateUserID, DataVersion, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, IsExposureLong, @StartDt, @UpdateUserID
 	FROM	InstrumentMarket
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 
 	UPDATE	InstrumentMarket
-	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID, PriceCurrencyId = @PriceCurrencyId, ListingStatusId = @ListingStatusId, UnderlyingInstrumentMarketId = @UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId = @UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier = @PriceQuoteMultiplier, BloombergGlobalId = @BloombergGlobalId, LastRepulledFromSourceDate = @LastRepulledFromSourceDate, FactsetId = @FactsetId, UltimateUnderlyerPerOverlyer = @UltimateUnderlyerPerOverlyer, ResolveFromExternalSource = @ResolveFromExternalSource, ExposureCurrencyId = @ExposureCurrencyId, AdministratorId = @AdministratorId, IsReverse = @IsReverse, RiskCurrencyId = @RiskCurrencyId, ValuationMethodologyId = @ValuationMethodologyId, CICCode = @CICCode, BloombergCleanTicker = @BloombergCleanTicker, LocalExchangeSymbol = @LocalExchangeSymbol, MicCode = @MicCode, AlwaysUseManualPrice = @AlwaysUseManualPrice,  StartDt = @StartDt
+	SET		InstrumentID = @InstrumentID, MarketID = @MarketID, FMSecId = @FMSecId, PriceDivisor = @PriceDivisor, BloombergTicker = @BloombergTicker, Sedol = @Sedol, IsPrimary = @IsPrimary, UpdateUserID = @UpdateUserID, PriceCurrencyId = @PriceCurrencyId, ListingStatusId = @ListingStatusId, UnderlyingInstrumentMarketId = @UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId = @UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier = @PriceQuoteMultiplier, BloombergGlobalId = @BloombergGlobalId, LastRepulledFromSourceDate = @LastRepulledFromSourceDate, FactsetId = @FactsetId, UltimateUnderlyerPerOverlyer = @UltimateUnderlyerPerOverlyer, ResolveFromExternalSource = @ResolveFromExternalSource, ExposureCurrencyId = @ExposureCurrencyId, AdministratorId = @AdministratorId, IsReverse = @IsReverse, RiskCurrencyId = @RiskCurrencyId, ValuationMethodologyId = @ValuationMethodologyId, CICCode = @CICCode, BloombergCleanTicker = @BloombergCleanTicker, LocalExchangeSymbol = @LocalExchangeSymbol, MicCode = @MicCode, AlwaysUseManualPrice = @AlwaysUseManualPrice, IsExposureLong = @IsExposureLong,  StartDt = @StartDt
 	WHERE	InstrumentMarketID = @InstrumentMarketID
 	AND		DataVersion = @DataVersion
 

@@ -7,5 +7,6 @@ create table DBO.PnlType_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	MultiplyByPercentageOfFund bit,
+	IsOtherPnl bit not null,
 	EndDt datetime,
 	LastActionUserID int)

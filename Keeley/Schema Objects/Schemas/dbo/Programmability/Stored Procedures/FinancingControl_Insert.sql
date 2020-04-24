@@ -14,10 +14,11 @@ GO
 CREATE PROCEDURE DBO.[FinancingControl_Insert]
 		@FundId int, 
 		@ReferenceDate datetime, 
-		@InstrumentClassId int, 
 		@Loaded bit, 
 		@UpdateUserID int, 
-		@CustodianId int
+		@CustodianId int, 
+		@FinancingTypeId int, 
+		@IsPrimary bit
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +26,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FinancingControl
-			(FundId, ReferenceDate, InstrumentClassId, Loaded, UpdateUserID, CustodianId, StartDt)
+			(FundId, ReferenceDate, Loaded, UpdateUserID, CustodianId, FinancingTypeId, IsPrimary, StartDt)
 	VALUES
-			(@FundId, @ReferenceDate, @InstrumentClassId, @Loaded, @UpdateUserID, @CustodianId, @StartDt)
+			(@FundId, @ReferenceDate, @Loaded, @UpdateUserID, @CustodianId, @FinancingTypeId, @IsPrimary, @StartDt)
 
 	SELECT	FinancingControlId, StartDt, DataVersion
 	FROM	FinancingControl

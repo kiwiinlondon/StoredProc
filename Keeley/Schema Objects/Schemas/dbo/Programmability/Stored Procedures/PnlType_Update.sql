@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[PnlType_Update]
 		@Name varchar(100), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@MultiplyByPercentageOfFund bit
+		@MultiplyByPercentageOfFund bit, 
+		@IsOtherPnl bit
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +25,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PnlType_hst (
-			PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, EndDt, LastActionUserID)
-	SELECT	PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, @StartDt, @UpdateUserID
+			PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, IsOtherPnl, EndDt, LastActionUserID)
+	SELECT	PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, IsOtherPnl, @StartDt, @UpdateUserID
 	FROM	PnlType
 	WHERE	PnlTypeId = @PnlTypeId
 
 	UPDATE	PnlType
-	SET		Name = @Name, UpdateUserID = @UpdateUserID, MultiplyByPercentageOfFund = @MultiplyByPercentageOfFund,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, MultiplyByPercentageOfFund = @MultiplyByPercentageOfFund, IsOtherPnl = @IsOtherPnl,  StartDt = @StartDt
 	WHERE	PnlTypeId = @PnlTypeId
 	AND		DataVersion = @DataVersion
 

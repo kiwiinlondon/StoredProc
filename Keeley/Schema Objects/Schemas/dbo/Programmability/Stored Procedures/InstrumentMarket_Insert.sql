@@ -39,7 +39,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@BloombergCleanTicker varchar(50), 
 		@LocalExchangeSymbol varchar(50), 
 		@MicCode varchar(10), 
-		@AlwaysUseManualPrice bit
+		@AlwaysUseManualPrice bit, 
+		@IsExposureLong bit
 AS
 	SET NOCOUNT ON
 
@@ -47,9 +48,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentMarket
-			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, StartDt)
+			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, IsExposureLong, StartDt)
 	VALUES
-			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @ValuationMethodologyId, @CICCode, @BloombergCleanTicker, @LocalExchangeSymbol, @MicCode, @AlwaysUseManualPrice, @StartDt)
+			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @ValuationMethodologyId, @CICCode, @BloombergCleanTicker, @LocalExchangeSymbol, @MicCode, @AlwaysUseManualPrice, @IsExposureLong, @StartDt)
 
 	SELECT	InstrumentMarketID, StartDt, DataVersion
 	FROM	InstrumentMarket

@@ -10,5 +10,7 @@ create table DBO.Analytic_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	rawanalyticId int,
+	TryToResolve bit,
+	AttemptsToResolve int,
 	EndDt datetime,
 	LastActionUserID int)

@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Analytic_hst (
-			AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, EndDt, LastActionUserID)
-	SELECT	AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, @EndDt, @UpdateUserID
+			AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, TryToResolve, AttemptsToResolve, EndDt, LastActionUserID)
+	SELECT	AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, TryToResolve, AttemptsToResolve, @EndDt, @UpdateUserID
 	FROM	Analytic
 	WHERE	AnalyticId = @AnalyticId
 

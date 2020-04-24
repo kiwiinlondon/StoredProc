@@ -15,7 +15,15 @@ CREATE PROCEDURE DBO.[MessageQueue_Insert]
 		@MessageTypeId int, 
 		@Message varchar(512), 
 		@ChangeType char, 
-		@MessageSource varchar(50)
+		@MessageSource varchar(50), 
+		@FundId int, 
+		@AttributionSourceId int, 
+		@ReferenceDate datetime, 
+		@CurrencyId int, 
+		@PositionId int, 
+		@PnlTypeId int, 
+		@CounterpartyId int, 
+		@AttributionPnlId int
 AS
 	SET NOCOUNT ON
 
@@ -23,9 +31,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into MessageQueue
-			(MessageTypeId, Message, ChangeType, MessageSource, StartDt)
+			(MessageTypeId, Message, ChangeType, MessageSource, FundId, AttributionSourceId, ReferenceDate, CurrencyId, PositionId, PnlTypeId, CounterpartyId, AttributionPnlId, StartDt)
 	VALUES
-			(@MessageTypeId, @Message, @ChangeType, @MessageSource, @StartDt)
+			(@MessageTypeId, @Message, @ChangeType, @MessageSource, @FundId, @AttributionSourceId, @ReferenceDate, @CurrencyId, @PositionId, @PnlTypeId, @CounterpartyId, @AttributionPnlId, @StartDt)
 
 	SELECT	MessageId, StartDt, DataVersion
 	FROM	MessageQueue

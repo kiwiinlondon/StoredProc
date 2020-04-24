@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO PnlType_hst (
-			PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, EndDt, LastActionUserID)
-	SELECT	PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, @EndDt, @UpdateUserID
+			PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, IsOtherPnl, EndDt, LastActionUserID)
+	SELECT	PnlTypeId, Name, StartDt, UpdateUserID, DataVersion, MultiplyByPercentageOfFund, IsOtherPnl, @EndDt, @UpdateUserID
 	FROM	PnlType
 	WHERE	PnlTypeId = @PnlTypeId
 

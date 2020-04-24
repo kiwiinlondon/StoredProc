@@ -19,7 +19,9 @@ CREATE PROCEDURE DBO.[Analytic_Update]
 		@Value numeric(27,8), 
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
-		@rawanalyticId int
+		@rawanalyticId int, 
+		@TryToResolve bit, 
+		@AttemptsToResolve int
 AS
 	SET NOCOUNT ON
 
@@ -27,13 +29,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Analytic_hst (
-			AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, EndDt, LastActionUserID)
-	SELECT	AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, @StartDt, @UpdateUserID
+			AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, TryToResolve, AttemptsToResolve, EndDt, LastActionUserID)
+	SELECT	AnalyticId, AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, StartDt, UpdateUserID, DataVersion, rawanalyticId, TryToResolve, AttemptsToResolve, @StartDt, @UpdateUserID
 	FROM	Analytic
 	WHERE	AnalyticId = @AnalyticId
 
 	UPDATE	Analytic
-	SET		AnalyticTypeID = @AnalyticTypeID, InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, rawanalyticId = @rawanalyticId,  StartDt = @StartDt
+	SET		AnalyticTypeID = @AnalyticTypeID, InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, Value = @Value, UpdateUserID = @UpdateUserID, rawanalyticId = @rawanalyticId, TryToResolve = @TryToResolve, AttemptsToResolve = @AttemptsToResolve,  StartDt = @StartDt
 	WHERE	AnalyticId = @AnalyticId
 	AND		DataVersion = @DataVersion
 

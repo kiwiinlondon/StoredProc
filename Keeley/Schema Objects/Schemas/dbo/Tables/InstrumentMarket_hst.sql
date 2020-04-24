@@ -32,5 +32,6 @@ create table DBO.InstrumentMarket_hst(
 	LocalExchangeSymbol varchar(50),
 	MicCode varchar(10),
 	AlwaysUseManualPrice bit not null,
+	IsExposureLong bit,
 	EndDt datetime,
 	LastActionUserID int)

@@ -165,6 +165,1096 @@
     <None Include="Keeley.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Keeley.txt</LastGenOutput>
+      <LastOutputs>
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Account_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountMapping_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AccountType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdditionalFundIndex_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdditionalFundIndex_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdditionalFundIndex_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Administrator_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AdministratorPortfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea2_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea2_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalystIdea2_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Analytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AnalyticType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attributionnav2_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attributionnav2_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Attributionnav2_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionPnl_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionPnl_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionPnl_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSource_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSundry_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSundry_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AttributionSundry_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Beta_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergIdentifier_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BloombergYellowKey_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bond_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BondMaturityType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BondMaturityType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BondMaturityType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Book_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bucket_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bucket_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Bucket_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketScheme_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketScheme_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketScheme_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketSchemePermission_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketSchemePermission_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketSchemePermission_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketValue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketValue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BucketValue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\BuySellReason_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CacheInvalidation_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CapitalEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Charge_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeSchedule_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ChargeType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Client_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Client_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Client_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientAccount_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientAccount_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientAccount_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientMarketingType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientMarketingType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientMarketingType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPlatform_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPlatform_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPlatform_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientPortfolioBridge_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubAccountAdministratorMapping_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientSubType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrade_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrade_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrade_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTradeType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientTrail_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ClientType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CollectiveInvestmentScheme_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CompanySize_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateAction_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CorporateActionType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Counterparty_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Country_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CountryHoliday_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Currency_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Curve_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Curve_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Curve_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CurveTenor_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CurveTenor_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CurveTenor_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Custodian_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DataSource_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DayCountConvention_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragExclusion_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragLog_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\dba_indexDefragStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DealingDateDefinition_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DerivedAssetClass_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\DisclosureRule_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EndPoint_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EndPoint_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EndPoint_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EnforcePositionEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EnforcePositionEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EnforcePositionEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityAnalyticType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMapping_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingProxy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityMappingSet_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityProperty_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityPropertyOverride_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingScheme_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeItem_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityRankingSchemeOrder_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EntityType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Event_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventIdToRepull_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\eventinstrumentmap_tmp_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EventType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Exposure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExternalPerson_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Extract_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractConfiguration_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractDeliveryType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntity_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractEntityPropertyValue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractGroupItem_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputConfiguration_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractInputType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputConfiguration_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputContainerType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractOutputType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractResponseHandlerType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRun_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractRunnerType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ExtractType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EzeTrade_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EzeTrade_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\EzeTrade_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorBenchmark_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorExposure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorHierarchy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FactorRelationship_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTrade_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FailedTradeReason_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollected_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileCollectionType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileExtension_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileExtension_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileExtension_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileGroupType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileNameResolutionType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileProcessingMethod_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollected_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileToBeCollectedGroup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FileType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Financing_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Financing_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Financing_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMPortfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FMTradeBridgeLastProcessed_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2014_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2015_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2016_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017NewYearBackup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017NewYearBackup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2017NewYearBackup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2018_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2018_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2018_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ForwardFX_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FunctionPoint_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Fund_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundClientPlatform_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundClientPlatform_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundClientPlatform_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryHoliday_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundCountryStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundFeederType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundFeederType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundFeederType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundGroupMember_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundHighWaterMark_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundIndexType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundIndexType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundIndexType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundLegalEntityIdentifier_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundLegalEntityIdentifier_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundLegalEntityIdentifier_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPerformance_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundPortfolioChangeType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundRestriction_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundRestriction_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundRestriction_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundStructure_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundStructure_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundStructure_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FundWebsiteCacheTime_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Future_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXRate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FXTradeEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheck_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HealthCheckType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HistoricEzeCommissionRate_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HistoricEzeCommissionRate_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\HistoricEzeCommissionRate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierMapping_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IdentifierType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituentOpenClose_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituentOpenClose_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexConstituentOpenClose_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndexType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Industry_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IndustryClassification_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Indx_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Indx_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Indx_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Instrument_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClass_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassHierarchy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentClassRelationship_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentEventType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarket_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentMarketProxy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InstrumentRelationship_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateReturn_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateReturn_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateReturn_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwap_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwap_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwap_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwapCashFlow_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwapCashFlow_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InterestRateSwapCashFlow_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAccountingEventType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\InternalAllocation_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Issuer_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerIndustry_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IssuerType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeltPriorHolding_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeltPriorHolding_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\KeltPriorHolding_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntity_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LegalEntityChargeSchedule_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTargetIssuer_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Market_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MarketDataMessageQueue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MarketDataMessageQueue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MarketDataMessageQueue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MatchedStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageProperty_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageProperty_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageProperty_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageQueue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageQueue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageQueue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MessageType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OfficialNetAssetValue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OptionExerciseType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OptionExerciseType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\OptionExerciseType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Options_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Originator_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Originator_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Originator_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealing_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingAccount_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBalance_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBroker_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBroker_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingBroker_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PADealingRejectionReason_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PerformanceFeeType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Periodicity_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityInterval_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PeriodicityType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PnlType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PnlType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PnlType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Portfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioAggregationLevel_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventFX_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventFX_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventFX_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioRollDate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioSettlementDate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Position_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuild_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuild_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuild_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuildManagement_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuildManagement_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PositionToRebuildManagement_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Price_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PublishedReport_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PublishedReport_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PublishedReport_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawIssuerAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawPrice_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Region_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportBaseline_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportBaseline_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportBaseline_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportDefinition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportDefinition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportDefinition_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportExecution_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportExecution_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportExecution_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKey_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKey_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKey_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKeyType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKeyType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportKeyType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportPositionStaticData_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportPositionStaticData_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportPositionStaticData_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportStatus_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportStatus_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ReportType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Research_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Research_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Research_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchAttachment_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchAttachment_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchAttachment_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchBroker_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchContributor_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchContributor_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchContributor_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarket_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarket_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarket_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarketAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarketAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ResearchInstrumentMarketAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RestrictedList_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticPosition_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RiskAnalyticType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RollConvention_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RollConvention_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RollConvention_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroup_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SecurityGroupFunctionPoint_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Strategy_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\sysdiagrams_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Task_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Task_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\Task_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlert_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlert_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlert_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfiguration_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfiguration_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfiguration_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfigurationType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfigurationType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertConfigurationType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskAlertType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskDependency_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskDependency_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskDependency_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskMessage_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskMessage_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskMessage_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskNotCompleteBehaviour_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskNotCompleteBehaviour_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskNotCompleteBehaviour_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameter_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameter_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameter_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameterType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameterType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskParameterType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResult_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResult_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResult_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResultType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResultType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskResultType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRun_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRun_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRun_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRunState_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRunState_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskRunState_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskState_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskState_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskState_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskStateType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskStateType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskStateType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskSubTask_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskSubTask_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskSubTask_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TradeEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TransferEvent_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ValuationMethodology_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ValuationMethodology_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ValuationMethodology_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Account_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountMapping_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AccountType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AdditionalFundIndex_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Administrator_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AdministratorPortfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalystIdea_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalystIdea2_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Analytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalyticType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Attributionnav2_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionPnl_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionSource_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionSundry_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Beta_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergIdentifier_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BloombergYellowKey_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Bond_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BondMaturityType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Book_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Bucket_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BucketScheme_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BucketSchemePermission_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BucketValue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\BuySellReason_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CacheInvalidation_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CapitalEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Charge_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ChargeSchedule_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ChargeType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Client_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientAccount_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientMarketingType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPlatform_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientPortfolioBridge_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubAccountAdministratorMapping_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientSubType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrade_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTradeType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientTrail_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ClientType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CollectiveInvestmentScheme_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CompanySize_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateAction_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CorporateActionType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Counterparty_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Country_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CountryHoliday_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Currency_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Curve_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\CurveTenor_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Custodian_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DataSource_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DayCountConvention_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragExclusion_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragLog_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\dba_indexDefragStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DealingDateDefinition_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DerivedAssetClass_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\DisclosureRule_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EndPoint_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EnforcePositionEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityAnalyticType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMapping_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMappingProxy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityMappingSet_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityProperty_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityPropertyOverride_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityRankingScheme_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeItem_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityRankingSchemeOrder_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EntityType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Event_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EventIdToRepull_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\eventinstrumentmap_tmp_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EventType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Exposure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExternalPerson_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Extract_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractConfiguration_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractDeliveryType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractEntity_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractEntityPropertyValue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractGroup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractGroupItem_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractInputConfiguration_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractInputType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractOutputConfiguration_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractOutputContainerType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractOutputType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractResponseHandlerType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRun_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractRunnerType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ExtractType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\EzeTrade_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorBenchmark_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorExposure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorHierarchy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FactorRelationship_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTrade_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FailedTradeReason_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollected_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileCollectionType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileExtension_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileGroupType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileNameResolutionType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileProcessingMethod_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollected_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileToBeCollectedGroup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FileType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Financing_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FinancingControl_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FinancingType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FMPortfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2014_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2015_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2016_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2017_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2017NewYearBackup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2018_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2019_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusListPrices_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Fund_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundClientPlatform_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundCountryHoliday_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundCountryStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundFeederType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundGroupMember_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundHighWaterMark_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundIndexType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundLegalEntityIdentifier_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPerformance_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundPortfolioChangeType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundRestriction_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundStructure_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FundWebsiteCacheTime_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Future_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FXRate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FXTradeEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\HealthCheck_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\HealthCheckType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\HistoricEzeCommissionRate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierMapping_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IdentifierType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexConstituent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexConstituentOpenClose_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IndexType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Industry_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IndustryClassification_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Indx_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Instrument_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentClass_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentClassHierarchy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentClassRelationship_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentEventType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentMarket_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentMarketProxy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InstrumentRelationship_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InterestRateReturn_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InterestRateSwap_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InterestRateSwapCashFlow_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InternalAccountingEventType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\InternalAllocation_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IntranetReport_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Issuer_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerIndustry_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\IssuerType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\KeltPriorHolding_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ListingStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ManagerPriceTarget_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ManagerPriceTargetIssuer_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Market_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\MarketDataMessageQueue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\MatchedStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\MessageProperty_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\MessageQueue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\MessageType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\OfficialNetAssetValue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\OptionExerciseType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Options_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Originator_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealing_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingAccount_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingBalance_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingBroker_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PADealingRejectionReason_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PerformanceFeeType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Periodicity_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PeriodicityInterval_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PeriodicityType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PnlType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Portfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioAggregationLevel_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEventFX_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEventType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\portfoliomessageq_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioMessageQueue_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioMessageType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioRollDate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioSettlementDate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Position_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PositionToRebuild_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PositionToRebuildManagement_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Price_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\PublishedReport_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawFXRate_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Region_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportBaseline_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportDefinition_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportExecution_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportKey_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportKeyType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportPositionStaticData_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ReportType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Research_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchAttachment_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchBroker_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchContributor_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchInstrumentMarket_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ResearchInstrumentMarketAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RestrictedList_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticPosition_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RiskAnalyticType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RollConvention_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroup_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\SecurityGroupFunctionPoint_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Strategy_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\sysdiagrams_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\Task_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskAlert_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskAlertConfiguration_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskAlertConfigurationType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskAlertType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskDependency_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskMessage_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskNotCompleteBehaviour_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskParameter_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskParameterType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskResult_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskResultType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskRun_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskRunState_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskState_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskStateType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskSubTask_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TestAttributionPnl_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TestBradPosition_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\ValuationMethodology_hst.sql
+</LastOutputs>
     </None>
     <None Include="DeleteProcedureTemplate.tt">
     </None>

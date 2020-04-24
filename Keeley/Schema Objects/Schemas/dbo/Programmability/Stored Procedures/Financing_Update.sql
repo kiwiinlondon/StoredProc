@@ -23,7 +23,6 @@ CREATE PROCEDURE DBO.[Financing_Update]
 		@Notional numeric(27,8), 
 		@FinancingRate numeric(27,8), 
 		@BorrowRate numeric(27,8), 
-		@AllInRate numeric(27,8), 
 		@FinancingAccrual numeric(27,8), 
 		@BorrowAccrual numeric(27,8), 
 		@AllInAccrual numeric(27,8), 
@@ -35,11 +34,28 @@ CREATE PROCEDURE DBO.[Financing_Update]
 		@OverborrowAccrual numeric(27,8), 
 		@MarginInterest numeric(27,8), 
 		@CashInterest numeric(27,8), 
-		@RelatedFinancingId int, 
 		@IsDummy bit, 
-		@OverborrowFinancingAccrual numeric(27,8), 
 		@FinancingControlId int, 
-		@RehypothecationEarning numeric(27,8)
+		@RehypothecationEarning numeric(27,8), 
+		@DayCount int, 
+		@DayBasis int, 
+		@CashInterestRate numeric(27,8), 
+		@CashBalance numeric(27,8), 
+		@MarginBalance numeric(27,8), 
+		@RealisedAllInAccrual numeric(27,8), 
+		@SourcedExternally bit, 
+		@CashInterestCredit numeric(27,8), 
+		@MarginRequirement numeric(27,8), 
+		@SwapFinancingCashBalanceDebit numeric(27,8), 
+		@SwapFinancingCashBalanceCredit numeric(27,8), 
+		@CashInterestDebit numeric(27,8), 
+		@RehypothecationValue numeric(27,8), 
+		@RehypothecationUnits numeric(27,8), 
+		@MarginRequirementRate numeric(27,8), 
+		@MarginRequirementNotional numeric(27,8), 
+		@AccountTypeId int, 
+		@SwapFinancingCashInterestRateDebit numeric(27,8) = null, 
+		@SwapFinancingCashInterestRateCredit numeric(27,8) = null
 AS
 	SET NOCOUNT ON
 
@@ -47,13 +63,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Financing_hst (
-			FinancingId, FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, AllInRate, FinancingAccrual, BorrowAccrual, AllInAccrual, StartDt, UpdateUserID, DataVersion, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, RelatedFinancingId, IsDummy, OverborrowFinancingAccrual, FinancingControlId, RehypothecationEarning, EndDt, LastActionUserID)
-	SELECT	FinancingId, FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, AllInRate, FinancingAccrual, BorrowAccrual, AllInAccrual, StartDt, UpdateUserID, DataVersion, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, RelatedFinancingId, IsDummy, OverborrowFinancingAccrual, FinancingControlId, RehypothecationEarning, @StartDt, @UpdateUserID
+			FinancingId, FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, FinancingAccrual, BorrowAccrual, AllInAccrual, StartDt, UpdateUserID, DataVersion, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, IsDummy, FinancingControlId, RehypothecationEarning, DayCount, DayBasis, CashInterestRate, CashBalance, MarginBalance, RealisedAllInAccrual, SourcedExternally, CashInterestCredit, MarginRequirement, SwapFinancingCashBalanceDebit, SwapFinancingCashBalanceCredit, CashInterestDebit, RehypothecationValue, RehypothecationUnits, MarginRequirementRate, MarginRequirementNotional, AccountTypeId, SwapFinancingCashInterestRateDebit, SwapFinancingCashInterestRateCredit, EndDt, LastActionUserID)
+	SELECT	FinancingId, FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, FinancingAccrual, BorrowAccrual, AllInAccrual, StartDt, UpdateUserID, DataVersion, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, IsDummy, FinancingControlId, RehypothecationEarning, DayCount, DayBasis, CashInterestRate, CashBalance, MarginBalance, RealisedAllInAccrual, SourcedExternally, CashInterestCredit, MarginRequirement, SwapFinancingCashBalanceDebit, SwapFinancingCashBalanceCredit, CashInterestDebit, RehypothecationValue, RehypothecationUnits, MarginRequirementRate, MarginRequirementNotional, AccountTypeId, SwapFinancingCashInterestRateDebit, SwapFinancingCashInterestRateCredit, @StartDt, @UpdateUserID
 	FROM	Financing
 	WHERE	FinancingId = @FinancingId
 
 	UPDATE	Financing
-	SET		FundId = @FundId, InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, CurrencyId = @CurrencyId, CustodianId = @CustodianId, NetPosition = @NetPosition, Price = @Price, Notional = @Notional, FinancingRate = @FinancingRate, BorrowRate = @BorrowRate, AllInRate = @AllInRate, FinancingAccrual = @FinancingAccrual, BorrowAccrual = @BorrowAccrual, AllInAccrual = @AllInAccrual, UpdateUserID = @UpdateUserID, OverborrowNotional = @OverborrowNotional, OverborrowUnits = @OverborrowUnits, OverborrowRate = @OverborrowRate, OverborrowAccrual = @OverborrowAccrual, MarginInterest = @MarginInterest, CashInterest = @CashInterest, RelatedFinancingId = @RelatedFinancingId, IsDummy = @IsDummy, OverborrowFinancingAccrual = @OverborrowFinancingAccrual, FinancingControlId = @FinancingControlId, RehypothecationEarning = @RehypothecationEarning,  StartDt = @StartDt
+	SET		FundId = @FundId, InstrumentMarketId = @InstrumentMarketId, ReferenceDate = @ReferenceDate, CurrencyId = @CurrencyId, CustodianId = @CustodianId, NetPosition = @NetPosition, Price = @Price, Notional = @Notional, FinancingRate = @FinancingRate, BorrowRate = @BorrowRate, FinancingAccrual = @FinancingAccrual, BorrowAccrual = @BorrowAccrual, AllInAccrual = @AllInAccrual, UpdateUserID = @UpdateUserID, OverborrowNotional = @OverborrowNotional, OverborrowUnits = @OverborrowUnits, OverborrowRate = @OverborrowRate, OverborrowAccrual = @OverborrowAccrual, MarginInterest = @MarginInterest, CashInterest = @CashInterest, IsDummy = @IsDummy, FinancingControlId = @FinancingControlId, RehypothecationEarning = @RehypothecationEarning, DayCount = @DayCount, DayBasis = @DayBasis, CashInterestRate = @CashInterestRate, CashBalance = @CashBalance, MarginBalance = @MarginBalance, RealisedAllInAccrual = @RealisedAllInAccrual, SourcedExternally = @SourcedExternally, CashInterestCredit = @CashInterestCredit, MarginRequirement = @MarginRequirement, SwapFinancingCashBalanceDebit = @SwapFinancingCashBalanceDebit, SwapFinancingCashBalanceCredit = @SwapFinancingCashBalanceCredit, CashInterestDebit = @CashInterestDebit, RehypothecationValue = @RehypothecationValue, RehypothecationUnits = @RehypothecationUnits, MarginRequirementRate = @MarginRequirementRate, MarginRequirementNotional = @MarginRequirementNotional, AccountTypeId = @AccountTypeId, SwapFinancingCashInterestRateDebit = @SwapFinancingCashInterestRateDebit, SwapFinancingCashInterestRateCredit = @SwapFinancingCashInterestRateCredit,  StartDt = @StartDt
 	WHERE	FinancingId = @FinancingId
 	AND		DataVersion = @DataVersion
 

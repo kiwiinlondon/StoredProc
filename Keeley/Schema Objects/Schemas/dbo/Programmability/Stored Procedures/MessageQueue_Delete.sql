@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO MessageQueue_hst (
-			MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, EndDt, LastActionUserID)
-	SELECT	MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, @EndDt, @UpdateUserID
+			MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, FundId, AttributionSourceId, ReferenceDate, CurrencyId, PositionId, PnlTypeId, CounterpartyId, AttributionPnlId, EndDt, LastActionUserID)
+	SELECT	MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, FundId, AttributionSourceId, ReferenceDate, CurrencyId, PositionId, PnlTypeId, CounterpartyId, AttributionPnlId, @EndDt, @UpdateUserID
 	FROM	MessageQueue
 	WHERE	MessageId = @MessageId
 

@@ -1,6 +1,6 @@
 ﻿USE Keeley
 
-create table DBO.AttributionNav_hst(
+create table DBO.Attributionnav2_hst(
 	AttributionNavId int not null,
 	FundId int not null,
 	ReferenceDate datetime not null,
@@ -21,5 +21,6 @@ create table DBO.AttributionNav_hst(
 	USDFXRate numeric(27,8) not null,
 	GBPFXRateId int,
 	GBPFXRate numeric(27,8) not null,
+	Updated bit,
 	EndDt datetime,
 	LastActionUserID int)

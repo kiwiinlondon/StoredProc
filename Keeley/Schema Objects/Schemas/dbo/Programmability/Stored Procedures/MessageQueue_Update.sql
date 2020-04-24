@@ -16,7 +16,15 @@ CREATE PROCEDURE DBO.[MessageQueue_Update]
 		@MessageTypeId int, 
 		@Message varchar(512), 
 		@ChangeType char, 
-		@MessageSource varchar(50)
+		@MessageSource varchar(50), 
+		@FundId int, 
+		@AttributionSourceId int, 
+		@ReferenceDate datetime, 
+		@CurrencyId int, 
+		@PositionId int, 
+		@PnlTypeId int, 
+		@CounterpartyId int, 
+		@AttributionPnlId int
 AS
 	SET NOCOUNT ON
 
@@ -24,13 +32,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO MessageQueue_hst (
-			MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, EndDt, LastActionUserID)
-	SELECT	MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, @StartDt, @UpdateUserID
+			MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, FundId, AttributionSourceId, ReferenceDate, CurrencyId, PositionId, PnlTypeId, CounterpartyId, AttributionPnlId, EndDt, LastActionUserID)
+	SELECT	MessageId, MessageTypeId, Message, ChangeType, MessageSource, StartDt, FundId, AttributionSourceId, ReferenceDate, CurrencyId, PositionId, PnlTypeId, CounterpartyId, AttributionPnlId, @StartDt, @UpdateUserID
 	FROM	MessageQueue
 	WHERE	MessageId = @MessageId
 
 	UPDATE	MessageQueue
-	SET		MessageTypeId = @MessageTypeId, Message = @Message, ChangeType = @ChangeType, MessageSource = @MessageSource,  StartDt = @StartDt
+	SET		MessageTypeId = @MessageTypeId, Message = @Message, ChangeType = @ChangeType, MessageSource = @MessageSource, FundId = @FundId, AttributionSourceId = @AttributionSourceId, ReferenceDate = @ReferenceDate, CurrencyId = @CurrencyId, PositionId = @PositionId, PnlTypeId = @PnlTypeId, CounterpartyId = @CounterpartyId, AttributionPnlId = @AttributionPnlId,  StartDt = @StartDt
 	WHERE	MessageId = @MessageId
 	AND		DataVersion = @DataVersion
 

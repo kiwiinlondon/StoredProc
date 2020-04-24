@@ -27,7 +27,6 @@ CREATE PROCEDURE DBO.[AttributionPnl_Insert]
 		@TodayFxPnl numeric(15,2), 
 		@TodayCarryPnl numeric(15,2), 
 		@UpdateUserID int, 
-		@AttributionNavId int, 
 		@CurrencyId int, 
 		@TodayOtherPnl numeric(15,2), 
 		@PnlTypeId int, 
@@ -80,7 +79,40 @@ CREATE PROCEDURE DBO.[AttributionPnl_Insert]
 		@TradeCount int, 
 		@CounterpartyId int, 
 		@BookNav numeric(27,8), 
-		@FundNav numeric(27,8)
+		@FundNav numeric(27,8), 
+		@OpeningNav numeric(27,8), 
+		@KeeleyFundNav numeric(27,8), 
+		@EURFXRateId int, 
+		@EURFXRate numeric(27,8), 
+		@USDFXRateId int, 
+		@USDFXRate numeric(27,8), 
+		@GBPFXRateId int, 
+		@GBPFXRate numeric(27,8), 
+		@VolumeId int, 
+		@Volume numeric(27,8), 
+		@SharesOutstandingId int, 
+		@SharesOutstanding numeric(27,8), 
+		@HedgeRatioId int, 
+		@HedgeRatio numeric(27,8), 
+		@MarketCapitalisationId int, 
+		@MarketCapitalisation numeric(27,8), 
+		@ADRUnderlyerVolumeId int, 
+		@ADRUnderlyerVolume numeric(27,8), 
+		@PercentageOfFund numeric(9,8), 
+		@KeeleyIsMaster bit, 
+		@NavFXRateId int, 
+		@Expense numeric(27,8), 
+		@AllInAccrualOffset numeric(27,8), 
+		@CashInterestCredit numeric(27,8), 
+		@RehypothecationEarning numeric(27,8), 
+		@MarginRequirement numeric(27,8), 
+		@CashInterestDebit numeric(27,8), 
+		@Slippage numeric(27,8), 
+		@RehypothecationValue numeric(27,8), 
+		@RehypothecationUnits numeric(27,8), 
+		@LegalExposure numeric(27,8), 
+		@MarginRequirementRate numeric(27,8), 
+		@PositionSize numeric(27,8)=null
 AS
 	SET NOCOUNT ON
 
@@ -88,9 +120,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into AttributionPnl
-			(PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, UpdateUserID, AttributionNavId, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, MarketDataStatus, BetaShortTermId, BetaLongTermId, NavFXRate, PricePnl, FXPnl, MaxExposure, ForwardFXRate, ForwardFXRateId, OriginalNotionalCost, CostPrice, AllinAccrual, AllInRate, SettledNotionalCost, SettledNetPosition, SettledExposure, SettledMarketValue, FinancingAccrual, BorrowAccrual, OverborrowNotional, OverborrowAccrual, MarginInterest, CashInterest, FinancingRate, BorrowRate, OverborrowRate, OverborrowUnits, Commission, Redemptions, Subscriptions, FuturesClearing, OtherExpense, ConsiderationBuy, ConsiderationSell, TradeCount, CounterpartyId, BookNav, FundNav, StartDt)
+			(PortfolioId, FundId, PositionID, ReferenceDate, AttributionSourceId, MarketValue, NetPosition, IsNetPositionLong, IsExposureLong, Exposure, ExposureDelta, TodayPricePnl, TodayFxPnl, TodayCarryPnl, UpdateUserID, CurrencyId, TodayOtherPnl, PnlTypeId, Price, PriceId, PriceToPositionFXRate, PriceToPositionFXRateId, FXRate, FXRateId, BetaShortTerm, BetaLongTerm, TodayRealisedFXPnl, TodayRealisedPricePnl, TodayCashBenefit, NotionalCost, MarketDataStatus, BetaShortTermId, BetaLongTermId, NavFXRate, PricePnl, FXPnl, MaxExposure, ForwardFXRate, ForwardFXRateId, OriginalNotionalCost, CostPrice, AllinAccrual, AllInRate, SettledNotionalCost, SettledNetPosition, SettledExposure, SettledMarketValue, FinancingAccrual, BorrowAccrual, OverborrowNotional, OverborrowAccrual, MarginInterest, CashInterest, FinancingRate, BorrowRate, OverborrowRate, OverborrowUnits, Commission, Redemptions, Subscriptions, FuturesClearing, OtherExpense, ConsiderationBuy, ConsiderationSell, TradeCount, CounterpartyId, BookNav, FundNav, OpeningNav, KeeleyFundNav, EURFXRateId, EURFXRate, USDFXRateId, USDFXRate, GBPFXRateId, GBPFXRate, VolumeId, Volume, SharesOutstandingId, SharesOutstanding, HedgeRatioId, HedgeRatio, MarketCapitalisationId, MarketCapitalisation, ADRUnderlyerVolumeId, ADRUnderlyerVolume, PercentageOfFund, KeeleyIsMaster, NavFXRateId, Expense, AllInAccrualOffset, CashInterestCredit, RehypothecationEarning, MarginRequirement, CashInterestDebit, Slippage, RehypothecationValue, RehypothecationUnits, LegalExposure, MarginRequirementRate, PositionSize, StartDt)
 	VALUES
-			(@PortfolioId, @FundId, @PositionID, @ReferenceDate, @AttributionSourceId, @MarketValue, @NetPosition, @IsNetPositionLong, @IsExposureLong, @Exposure, @ExposureDelta, @TodayPricePnl, @TodayFxPnl, @TodayCarryPnl, @UpdateUserID, @AttributionNavId, @CurrencyId, @TodayOtherPnl, @PnlTypeId, @Price, @PriceId, @PriceToPositionFXRate, @PriceToPositionFXRateId, @FXRate, @FXRateId, @BetaShortTerm, @BetaLongTerm, @TodayRealisedFXPnl, @TodayRealisedPricePnl, @TodayCashBenefit, @NotionalCost, @MarketDataStatus, @BetaShortTermId, @BetaLongTermId, @NavFXRate, @PricePnl, @FXPnl, @MaxExposure, @ForwardFXRate, @ForwardFXRateId, @OriginalNotionalCost, @CostPrice, @AllinAccrual, @AllInRate, @SettledNotionalCost, @SettledNetPosition, @SettledExposure, @SettledMarketValue, @FinancingAccrual, @BorrowAccrual, @OverborrowNotional, @OverborrowAccrual, @MarginInterest, @CashInterest, @FinancingRate, @BorrowRate, @OverborrowRate, @OverborrowUnits, @Commission, @Redemptions, @Subscriptions, @FuturesClearing, @OtherExpense, @ConsiderationBuy, @ConsiderationSell, @TradeCount, @CounterpartyId, @BookNav, @FundNav, @StartDt)
+			(@PortfolioId, @FundId, @PositionID, @ReferenceDate, @AttributionSourceId, @MarketValue, @NetPosition, @IsNetPositionLong, @IsExposureLong, @Exposure, @ExposureDelta, @TodayPricePnl, @TodayFxPnl, @TodayCarryPnl, @UpdateUserID, @CurrencyId, @TodayOtherPnl, @PnlTypeId, @Price, @PriceId, @PriceToPositionFXRate, @PriceToPositionFXRateId, @FXRate, @FXRateId, @BetaShortTerm, @BetaLongTerm, @TodayRealisedFXPnl, @TodayRealisedPricePnl, @TodayCashBenefit, @NotionalCost, @MarketDataStatus, @BetaShortTermId, @BetaLongTermId, @NavFXRate, @PricePnl, @FXPnl, @MaxExposure, @ForwardFXRate, @ForwardFXRateId, @OriginalNotionalCost, @CostPrice, @AllinAccrual, @AllInRate, @SettledNotionalCost, @SettledNetPosition, @SettledExposure, @SettledMarketValue, @FinancingAccrual, @BorrowAccrual, @OverborrowNotional, @OverborrowAccrual, @MarginInterest, @CashInterest, @FinancingRate, @BorrowRate, @OverborrowRate, @OverborrowUnits, @Commission, @Redemptions, @Subscriptions, @FuturesClearing, @OtherExpense, @ConsiderationBuy, @ConsiderationSell, @TradeCount, @CounterpartyId, @BookNav, @FundNav, @OpeningNav, @KeeleyFundNav, @EURFXRateId, @EURFXRate, @USDFXRateId, @USDFXRate, @GBPFXRateId, @GBPFXRate, @VolumeId, @Volume, @SharesOutstandingId, @SharesOutstanding, @HedgeRatioId, @HedgeRatio, @MarketCapitalisationId, @MarketCapitalisation, @ADRUnderlyerVolumeId, @ADRUnderlyerVolume, @PercentageOfFund, @KeeleyIsMaster, @NavFXRateId, @Expense, @AllInAccrualOffset, @CashInterestCredit, @RehypothecationEarning, @MarginRequirement, @CashInterestDebit, @Slippage, @RehypothecationValue, @RehypothecationUnits, @LegalExposure, @MarginRequirementRate, @PositionSize, @StartDt)
 
 	SELECT	AttributionPnlId, StartDt, DataVersion
 	FROM	AttributionPnl

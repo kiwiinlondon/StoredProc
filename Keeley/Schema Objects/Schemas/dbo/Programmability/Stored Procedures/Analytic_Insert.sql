@@ -17,7 +17,9 @@ CREATE PROCEDURE DBO.[Analytic_Insert]
 		@ReferenceDate datetime, 
 		@Value numeric(27,8), 
 		@UpdateUserID int, 
-		@rawanalyticId int
+		@rawanalyticId int, 
+		@TryToResolve bit, 
+		@AttemptsToResolve int
 AS
 	SET NOCOUNT ON
 
@@ -25,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Analytic
-			(AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, UpdateUserID, rawanalyticId, StartDt)
+			(AnalyticTypeID, InstrumentMarketId, ReferenceDate, Value, UpdateUserID, rawanalyticId, TryToResolve, AttemptsToResolve, StartDt)
 	VALUES
-			(@AnalyticTypeID, @InstrumentMarketId, @ReferenceDate, @Value, @UpdateUserID, @rawanalyticId, @StartDt)
+			(@AnalyticTypeID, @InstrumentMarketId, @ReferenceDate, @Value, @UpdateUserID, @rawanalyticId, @TryToResolve, @AttemptsToResolve, @StartDt)
 
 	SELECT	AnalyticId, StartDt, DataVersion
 	FROM	Analytic
