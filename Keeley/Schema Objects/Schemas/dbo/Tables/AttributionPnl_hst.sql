@@ -104,6 +104,6 @@ create table DBO.AttributionPnl_hst(
 	RehypothecationUnits numeric(27,8),
 	LegalExposure numeric(27,8),
 	MarginRequirementRate numeric(27,8),
-	PositionSize numeric(27,8),
+	PositionSize numeric(27,8) not null,
 	EndDt datetime,
 	LastActionUserID int)

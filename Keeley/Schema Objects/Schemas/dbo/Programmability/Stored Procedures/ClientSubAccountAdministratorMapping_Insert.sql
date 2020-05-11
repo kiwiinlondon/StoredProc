@@ -16,7 +16,8 @@ CREATE PROCEDURE DBO.[ClientSubAccountAdministratorMapping_Insert]
 		@FundAdministratorId int, 
 		@ParentClientId int, 
 		@UpdateUserID int, 
-		@MappingCodes varchar(500)
+		@MappingCodes varchar(500), 
+		@AssetManagementCompanyId int
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +25,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientSubAccountAdministratorMapping
-			(SubAccountAdministratorId, FundAdministratorId, ParentClientId, UpdateUserID, MappingCodes, StartDt)
+			(SubAccountAdministratorId, FundAdministratorId, ParentClientId, UpdateUserID, MappingCodes, AssetManagementCompanyId, StartDt)
 	VALUES
-			(@SubAccountAdministratorId, @FundAdministratorId, @ParentClientId, @UpdateUserID, @MappingCodes, @StartDt)
+			(@SubAccountAdministratorId, @FundAdministratorId, @ParentClientId, @UpdateUserID, @MappingCodes, @AssetManagementCompanyId, @StartDt)
 
 	SELECT	SubAccountAdministratorMappingId, StartDt, DataVersion
 	FROM	ClientSubAccountAdministratorMapping

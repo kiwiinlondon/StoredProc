@@ -9,5 +9,6 @@ create table DBO.ClientSubAccountAdministratorMapping_hst(
 	UpdateUserID int not null,
 	DataVersion binary(8) not null,
 	MappingCodes varchar(500),
+	AssetManagementCompanyId int,
 	EndDt datetime,
 	LastActionUserID int)

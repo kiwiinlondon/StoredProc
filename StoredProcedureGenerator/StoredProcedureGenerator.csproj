@@ -199,6 +199,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ApplicationUser_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AssetManagementCompany_Update.sql
@@ -967,9 +973,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Update.sql
@@ -993,6 +996,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Analytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AnalyticType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ApplicationUser_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\arcbackupp_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\arcbackuprp_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AssetManagementCompany_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Attributionnav2_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\AttributionPnl_hst.sql
@@ -1249,7 +1254,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskSubTask_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TestAttributionPnl_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\TestBradPosition_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TransferEvent_hst.sql

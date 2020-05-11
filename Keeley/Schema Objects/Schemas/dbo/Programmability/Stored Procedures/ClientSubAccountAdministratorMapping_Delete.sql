@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ClientSubAccountAdministratorMapping_hst (
-			SubAccountAdministratorMappingId, SubAccountAdministratorId, FundAdministratorId, ParentClientId, StartDt, UpdateUserID, DataVersion, MappingCodes, EndDt, LastActionUserID)
-	SELECT	SubAccountAdministratorMappingId, SubAccountAdministratorId, FundAdministratorId, ParentClientId, StartDt, UpdateUserID, DataVersion, MappingCodes, @EndDt, @UpdateUserID
+			SubAccountAdministratorMappingId, SubAccountAdministratorId, FundAdministratorId, ParentClientId, StartDt, UpdateUserID, DataVersion, MappingCodes, AssetManagementCompanyId, EndDt, LastActionUserID)
+	SELECT	SubAccountAdministratorMappingId, SubAccountAdministratorId, FundAdministratorId, ParentClientId, StartDt, UpdateUserID, DataVersion, MappingCodes, AssetManagementCompanyId, @EndDt, @UpdateUserID
 	FROM	ClientSubAccountAdministratorMapping
 	WHERE	SubAccountAdministratorMappingId = @SubAccountAdministratorMappingId
 

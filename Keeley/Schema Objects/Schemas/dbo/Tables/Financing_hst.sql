@@ -46,5 +46,6 @@ create table DBO.Financing_hst(
 	AccountTypeId int,
 	SwapFinancingCashInterestRateDebit numeric(27,8),
 	SwapFinancingCashInterestRateCredit numeric(27,8),
+	NonPrimaryRecordExists bit,
 	EndDt datetime,
 	LastActionUserID int)

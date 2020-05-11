@@ -1222,10 +1222,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\TestAttributionPnl_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestBradPosition_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\TestBradPosition_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\tmp_fxs_Update.sql" />
@@ -1270,6 +1266,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\IntranetReport_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackupp_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\arcbackupp_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\arcbackuprp_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

@@ -114,7 +114,7 @@ CREATE PROCEDURE DBO.[AttributionPnl_Update]
 		@RehypothecationUnits numeric(27,8), 
 		@LegalExposure numeric(27,8), 
 		@MarginRequirementRate numeric(27,8), 
-		@PositionSize numeric(27,8)=null
+		@PositionSize numeric(27,8)
 AS
 	SET NOCOUNT ON
 
