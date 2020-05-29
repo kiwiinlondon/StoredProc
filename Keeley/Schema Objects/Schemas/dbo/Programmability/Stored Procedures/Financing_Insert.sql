@@ -32,16 +32,10 @@ CREATE PROCEDURE DBO.[Financing_Insert]
 		@OverborrowAccrual numeric(27,8), 
 		@MarginInterest numeric(27,8), 
 		@CashInterest numeric(27,8), 
-		@IsDummy bit, 
-		@FinancingControlId int, 
 		@RehypothecationEarning numeric(27,8), 
-		@DayCount int, 
-		@DayBasis int, 
 		@CashInterestRate numeric(27,8), 
 		@CashBalance numeric(27,8), 
 		@MarginBalance numeric(27,8), 
-		@RealisedAllInAccrual numeric(27,8), 
-		@SourcedExternally bit, 
 		@CashInterestCredit numeric(27,8), 
 		@MarginRequirement numeric(27,8), 
 		@SwapFinancingCashBalanceDebit numeric(27,8), 
@@ -51,10 +45,8 @@ CREATE PROCEDURE DBO.[Financing_Insert]
 		@RehypothecationUnits numeric(27,8), 
 		@MarginRequirementRate numeric(27,8), 
 		@MarginRequirementNotional numeric(27,8), 
-		@AccountTypeId int, 
 		@SwapFinancingCashInterestRateDebit numeric(27,8), 
-		@SwapFinancingCashInterestRateCredit numeric(27,8), 
-		@NonPrimaryRecordExists bit = null
+		@SwapFinancingCashInterestRateCredit numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -62,9 +54,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Financing
-			(FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, FinancingAccrual, BorrowAccrual, AllInAccrual, UpdateUserID, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, IsDummy, FinancingControlId, RehypothecationEarning, DayCount, DayBasis, CashInterestRate, CashBalance, MarginBalance, RealisedAllInAccrual, SourcedExternally, CashInterestCredit, MarginRequirement, SwapFinancingCashBalanceDebit, SwapFinancingCashBalanceCredit, CashInterestDebit, RehypothecationValue, RehypothecationUnits, MarginRequirementRate, MarginRequirementNotional, AccountTypeId, SwapFinancingCashInterestRateDebit, SwapFinancingCashInterestRateCredit, NonPrimaryRecordExists, StartDt)
+			(FundId, InstrumentMarketId, ReferenceDate, CurrencyId, CustodianId, NetPosition, Price, Notional, FinancingRate, BorrowRate, FinancingAccrual, BorrowAccrual, AllInAccrual, UpdateUserID, OverborrowNotional, OverborrowUnits, OverborrowRate, OverborrowAccrual, MarginInterest, CashInterest, RehypothecationEarning, CashInterestRate, CashBalance, MarginBalance, CashInterestCredit, MarginRequirement, SwapFinancingCashBalanceDebit, SwapFinancingCashBalanceCredit, CashInterestDebit, RehypothecationValue, RehypothecationUnits, MarginRequirementRate, MarginRequirementNotional, SwapFinancingCashInterestRateDebit, SwapFinancingCashInterestRateCredit, StartDt)
 	VALUES
-			(@FundId, @InstrumentMarketId, @ReferenceDate, @CurrencyId, @CustodianId, @NetPosition, @Price, @Notional, @FinancingRate, @BorrowRate, @FinancingAccrual, @BorrowAccrual, @AllInAccrual, @UpdateUserID, @OverborrowNotional, @OverborrowUnits, @OverborrowRate, @OverborrowAccrual, @MarginInterest, @CashInterest, @IsDummy, @FinancingControlId, @RehypothecationEarning, @DayCount, @DayBasis, @CashInterestRate, @CashBalance, @MarginBalance, @RealisedAllInAccrual, @SourcedExternally, @CashInterestCredit, @MarginRequirement, @SwapFinancingCashBalanceDebit, @SwapFinancingCashBalanceCredit, @CashInterestDebit, @RehypothecationValue, @RehypothecationUnits, @MarginRequirementRate, @MarginRequirementNotional, @AccountTypeId, @SwapFinancingCashInterestRateDebit, @SwapFinancingCashInterestRateCredit, @NonPrimaryRecordExists, @StartDt)
+			(@FundId, @InstrumentMarketId, @ReferenceDate, @CurrencyId, @CustodianId, @NetPosition, @Price, @Notional, @FinancingRate, @BorrowRate, @FinancingAccrual, @BorrowAccrual, @AllInAccrual, @UpdateUserID, @OverborrowNotional, @OverborrowUnits, @OverborrowRate, @OverborrowAccrual, @MarginInterest, @CashInterest, @RehypothecationEarning, @CashInterestRate, @CashBalance, @MarginBalance, @CashInterestCredit, @MarginRequirement, @SwapFinancingCashBalanceDebit, @SwapFinancingCashBalanceCredit, @CashInterestDebit, @RehypothecationValue, @RehypothecationUnits, @MarginRequirementRate, @MarginRequirementNotional, @SwapFinancingCashInterestRateDebit, @SwapFinancingCashInterestRateCredit, @StartDt)
 
 	SELECT	FinancingId, StartDt, DataVersion
 	FROM	Financing

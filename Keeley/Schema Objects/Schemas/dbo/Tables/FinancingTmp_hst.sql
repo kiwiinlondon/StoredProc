@@ -1,6 +1,6 @@
 ﻿USE Keeley
 
-create table DBO.Financing_hst(
+create table DBO.FinancingTmp_hst(
 	FinancingId int not null,
 	FundId int not null,
 	InstrumentMarketId int not null,
@@ -24,10 +24,15 @@ create table DBO.Financing_hst(
 	OverborrowAccrual numeric(27,8),
 	MarginInterest numeric(27,8),
 	CashInterest numeric(27,8),
+	FinancingControlId int not null,
 	RehypothecationEarning numeric(27,8),
+	DayCount int not null,
+	DayBasis int not null,
 	CashInterestRate numeric(27,8),
 	CashBalance numeric(27,8),
 	MarginBalance numeric(27,8),
+	RealisedAllInAccrual numeric(27,8),
+	SourcedExternally bit not null,
 	CashInterestCredit numeric(27,8),
 	MarginRequirement numeric(27,8),
 	SwapFinancingCashBalanceDebit numeric(27,8),
@@ -37,7 +42,9 @@ create table DBO.Financing_hst(
 	RehypothecationUnits numeric(27,8),
 	MarginRequirementRate numeric(27,8),
 	MarginRequirementNotional numeric(27,8),
+	AccountTypeId int,
 	SwapFinancingCashInterestRateDebit numeric(27,8),
 	SwapFinancingCashInterestRateCredit numeric(27,8),
+	NonPrimaryRecordExists bit not null,
 	EndDt datetime,
 	LastActionUserID int)

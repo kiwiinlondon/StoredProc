@@ -19,8 +19,7 @@ CREATE PROCEDURE DBO.[FinancingControl_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@CustodianId int, 
-		@FinancingTypeId int, 
-		@IsPrimary bit
+		@FinancingTypeId int
 AS
 	SET NOCOUNT ON
 
@@ -28,13 +27,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO FinancingControl_hst (
-			FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, IsPrimary, EndDt, LastActionUserID)
-	SELECT	FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, IsPrimary, @StartDt, @UpdateUserID
+			FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, EndDt, LastActionUserID)
+	SELECT	FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, @StartDt, @UpdateUserID
 	FROM	FinancingControl
 	WHERE	FinancingControlId = @FinancingControlId
 
 	UPDATE	FinancingControl
-	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, Loaded = @Loaded, UpdateUserID = @UpdateUserID, CustodianId = @CustodianId, FinancingTypeId = @FinancingTypeId, IsPrimary = @IsPrimary,  StartDt = @StartDt
+	SET		FundId = @FundId, ReferenceDate = @ReferenceDate, Loaded = @Loaded, UpdateUserID = @UpdateUserID, CustodianId = @CustodianId, FinancingTypeId = @FinancingTypeId,  StartDt = @StartDt
 	WHERE	FinancingControlId = @FinancingControlId
 	AND		DataVersion = @DataVersion
 

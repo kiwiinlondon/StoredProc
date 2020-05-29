@@ -10,6 +10,5 @@ create table DBO.FinancingControl_hst(
 	DataVersion binary(8) not null,
 	CustodianId int not null,
 	FinancingTypeId int not null,
-	IsPrimary bit not null,
 	EndDt datetime,
 	LastActionUserID int)

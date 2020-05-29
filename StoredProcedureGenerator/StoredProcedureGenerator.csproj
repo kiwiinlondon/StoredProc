@@ -520,6 +520,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingControl_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingType_Update.sql
@@ -835,6 +838,12 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawAnalytic_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFXRate_Update.sql
@@ -1103,6 +1112,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FileType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Financing_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FinancingControl_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FinancingTmp_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FinancingType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMPortfolio_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FMTradeBridgeLastProcessed_hst.sql
@@ -1208,6 +1218,8 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Price_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PublishedReport_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawAnalytic_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawFinancing_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\RawFinancingType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawFXRate_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawIssuerAnalytic_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\RawPrice_hst.sql

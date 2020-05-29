@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO FinancingControl_hst (
-			FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, IsPrimary, EndDt, LastActionUserID)
-	SELECT	FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, IsPrimary, @EndDt, @UpdateUserID
+			FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, EndDt, LastActionUserID)
+	SELECT	FinancingControlId, FundId, ReferenceDate, Loaded, StartDt, UpdateUserID, DataVersion, CustodianId, FinancingTypeId, @EndDt, @UpdateUserID
 	FROM	FinancingControl
 	WHERE	FinancingControlId = @FinancingControlId
 

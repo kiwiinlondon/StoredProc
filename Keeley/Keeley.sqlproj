@@ -1274,6 +1274,18 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\arcbackuprp_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\arcbackuprp_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancing_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RawFinancing_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\RawFinancingType_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\RawFinancingType_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FinancingTmp_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />
