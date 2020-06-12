@@ -39,5 +39,6 @@ create table DBO.Financing_hst(
 	MarginRequirementNotional numeric(27,8),
 	SwapFinancingCashInterestRateDebit numeric(27,8),
 	SwapFinancingCashInterestRateCredit numeric(27,8),
+	IsDummy bit not null,
 	EndDt datetime,
 	LastActionUserID int)
