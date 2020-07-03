@@ -805,9 +805,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioEventType_Update.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Delete.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Insert.sql
-..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\PortfolioMessageQueue_Update.sql
@@ -1207,7 +1204,6 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEvent_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEventFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioEventType_hst.sql
-..\Keeley\Schema Objects\Schemas\dbo\Tables\portfoliomessageq_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioMessageQueue_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioMessageType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\PortfolioRollDate_hst.sql

@@ -1258,10 +1258,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MarketDataMessageQueue_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\MarketDataMessageQueue_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\MarketDataMessageQueue_hst.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Delete.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Insert.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\portfoliomessageq_Update.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\portfoliomessageq_hst.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Delete.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\IntranetReport_Update.sql" />

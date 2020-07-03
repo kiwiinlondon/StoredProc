@@ -48,7 +48,8 @@ CREATE PROCEDURE DBO.[ClientTrade_Update]
 		@EqFactorUSD numeric(27,8), 
 		@CostEuro numeric(27,8), 
 		@CostUSD numeric(27,8), 
-		@CostGBP numeric(27,8)
+		@CostGBP numeric(27,8), 
+		@IsEstimate bit
 AS
 	SET NOCOUNT ON
 
@@ -56,13 +57,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientTrade_hst (
-			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, NetConsiderationGBP, EqFactorGBP, NetConsiderationUSD, EqFactorUSD, CostEuro, CostUSD, CostGBP, EndDt, LastActionUserID)
-	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, NetConsiderationGBP, EqFactorGBP, NetConsiderationUSD, EqFactorUSD, CostEuro, CostUSD, CostGBP, @StartDt, @UpdateUserID
+			ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, NetConsiderationGBP, EqFactorGBP, NetConsiderationUSD, EqFactorUSD, CostEuro, CostUSD, CostGBP, IsEstimate, EndDt, LastActionUserID)
+	SELECT	ClientTradeId, SettlementDate, TradeDate, ClientTradeTypeId, FundId, TradeReference, Quantity, Price, CurrencyId, Discount, NetConsideration, Commission, DilutionLevy, ClientAccountId, StartDt, UpdateUserID, DataVersion, HWMPrice, CurrentQuantity, EqFactor, Balance, TotalCost, AdministratorCurrentQuantity, Cost, RelatedTradeId, TransferPriceOverride, BalanceEndOfDay, NavDate, NetConsiderationEuro, IndexUnits, EqFactorEuro, NetConsiderationGBP, EqFactorGBP, NetConsiderationUSD, EqFactorUSD, CostEuro, CostUSD, CostGBP, IsEstimate, @StartDt, @UpdateUserID
 	FROM	ClientTrade
 	WHERE	ClientTradeId = @ClientTradeId
 
 	UPDATE	ClientTrade
-	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost, RelatedTradeId = @RelatedTradeId, TransferPriceOverride = @TransferPriceOverride, BalanceEndOfDay = @BalanceEndOfDay, NavDate = @NavDate, NetConsiderationEuro = @NetConsiderationEuro, IndexUnits = @IndexUnits, EqFactorEuro = @EqFactorEuro, NetConsiderationGBP = @NetConsiderationGBP, EqFactorGBP = @EqFactorGBP, NetConsiderationUSD = @NetConsiderationUSD, EqFactorUSD = @EqFactorUSD, CostEuro = @CostEuro, CostUSD = @CostUSD, CostGBP = @CostGBP,  StartDt = @StartDt
+	SET		SettlementDate = @SettlementDate, TradeDate = @TradeDate, ClientTradeTypeId = @ClientTradeTypeId, FundId = @FundId, TradeReference = @TradeReference, Quantity = @Quantity, Price = @Price, CurrencyId = @CurrencyId, Discount = @Discount, NetConsideration = @NetConsideration, Commission = @Commission, DilutionLevy = @DilutionLevy, ClientAccountId = @ClientAccountId, UpdateUserID = @UpdateUserID, HWMPrice = @HWMPrice, CurrentQuantity = @CurrentQuantity, EqFactor = @EqFactor, Balance = @Balance, TotalCost = @TotalCost, AdministratorCurrentQuantity = @AdministratorCurrentQuantity, Cost = @Cost, RelatedTradeId = @RelatedTradeId, TransferPriceOverride = @TransferPriceOverride, BalanceEndOfDay = @BalanceEndOfDay, NavDate = @NavDate, NetConsiderationEuro = @NetConsiderationEuro, IndexUnits = @IndexUnits, EqFactorEuro = @EqFactorEuro, NetConsiderationGBP = @NetConsiderationGBP, EqFactorGBP = @EqFactorGBP, NetConsiderationUSD = @NetConsiderationUSD, EqFactorUSD = @EqFactorUSD, CostEuro = @CostEuro, CostUSD = @CostUSD, CostGBP = @CostGBP, IsEstimate = @IsEstimate,  StartDt = @StartDt
 	WHERE	ClientTradeId = @ClientTradeId
 	AND		DataVersion = @DataVersion
 
