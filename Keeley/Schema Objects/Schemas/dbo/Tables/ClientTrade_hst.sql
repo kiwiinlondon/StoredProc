@@ -40,5 +40,6 @@ create table DBO.ClientTrade_hst(
 	CostUSD numeric(27,8) not null,
 	CostGBP numeric(27,8) not null,
 	IsEstimate bit not null,
+	CashSettlementDate datetime,
 	EndDt datetime,
 	LastActionUserID int)

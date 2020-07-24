@@ -14,7 +14,6 @@ GO
 CREATE PROCEDURE DBO.[IntranetReport_Insert]
 		@Name varchar(100), 
 		@Path varchar(300), 
-		@Folder varchar(100), 
 		@UpdateUserID int
 AS
 	SET NOCOUNT ON
@@ -23,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into IntranetReport
-			(Name, Path, Folder, UpdateUserID, StartDt)
+			(Name, Path, UpdateUserID, StartDt)
 	VALUES
-			(@Name, @Path, @Folder, @UpdateUserID, @StartDt)
+			(@Name, @Path, @UpdateUserID, @StartDt)
 
 	SELECT	IntranetReportId, StartDt, DataVersion
 	FROM	IntranetReport

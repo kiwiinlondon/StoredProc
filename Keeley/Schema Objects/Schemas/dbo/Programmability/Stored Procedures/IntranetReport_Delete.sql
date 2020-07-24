@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO IntranetReport_hst (
-			IntranetReportId, Name, Path, Folder, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	IntranetReportId, Name, Path, Folder, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			IntranetReportId, Name, Path, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
+	SELECT	IntranetReportId, Name, Path, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
 	FROM	IntranetReport
 	WHERE	IntranetReportId = @IntranetReportId
 

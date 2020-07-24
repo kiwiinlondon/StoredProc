@@ -39,5 +39,6 @@ create table DBO.ClientPortfolio_hst(
 	CostEuro numeric(27,8) not null,
 	CostUSD numeric(27,8) not null,
 	CostGBP numeric(27,8) not null,
+	ManagerQuantityOffset numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
