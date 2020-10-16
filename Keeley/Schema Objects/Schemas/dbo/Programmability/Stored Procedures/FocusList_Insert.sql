@@ -34,7 +34,9 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@AdjustmentFactorYTD numeric(27,8), 
 		@RelativeCurrentPriceDate datetime, 
 		@IssuerId int, 
-		@ExternalBrokerId int
+		@ExternalBrokerId int, 
+		@AdjustedInPrice numeric(27,8) = null, 
+		@AdjustedOutPrice numeric(27,8) = null
 AS
 	SET NOCOUNT ON
 
@@ -42,9 +44,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into FocusList
-			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, IssuerId, ExternalBrokerId, StartDt)
+			(InstrumentMarketId, AnalystId, InDate, InPrice, IsLong, OutDate, OutPrice, CurrentPrice, CurrentPriceId, UpdateUserID, CurrentPriceDate, EndOfYearPrice, RelativeIndexInstrumentMarketId, RelativeInPrice, RelativeOutPrice, RelativeEndOfYearPrice, RelativeCurrentPrice, RelativeCurrentPriceId, AdjustmentFactorITD, AdjustmentFactorYTD, RelativeCurrentPriceDate, IssuerId, ExternalBrokerId, AdjustedInPrice, AdjustedOutPrice, StartDt)
 	VALUES
-			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @IssuerId, @ExternalBrokerId, @StartDt)
+			(@InstrumentMarketId, @AnalystId, @InDate, @InPrice, @IsLong, @OutDate, @OutPrice, @CurrentPrice, @CurrentPriceId, @UpdateUserID, @CurrentPriceDate, @EndOfYearPrice, @RelativeIndexInstrumentMarketId, @RelativeInPrice, @RelativeOutPrice, @RelativeEndOfYearPrice, @RelativeCurrentPrice, @RelativeCurrentPriceId, @AdjustmentFactorITD, @AdjustmentFactorYTD, @RelativeCurrentPriceDate, @IssuerId, @ExternalBrokerId, @AdjustedInPrice, @AdjustedOutPrice, @StartDt)
 
 	SELECT	FocusListId, StartDt, DataVersion
 	FROM	FocusList

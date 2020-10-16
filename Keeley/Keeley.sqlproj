@@ -1282,6 +1282,10 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Insert.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FinancingTmp_Update.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\FinancingTmp_hst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Delete.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Insert.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Update.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FocusListPrice_hst.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug_2.publish.xml" />

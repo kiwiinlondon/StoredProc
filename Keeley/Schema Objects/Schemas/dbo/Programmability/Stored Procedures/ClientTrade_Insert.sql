@@ -48,7 +48,7 @@ CREATE PROCEDURE DBO.[ClientTrade_Insert]
 		@CostUSD numeric(27,8), 
 		@CostGBP numeric(27,8), 
 		@IsEstimate bit, 
-		@CashSettlementDate datetime = null
+		@CashSettlementDate datetime
 AS
 	SET NOCOUNT ON
 

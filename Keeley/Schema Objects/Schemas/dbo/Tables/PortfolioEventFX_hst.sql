@@ -15,5 +15,7 @@ create table DBO.PortfolioEventFX_hst(
 	DataVersion binary(8) not null,
 	FXRateId int,
 	OriginalNotionalCost numeric(27,8),
+	TodayCapitalChange numeric(27,8),
+	CapitalChange numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

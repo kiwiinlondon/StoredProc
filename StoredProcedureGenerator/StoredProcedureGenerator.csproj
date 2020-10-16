@@ -556,6 +556,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusList2019_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrice_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\FocusListPrices_Update.sql
@@ -1121,6 +1124,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2017NewYearBackup_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2018_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusList2019_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusListPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FocusListPrices_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ForwardFX_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\FunctionPoint_hst.sql

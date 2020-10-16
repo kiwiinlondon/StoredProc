@@ -146,5 +146,6 @@ create table DBO.Portfolio_hst(
 	OverborrowUnits numeric(27,8),
 	RehypothecationUnits numeric(27,8),
 	MarginRequirementRate numeric(27,8),
+	TodayCapitalChangeInstrument numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

@@ -24,7 +24,9 @@ CREATE PROCEDURE DBO.[PortfolioEventFX_Update]
 		@UpdateUserID int, 
 		@DataVersion rowversion, 
 		@FXRateId int, 
-		@OriginalNotionalCost numeric(27,8)
+		@OriginalNotionalCost numeric(27,8), 
+		@TodayCapitalChange numeric(27,8), 
+		@CapitalChange numeric(27,8)
 AS
 	SET NOCOUNT ON
 
@@ -32,13 +34,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO PortfolioEventFX_hst (
-			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, EndDt, LastActionUserID)
-	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, @StartDt, @UpdateUserID
+			PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, TodayCapitalChange, CapitalChange, EndDt, LastActionUserID)
+	SELECT	PortfolioEventFXId, PortfolioEventId, CurrencyId, FromBookFXRate, NotionalCost, RealisedFXPNL, TodayRealisedFXPNL, TodayRealisedPricePNL, TodayCashBenefit, StartDt, UpdateUserID, DataVersion, FXRateId, OriginalNotionalCost, TodayCapitalChange, CapitalChange, @StartDt, @UpdateUserID
 	FROM	PortfolioEventFX
 	WHERE	PortfolioEventFXId = @PortfolioEventFXId
 
 	UPDATE	PortfolioEventFX
-	SET		PortfolioEventId = @PortfolioEventId, CurrencyId = @CurrencyId, FromBookFXRate = @FromBookFXRate, NotionalCost = @NotionalCost, RealisedFXPNL = @RealisedFXPNL, TodayRealisedFXPNL = @TodayRealisedFXPNL, TodayRealisedPricePNL = @TodayRealisedPricePNL, TodayCashBenefit = @TodayCashBenefit, UpdateUserID = @UpdateUserID, FXRateId = @FXRateId, OriginalNotionalCost = @OriginalNotionalCost,  StartDt = @StartDt
+	SET		PortfolioEventId = @PortfolioEventId, CurrencyId = @CurrencyId, FromBookFXRate = @FromBookFXRate, NotionalCost = @NotionalCost, RealisedFXPNL = @RealisedFXPNL, TodayRealisedFXPNL = @TodayRealisedFXPNL, TodayRealisedPricePNL = @TodayRealisedPricePNL, TodayCashBenefit = @TodayCashBenefit, UpdateUserID = @UpdateUserID, FXRateId = @FXRateId, OriginalNotionalCost = @OriginalNotionalCost, TodayCapitalChange = @TodayCapitalChange, CapitalChange = @CapitalChange,  StartDt = @StartDt
 	WHERE	PortfolioEventFXId = @PortfolioEventFXId
 	AND		DataVersion = @DataVersion
 

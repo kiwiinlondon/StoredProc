@@ -83,5 +83,7 @@ create table DBO.PortfolioEvent_hst(
 	FuturesClearing numeric(27,8),
 	Consideration numeric(27,8),
 	IsInternal bit,
+	TodayCapitalChangeInstrument numeric(27,8),
+	CapitalChangeInstrument numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)
