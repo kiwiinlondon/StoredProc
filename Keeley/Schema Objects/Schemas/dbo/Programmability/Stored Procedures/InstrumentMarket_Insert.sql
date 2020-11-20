@@ -40,7 +40,8 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@LocalExchangeSymbol varchar(50), 
 		@MicCode varchar(10), 
 		@AlwaysUseManualPrice bit, 
-		@IsExposureLong bit
+		@IsExposureLong bit, 
+		@DividendCurrencyId int = null
 AS
 	SET NOCOUNT ON
 
@@ -48,9 +49,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into InstrumentMarket
-			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, IsExposureLong, StartDt)
+			(InstrumentID, MarketID, FMSecId, PriceDivisor, BloombergTicker, Sedol, IsPrimary, UpdateUserID, PriceCurrencyId, ListingStatusId, UnderlyingInstrumentMarketId, UltimateUnderlyingInstrumentMarketId, PriceQuoteMultiplier, BloombergGlobalId, LastRepulledFromSourceDate, FactsetId, UltimateUnderlyerPerOverlyer, ResolveFromExternalSource, ExposureCurrencyId, AdministratorId, IsReverse, RiskCurrencyId, ValuationMethodologyId, CICCode, BloombergCleanTicker, LocalExchangeSymbol, MicCode, AlwaysUseManualPrice, IsExposureLong, DividendCurrencyId, StartDt)
 	VALUES
-			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @ValuationMethodologyId, @CICCode, @BloombergCleanTicker, @LocalExchangeSymbol, @MicCode, @AlwaysUseManualPrice, @IsExposureLong, @StartDt)
+			(@InstrumentID, @MarketID, @FMSecId, @PriceDivisor, @BloombergTicker, @Sedol, @IsPrimary, @UpdateUserID, @PriceCurrencyId, @ListingStatusId, @UnderlyingInstrumentMarketId, @UltimateUnderlyingInstrumentMarketId, @PriceQuoteMultiplier, @BloombergGlobalId, @LastRepulledFromSourceDate, @FactsetId, @UltimateUnderlyerPerOverlyer, @ResolveFromExternalSource, @ExposureCurrencyId, @AdministratorId, @IsReverse, @RiskCurrencyId, @ValuationMethodologyId, @CICCode, @BloombergCleanTicker, @LocalExchangeSymbol, @MicCode, @AlwaysUseManualPrice, @IsExposureLong, @DividendCurrencyId, @StartDt)
 
 	SELECT	InstrumentMarketID, StartDt, DataVersion
 	FROM	InstrumentMarket

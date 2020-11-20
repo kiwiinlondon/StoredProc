@@ -35,8 +35,8 @@ CREATE PROCEDURE DBO.[FocusList_Insert]
 		@RelativeCurrentPriceDate datetime, 
 		@IssuerId int, 
 		@ExternalBrokerId int, 
-		@AdjustedInPrice numeric(27,8) = null, 
-		@AdjustedOutPrice numeric(27,8) = null
+		@AdjustedInPrice numeric(27,8), 
+		@AdjustedOutPrice numeric(27,8)
 AS
 	SET NOCOUNT ON
 

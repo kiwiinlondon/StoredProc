@@ -33,5 +33,6 @@ create table DBO.InstrumentMarket_hst(
 	MicCode varchar(10),
 	AlwaysUseManualPrice bit not null,
 	IsExposureLong bit,
+	DividendCurrencyId int,
 	EndDt datetime,
 	LastActionUserID int)

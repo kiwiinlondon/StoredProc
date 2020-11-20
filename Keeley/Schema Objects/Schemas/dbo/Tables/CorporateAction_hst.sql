@@ -11,6 +11,6 @@ create table DBO.CorporateAction_hst(
 	InstrumentMarketId int not null,
 	AnnounceDate datetime not null,
 	ExDate datetime not null,
-	PayDate datetime not null,
+	PayDate datetime,
 	EndDt datetime,
 	LastActionUserID int)
