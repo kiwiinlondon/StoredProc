@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO CorporateAction_hst (
-			CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, EndDt, LastActionUserID)
-	SELECT	CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, @EndDt, @UpdateUserID
+			CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, RecordDate, EndDt, LastActionUserID)
+	SELECT	CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, RecordDate, @EndDt, @UpdateUserID
 	FROM	CorporateAction
 	WHERE	CorporateActionId = @CorporateActionId
 

@@ -12,5 +12,6 @@ create table DBO.CorporateAction_hst(
 	AnnounceDate datetime not null,
 	ExDate datetime not null,
 	PayDate datetime,
+	RecordDate datetime,
 	EndDt datetime,
 	LastActionUserID int)

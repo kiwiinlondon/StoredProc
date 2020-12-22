@@ -19,7 +19,8 @@ CREATE PROCEDURE DBO.[CorporateAction_Insert]
 		@InstrumentMarketId int, 
 		@AnnounceDate datetime, 
 		@ExDate datetime, 
-		@PayDate datetime
+		@PayDate datetime, 
+		@RecordDate datetime
 AS
 	SET NOCOUNT ON
 
@@ -27,9 +28,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into CorporateAction
-			(CorporateActionTypeId, Multiplier, InputDate, UpdateUserID, InstrumentMarketId, AnnounceDate, ExDate, PayDate, StartDt)
+			(CorporateActionTypeId, Multiplier, InputDate, UpdateUserID, InstrumentMarketId, AnnounceDate, ExDate, PayDate, RecordDate, StartDt)
 	VALUES
-			(@CorporateActionTypeId, @Multiplier, @InputDate, @UpdateUserID, @InstrumentMarketId, @AnnounceDate, @ExDate, @PayDate, @StartDt)
+			(@CorporateActionTypeId, @Multiplier, @InputDate, @UpdateUserID, @InstrumentMarketId, @AnnounceDate, @ExDate, @PayDate, @RecordDate, @StartDt)
 
 	SELECT	CorporateActionId, StartDt, DataVersion
 	FROM	CorporateAction

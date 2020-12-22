@@ -41,7 +41,7 @@ CREATE PROCEDURE DBO.[InstrumentMarket_Insert]
 		@MicCode varchar(10), 
 		@AlwaysUseManualPrice bit, 
 		@IsExposureLong bit, 
-		@DividendCurrencyId int = null
+		@DividendCurrencyId int
 AS
 	SET NOCOUNT ON
 

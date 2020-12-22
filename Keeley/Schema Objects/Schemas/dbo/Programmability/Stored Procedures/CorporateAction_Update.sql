@@ -21,7 +21,8 @@ CREATE PROCEDURE DBO.[CorporateAction_Update]
 		@InstrumentMarketId int, 
 		@AnnounceDate datetime, 
 		@ExDate datetime, 
-		@PayDate datetime
+		@PayDate datetime, 
+		@RecordDate datetime = null
 AS
 	SET NOCOUNT ON
 
@@ -29,13 +30,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO CorporateAction_hst (
-			CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, EndDt, LastActionUserID)
-	SELECT	CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, @StartDt, @UpdateUserID
+			CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, RecordDate, EndDt, LastActionUserID)
+	SELECT	CorporateActionId, CorporateActionTypeId, Multiplier, InputDate, StartDt, UpdateUserID, DataVersion, InstrumentMarketId, AnnounceDate, ExDate, PayDate, RecordDate, @StartDt, @UpdateUserID
 	FROM	CorporateAction
 	WHERE	CorporateActionId = @CorporateActionId
 
 	UPDATE	CorporateAction
-	SET		CorporateActionTypeId = @CorporateActionTypeId, Multiplier = @Multiplier, InputDate = @InputDate, UpdateUserID = @UpdateUserID, InstrumentMarketId = @InstrumentMarketId, AnnounceDate = @AnnounceDate, ExDate = @ExDate, PayDate = @PayDate,  StartDt = @StartDt
+	SET		CorporateActionTypeId = @CorporateActionTypeId, Multiplier = @Multiplier, InputDate = @InputDate, UpdateUserID = @UpdateUserID, InstrumentMarketId = @InstrumentMarketId, AnnounceDate = @AnnounceDate, ExDate = @ExDate, PayDate = @PayDate, RecordDate = @RecordDate,  StartDt = @StartDt
 	WHERE	CorporateActionId = @CorporateActionId
 	AND		DataVersion = @DataVersion
 
