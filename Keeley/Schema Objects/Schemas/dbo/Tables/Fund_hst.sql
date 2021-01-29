@@ -58,5 +58,6 @@ create table DBO.Fund_hst(
 	IsCRR bit not null,
 	TaxReferenceNumber varchar(100),
 	FundFeederTypeId int,
+	FocusRegionId int not null,
 	EndDt datetime,
 	LastActionUserID int)

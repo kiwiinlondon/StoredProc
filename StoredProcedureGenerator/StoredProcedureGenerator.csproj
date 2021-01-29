@@ -979,6 +979,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TaskType_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TempFundAndIndexPrice_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TempFundAndIndexPrice_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TempFundAndIndexPrice_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\TestAttributionPnl_Update.sql
@@ -1265,6 +1268,7 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskStateType_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskSubTask_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TaskType_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\TempFundAndIndexPrice_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TestAttributionPnl_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\tmp_fxs_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\TradeEvent_hst.sql

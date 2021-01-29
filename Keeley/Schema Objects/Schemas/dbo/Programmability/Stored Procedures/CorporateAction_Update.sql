@@ -22,7 +22,7 @@ CREATE PROCEDURE DBO.[CorporateAction_Update]
 		@AnnounceDate datetime, 
 		@ExDate datetime, 
 		@PayDate datetime, 
-		@RecordDate datetime = null
+		@RecordDate datetime
 AS
 	SET NOCOUNT ON
 
