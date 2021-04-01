@@ -33,5 +33,7 @@ create table DBO.Exposure_hst(
 	ChangeCreditExposure numeric(27,8),
 	EmergingMarketDebtExposure numeric(27,8),
 	ChangeEmergingMarketDebtExposure numeric(27,8),
+	BetaSixMonth numeric(27,8),
+	BetaOneYear numeric(27,8),
 	EndDt datetime,
 	LastActionUserID int)

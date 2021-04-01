@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO Market_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, @EndDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, TimeZoneId, OpenTime, CloseTime, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, TimeZoneId, OpenTime, CloseTime, @EndDt, @UpdateUserID
 	FROM	Market
 	WHERE	LegalEntityID = @LegalEntityID
 

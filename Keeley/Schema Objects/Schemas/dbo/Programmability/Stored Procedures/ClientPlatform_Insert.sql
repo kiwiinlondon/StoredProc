@@ -13,7 +13,8 @@ GO
 
 CREATE PROCEDURE DBO.[ClientPlatform_Insert]
 		@Name varchar(150), 
-		@UpdateUserID int
+		@UpdateUserID int, 
+		@URL varchar(200)
 AS
 	SET NOCOUNT ON
 
@@ -21,9 +22,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into ClientPlatform
-			(Name, UpdateUserID, StartDt)
+			(Name, UpdateUserID, URL, StartDt)
 	VALUES
-			(@Name, @UpdateUserID, @StartDt)
+			(@Name, @UpdateUserID, @URL, @StartDt)
 
 	SELECT	ClientPlatformId, StartDt, DataVersion
 	FROM	ClientPlatform

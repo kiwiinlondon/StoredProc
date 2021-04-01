@@ -22,8 +22,8 @@ AS
 	Set @EndDt = GetDate()
 
 	INSERT INTO ClientPlatform_hst (
-			ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, @EndDt, @UpdateUserID
+			ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, URL, EndDt, LastActionUserID)
+	SELECT	ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, URL, @EndDt, @UpdateUserID
 	FROM	ClientPlatform
 	WHERE	ClientPlatformId = @ClientPlatformId
 

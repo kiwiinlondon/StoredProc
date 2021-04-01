@@ -17,7 +17,10 @@ CREATE PROCEDURE DBO.[Market_Update]
 		@DataVersion rowversion, 
 		@BBExchangeCode varchar(30), 
 		@MicCode varchar(10), 
-		@FixedIncomeMicCode varchar(20)
+		@FixedIncomeMicCode varchar(20), 
+		@TimeZoneId varchar(100), 
+		@OpenTime time, 
+		@CloseTime time
 AS
 	SET NOCOUNT ON
 
@@ -25,13 +28,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO Market_hst (
-			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, EndDt, LastActionUserID)
-	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, @StartDt, @UpdateUserID
+			LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, TimeZoneId, OpenTime, CloseTime, EndDt, LastActionUserID)
+	SELECT	LegalEntityID, StartDt, UpdateUserID, DataVersion, BBExchangeCode, MicCode, FixedIncomeMicCode, TimeZoneId, OpenTime, CloseTime, @StartDt, @UpdateUserID
 	FROM	Market
 	WHERE	LegalEntityID = @LegalEntityID
 
 	UPDATE	Market
-	SET		UpdateUserID = @UpdateUserID, BBExchangeCode = @BBExchangeCode, MicCode = @MicCode, FixedIncomeMicCode = @FixedIncomeMicCode,  StartDt = @StartDt
+	SET		UpdateUserID = @UpdateUserID, BBExchangeCode = @BBExchangeCode, MicCode = @MicCode, FixedIncomeMicCode = @FixedIncomeMicCode, TimeZoneId = @TimeZoneId, OpenTime = @OpenTime, CloseTime = @CloseTime,  StartDt = @StartDt
 	WHERE	LegalEntityID = @LegalEntityID
 	AND		DataVersion = @DataVersion
 

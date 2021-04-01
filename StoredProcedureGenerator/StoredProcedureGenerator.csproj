@@ -727,6 +727,15 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ListingStatus_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolio_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolio_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolio_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioBorrower_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioBorrower_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioBorrower_Update.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioCollatoral_Delete.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioCollatoral_Insert.sql
+..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoanedPortfolioCollatoral_Update.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Delete.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Insert.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ManagerPriceTarget_Update.sql
@@ -1184,6 +1193,9 @@
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntity_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\LegalEntityChargeSchedule_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ListingStatus_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\LoanedPortfolio_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\LoanedPortfolioBorrower_hst.sql
+..\Keeley\Schema Objects\Schemas\dbo\Tables\LoanedPortfolioCollatoral_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ManagerPriceTarget_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\ManagerPriceTargetIssuer_hst.sql
 ..\Keeley\Schema Objects\Schemas\dbo\Tables\Market_hst.sql

@@ -16,7 +16,10 @@ CREATE PROCEDURE DBO.[Market_Insert]
 		@UpdateUserID int, 
 		@BBExchangeCode varchar(30), 
 		@MicCode varchar(10), 
-		@FixedIncomeMicCode varchar(20)
+		@FixedIncomeMicCode varchar(20), 
+		@TimeZoneId varchar(100), 
+		@OpenTime time, 
+		@CloseTime time
 AS
 	SET NOCOUNT ON
 
@@ -24,9 +27,9 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT into Market
-			(LegalEntityID, UpdateUserID, BBExchangeCode, MicCode, FixedIncomeMicCode, StartDt)
+			(LegalEntityID, UpdateUserID, BBExchangeCode, MicCode, FixedIncomeMicCode, TimeZoneId, OpenTime, CloseTime, StartDt)
 	VALUES
-			(@LegalEntityID, @UpdateUserID, @BBExchangeCode, @MicCode, @FixedIncomeMicCode, @StartDt)
+			(@LegalEntityID, @UpdateUserID, @BBExchangeCode, @MicCode, @FixedIncomeMicCode, @TimeZoneId, @OpenTime, @CloseTime, @StartDt)
 
 	SELECT	LegalEntityID, StartDt, DataVersion
 	FROM	Market

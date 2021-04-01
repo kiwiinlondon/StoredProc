@@ -105,5 +105,9 @@ create table DBO.AttributionPnl_hst(
 	LegalExposure numeric(27,8),
 	MarginRequirementRate numeric(27,8),
 	PositionSize numeric(27,8) not null,
+	BetaSixMonth numeric(27,8),
+	BetaOneYear numeric(27,8),
+	BetaOneYearId int,
+	BetaSixMonthId int,
 	EndDt datetime,
 	LastActionUserID int)

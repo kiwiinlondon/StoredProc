@@ -15,7 +15,8 @@ CREATE PROCEDURE DBO.[ClientPlatform_Update]
 		@ClientPlatformId int, 
 		@Name varchar(150), 
 		@UpdateUserID int, 
-		@DataVersion rowversion
+		@DataVersion rowversion, 
+		@URL varchar(200)
 AS
 	SET NOCOUNT ON
 
@@ -23,13 +24,13 @@ AS
 	Set @StartDt = GetDate()
 
 	INSERT INTO ClientPlatform_hst (
-			ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, EndDt, LastActionUserID)
-	SELECT	ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, @StartDt, @UpdateUserID
+			ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, URL, EndDt, LastActionUserID)
+	SELECT	ClientPlatformId, Name, StartDt, UpdateUserID, DataVersion, URL, @StartDt, @UpdateUserID
 	FROM	ClientPlatform
 	WHERE	ClientPlatformId = @ClientPlatformId
 
 	UPDATE	ClientPlatform
-	SET		Name = @Name, UpdateUserID = @UpdateUserID,  StartDt = @StartDt
+	SET		Name = @Name, UpdateUserID = @UpdateUserID, URL = @URL,  StartDt = @StartDt
 	WHERE	ClientPlatformId = @ClientPlatformId
 	AND		DataVersion = @DataVersion
 
